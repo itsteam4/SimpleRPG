@@ -22,4 +22,19 @@
 	<select id="login" parameterType="String" resultMap="memberMap">
  		select * from simplerpg_web_member where id= #{id}
  	</select>
+ 	
+ 	<select id="selectOne" parameterType="String" resultMap="memberMap">
+ 		select * from simplerpg_web_member where id=#{id}
+ 	</select>
+ 	
+ 	
+ 	<update id="memberUpdateRow" parameterType="hashMap">
+ 		update simplerpg_web_member set
+  		pw=#{pw,jdbcType=VARCHAR},phone1=#{phone1,jdbcType=INTEGER},
+  		phone2=#{phone2,jdbcType=INTEGER},phone3=#{phone3,jdbcType=INTEGER},
+  		email1=#{email1,jdbcType=VARCHAR},email2=#{email2,jdbcType=VARCHAR},
+  		addr1=#{addr1,jdbcType=VARCHAR},addr2=#{addr2,jdbcType=VARCHAR},
+  		addr3=#{addr3,jdbcType=VARCHAR}
+  		where id = #{id}
+ 	</update>
 </mapper>

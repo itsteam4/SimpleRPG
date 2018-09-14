@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,8 +9,8 @@
   
 </head>
 <body>
-   <form>
-     <!-- Navigation -->
+	<form>
+	  <!-- Navigation -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
         <a class="navbar-brand" href="IndexForm">Simple RPG</a>
@@ -24,7 +25,7 @@
             
            <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      개임소개
+                		개임소개
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
                 <a class="dropdown-item" href="gameguideform">게임배경 소개</a>
@@ -35,7 +36,7 @@
             
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      랭킹
+                		랭킹
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
                 <a class="dropdown-item" href="dbinserform">DB값 입력</a>
@@ -45,41 +46,42 @@
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   커뮤니티
+                	커뮤니티
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                <a class="dropdown-item" href="portfolio-1-col.html">스크린샷</a>
-                <a class="dropdown-item" href="portfolio-2-col.html">동영상</a>
-                <a class="dropdown-item" href="portfolio-3-col.html">자유게시판</a>
-                <a class="dropdown-item" href="portfolio-4-col.html">팁/노하우</a>
+                <a class="dropdown-item" href="ScreenFreeBoardForm">스크린샷</a>
+                <a class="dropdown-item" href="MediaFreeBoardForm">동영상</a>
+                <a class="dropdown-item" href="FreeBoardForm?id=${member.id}">자유게시판</a>
+                <a class="dropdown-item" href="TipKnowBoardForm">팁/노하우</a>
               </div>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      고객센터
+                		고객센터
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
                 <a class="dropdown-item" href="blog-home-1.html">자주묻는질문</a>
-                <a class="dropdown-item" href="helpdeskInsertForm">1:1문의</a>
+                <a class="dropdown-item" href="blog-home-2.html">1:1문의</a>
                 <a class="dropdown-item" href="blog-post.html">보안 센터</a>
               </div>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Other Pages
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                <a class="dropdown-item" href="full-width.html">Full Width Page</a>
-                <a class="dropdown-item" href="sidebar.html">Sidebar Page</a>
-                <a class="dropdown-item" href="faq.html">FAQ</a>
-                <a class="dropdown-item" href="404.html">404</a>
-                <a class="dropdown-item" href="pricing.html">Pricing Table</a>
-              </div>
-            </li>
-            <li class="nav-item dropdown">
-               <button type="button" id="loginbutton" class="btn btn-primary">로그인</button>
-            </li>
-          </ul>
+            	<c:choose>
+            		<c:when test="${sessionid == null}">
+            		<li class="nav-item dropdown">
+            				<button type="button" id="loginbutton" class="btn btn-primary">로그인</button>
+					</li>
+					</c:when>
+            		<c:otherwise>
+            			<li class="nav-item dropdown">
+            				<a class="nav-link-dropdown-toggle" href="#" data-toggle="dropdown"><button type="button" class="btn btn-warning"><i class="fa fa-address-card" aria-hidden="true" style="size:30px"></i>${sessionid} 님 반갑습니다!</button></a>
+            				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+										<a class="dropdown-item" href="logout">로그 아웃</a>
+										<a class="dropdown-item" href="loginfo?id=${sessionid}">개인 정보 수정</a>
+							</div>
+            			</li>
+            		</c:otherwise>
+            	</c:choose>
+          </ul>	
           </div>
         </div>
     </nav>
