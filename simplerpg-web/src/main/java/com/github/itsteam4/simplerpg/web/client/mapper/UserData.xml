@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.github.itsteam4.simplerpg.web.client.service.UserDataDao">
+ 
+ <select id="searchID" parameterType="String" resultType="int">
+ 	select count(*) from userdata where id = #{testuser}
+ </select>
+ <insert id="insertUser" parameterType="String">
+ 	insert into userdata (id) values (#{testuser,jdbcType=VARCHAR})
+ </insert>
+ <update id="userUpdate" parameterType="hashMap">
+ 	update userdata set
+ 		usersector = #{usersector},
+ 		userposX = #{userposX},
+ 		userposY = #{userposY},
+ 		itemA = #{itemA},
+ 		itemD = #{itemD},
+ 		userex = #{userex},
+ 		userlv = #{userlv},
+ 		userkill = #{userkill},
+ 		userdead = #{userdead},
+ 		userscore = #{userscore}
+ 	where id = #{id}
+ </update>
+ <resultMap type="com.github.itsteam4.simplerpg.web.client.entity.UserData" id="userMap"></resultMap>
+ <select id="userDataLoding" parameterType="String" resultMap="userMap">
+ 	select * from userdata where id = #{id}
+ </select>
+ </mapper>

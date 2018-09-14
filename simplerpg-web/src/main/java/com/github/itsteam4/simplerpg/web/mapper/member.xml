@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.github.itsteam4.simplerpg.web.service.MemberDAO">
+<resultMap type="com.github.itsteam4.simplerpg.web.entity.Member" id="memberMap">
+</resultMap>	
+	<insert id="MemberInsertRow" parameterType="hashMap">
+		insert into simplerpg_web_member(
+			id,pw,phone1,phone2,phone3,email1,email2,addr1,addr2,addr3)values(
+			#{id,jdbcType=VARCHAR},#{pw,jdbcType=VARCHAR},#{phone1,jdbcType=INTEGER},
+			#{phone2,jdbcType=INTEGER},#{phone3,jdbcType=INTEGER},
+			#{email1,jdbcType=VARCHAR},#{email2,jdbcType=VARCHAR},
+			#{addr1,jdbcType=VARCHAR},#{addr2,jdbcType=VARCHAR},
+			#{addr3,jdbcType=VARCHAR}) 
+	</insert>
+	<select id="ConfirmCheck" parameterType="String" resultType="int">
+		select count(*) from simplerpg_web_member where id=#{id}
+	</select>
+	
+	<select id="login" parameterType="String" resultMap="memberMap">
+ 		select * from simplerpg_web_member where id= #{id}
+ 	</select>
+</mapper>
