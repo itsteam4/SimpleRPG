@@ -30,12 +30,12 @@ public class MemberController {
 	@Autowired
 	HttpSession session;
 	
-//	È¸¿ø°¡ÀÔ ÆäÀÌÁö ÀÌµ¿
+//	È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 	@RequestMapping(value="MemberInsertForm",method=RequestMethod.GET)
 	public String MemberForm() {
 		return "Member/MemberInsertForm";
 	}
-//	È¸¿ø µî·Ï ¸Ş¼Òµå
+//	È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ş¼Òµï¿½
 	@RequestMapping(value="MemberInsert",method=RequestMethod.POST)
 	public String MemberInsert(Model model,@ModelAttribute Member member) {
 		MemberDAO dao = sqlSession.getMapper(MemberDAO.class);
@@ -44,13 +44,13 @@ public class MemberController {
 		
 		if(result>0) {
 			System.out.println("success: "+result);
-			model.addAttribute("msg","°¡ÀÔ¿¡ ¼º°øÇÏ¿´½À´Ï´Ù.");
+			model.addAttribute("msg","íšŒì›ê°€ì…ì— ì„±ê³µí•˜ì˜€ìŠµë‹ˆë‹¤..");
 		}else {
-			System.out.println("ÀúÀå¿¡ ½ÇÆĞÇß½À´Ï´Ù.");
+			System.out.println("íšŒì›ê°€ì…ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.");
 		}
 		return "Login/LoginForm";
 	}
-//	¾ÆÀÌµğ Áßº¹Ã¼Å© °Ë»ç
+//	ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ßºï¿½Ã¼Å© ï¿½Ë»ï¿½
 	@RequestMapping(value="userconfirm",method=RequestMethod.POST)
 	@ResponseBody
 	public int MemberConfirm(@RequestParam String id) {
@@ -66,13 +66,13 @@ public class MemberController {
 		return result;
 	}
 	
-//	·Î±×ÀÎ ÆäÀÌÁö È­¸éÀÌµ¿
+//	ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È­ï¿½ï¿½ï¿½Ìµï¿½
 	@RequestMapping(value="LoginPageForm",method=RequestMethod.GET)
 	public String LoginForm() {
 		return "Login/LoginForm";
 	}
 	
-//	·Î±×ÀÎ
+//	ï¿½Î±ï¿½ï¿½ï¿½
 	@RequestMapping(value="/login",method=RequestMethod.POST)
 	public String Login(@ModelAttribute Member member) {
 		MemberDAO dao = sqlSession.getMapper(MemberDAO.class);
@@ -81,12 +81,12 @@ public class MemberController {
 			return "Login/LoginFail";
 		}else {
 			if(data.getPw().equals(member.getPw())) {
-				System.out.println("·Î±×ÀÎ ¼º°ø");
+				System.out.println("ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 				session.setAttribute("sessionid", data.getId());
 				session.setAttribute("sessionpw", data.getPw());
 				return "redirect:IndexForm";
 			}else {
-				System.out.println("·Î±×ÀÎ ½ÇÆĞ ¤»¤»¤»¤»¤» ¤´ ¤»¤»¤»¤»¤»");
+				System.out.println("ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 				return "Login/LoginFail";
 			}
 		}
