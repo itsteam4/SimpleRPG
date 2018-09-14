@@ -2,5 +2,7 @@
 .recommenders/
 Servers/
 simplerpg-web/target/
+simplerpg-client/
+simplerpg-server/
 RemoteSystemsTempFiles/
 simplerpg-web/src/main/resources/jdbc.properties
