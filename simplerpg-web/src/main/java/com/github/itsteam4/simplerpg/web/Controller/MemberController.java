@@ -30,12 +30,12 @@ public class MemberController {
 	@Autowired
 	HttpSession session;
 	
-//	ȸ������ ������ �̵�
+//	회원가입 페이지 이동
 	@RequestMapping(value="MemberInsertForm",method=RequestMethod.GET)
 	public String MemberForm() {
 		return "Member/MemberInsertForm";
 	}
-//	ȸ�� ��� �޼ҵ�
+//	회원 가입
 	@RequestMapping(value="MemberInsert",method=RequestMethod.POST)
 	public String MemberInsert(Model model,@ModelAttribute Member member) {
 		MemberDAO dao = sqlSession.getMapper(MemberDAO.class);
@@ -44,13 +44,14 @@ public class MemberController {
 		
 		if(result>0) {
 			System.out.println("success: "+result);
-			model.addAttribute("msg","회원가입에 성공하였습니다..");
+			model.addAttribute("msg","회원 가입에 성공하였습니다..");
+			return "Member/member_success_form";
 		}else {
-			System.out.println("회원가입에 실패했습니다.");
+			System.out.println("회원가입에 실패하였습니다..");
 		}
 		return "Login/LoginForm";
 	}
-//	���̵� �ߺ�üũ �˻�
+//	아이디 중복 검사
 	@RequestMapping(value="userconfirm",method=RequestMethod.POST)
 	@ResponseBody
 	public int MemberConfirm(@RequestParam String id) {
@@ -66,13 +67,13 @@ public class MemberController {
 		return result;
 	}
 	
-//	�α��� ������ ȭ���̵�
+//	로그인 페이지 이동
 	@RequestMapping(value="LoginPageForm",method=RequestMethod.GET)
 	public String LoginForm() {
 		return "Login/LoginForm";
 	}
 	
-//	�α���
+// 로그인 구현
 	@RequestMapping(value="/login",method=RequestMethod.POST)
 	public String Login(@ModelAttribute Member member) {
 		MemberDAO dao = sqlSession.getMapper(MemberDAO.class);
@@ -81,16 +82,48 @@ public class MemberController {
 			return "Login/LoginFail";
 		}else {
 			if(data.getPw().equals(member.getPw())) {
-				System.out.println("�α��� ����");
 				session.setAttribute("sessionid", data.getId());
 				session.setAttribute("sessionpw", data.getPw());
+				session.setAttribute("sessionemail1", data.getEmail1());
+				session.setAttribute("sessionemail2", data.getEmail2());
+				session.setAttribute("sessionphone1", data.getPhone1());
+				session.setAttribute("sessionphone2",data.getPhone2());
+				session.setAttribute("sessionphone3", data.getPhone3());
+				session.setAttribute("sessionaddr1", data.getAddr1());
+				session.setAttribute("sessionaddr2", data.getAddr2());
+				session.setAttribute("sessionaddr3", data.getAddr3());
 				return "redirect:IndexForm";
 			}else {
-				System.out.println("�α��� ���� ���������� �� ����������");
 				return "Login/LoginFail";
 			}
 		}
 	}
-	
+//	로그 아웃 기능 구현
+	@RequestMapping(value="/logout",method=RequestMethod.GET)
+	public String Logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:IndexForm";
+	}
+//	개인정보수정 페이지 이동
+	@RequestMapping(value="loginfo",method=RequestMethod.GET)
+	public String Loginfo(Model model,@RequestParam String id) {
+		MemberDAO dao = sqlSession.getMapper(MemberDAO.class);
+		Member members = dao.selectOne(id);
+		model.addAttribute("members", members);
+		return "Member/member_update_form";
+	}
+// 개인정보 수정
+	@RequestMapping(value="MemberUpdate",method=RequestMethod.POST)
+	public String LoginUpdate(@ModelAttribute Member member){
+		MemberDAO dao = sqlSession.getMapper(MemberDAO.class);
+		try {
+			int result = dao.memberUpdateRow(member);
+			System.out.println("저장되었습니다.: "+result);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e.getMessage());
+		}
+		return "redirect:IndexForm";
+	}
 	
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,8 +9,8 @@
   
 </head>
 <body>
-   <form>
-     <!-- Navigation -->
+	<form>
+	  <!-- Navigation -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
         <a class="navbar-brand" href="IndexForm">Simple RPG</a>
@@ -19,67 +20,68 @@
         <div class="collapse navbar-collapse" id="navbarResponsive" style="position: absolute;right:20px">
           <ul class="navbar-nav ml-auto" >
             <li class="nav-item">
-              <a class="nav-link" href="about.html">╪р╫д</a>
+              <a class="nav-link" href="about.html">Л├▄Л▀²</a>
             </li>
             
            <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      ╟Ёюс╪р╟Ё
+                      Й╡▄Л·└Л├▄Й╟°
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                <a class="dropdown-item" href="gameguideform">╟тюс╧Х╟Ф ╪р╟Ё</a>
-                <a class="dropdown-item" href="itemguideform">╬фюлеш ╪р╟Ё</a>
-                <a class="dropdown-item" href="monsterguideform">╦С╫╨ем ╪р╟Ё</a>
+                <a class="dropdown-item" href="gameguideform">Й╡▄Л·└К╟╟Й╡╫ Л├▄Й╟°</a>
+                <a class="dropdown-item" href="itemguideform">Л∙└Л²╢М┘° Л├▄Й╟°</a>
+                <a class="dropdown-item" href="monsterguideform">К╙╛Л┼╓М└╟ Л├▄Й╟°</a>
               </div>
             </li>
             
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      ╥╘е╥
+                		К·╜М┌╧
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                <a class="dropdown-item" href="dbinserform">DB╟╙ ют╥б</a>
-                <a class="dropdown-item" href="rankform">╟тюс ╪Ью╖</a>
-                <a class="dropdown-item" href="rankinfoform">╥╘е╥ а╓╨╦</a>
+                <a class="dropdown-item" href="dbinserform">DBЙ╟▓ Л·┘К═╔</a>
+                <a class="dropdown-item" href="rankform">Й╡▄Л·└ Л┬°Л°└</a>
+                <a class="dropdown-item" href="rankinfoform">К·╜М┌╧ Л═∙КЁ╢</a>
               </div>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   д©╧б╢оф╪
+                	Л╩╓К╝╓К▀┬М▀╟
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                <a class="dropdown-item" href="portfolio-1-col.html">╫╨е╘╦╟╪╕</a>
-                <a class="dropdown-item" href="portfolio-2-col.html">╣©©╣╩С</a>
-                <a class="dropdown-item" href="portfolio-3-col.html">юзю╞╟т╫цфг</a>
-                <a class="dropdown-item" href="portfolio-4-col.html">фа/ЁКго©Л</a>
+                <a class="dropdown-item" href="ScreenFreeBoardForm">Л┼╓М│╛К╕╟Л┐╥</a>
+                <a class="dropdown-item" href="MediaFreeBoardForm">К▐≥Л≤│Л┐│</a>
+                <a class="dropdown-item" href="FreeBoardForm?id=${member.id}">Л·░Л°═Й╡▄Л▀°М▄░</a>
+                <a class="dropdown-item" href="TipKnowBoardForm">М▄│/К┘╦М∙≤Л ╟</a>
               </div>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      ╟М╟╢╪╬ем
+                		ЙЁ═Й╟²Л└╪М└╟
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                <a class="dropdown-item" href="blog-home-1.html">юзаж╧╞╢баЗ╧╝</a>
-                <a class="dropdown-item" href="helpdeskInsertForm">1:1╧╝юг</a>
-                <a class="dropdown-item" href="blog-post.html">╨╦╬х ╪╬ем</a>
+                <a class="dropdown-item" href="blog-home-1.html">Л·░Лё╪К╛╩К┼■Л╖┬К╛╦</a>
+                <a class="dropdown-item" href="blog-home-2.html">1:1К╛╦Л²≤</a>
+                <a class="dropdown-item" href="blog-post.html">КЁ╢Л∙┬ Л└╪М└╟</a>
               </div>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Other Pages
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                <a class="dropdown-item" href="full-width.html">Full Width Page</a>
-                <a class="dropdown-item" href="sidebar.html">Sidebar Page</a>
-                <a class="dropdown-item" href="faq.html">FAQ</a>
-                <a class="dropdown-item" href="404.html">404</a>
-                <a class="dropdown-item" href="pricing.html">Pricing Table</a>
-              </div>
-            </li>
-            <li class="nav-item dropdown">
-               <button type="button" id="loginbutton" class="btn btn-primary">╥н╠вюн</button>
-            </li>
-          </ul>
+            	<c:choose>
+            		<c:when test="${sessionid == null}">
+            		<li class="nav-item dropdown">
+            				<button type="button" id="loginbutton" class="btn btn-primary">К║°Й╥╦Л²╦</button>
+					</li>
+					</c:when>
+            		<c:otherwise>
+            			<li class="nav-item dropdown">
+            				<a class="nav-link-dropdown-toggle" href="#" data-toggle="dropdown"><button type="button" class="btn btn-warning"><i class="fa fa-address-card" aria-hidden="true" style="size:30px"></i>${sessionid} К▀≤ К╟≤Й╟▒Л┼╣К▀┬К▀╓!</button></a>
+            				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+										<a class="dropdown-item" href="logout">К║°Й╥╦ Л∙└Л⌡┐</a>
+										<a class="dropdown-item" href="loginfo?id=${sessionid}">Й╟°Л²╦ Л═∙КЁ╢ Л┬≤Л═∙</a>
+							</div>
+            			</li>
+            		</c:otherwise>
+            	</c:choose>
+          </ul>	
           </div>
         </div>
     </nav>
