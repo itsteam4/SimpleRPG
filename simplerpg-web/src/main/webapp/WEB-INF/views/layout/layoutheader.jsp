@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
@@ -57,7 +57,7 @@
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                		고객센터
+                        고객센터
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
                 <a class="dropdown-item" href="blog-home-1.html">자주묻는질문</a>
@@ -75,8 +75,8 @@
             			<li class="nav-item dropdown">
             				<a class="nav-link-dropdown-toggle" href="#" data-toggle="dropdown"><button type="button" class="btn btn-warning"><i class="fa fa-address-card" aria-hidden="true" style="size:30px"></i>${sessionid} 님 반갑습니다!</button></a>
             				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-										<a class="dropdown-item" href="logout">로그 아웃</a>
-										<a class="dropdown-item" href="loginfo?id=${sessionid}">개인 정보 수정</a>
+										<a class="dropdown-item" href="logout">로그아웃</a>
+										<a class="dropdown-item" href="loginfo?id=${sessionid}">내정보수정</a>
 							</div>
             			</li>
             		</c:otherwise>

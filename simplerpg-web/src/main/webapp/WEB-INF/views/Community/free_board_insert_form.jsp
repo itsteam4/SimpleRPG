@@ -1,82 +1,85 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<meta name="decorator" content="freeboardinsertform" />
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
  <!-- Bootstrap core CSS -->
 <link href="resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <!-- Custom styles for this template -->
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta name="decorator" content="freeboard_insert_forms"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
 <title>Insert title here</title>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script src="resources/smarteditor/js/HuskyEZCreator.js"></script>
-
-<script>
-$(function(){
-    //Àü¿ªº¯¼ö¼±¾ğ
-    var editor_object = [];
-     
-    nhn.husky.EZCreator.createInIFrame({
-        oAppRef: editor_object,
-        elPlaceHolder: "smarteditor",
-        sSkinURI: "/smarteditor/SmartEditor2Skin.html",
-        htParams : {
-            // Åø¹Ù »ç¿ë ¿©ºÎ (true:»ç¿ë/ false:»ç¿ëÇÏÁö ¾ÊÀ½)
-            bUseToolbar : true,            
-            // ÀÔ·ÂÃ¢ Å©±â Á¶Àı¹Ù »ç¿ë ¿©ºÎ (true:»ç¿ë/ false:»ç¿ëÇÏÁö ¾ÊÀ½)
-            bUseVerticalResizer : true,    
-            // ¸ğµå ÅÇ(Editor | HTML | TEXT) »ç¿ë ¿©ºÎ (true:»ç¿ë/ false:»ç¿ëÇÏÁö ¾ÊÀ½)
-            bUseModeChanger : true,
-        }
+<script type="text/javascript" src="resources/smarteditor/js/HuskyEZCreator.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        //ì „ì—­ë³€ìˆ˜
+        var obj = [];              
+        //ìŠ¤ë§ˆíŠ¸ì—ë””í„° í”„ë ˆì„ìƒì„±
+        nhn.husky.EZCreator.createInIFrame({
+            oAppRef: obj,
+            elPlaceHolder: "smarteditor",
+            sSkinURI: "resources/smarteditor/SmartEditor2Skin.html",
+            htParams : {
+                // íˆ´ë°” ì‚¬ìš© ì—¬ë¶€
+                bUseToolbar : true,            
+                // ì…ë ¥ì°½ í¬ê¸° ì¡°ì ˆë°” ì‚¬ìš© ì—¬ë¶€
+                bUseVerticalResizer : true,    
+                // ëª¨ë“œ íƒ­(Editor | HTML | TEXT) ì‚¬ìš© ì—¬ë¶€
+                bUseModeChanger : true,
+                fCreator: "createSEditor2"
+            }
+        });
+        //ì „ì†¡ë²„íŠ¼
+        $("#savebutton").click(function(){
+            //idê°€ smarteditorì¸ textareaì— ì—ë””í„°ì—ì„œ ëŒ€ì…
+            obj.getById["smarteditor"].exec("UPDATE_CONTENTS_FIELD", []);
+            //í¼ submit
+            $(".freeboard_insert_form").submit();
+        });
     });
-     
-    //Àü¼Û¹öÆ° Å¬¸¯ÀÌº¥Æ®
-    $("#savebutton").click(function(){
-        //id°¡ smarteditorÀÎ textarea¿¡ ¿¡µğÅÍ¿¡¼­ ´ëÀÔ
-        editor_object.getById["smarteditor"].exec("UPDATE_CONTENTS_FIELD", []);
-         
-        // ÀÌºÎºĞ¿¡ ¿¡µğÅÍ validation °ËÁõ
-         
-        //Æû submit
-        $("#frm").submit();
-    })
-})
 </script>
 </head>
 <body>
+	<form action="FreeBoardInsert" class="freeboard_insert_form" method="post">
 	<div class="container">
+		<div class="row">
+			<div class="col-md-1"></div>
+			<div class="card text-white bg-dark col-md-11 mb-3" style="right: 80px">
+  				<div class="card-body">
+    				<h3>ê¸€ì“°ê¸°</h3>
+  				</div>
+			</div>
+		</div>
 		<div class="row" style="text-align: center;margin-top: 80px">
 			<table class="table table-bordered">
 				<tbody>
 					<tr>
-						<th width="300">ÀÛ¼ºÀÚ</th>
-						<td width="300"><input type="text" size="45"></td>
+						<th width="300">ì‘ì„±ì</th>
+						<td width="300"><input type="text" size="45" value="${sessionid}" readonly="readonly"></td>
 					</tr>
 					<tr>
-						<th>Á¦¸ñ</th>
+						<th>ì œëª©</th>
 						<td><input type="text" size="45"></td>
 					</tr>
 					<tr>
-						<th>³»¿ë</th>
+						<th>ë‚´ìš©</th>
 						<td>
-							<form action="/send.jsp" method="post" id="frm">
+							
 								<textarea name="smarteditor" id="smarteditor" rows="10"
-									cols="100" style="width: 766px; height: 412px;"></textarea>
-								<input type="button" id="savebutton" value="¼­¹öÀü¼Û" />
-							</form>
+									cols="100" style="width: 650px; height: 500px;"></textarea>
+								<input type="button" class="btn btn-warning" id="savebutton" value="ì‘ì„±">
+								<input type="button" class="btn btn-danger" id="returnbutton" value="ëª©ë¡">
 						</td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 	</div>
-	
+</form>	
 </body>
 </html>
