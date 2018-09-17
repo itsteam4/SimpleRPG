@@ -1,15 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-  
+<link href="resources/css/main-slide.css" rel="stylesheet">
 </head>
 <body>
-	<form>
+	<form  method="post" action="InGameForm">
 	  <!-- Navigation -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
@@ -85,6 +84,42 @@
           </div>
         </div>
     </nav>
+    <!-- SLIDE SECTION START -->
+    <div class="slideshow-container" >
+    		<div class="mySlides fade">
+			  <img src="resources/image/mainpage/slide1.jpg" style="width:100%;">
+			</div>
+			<div class="mySlides fade">
+			  <img src="resources/image/mainpage/slide2.jpg" style="width:100%">
+			</div>
+			<div class="mySlides fade">
+			  <img src="resources/image/mainpage/slide3.jpg" style="width:100%">
+			</div>
+			<div class="mySlides fade">
+			  <img src="resources/image/mainpage/slide4.jpg" style="width:100%">
+			</div>
+			<div >
+				<!-- <a href="#" style="width:289px; height:152px;">
+					<img class="" src="resources/image/mainpage/start_btn.jpg" 
+			  		style="width:289px; height:152px; position:absolute; top:130px; left:1150px; 
+			  		overflow:hidden;">
+				</a> -->
+					<input id="gid" name="gid" type="text" style="display:none;">
+					<button id="startbtn" type="submit" style="background:url('resources/image/mainpage/start_btn.jpg');
+					width:289px; height:152px; 
+					position:absolute; top:130px; left:1150px; overflow:hidden;border:0; outline:0;
+					cursor:pointer; "></button>
+				
+			</div>
+			<div style="text-align:center; color:#5F00FF; display:none; ">
+			  <span class="dot"></span> 
+			  <span class="dot"></span> 
+			  <span class="dot"></span> 
+			  <span class="dot"></span> 
+			</div>
+	</div>
+	<script src="resources/js/mainslide.js"></script>
+	<!-- SLIDE SECTION END -->
     </form>
 </body>
 </html>
