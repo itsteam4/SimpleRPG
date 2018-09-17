@@ -60,9 +60,9 @@
                 		고객센터
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                <a class="dropdown-item" href="blog-home-1.html">자주묻는질문</a>
-                <a class="dropdown-item" href="blog-home-2.html">1:1문의</a>
-                <a class="dropdown-item" href="blog-post.html">보안 센터</a>
+                <a class="dropdown-item" href="helpquestion">자주묻는질문</a>
+                <a class="dropdown-item" href="helpinquiry">1:1문의</a>
+                <a class="dropdown-item" href="helpsecurity">보안 센터</a>
               </div>
             </li>
             	<c:choose>
