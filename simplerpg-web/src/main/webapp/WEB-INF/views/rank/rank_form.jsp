@@ -99,7 +99,7 @@
 			
 			
 			<div style="margin-top:25px; border-top:1px solid #2e2828;
-			background:url('resources/image/rank/gold_bg.png') left 48px no-repeat;
+			background:url('resources/image/rank/gold_bg02.png') left 48px no-repeat;
 			">
 			<table class="table" style="border:0; border-collapse:collapse; border-spacing:0;">
 			<colgroup>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.itsteam4.simplerpg.web.service.RankInfoDao">
+	
+	<insert id="insertRow" parameterType="hashMap">
+  		insert into rankinfo(greeting,id
+  		)values(
+  		#{greeting,jdbcType=VARCHAR},#{id,jdbcType=VARCHAR}
+  		)
+  		where id= #{id}
+  	</insert>
+	
+	<update id="updateRow" parameterType="hashMap">
+  		update rankinfo set
+  		greeting=#{greeting,jdbcType=VARCHAR},id=#{id,jdbcType=VARCHAR}
+  		where id= #{id}
+  	</update>
+  	
+  	<resultMap type="com.github.itsteam4.simplerpg.web.entity.RankInfo" id="rankinfoMap">
+ 	</resultMap>
+ 	
+  	<select id="selectOne" parameterType="String" resultMap="rankinfoMap">
+  		select * from rankinfo where id=#{id}
+  	</select>
+</mapper>
