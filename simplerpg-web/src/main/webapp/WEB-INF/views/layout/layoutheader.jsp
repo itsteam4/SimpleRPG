@@ -105,7 +105,7 @@
 			  		style="width:289px; height:152px; position:absolute; top:130px; left:1150px; 
 			  		overflow:hidden;">
 				</a> -->
-					<input id="gid" name="gid" type="text" style="display:none;">
+					<input id="gid" name="gid" type="text" value="${sessionid}" style="display:none;">
 					<button id="startbtn" type="submit" style="background:url('resources/image/mainpage/start_btn.jpg');
 					width:289px; height:152px; 
 					position:absolute; top:130px; left:1150px; overflow:hidden;border:0; outline:0;
