@@ -50,7 +50,7 @@
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
                 <a class="dropdown-item" href="ScreenFreeBoardForm">스크린샷</a>
-                <a class="dropdown-item" href="MediaFreeBoardForm">동영상</a>
+                <a class="dropdown-item" href="youtube">동영상</a>
                 <a class="dropdown-item" href="FreeBoardForm?id=${member.id}">자유게시판</a>
                 <a class="dropdown-item" href="TipKnowBoardForm">팁/노하우</a>
               </div>
