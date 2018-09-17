@@ -6,14 +6,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-<form action="ranktestInsert" method="post">
-	<div>
-		number <input type="text" name="number"><p>
-		str1 <input type="text" name="str1"><p>
-		<textarea class="form-control" rows="3" name="str2" ></textarea><p>
-		<button type="submit">submit</button>
-		<button type="button">cancel</button>
-	</div>
-</form>
+<body>
+     결과.....${aaa}<p>
+     ${ranktest.number}<p>
+     ${ranktest.str1}<p>
+	 <textarea class="form-control" rows="3" id="str2" name="str2"  >${ranktest.str2}</textarea>
+
 </body>
 </html>

@@ -8,9 +8,9 @@
 <title>Insert title here</title>
 
 
+
 </head>
 <body >
-<form>
 <!-- background:url('resources/image/rank/bg_hope.jpg'); -->
 <div class="container" style=" margin-bottom:40px">
 
@@ -39,15 +39,34 @@
 		        </dl>
 		</div>
 		
-		<div class="col-md-6">
-			<div style="padding-top:20px; padding-right:350px; padding-bottom:0px; padding-left:0px" >
-				<img src="resources/image/rank/ico_hope_greeting.png" alt="server" width="22px" height="22px">
-				<label>한줄 인사말</label>
-			</div>
+			<div class="col-md-6">
+			<form  action="rankinfoGreeting" method="post" >
+			<c:choose>
+            		<c:when test="${sessionid == null}">
+            			<div style="padding-top:20px; padding-right:350px; padding-bottom:0px; padding-left:0px" >
+							<img src="resources/image/rank/ico_hope_greeting.png" alt="server" width="22px" height="22px">
+							<label>한줄 인사말</label>
+						</div>
+					</c:when>
+            		<c:otherwise>
+            			<div style="padding-top:20px; padding-right:260px; padding-bottom:0px; padding-left:0px" >
+							<img src="resources/image/rank/ico_hope_greeting.png" alt="server" width="22px" height="22px">
+							<label>한줄 인사말</label>
+							<input class="btn_mdf" value="" type="submit" 
+							style="background:url('resources/image/rank/btn_modify.gif') no-repeat 0 0;
+							width:44px; height:18px; border:none; padding:0;vertical-align: middle; cursor:pointer; ">
+						</div>
+            		</c:otherwise>
+            	</c:choose>
 			<div style="padding-top:5px; padding-right:0px; padding-bottom:0px; padding-left:40px">
-				<textarea class="form-control" rows="3" id="comment"></textarea>
+				<input type="text" id="id" name="id" value="${sessionid}" style="display:none;">
+				<textarea class="form-control" rows="3" id="greeting" name="greeting">${rankinfo.greeting}</textarea>
 			</div>
+			</form>
 		</div>
+		
+		
+		
 	</div>
 	<!--경계-------------------------------------------------------- ------------ -->
 	<!--경계-------------------------------------------------------- ----------- -->
@@ -452,7 +471,6 @@
 	
 	
 </div>	
-</form>
 
 </body>
 </html>
