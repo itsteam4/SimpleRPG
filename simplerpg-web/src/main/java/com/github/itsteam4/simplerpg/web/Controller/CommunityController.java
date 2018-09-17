@@ -44,6 +44,12 @@ public class CommunityController {
 	public String ScreenBoardForm() {
 		return "Community/screenshot_board_form";
 	}
+//	스크린샷 글쓰기 창 이동
+	@RequestMapping(value="ScreenshotInsertForm",method=RequestMethod.GET)
+	public String ScreenShotInsertForm() {
+		System.out.println("창이동");
+		return "Community/screenshot_board_insert_form";
+	}
 	
 	
 //	동영상 게시판 이동

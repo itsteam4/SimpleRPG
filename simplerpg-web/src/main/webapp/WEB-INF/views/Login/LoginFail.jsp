@@ -3,9 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="decorator" content="loginfail" />
+<meta name="decorator" content="loginfail">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -13,7 +12,7 @@
 <link href="resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <!-- Custom styles for this template -->
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-<title>Insert title here</title>
+<title>Login Pages</title>
 <style type="text/css">
 	body {
 	background-image: url('resources/image/jungles.jpg');

@@ -2,16 +2,16 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
- <!-- Bootstrap core CSS -->
-<link href="resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<!-- Custom styles for this template -->
-<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <head>
 <meta name="decorator" content="freeboard_insert_forms"/>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
+ <!-- Bootstrap core CSS -->
+<link href="resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <title>Insert title here</title>
 <script type="text/javascript" src="resources/smarteditor/js/HuskyEZCreator.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -65,6 +65,7 @@
 					<tr>
 						<th>제목</th>
 						<td><input id="f_title" name="f_title" type="text" size="45"></td>
+						<td width="300"><input type="text" size="45"></td>
 					</tr>
 					<tr>
 						<th>내용</th>

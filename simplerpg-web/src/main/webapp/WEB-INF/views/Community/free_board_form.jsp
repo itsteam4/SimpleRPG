@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -11,7 +11,7 @@
 <body>
 		<div class="row" style="text-align: center;margin-top: 50px">
 				<div class="col-md-12">
-					<h1>���� �Խ���</h1>
+					<h1>자유 게시판</h1>
 				</div>
 		</div>
 		<div class="row" style="margin-top: 50px;text-align: center">
@@ -20,16 +20,27 @@
 				<table class="table table-hover">
 					<thead>
 						<tr>
-							<th width="150" scope="col">��ȣ</th>
-							<th width="150" scope="col">�ۼ���</th>
-							<th width="300" scope="col">����</th>
-							<th width="150" scope="col">�ۼ�����</th>
-							<th width="150" scope="col">��ȸ��</th>
+							<th width="150" scope="col">번호</th>
+							<th width="150" scope="col">작성자</th>
+							<th width="300" scope="col">제목</th>
+							<th width="150" scope="col">작성일자</th>
+							<th width="150" scope="col">조회수</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td></td>
+							<td>11</td>
+							<td>kjw671</td>
+							<td>예비군 가기 싫다</td>
+							<td>2018-09-10</td>
+							<td>32</td>
+						</tr>
+						<tr>
+							<td>12</td>
+							<td>qwert4932</td>
+							<td>좀만 참아</td>
+							<td>2018-09-10</td>
+							<td>120</td>
 						</tr>
 					</tbody>
 				</table>
@@ -41,13 +52,13 @@
 			<div class="col-md-10">
 				<div class="input-group">
 					<input type="text" id="freeboardSearch">
-					<button type="button" class="btn btn-primary">�˻�</button>
+					<button type="button" class="btn btn-primary">검색</button>
 				</div>
 			</div>
 
 				<div class="col-md-1">
 				<c:if test="${sessionid != null}">
-					<button type="button" id="freeboardButtons" class="btn btn-dark">�۾���</button>
+					<button type="button" id="freeboardButtons" class="btn btn-dark">글쓰기</button>
 				</c:if>	
 				</div>
 		</div>

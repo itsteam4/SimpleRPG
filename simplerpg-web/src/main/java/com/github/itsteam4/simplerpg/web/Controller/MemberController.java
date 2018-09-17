@@ -45,7 +45,7 @@ public class MemberController {
 		if(result>0) {
 			System.out.println("success: "+result);
 			model.addAttribute("msg","회원 가입에 성공하였습니다..");
-			return "Member/member_success_form";
+			return "Member/Member_success";
 		}else {
 			System.out.println("회원가입에 실패하였습니다..");
 		}

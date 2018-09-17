@@ -6,7 +6,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
-db입력준비중
+<form action="ranktestInsert" method="post">
+	<div>
+		number <input type="text" name="number"><p>
+		str1 <input type="text" name="str1"><p>
+		<textarea class="form-control" rows="3" name="str2" ></textarea><p>
+		<button type="submit">submit</button>
+		<button type="button">cancel</button>
+	</div>
+</form>
 </body>
 </html>

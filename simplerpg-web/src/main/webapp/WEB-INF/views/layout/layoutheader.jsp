@@ -1,15 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-  
+<link href="resources/css/main-slide.css" rel="stylesheet">
 </head>
 <body>
-	<form>
+	<form  method="post" action="InGameForm">
 	  <!-- Navigation -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
@@ -50,7 +50,7 @@
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
                 <a class="dropdown-item" href="ScreenFreeBoardForm">스크린샷</a>
-                <a class="dropdown-item" href="MediaFreeBoardForm">동영상</a>
+                <a class="dropdown-item" href="youtube">동영상</a>
                 <a class="dropdown-item" href="FreeBoardForm?id=${member.id}">자유게시판</a>
                 <a class="dropdown-item" href="TipKnowBoardForm">팁/노하우</a>
               </div>
@@ -60,9 +60,9 @@
                         고객센터
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                <a class="dropdown-item" href="blog-home-1.html">자주묻는질문</a>
-                <a class="dropdown-item" href="blog-home-2.html">1:1문의</a>
-                <a class="dropdown-item" href="blog-post.html">보안 센터</a>
+                <a class="dropdown-item" href="helpquestion">자주묻는질문</a>
+                <a class="dropdown-item" href="helpinquiry">1:1문의</a>
+                <a class="dropdown-item" href="helpsecurity">보안 센터</a>
               </div>
             </li>
             	<c:choose>
@@ -85,6 +85,42 @@
           </div>
         </div>
     </nav>
+    <!-- SLIDE SECTION START -->
+    <div class="slideshow-container" >
+    		<div class="mySlides fade">
+			  <img src="resources/image/mainpage/slide1.jpg" style="width:100%;">
+			</div>
+			<div class="mySlides fade">
+			  <img src="resources/image/mainpage/slide2.jpg" style="width:100%">
+			</div>
+			<div class="mySlides fade">
+			  <img src="resources/image/mainpage/slide3.jpg" style="width:100%">
+			</div>
+			<div class="mySlides fade">
+			  <img src="resources/image/mainpage/slide4.jpg" style="width:100%">
+			</div>
+			<div >
+				<!-- <a href="#" style="width:289px; height:152px;">
+					<img class="" src="resources/image/mainpage/start_btn.jpg" 
+			  		style="width:289px; height:152px; position:absolute; top:130px; left:1150px; 
+			  		overflow:hidden;">
+				</a> -->
+					<input id="gid" name="gid" type="text" value="${sessionid}" style="display:none;">
+					<button id="startbtn" type="submit" style="background:url('resources/image/mainpage/start_btn.jpg');
+					width:289px; height:152px; 
+					position:absolute; top:130px; left:1150px; overflow:hidden;border:0; outline:0;
+					cursor:pointer; "></button>
+				
+			</div>
+			<div style="text-align:center; color:#5F00FF; display:none; ">
+			  <span class="dot"></span> 
+			  <span class="dot"></span> 
+			  <span class="dot"></span> 
+			  <span class="dot"></span> 
+			</div>
+	</div>
+	<script src="resources/js/mainslide.js"></script>
+	<!-- SLIDE SECTION END -->
     </form>
 </body>
 </html>
