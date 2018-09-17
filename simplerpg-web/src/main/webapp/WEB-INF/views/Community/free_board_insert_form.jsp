@@ -65,7 +65,6 @@
 					<tr>
 						<th>제목</th>
 						<td><input id="f_title" name="f_title" type="text" size="45"></td>
-						<td width="300"><input type="text" size="45"></td>
 					</tr>
 					<tr>
 						<th>내용</th>
