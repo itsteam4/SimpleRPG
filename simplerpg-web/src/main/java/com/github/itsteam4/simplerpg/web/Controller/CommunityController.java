@@ -18,8 +18,13 @@ public class CommunityController {
 //	스크린샷 게시판 이동
 	@RequestMapping(value="ScreenFreeBoardForm",method=RequestMethod.GET)
 	public String ScreenBoardForm() {
-		System.out.println("테스트 입니다");
 		return "Community/screenshot_board_form";
+	}
+//	스크린샷 글쓰기 창 이동
+	@RequestMapping(value="ScreenshotInsertForm",method=RequestMethod.GET)
+	public String ScreenShotInsertForm() {
+		System.out.println("창이동");
+		return "Community/screenshot_board_insert_form";
 	}
 	
 	

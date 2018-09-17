@@ -1,10 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <meta name="decorator" content="freeboardinsertform" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -13,14 +12,13 @@
 <!-- Custom styles for this template -->
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="resources/smarteditor/js/HuskyEZCreator.js"></script>
 
 <script>
 $(function(){
-    //Àü¿ªº¯¼ö¼±¾ğ
+    //ì „ì—­ë³€ìˆ˜ì„ ì–¸
     var editor_object = [];
      
     nhn.husky.EZCreator.createInIFrame({
@@ -28,23 +26,23 @@ $(function(){
         elPlaceHolder: "smarteditor",
         sSkinURI: "/smarteditor/SmartEditor2Skin.html",
         htParams : {
-            // Åø¹Ù »ç¿ë ¿©ºÎ (true:»ç¿ë/ false:»ç¿ëÇÏÁö ¾ÊÀ½)
+            // íˆ´ë°” ì‚¬ìš© ì—¬ë¶€ (true:ì‚¬ìš©/ false:ì‚¬ìš©í•˜ì§€ ì•ŠìŒ)
             bUseToolbar : true,            
-            // ÀÔ·ÂÃ¢ Å©±â Á¶Àı¹Ù »ç¿ë ¿©ºÎ (true:»ç¿ë/ false:»ç¿ëÇÏÁö ¾ÊÀ½)
+            // ì…ë ¥ì°½ í¬ê¸° ì¡°ì ˆë°” ì‚¬ìš© ì—¬ë¶€ (true:ì‚¬ìš©/ false:ì‚¬ìš©í•˜ì§€ ì•ŠìŒ)
             bUseVerticalResizer : true,    
-            // ¸ğµå ÅÇ(Editor | HTML | TEXT) »ç¿ë ¿©ºÎ (true:»ç¿ë/ false:»ç¿ëÇÏÁö ¾ÊÀ½)
+            // ëª¨ë“œ íƒ­(Editor | HTML | TEXT) ì‚¬ìš© ì—¬ë¶€ (true:ì‚¬ìš©/ false:ì‚¬ìš©í•˜ì§€ ì•ŠìŒ)
             bUseModeChanger : true,
         }
     });
      
-    //Àü¼Û¹öÆ° Å¬¸¯ÀÌº¥Æ®
+    //ì „ì†¡ë²„íŠ¼ í´ë¦­ì´ë²¤íŠ¸
     $("#savebutton").click(function(){
-        //id°¡ smarteditorÀÎ textarea¿¡ ¿¡µğÅÍ¿¡¼­ ´ëÀÔ
+        //idê°€ smarteditorì¸ textareaì— ì—ë””í„°ì—ì„œ ëŒ€ì…
         editor_object.getById["smarteditor"].exec("UPDATE_CONTENTS_FIELD", []);
          
-        // ÀÌºÎºĞ¿¡ ¿¡µğÅÍ validation °ËÁõ
+        // ì´ë¶€ë¶„ì— ì—ë””í„° validation ê²€ì¦
          
-        //Æû submit
+        //í¼ submit
         $("#frm").submit();
     })
 })
@@ -56,20 +54,20 @@ $(function(){
 			<table class="table table-bordered">
 				<tbody>
 					<tr>
-						<th width="300">ÀÛ¼ºÀÚ</th>
+						<th width="300">ì‘ì„±ì</th>
 						<td width="300"><input type="text" size="45"></td>
 					</tr>
 					<tr>
-						<th>Á¦¸ñ</th>
+						<th>ì œëª©</th>
 						<td><input type="text" size="45"></td>
 					</tr>
 					<tr>
-						<th>³»¿ë</th>
+						<th>ë‚´ìš©</th>
 						<td>
 							<form action="/send.jsp" method="post" id="frm">
 								<textarea name="smarteditor" id="smarteditor" rows="10"
 									cols="100" style="width: 766px; height: 412px;"></textarea>
-								<input type="button" id="savebutton" value="¼­¹öÀü¼Û" />
+								<input type="button" id="savebutton" value="ì„œë²„ì „ì†¡" />
 							</form>
 						</td>
 					</tr>

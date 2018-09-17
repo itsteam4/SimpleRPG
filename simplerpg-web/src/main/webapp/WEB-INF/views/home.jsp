@@ -6,7 +6,7 @@
 	<head>
 		<title>Home</title>
 	</head>
-	<body>
+	<body id="homebodycolor" class="homebodycolor">
 	<form id="home" name="home" method="post" action="InGameForm">
 	<div class="container" style="width:100%; height:auto; float:left;">
 	<div class="contents" style="width:1130px; position:relative;"> 
@@ -135,14 +135,6 @@
 
 
 </div>
-		<h1>
-			Hello world! asdfasdf 
-		</h1>
-		<P>  The time on the server is ${serverTime}. </P>
-		<c:forEach var="names" items="${names}">
-			${names}<br>
-		</c:forEach>
-		
 	</form>
 	</body>
 </html>

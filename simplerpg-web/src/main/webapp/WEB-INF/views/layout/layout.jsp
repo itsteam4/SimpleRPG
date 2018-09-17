@@ -13,6 +13,8 @@
 <title>Insert title here</title>
  <!-- Bootstrap core CSS -->
     <link href="resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/screenshot/screen.css" rel="stylesheet">
+    <link href="resources/maincolor/maincolor.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="resources/css/modern-business.css" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -88,6 +90,8 @@
     <script src="resources/login/login.js"></script>
     <script src="resources/member/post.js"></script>
 	<script src="resources/member/member.js"></script>
+	<!-- screenshot js -->
+	<script src="resources/screenshot/screen.js"></script>
 <!-- Daum API -->
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <!-- Community -->
