@@ -33,6 +33,23 @@ function sectorinfo(){
 		slime1_2_xy = [999, 999];
 		slime1_3_xy = [999, 999];
 	}
+	
+	if(sectorNum == 2){
+		if(goblin2_1alive){
+			goblin2_1_xy = [384, 320];
+		}
+		if(goblin2_2alive){
+			goblin2_2_xy = [288, 416];
+		}
+		if(goblin2_3alive){
+			goblin2_3_xy = [480, 448];
+		}
+		
+	}else {
+		goblin2_1_xy = [999, 999];
+		goblin2_2_xy = [999, 999];
+		goblin2_3_xy = [999, 999];
+	}
 
 	if(sectorNum == 5){
 		if(slime2alive){
@@ -64,6 +81,18 @@ function sectorinfo(){
 		goblin6_1_xy = [999, 999];
 		goblin6_2_xy = [999, 999];
 		goblin6_3_xy = [999, 999];
+	}
+	
+	if(sectorNum == 7){
+		if(orc7_1alive){
+			orc7_1_xy = [480, 288];
+		}
+		if(goblin7_2alive){
+			goblin7_2_xy = [352, 352];
+		}
+	}else {
+		orc7_1_xy = [999, 999];
+		goblin7_2_xy = [999, 999];
 	}
 	
 	if(sectorNum == 10){

@@ -148,6 +148,21 @@ function Update(){
 	if(user_xy[0] == goblin11_3_xy[0] && user_xy[1] == goblin11_3_xy[1]){
 		goblin11_3Battle();
 	}
+	if(user_xy[0] == goblin2_1_xy[0] && user_xy[1] == goblin2_1_xy[1]){
+		goblin2_1Battle();
+	}
+	if(user_xy[0] == goblin2_2_xy[0] && user_xy[1] == goblin2_2_xy[1]){
+		goblin2_2Battle();
+	}
+	if(user_xy[0] == goblin2_3_xy[0] && user_xy[1] == goblin2_3_xy[1]){
+		goblin2_3Battle();
+	}
+	if(user_xy[0] == orc7_1_xy[0] && user_xy[1] == orc7_1_xy[1]){
+		orc7_1Battle(orc7_1hp);
+	}
+	if(user_xy[0] == goblin7_2_xy[0] && user_xy[1] == goblin7_2_xy[1]){
+		goblin7_2Battle();
+	}
 	
 	//전투중 유저 사망시
 	if(useralive == false){
@@ -221,7 +236,7 @@ function User(user_xy){
 					userpower += 4;
 					break;
 				case 3:
-					userpower += 6;
+					userpower += 8;
 			}
 			switch(item[1]){
 				case 0:
@@ -233,7 +248,7 @@ function User(user_xy){
 					usermaxhp += 20;
 					break;
 				case 3:
-					usermaxhp += 30;
+					usermaxhp += 40;
 			}
 			userhp = usermaxhp;
 			ItemChenge();
@@ -324,6 +339,20 @@ var userattack = setInterval(function (){	//유저 공격 딜레이
 			userIt = 448;
 		}else if(item[0] == 2 && item[1] == 2){
 			userIt = 512;
+		}else if(item[0] == 0 && item[1] == 3){
+			userIt = 576;
+		}else if(item[0] == 3 && item[1] == 0){
+			userIt = 640;
+		}else if(item[0] == 1 && item[1] == 3){
+			userIt = 704;
+		}else if(item[0] == 3 && item[1] == 1){
+			userIt = 768;
+		}else if(item[0] == 2 && item[1] == 3){
+			userIt = 832;
+		}else if(item[0] == 3 && item[1] == 2){
+			userIt = 896;
+		}else if(item[0] == 3 && item[1] == 3){
+			userIt = 960;
 		}
 		
 	}

@@ -23,6 +23,19 @@ var slime1_3 = new Image();
 slime1_3.addEventListener('load',slime1_3Ready, false);
 slime1_3.src = "resources/gamejs/imgs/slime.png";
 
+//sector 2
+var goblin2_1 = new Image();
+goblin2_1.addEventListener('load', goblin2_1Ready, false);
+goblin2_1.src = "resources/gamejs/imgs/goblin.png";
+
+var goblin2_2 = new Image();
+goblin2_2.addEventListener('load', goblin2_2Ready, false);
+goblin2_2.src = "resources/gamejs/imgs/goblin.png";
+
+var goblin2_3 = new Image();
+goblin2_3.addEventListener('load', goblin2_3Ready, false);
+goblin2_3.src = "resources/gamejs/imgs/goblin.png";
+
 //sector 5
 var slime2 = new Image(); 
 slime2.addEventListener('load',slime2Ready, false);
@@ -49,6 +62,11 @@ var goblin6_3 = new Image();
 goblin6_3.addEventListener('load',goblin6_3Ready, false);
 goblin6_3.src = "resources/gamejs/imgs/goblin.png";
 
+//sector 7
+var orc = new Image(); 
+orc.addEventListener('load',orcReady, false);
+orc.src = "resources/gamejs/imgs/orc.png";
+
 //sector 10
 var goblin10_1 = new Image(); 
 goblin10_1.addEventListener('load',goblin10_1Ready, false);
@@ -74,6 +92,10 @@ goblin11_2.src = "resources/gamejs/imgs/goblin.png";
 var goblin11_3 = new Image(); 
 goblin11_3.addEventListener('load',goblin11_3Ready, false);
 goblin11_3.src = "resources/gamejs/imgs/goblin.png";
+
+var goblin = new Image();
+goblin.addEventListener('load',goblinReady, false);
+goblin.src = "resources/gamejs/imgs/goblin.png";
 
 function userReady() {
 	//유저 이미지 로드되면 실행됨
@@ -148,4 +170,24 @@ function goblin11_2Ready(){
 
 function goblin11_3Ready(){
 	Goblin11_3(goblin11_3_xy);
+}
+
+function goblin2_1Ready(){
+	Goblin2_1(goblin2_1_xy);
+}
+
+function goblin2_2Ready(){
+	Goblin2_2(goblin2_2_xy);
+}
+
+function goblin2_3Ready(){
+	Goblin2_3(goblin2_3_xy);
+}
+
+function orcReady(){
+	Orc7_1(orc7_1_xy);
+}
+
+function goblinReady(){
+	Goblin7_2(goblin7_2_xy);
 }
