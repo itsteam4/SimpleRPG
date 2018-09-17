@@ -29,18 +29,7 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td>11</td>
-							<td>kjw671</td>
-							<td>예비군 가기 싫다</td>
-							<td>2018-09-10</td>
-							<td>32</td>
-						</tr>
-						<tr>
-							<td>12</td>
-							<td>qwert4932</td>
-							<td>좀만 참아</td>
-							<td>2018-09-10</td>
-							<td>120</td>
+							<td></td>
 						</tr>
 					</tbody>
 				</table>

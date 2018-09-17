@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.github.itsteam4.simplerpg.web.service.FreeBoardDAO">
+ <resultMap type="com.github.itsteam4.simplerpg.web.entity.FreeBoard" id="freeboardMap">
+ </resultMap>
+  	<insert id="freeinsertrow" parameterType="hashMap">
+  		insert into freeboard_tbl_board(f_no,f_title,f_writer,f_content,f_date
+  		)values(
+  		(select ifnull(max(f_no)+1,1) from freeboard_tbl_board alias_no),#{f_title,jdbcType=VARCHAR},#{f_writer,jdbcType=VARCHAR},
+  		#{f_content,jdbcType=VARCHAR},#{f_date,jdbcType=VARCHAR}
+  		)
+  	</insert>
+ </mapper>
+

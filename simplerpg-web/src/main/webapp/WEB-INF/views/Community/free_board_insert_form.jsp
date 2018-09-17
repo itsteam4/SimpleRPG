@@ -22,7 +22,7 @@
         //스마트에디터 프레임생성
         nhn.husky.EZCreator.createInIFrame({
             oAppRef: obj,
-            elPlaceHolder: "smarteditor",
+            elPlaceHolder: "f_content",
             sSkinURI: "resources/smarteditor/SmartEditor2Skin.html",
             htParams : {
                 // 툴바 사용 여부
@@ -37,7 +37,7 @@
         //전송버튼
         $("#savebutton").click(function(){
             //id가 smarteditor인 textarea에 에디터에서 대입
-            obj.getById["smarteditor"].exec("UPDATE_CONTENTS_FIELD", []);
+            obj.getById["f_content"].exec("UPDATE_CONTENTS_FIELD", []);
             //폼 submit
             $(".freeboard_insert_form").submit();
         });
@@ -60,17 +60,16 @@
 				<tbody>
 					<tr>
 						<th width="300">작성자</th>
-						<td width="300"><input type="text" size="45" value="${sessionid}" readonly="readonly"></td>
+						<td width="300"><input name="f_writer" id="f_writer" type="text" size="45" value="${sessionid}" readonly="readonly"></td>
 					</tr>
 					<tr>
 						<th>제목</th>
-						<td><input type="text" size="45"></td>
+						<td><input id="f_title" name="f_title" type="text" size="45"></td>
 					</tr>
 					<tr>
 						<th>내용</th>
 						<td>
-							
-								<textarea name="smarteditor" id="smarteditor" rows="10"
+								<textarea name="f_content" id="f_content" rows="10"
 									cols="100" style="width: 650px; height: 500px;"></textarea>
 								<input type="button" class="btn btn-warning" id="savebutton" value="작성">
 								<input type="button" class="btn btn-danger" id="returnbutton" value="목록">

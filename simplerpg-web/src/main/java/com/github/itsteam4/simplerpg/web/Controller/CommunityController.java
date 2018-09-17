@@ -22,17 +22,22 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.github.itsteam4.simplerpg.web.entity.Member;
 import com.github.itsteam4.simplerpg.web.entity.Editor;
+import com.github.itsteam4.simplerpg.web.entity.FreeBoard;
+import com.github.itsteam4.simplerpg.web.service.FreeBoardDAO;
 import com.github.itsteam4.simplerpg.web.service.MemberDAO;
 
 @Controller
 public class CommunityController {
 	@Autowired
 	SqlSession sqlSession;
+	@Autowired
+	FreeBoard fboard;
 	
 //	스크린샷 게시판 이동
 	@RequestMapping(value="ScreenFreeBoardForm",method=RequestMethod.GET)
@@ -89,7 +94,7 @@ public class CommunityController {
 	            String realname = UUID.randomUUID().toString() + "." + ext;
 	        ///////////////// 서버에 파일쓰기 /////////////////
 	            editor.getFiledata().transferTo(new File(path+realname));
-	            file_result += "&bNewLine=true&sFileName="+original_name+"&sFileURL=/resource/photo_upload/"+realname;
+	            file_result += "&bNewLine=true&sFileName="+original_name+"&sFileURL=/resources/photo_upload/"+realname;
 	        } else {
 	            file_result += "&errstr=error";
 	        }
@@ -172,8 +177,15 @@ public class CommunityController {
 	}
 //	자유게시판 게시글 등록
 	@RequestMapping(value="FreeBoardInsert",method=RequestMethod.POST)
-	public String BoardInsert() {
-		System.out.println("테스트");
+	public String BoardInsert(@ModelAttribute FreeBoard fboard) {
+		FreeBoardDAO dao = sqlSession.getMapper(FreeBoardDAO.class);
+		int result = dao.freeinsertrow(fboard);
+		if(result>0) {
+			System.out.println("저장되었습니다: "+result);
+		}else {
+			System.out.println("저장 실패했습니다.");
+		}
+		
 		return "redirect:FreeBoardForm";
 	}
 }
