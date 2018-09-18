@@ -1,5 +1,9 @@
 package com.github.itsteam4.simplerpg.web.Controller;
 
+import java.util.ArrayList;
+
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.github.itsteam4.simplerpg.web.entity.Member;
 import com.github.itsteam4.simplerpg.web.entity.RankInfo;
 import com.github.itsteam4.simplerpg.web.entity.RankTest;
 import com.github.itsteam4.simplerpg.web.service.RankTestDao;
+import com.github.itsteam4.simplerpg.web.service.MemberDAO;
 import com.github.itsteam4.simplerpg.web.service.RankInfoDao;
 
 @Controller
@@ -36,18 +42,14 @@ public class RankController {
 	}
 	
 	@RequestMapping(value = "/rankinfoform", method = RequestMethod.GET)
-	public String rankinfoform(Model model,@ModelAttribute RankInfo rankinfo) {
+	public String rankinfoform(Model model,@RequestParam String id) {
 		RankInfoDao dao = sqlSession.getMapper(RankInfoDao.class);
 		
-		System.out.println("greeting---------"+rankinfo.getGreeting());
-		System.out.println("ididid---------"+rankinfo.getId());
+		RankInfo rankinfos = dao.selectOne(id);
 		
-		model.addAttribute("rankinfo",rankinfo);
-		
+		model.addAttribute("rankinfos",rankinfos);
 		return "rank/rankinfo_form";
 	}
-	
-	
 	
 	@RequestMapping(value = "/ranktestInsert", method = RequestMethod.POST)
 	public String ranktestInsert(Model model,@ModelAttribute RankTest ranktest) {
@@ -68,41 +70,32 @@ public class RankController {
 	}
 	
 	@RequestMapping(value = "/rankinfoGreeting", method = RequestMethod.POST)
-	public String rankinfoGreeting(Model model,@ModelAttribute RankInfo rankinfo,@RequestParam String id) {
-		RankInfoDao dao = sqlSession.getMapper(RankInfoDao.class);
-		
-		dao.updateRow(rankinfo);
-		RankInfo rankinfo_search = dao.selectOne(id);
-		
-		
-		System.out.println("update---------"+rankinfo.getGreeting());
-		System.out.println("ididid---------"+rankinfo.getId());
-		
-		model.addAttribute("rankinfo_search",rankinfo_search);
-		model.addAttribute("rankinfo",rankinfo);
-		return "rank/rankinfo_form";
-	}
-	
-	/*@RequestMapping(value = "/rankinfoGreeting", method = RequestMethod.POST)
-	@ResponseBody
 	public String rankinfoGreeting(Model model,@ModelAttribute RankInfo rankinfo) {
 		RankInfoDao dao = sqlSession.getMapper(RankInfoDao.class);
 		
 		dao.updateRow(rankinfo);
 		
-		System.out.println("update---------"+rankinfo.getGreeting());
-		System.out.println("ididid---------"+rankinfo.getId());
 		model.addAttribute("rankinfo",rankinfo);
 		return "rank/rankinfo_form";
-	}*/
+	}
 	
 	
-	/*@RequestMapping(value = "paymentDetail", method = RequestMethod.POST)
+	@RequestMapping(value = "/updateGreeting", method = RequestMethod.POST)
 	@ResponseBody
-	public Payment paymentDetail( @RequestParam int seq) {
-		PaymentDao dao=sqlSession.getMapper(PaymentDao.class);
-		payment = dao.selectRow(seq);
-		return payment;
-	}*/
+	public String updateGreeting(Model model,@ModelAttribute String data
+			,@RequestParam String id,@RequestParam String greeting) {
+		RankInfoDao dao = sqlSession.getMapper(RankInfoDao.class);
+		System.out.println("id값"+id );
+		System.out.println("인사값"+greeting);
+		System.out.println("인사값"+data);
+		/*dao.updateRow(rankinfo);
+		model.addAttribute("rankinfo",rankinfo)*/;
+		
+		
+		return "rank/rankinfo_form";
+	}
+	
+	
+	
 
 }

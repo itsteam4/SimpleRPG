@@ -1,5 +1,7 @@
 package com.github.itsteam4.simplerpg.web.service;
 
+import java.util.ArrayList;
+
 import com.github.itsteam4.simplerpg.web.entity.RankInfo;
 
 public interface RankInfoDao {
