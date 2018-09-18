@@ -49,6 +49,8 @@
           </div>
           <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
             <div class="card-body">
+            <img class="img-fluid rounded mb-3 mb-md-0" src="resources/image/guide/hero03.jpg" alt="">
+           &nbsp
             <img class="img-fluid rounded mb-3 mb-md-0" src="resources/image/guide/hero01.jpg" alt="">
            &nbsp <img class="img-fluid rounded mb-3 mb-md-0" src="resources/image/guide/hero02.jpg" alt="">
             <br>
