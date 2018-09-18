@@ -23,12 +23,13 @@
 		
 	</head>
 	<script type="text/javascript">
-	/* var socket;
+	/*
+	var socket;
 	if (!window.WebSocket) {
 	  window.WebSocket = window.MozWebSocket;
 	}
 	if (window.WebSocket) {
-	  socket = new WebSocket("ws://58.224.18.159:8888/websocket");
+	  socket = new WebSocket("ws://58.224.18.164:8888/websocket");
 	  socket.onmessage = function(event) {
 	    var ta = document.getElementById('responseText');
 	    ta.value = ta.value + '\n' + event.data
@@ -57,7 +58,8 @@
 		$('#btnclose').on('click',function(){
 			socket.close();
 	    });
-	}); */
+	});
+	*/
 	</script>
 	<body>
 	<form class="ingame_form">
