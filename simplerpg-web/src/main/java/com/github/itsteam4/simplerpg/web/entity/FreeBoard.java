@@ -9,7 +9,14 @@ public class FreeBoard {
 	private String f_writer;
 	private String f_content;
 	private String f_date;
+	private int f_hit;
 	
+	public int getF_hit() {
+		return f_hit;
+	}
+	public void setF_hit(int f_hit) {
+		this.f_hit = f_hit;
+	}
 	public int getF_no() {
 		return f_no;
 	}
@@ -40,7 +47,4 @@ public class FreeBoard {
 	public void setF_date(String f_date) {
 		this.f_date = f_date;
 	}
-	
-	
-	
 }

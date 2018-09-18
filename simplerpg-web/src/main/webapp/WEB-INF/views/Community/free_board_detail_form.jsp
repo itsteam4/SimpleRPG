@@ -1,18 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta name="decorator" content="freeboard_insert_forms"/>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="decorator" content="freeboard_detail_forms"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
+<title>자유게시판 입력 수정 페이지</title>
  <!-- Bootstrap core CSS -->
 <link href="resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <!-- Custom styles for this template -->
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-<title>Insert title here</title>
+
+
 <script type="text/javascript" src="resources/smarteditor/js/HuskyEZCreator.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript">
@@ -31,7 +33,6 @@
                 bUseVerticalResizer : true,    
                 // 모드 탭(Editor | HTML | TEXT) 사용 여부
                 bUseModeChanger : true,
-                fCreator: "createSEditor2"   
             }
         });
         //전송버튼
@@ -45,13 +46,13 @@
 </script>
 </head>
 <body>
-	<form action="FreeBoardInsert"  enctype="multipart request" class="freeboard_insert_form" method="post">
+	<form action="FreeDetailForms" class="freeboard_detail_form" method="post">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-1"></div>
 			<div class="card text-white bg-dark col-md-11 mb-3" style="right: 80px">
   				<div class="card-body">
-    				<h3>글쓰기</h3>
+    				<h3>자유게시판</h3>
   				</div>
 			</div>
 		</div>
@@ -60,23 +61,36 @@
 				<tbody>
 					<tr>
 						<th width="300">작성자</th>
-						<td width="300"><input name="f_writer" id="f_writer" type="text" size="45" value="${sessionid}" readonly="readonly"></td>
+						<td width="300"><input name="f_writer" id="f_writer" type="text" size="45" value="${boards.f_writer}" readonly="readonly"></td>
+					</tr>
+					<tr>
+						<th width="300">작성일자</th>
+						<td width="300"><input name="f_date" id="f_date" type="text" size="45" value="${boards.f_date}" readonly="readonly"></td>
 					</tr>
 					<tr>
 						<th>제목</th>
-						<td><input id="f_title" name="f_title" type="text" size="45"></td>
+						<td><input id="f_title" name="f_title" type="text" size="45" value="${boards.f_title}"></td>
 					</tr>
 					<tr>
 						<th>내용</th>
-						<td>
-								<textarea name="f_content" id="f_content" rows="10"
-									cols="100" style="width: 590px; height: 500px;"></textarea>
-								<input type="button" class="btn btn-warning" id="savebutton" value="작성">
-								<input type="button" class="btn btn-danger" id="returnbutton" value="목록">
+						<td align="center">
+									  <div>${boards.f_content}</div>
+						</td>
+					</tr>
+					<tr>
+						<th>댓글</th>
+						<td align="left">
+							<textarea  cols="10"></textarea>
+							
 						</td>
 					</tr>
 				</tbody>
 			</table>
+			<div align="center">
+			<input type="button" class="btn btn-info" id="returnsbuttons" value="목록">
+			<input type="button" class="btn btn-Dark" id="returnsbuttons" value="수정">
+			<input type="button" class="btn btn-danger" id="returnsbuttons" value="삭제">
+			</div>
 		</div>
 	</div>
 </form>	

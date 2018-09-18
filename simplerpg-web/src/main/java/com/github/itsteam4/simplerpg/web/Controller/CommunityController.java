@@ -1,5 +1,6 @@
 package com.github.itsteam4.simplerpg.web.Controller;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,12 +12,6 @@ import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.io.InputStream;
 import java.io.File;
-import java.util.List;
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
-
-
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +20,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import com.github.itsteam4.simplerpg.web.entity.Member;
 import com.github.itsteam4.simplerpg.web.entity.Editor;
 import com.github.itsteam4.simplerpg.web.entity.FreeBoard;
 import com.github.itsteam4.simplerpg.web.service.FreeBoardDAO;
@@ -51,18 +46,12 @@ public class CommunityController {
 		return "Community/screenshot_board_insert_form";
 	}
 	
-	
-//	동영상 게시판 이동
-	@RequestMapping(value="MediaFreeBoardForm",method=RequestMethod.GET)
-	public String MediaBoardForm() {
-		
-		return "Community/media_board_form";
-	}
-//	자유게시판 이동
+//	자유게시판 페이지 처리
 	@RequestMapping(value="FreeBoardForm",method=RequestMethod.GET)
 	public String FreeBoardForm(Model model) {
-		MemberDAO dao = sqlSession.getMapper(MemberDAO.class);
-		
+		FreeBoardDAO dao = sqlSession.getMapper(FreeBoardDAO.class);
+		ArrayList<FreeBoard> boards = dao.freeboardpagelist();
+		model.addAttribute("boards",boards);
 		return "Community/free_board_form";
 	}
 //	팁/노하우 게시판 이동
@@ -183,15 +172,25 @@ public class CommunityController {
 	}
 //	자유게시판 게시글 등록
 	@RequestMapping(value="FreeBoardInsert",method=RequestMethod.POST)
-	public String BoardInsert(@ModelAttribute FreeBoard fboard) {
+	public String FreeBoardInsert(Model model,@ModelAttribute FreeBoard boards) {
 		FreeBoardDAO dao = sqlSession.getMapper(FreeBoardDAO.class);
-		int result = dao.freeinsertrow(fboard);
+		int result = dao.freeinsertrow(boards);
 		if(result>0) {
 			System.out.println("저장되었습니다: "+result);
 		}else {
 			System.out.println("저장 실패했습니다.");
 		}
-		
+		model.addAttribute("boards",boards);
 		return "redirect:FreeBoardForm";
 	}
+//	자유게시판 댓글 페이징 이동
+	@RequestMapping(value="freeboarddetailform",method=RequestMethod.GET)
+	public String FreeBoardPageForm(Model model,@RequestParam int f_no) {
+		System.out.println("디테일 페이지 이동");
+		FreeBoardDAO dao = sqlSession.getMapper(FreeBoardDAO.class);
+		FreeBoard boards = dao.freeboardselectone(f_no);
+		model.addAttribute("boards",boards);
+		return "Community/free_board_detail_form";
+	}
+	
 }

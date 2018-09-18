@@ -6,11 +6,18 @@
  <resultMap type="com.github.itsteam4.simplerpg.web.entity.FreeBoard" id="freeboardMap">
  </resultMap>
   	<insert id="freeinsertrow" parameterType="hashMap">
-  		insert into freeboard_tbl_board(f_no,f_title,f_writer,f_content,f_date
+  		insert into freeboard_tbl_board(f_no,f_title,f_writer,f_content,f_date,f_hit
   		)values(
   		(select ifnull(max(f_no)+1,1) from freeboard_tbl_board alias_no),#{f_title,jdbcType=VARCHAR},#{f_writer,jdbcType=VARCHAR},
-  		#{f_content,jdbcType=VARCHAR},#{f_date,jdbcType=VARCHAR}
+  		#{f_content,jdbcType=VARCHAR},now(),#{f_hit,jdbcType=INTEGER}
   		)
   	</insert>
+  	<select id="freeboardpagelist" parameterType="hashMap" resultMap="freeboardMap">
+  		select * from freeboard_tbl_board 
+  		order by f_no ASC
+  	</select>
+  	<select id="freeboardselectone" parameterType="Integer" resultMap="freeboardMap">
+  		select * from freeboard_tbl_board where f_no=#{f_no}
+  	</select>
  </mapper>
 

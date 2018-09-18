@@ -9,6 +9,7 @@
 	
 </head>
 <body>
+	<form action="FreeBoardForm" method="GET">
 		<div class="row" style="text-align: center;margin-top: 50px">
 				<div class="col-md-12">
 					<h1>자유 게시판</h1>
@@ -28,20 +29,15 @@
 						</tr>
 					</thead>
 					<tbody>
+						<c:forEach var="boards" items="${boards}">
 						<tr>
-							<td>11</td>
-							<td>kjw671</td>
-							<td>예비군 가기 싫다</td>
-							<td>2018-09-10</td>
-							<td>32</td>
+							<td>${boards.f_no}</td>
+							<td>${boards.f_writer}</td>
+							<td><a href="freeboarddetailform?f_no=${boards.f_no}">${boards.f_title}</a></td>
+							<td>${boards.f_date}</td>
+							<td>${boards.f_hit}</td>
 						</tr>
-						<tr>
-							<td>12</td>
-							<td>qwert4932</td>
-							<td>좀만 참아</td>
-							<td>2018-09-10</td>
-							<td>120</td>
-						</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 				</div>
@@ -62,6 +58,6 @@
 				</c:if>	
 				</div>
 		</div>
-			
+	</form>		
 </body>
 </html>
