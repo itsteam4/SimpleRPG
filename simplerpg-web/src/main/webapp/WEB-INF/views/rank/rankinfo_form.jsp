@@ -7,8 +7,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
-
-
 </head>
 <body >
 <!-- background:url('resources/image/rank/bg_hope.jpg'); -->
@@ -40,7 +38,7 @@
 		</div>
 		
 			<div class="col-md-6">
-			<form  action="rankinfoGreeting" method="post" >
+			<form>
 			<c:choose>
             		<c:when test="${sessionid == null}">
             			<div style="padding-top:20px; padding-right:350px; padding-bottom:0px; padding-left:0px" >
@@ -48,19 +46,35 @@
 							<label>한줄 인사말</label>
 						</div>
 					</c:when>
-            		<c:otherwise>
+            		<c:when test="${(rankinfos.greeting == null) &&(rankinfos.id ==null) && (sessionid != null)}">
             			<div style="padding-top:20px; padding-right:260px; padding-bottom:0px; padding-left:0px" >
 							<img src="resources/image/rank/ico_hope_greeting.png" alt="server" width="22px" height="22px">
-							<label>한줄 인사말</label>
-							<input class="btn_mdf" value="" type="submit" 
-							style="background:url('resources/image/rank/btn_modify.gif') no-repeat 0 0;
-							width:44px; height:18px; border:none; padding:0;vertical-align: middle; cursor:pointer; ">
+							<label>첫등록시</label>
+							<a href ="insertGreeting">
+								<input class="btn_mdf" value="" 
+								style="background:url('resources/image/rank/btn_modify.gif') no-repeat 0 0;
+								width:44px; height:18px; border:none; padding:0;vertical-align: middle; cursor:pointer; ">
+							</a>
 						</div>
-            		</c:otherwise>
+            		</c:when>
+            		<c:when test="${(rankinfos.greeting != null)||(rankinfos.greeting == null) &&(rankinfos.id !=null) && (sessionid != null)}">
+            			<div style="padding-top:20px; padding-right:260px; padding-bottom:0px; padding-left:0px" >
+							<img src="resources/image/rank/ico_hope_greeting.png" alt="server" width="22px" height="22px">
+							
+							<label>두번째 등록하는경우</label>
+							<button name="updatebtn" class="updatebtn" type="submit"
+							style="background:url('resources/image/rank/btn_modify.gif') no-repeat 0 0; 
+							width:44px; height:18px; border:none; padding:0;vertical-align: middle; cursor:pointer; ">
+							
+							</button>
+							
+						</div>
+            		</c:when>
             	</c:choose>
 			<div style="padding-top:5px; padding-right:0px; padding-bottom:0px; padding-left:40px">
 				<input type="text" id="id" name="id" value="${sessionid}" style="display:none;">
-				<textarea class="form-control" rows="3" id="greeting" name="greeting">${rankinfo.greeting}</textarea>
+				<textarea class="form-control" rows="3" id="greeting" name="greeting"
+				>${rankinfos.greeting}</textarea>
 			</div>
 			</form>
 		</div>
@@ -471,6 +485,38 @@
 	
 	
 </div>	
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<script type="text/javascript"> 
+	$(document).ready(function(){ 
+		
+		var id = $('#id').val();
+		var greeting = $('#greeting').val();
+		$('.updatebtn').on('click',function(){
+			alert('id : '+id);
+			alert('인사 : '+greeting);
+			$.ajax({
+				type:'POST',
+				data : "id="+id,
+				datatype:'json',
+				url : 'updateGreeting',
+				success : function(data){
+					alert(9999);
+				},
+				error : function(xhr, status, error){
+					alert('ajax error'+error );
+				}
+			});
+		});
+		$('.whybtn').on('click',function(){
+			alert(900);
+			
+		});
+		
+    });
+
+</script>
 
 </body>
 </html>
