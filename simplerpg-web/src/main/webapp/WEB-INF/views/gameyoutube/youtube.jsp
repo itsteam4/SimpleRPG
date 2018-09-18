@@ -21,7 +21,7 @@
 
       <ol class="breadcrumb"style="margin-top: 50px">
         <li class="breadcrumb-item" >
-          <a href="index.html" >Home</a>
+          <a href="IndexForm" >Home</a>
         / 게임 동영상
       </ol>
 
@@ -60,15 +60,13 @@
         <div class="col-lg-6 portfolio-item">
           <div class="card h-100">
             <a href="#">
-            <iframe width="530" height="400" src="https://www.youtube.com/embed/UC2v1YF3-QE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            
+           <iframe width="530" height="400" src="https://www.youtube.com/embed/3S8uVeDzx14" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="https://www.youtube.com/watch?v=UC2v1YF3-QE">[열혈강호M] 홍보모델 심형탁 인사 영상</a>
+                <a href="https://www.youtube.com/watch?time_continue=5&v=3S8uVeDzx14">[바람의나라] 2018년 신규 직업 2종 공개!</a>
               </h4>
-              <p class="card-text">
-              &nbsp
+              <p class="card-text">&nbsp
               </p>
             </div>
           </div>
@@ -135,7 +133,20 @@
           </div>
         </div>
       </div>
-      <!-- /.row -->
+      
+      
+      <input type="hidden" id="video" value=""/> <!-- 파일명 확인용 -->
+
+			<video autoplay="autoplay" controls="controls" width="530" height="400"> 
+				<source src="http://localhost:8085/itsteam4/youtube/resources/image/guide/game.mp4" type="video/mp4">
+			</video>
+
+			<video width="320" height="240" controls> <source
+				src="game.mp4" type="video/mp4"> <source src="game.mp4"
+				type="video/mp4"> Your browser does not support the video
+			tag. </video>
+
+			<!-- /.row -->
 
       <!-- Pagination -->
       <hr>
@@ -146,6 +157,7 @@
 			</ul>
 		</div>
     <!-- /.container -->
+   
 	</form>
 </body>
 </html>

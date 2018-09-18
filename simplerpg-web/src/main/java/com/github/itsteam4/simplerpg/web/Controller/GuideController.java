@@ -27,8 +27,4 @@ public class GuideController {
 		return "guide/monster_guide";
 	}
 
-	
-	
-
-	
 }
