@@ -81,14 +81,20 @@
 			<div class="row">
 				<div class="col-md-6">
 					<a href="#"> <img class="img-fluid rounded mb-3 mb-md-0"
-						src="resources/image/guide/comingsoon.jpg" alt="">
+						src="resources/image/guide/goblin_07.jpg" alt="">
 					</a>
 				</div>
 				<div class="col-md-6">
-					<h3 style="color: #FF4500">Coming Soon</h3>
-					<p>
-					<br><br><br>
-						슬라임, 녹색고블린, 붉은 고블린 보다 한층 사악하고 강한<br> 적이 나타날 예정입니다.
+					<h3 style="color: #FF4500">요정 도우미</h3>
+					<p><br><br>
+					어느정도 레벨이 올라가야 도전 할 수 있는 몬스터 <br>
+					요정 도우미는 이름과는 반대로 요정들이 만든 것들은 죄다 혐오한다.<br>
+					그 이유는 게임을 하다보면 자연스럽게 알 수 있다.<br>
+					붉은 고블린 보다 더 강력한 빠른 기동력, 공격력 또한 갖고 있다. <br>
+					혹시 레벨이 부족하다고 생각이 들면, <br>요정 도우미를 보는 즉시 몸을 피해야 한다.
+					
+					<br><br>
+						
 						 
 					</p>
 
