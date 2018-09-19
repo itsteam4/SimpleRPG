@@ -26,7 +26,7 @@
 		            	<img src="resources/image/rank/ico_hope_name.png" alt="characname" width="22px" height="22px">
 		            	캐릭터명
 	            	</dt>
-		            <dd>신이내린한분</dd>
+		            <dd>${members.id}</dd>
 		            
 		            <img src="resources/image/rank/bg_use_info_bar.png" alt="bar" width="140px">
 		            
@@ -38,38 +38,50 @@
 		</div>
 		
 			<div class="col-md-6">
-			<form>
+			<form >
 			<c:choose>
             		<c:when test="${sessionid == null}">
-            			<div style="padding-top:20px; padding-right:350px; padding-bottom:0px; padding-left:0px" >
+            			<div style="padding-top:20px; padding-right:300px; padding-bottom:0px; padding-left:0px" >
 							<img src="resources/image/rank/ico_hope_greeting.png" alt="server" width="22px" height="22px">
 							<label>한줄 인사말</label>
 						</div>
 					</c:when>
-            		<c:when test="${(rankinfos.greeting == null) &&(rankinfos.id ==null) && (sessionid != null)}">
-            			<div style="padding-top:20px; padding-right:260px; padding-bottom:0px; padding-left:0px" >
+            		<c:when test="${(sessionid != null) && (members.id != sessionid)}">
+            			<div style="padding-top:20px; padding-right:280px; padding-bottom:0px; padding-left:0px" >
 							<img src="resources/image/rank/ico_hope_greeting.png" alt="server" width="22px" height="22px">
-							<label>첫등록시</label>
-							<a href ="insertGreeting">
-								<input class="btn_mdf" value="" 
-								style="background:url('resources/image/rank/btn_modify.gif') no-repeat 0 0;
-								width:44px; height:18px; border:none; padding:0;vertical-align: middle; cursor:pointer; ">
-							</a>
+							<label>본인계정아님</label>
 						</div>
             		</c:when>
-            		<c:when test="${(rankinfos.greeting != null)||(rankinfos.greeting == null) &&(rankinfos.id !=null) && (sessionid != null)}">
-            			<div style="padding-top:20px; padding-right:260px; padding-bottom:0px; padding-left:0px" >
+            		<c:when test="${(sessionid != null)&&(members.id==sessionid)&&(rankinfos.id == null)}">
+            			<div style="padding-top:20px; padding-right:280px; padding-bottom:0px; padding-left:0px" >
 							<img src="resources/image/rank/ico_hope_greeting.png" alt="server" width="22px" height="22px">
 							
-							<label>두번째 등록하는경우</label>
-							<button name="updatebtn" class="updatebtn" type="submit"
+							<label>한줄 인사말</label>
+							<button name="updatebtn" class="insertbtn" type="button" 
+							onclick="insertGreeting"
 							style="background:url('resources/image/rank/btn_modify.gif') no-repeat 0 0; 
 							width:44px; height:18px; border:none; padding:0;vertical-align: middle; cursor:pointer; ">
+							</button> 
+						</div>
+            		</c:when>
+            		<c:when test="${(sessionid != null)&&(members.id==sessionid)&&(rankinfos.id !=null)}">
+            			<div style="padding-top:20px; padding-right:280px; padding-bottom:0px; padding-left:0px" >
+							<img src="resources/image/rank/ico_hope_greeting.png" alt="server" width="22px" height="22px">
 							
-							</button>
+							<label>한줄 인사말</label>
+							<button name="updatebtn" class="updatebtn" type="button" 
+							style="background:url('resources/image/rank/btn_modify.gif') no-repeat 0 0; 
+							width:44px; height:18px; border:none; padding:0;vertical-align: middle; cursor:pointer; ">
+							</button> 
 							
 						</div>
             		</c:when>
+            		<c:otherwise>
+            			<div style="padding-top:20px; padding-right:350px; padding-bottom:0px; padding-left:0px" >
+							<img src="resources/image/rank/ico_hope_greeting.png" alt="server" width="22px" height="22px">
+							<label>한줄 인사말</label>
+						</div>
+            		</c:otherwise>
             	</c:choose>
 			<div style="padding-top:5px; padding-right:0px; padding-bottom:0px; padding-left:40px">
 				<input type="text" id="id" name="id" value="${sessionid}" style="display:none;">
@@ -489,33 +501,39 @@
 <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
 
 <script type="text/javascript"> 
-	$(document).ready(function(){ 
-		
-		var id = $('#id').val();
-		var greeting = $('#greeting').val();
+	$(document).ready(function(){
 		$('.updatebtn').on('click',function(){
-			alert('id : '+id);
-			alert('인사 : '+greeting);
+			var greeting = document.getElementById("greeting").value;
+			var id = $('#id').val();
 			$.ajax({
 				type:'POST',
-				data : "id="+id,
+				data : {'id':id,
+						'greeting':greeting},
 				datatype:'json',
 				url : 'updateGreeting',
 				success : function(data){
-					alert(9999);
 				},
 				error : function(xhr, status, error){
-					alert('ajax error'+error );
 				}
 			});
 		});
-		$('.whybtn').on('click',function(){
-			alert(900);
-			
+		$('.insertbtn').on('click',function(){
+			var greeting = document.getElementById("greeting").value;
+			var id = $('#id').val();
+			$.ajax({
+				type:'POST',
+				data : {'id':id,
+						'greeting':greeting},
+				datatype:'json',
+				url : 'insertGreeting',
+				success : function(data){
+					location.reload();
+				},
+				error : function(xhr, status, error){
+				}
+			});
 		});
-		
     });
-
 </script>
 
 </body>
