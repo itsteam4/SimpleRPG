@@ -29,7 +29,7 @@
 					<div class="card h-40">
 						<img src="resources/image/guide/item6.jpg"> <br> <br>
 						<div class="card-body">
-							<h4 class="card-title" style="color: #20B2AA">슬라임 검</h4>
+							<h4 class="card-title" style="color: #20B2AA">슬라임 소드</h4>
 							<p class="card-text">
 								기본적이면서 엄청난 무기 슬라임 검은, 첫 몬스터 슬라임을 처치 하기 위해 사용되는 아주 유용한 무기이다<br>
 								기본적으로 방수기능과 친환경 소재로 만들어서 주인공이 사용하기 아주 적합한 초급 몬스터 처리 도구 중 하나이다.<br>
@@ -43,7 +43,7 @@
 					<div class="card h-40">
 						<img src="resources/image/guide/item7.jpg"> <br> <br>
 						<div class="card-body">
-							<h4 class="card-title" style="color: #20B2AA">슬라임 방패</h4>
+							<h4 class="card-title" style="color: #20B2AA">슬라임 쉴드</h4>
 							<p class="card-text">
 								슬라임 검과 함께 사용하면, 더 큰 효과를 볼 수 있는 슬라임 방패이다.<br> 날렵한 슬라임의 몸통
 								박치기를 피하기 위해서 쓰면 아주 요용한 방패 이며,<br> 슬라임뿐만 아니라 다른 몬스터에게서 받을 수
@@ -58,7 +58,7 @@
 					<div class="card h-40">
 						<img src="resources/image/guide/item3.jpg"> <br> <br>
 						<div class="card-body">
-							<h4 class="card-title" style="color: #20B2AA">강철 검</h4>
+							<h4 class="card-title" style="color: #20B2AA">철 소드</h4>
 							<p class="card-text">
 								슬라임들을 처치 하다보면, 레벨이 상승하며 얻는 슬라임 검 보다 더 내구성과 공격성이 증가하는 무기이다 <br>
 								초반을 조금 넘기고 나면 얻을수 있는 무기,<br> 하지만 이전까지의 슬라임 검에 비해서 공격력이 상당히
@@ -73,13 +73,56 @@
 
 				<div class="col-md-4 mb-4" style="margin-top: 50px">
 					<div class="card h-40">
-						<img src="resources/image/guide/item4.jpg"> <br> <br>
+						<img src="resources/image/guide/item5.jpg"> <br> <br>
 						<div class="card-body">
-							<h4 class="card-title" style="color: #20B2AA">강철 방패</h4>
+							<h4 class="card-title" style="color: #20B2AA">철 쉴드</h4>
 							<p class="card-text">
 								강철 검과는 달리 신체에 무기가 닿기 전에 차단하는 방어구로,<br> 특히 슬라임이나 고블린 등에 맞아
-								전달되는 충격으로부터도 신체를 <br>갑옷보다도 더 잘 보호해줄 수 있었다. <br>
+								전달되는 충격으로부터도 신체를 <br>갑옷보다도 더 잘 보호해줄 수 있었다. <br><br><br><br>
 
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-4 mb-4" style="margin-top: 50px">
+					<div class="card h-40">
+						<img src="resources/image/guide/item9.jpg"> <br> <br>
+						<div class="card-body">
+							<h4 class="card-title" style="color: #20B2AA">강철 소드</h4>
+							<p class="card-text">
+								막강한 한방 공격력을 갖춘 무기다.<br>
+								전체 무기중에서도 비교적 빠른 납도 속도와 빠른 발도 공격(내려베기)을<br>
+								가지고 있기 때문에 납발도를 반복하며 한 대씩 치고 빠지는 식의 <br>
+								사냥에 특화된 무기로 볼 수 있다.<br><br><br>
+							</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-4 mb-4" style="margin-top: 50px">
+					<div class="card h-40">
+						<img src="resources/image/guide/item4.jpg"> <br> <br>
+						<div class="card-body">
+							<h4 class="card-title" style="color: #20B2AA">강철 쉴드</h4>
+							<p class="card-text">
+								방어력 전반의 수치가 기존 쉴드에 비해 훌륭하며,
+								 물리적 피해 80% 정도<br> 흡수하는 아주 효과적인 쉴드이고, <br>
+								 적당한 버티기 능력도 있기에 소형 방패 보다 좀 더 방어적인 운용이 <br>가능한 것이 특징이다.<br>
+								  특히 어느정도는 굴러서 회피가 가능 하다.<br><br>
+							</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-4 mb-4" style="margin-top: 50px">
+					<div class="card h-40">
+						<img src="resources/image/guide/comingsoon.jpg"> <br> <br>
+						<div class="card-body">
+							<h4 class="card-title" style="color: #20B2AA">Coming Soon</h4>
+							<p class="card-text">
+								기존에 있던, 무기와는 비교할 수 없을 <br>정도로 강력하고, 정교한 무기를<br> 만들고 있습니다 <br>
+								많은 기대와 응원 부탁드리겠습니다.<br><br>
 							</p>
 						</div>
 					</div>
@@ -97,7 +140,7 @@
 						</div>
 					</div>
 				</div>
-
+				
 				<div class="col-md-4 mb-4" style="margin-top: 50px">
 					<div class="card h-40">
 						<img src="resources/image/guide/comingsoon.jpg"> <br> <br>
