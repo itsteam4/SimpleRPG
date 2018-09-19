@@ -30,6 +30,23 @@ public class RankController {
 	private RankTest ranktest;
 	@Autowired
 	private RankInfo rankinfo;
+	@Autowired
+	Member member;
+	
+	@RequestMapping(value = "/ranktestInsert", method = RequestMethod.POST)
+	public String ranktestInsert(Model model,@ModelAttribute RankTest ranktest) {
+		RankTestDao dao = sqlSession.getMapper(RankTestDao.class);
+		int result=dao.insertRow(ranktest);
+		String aaa="";
+		if(result > 0)
+			aaa="저장되었습니다.";
+		else
+			aaa="저장 실패입니다.";
+		
+		model.addAttribute("aaa",aaa); 
+		model.addAttribute("ranktest",ranktest);
+		return "rank/result";
+	}
 	
 	@RequestMapping(value = "/dbinserform", method = RequestMethod.GET)
 	public String dbinserform() {
@@ -42,57 +59,41 @@ public class RankController {
 	}
 	
 	@RequestMapping(value = "/rankinfoform", method = RequestMethod.GET)
-	public String rankinfoform(Model model,@RequestParam String id) {
+	public String rankinfoform(Model model,@RequestParam String id,@ModelAttribute Member member) {
 		RankInfoDao dao = sqlSession.getMapper(RankInfoDao.class);
+		MemberDAO mdao = sqlSession.getMapper(MemberDAO.class);
 		
 		RankInfo rankinfos = dao.selectOne(id);
+		Member members = mdao.selectOne(id);
+		
 		
 		model.addAttribute("rankinfos",rankinfos);
+		model.addAttribute("members",members);
 		return "rank/rankinfo_form";
 	}
 	
-	@RequestMapping(value = "/ranktestInsert", method = RequestMethod.POST)
-	public String ranktestInsert(Model model,@ModelAttribute RankTest ranktest) {
-		RankTestDao dao = sqlSession.getMapper(RankTestDao.class);
-		int result=dao.insertRow(ranktest);
-		String aaa="";
-		if(result > 0)
-			aaa="저장되었습니다.";
-		else
-			aaa="저장 실패입니다.";
-		
-		System.out.println("image"+ranktest.getStr2());
-		
-		
-		model.addAttribute("aaa",aaa); 
-		model.addAttribute("ranktest",ranktest);
-		return "rank/result";
-	}
 	
-	@RequestMapping(value = "/rankinfoGreeting", method = RequestMethod.POST)
-	public String rankinfoGreeting(Model model,@ModelAttribute RankInfo rankinfo) {
+	
+	@RequestMapping(value = "/insertGreeting", method = RequestMethod.POST)
+	@ResponseBody
+	public String insertGreeting(Model model,@ModelAttribute RankInfo rankinfo) {
 		RankInfoDao dao = sqlSession.getMapper(RankInfoDao.class);
+		System.out.println("id값"+rankinfo.getId());
+		System.out.println("인사값2"+rankinfo.getGreeting());
+		dao.insertRow(rankinfo);
 		
-		dao.updateRow(rankinfo);
-		
-		model.addAttribute("rankinfo",rankinfo);
-		return "rank/rankinfo_form";
+		return "";
 	}
 	
 	
 	@RequestMapping(value = "/updateGreeting", method = RequestMethod.POST)
 	@ResponseBody
-	public String updateGreeting(Model model,@ModelAttribute String data
-			,@RequestParam String id,@RequestParam String greeting) {
+	public String updateGreeting(Model model,@ModelAttribute RankInfo rankinfo) {
 		RankInfoDao dao = sqlSession.getMapper(RankInfoDao.class);
-		System.out.println("id값"+id );
-		System.out.println("인사값"+greeting);
-		System.out.println("인사값"+data);
-		/*dao.updateRow(rankinfo);
-		model.addAttribute("rankinfo",rankinfo)*/;
+		System.out.println("인사값2"+rankinfo.getGreeting());
+		dao.updateRow(rankinfo);
 		
-		
-		return "rank/rankinfo_form";
+		return "";
 	}
 	
 	
