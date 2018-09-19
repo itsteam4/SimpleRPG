@@ -15,7 +15,7 @@
     <div class="container">
 
       <!-- Page Heading/Breadcrumbs -->
-      <h1 class="mt-4 mb-3">2D GAME
+      <h1 class="mt-4 mb-3">Simple RPG
         <small style="color: #FF0000">YOUTUBE</small>
       </h1>
 
@@ -133,18 +133,6 @@
           </div>
         </div>
       </div>
-      
-      
-      <input type="hidden" id="video" value=""/> <!-- 파일명 확인용 -->
-
-			<video autoplay="autoplay" controls="controls" width="530" height="400"> 
-				<source src="http://localhost:8085/itsteam4/youtube/resources/image/guide/game.mp4" type="video/mp4">
-			</video>
-
-			<video width="320" height="240" controls> <source
-				src="game.mp4" type="video/mp4"> <source src="game.mp4"
-				type="video/mp4"> Your browser does not support the video
-			tag. </video>
 
 			<!-- /.row -->
 
