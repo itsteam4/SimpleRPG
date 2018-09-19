@@ -65,7 +65,7 @@ public class CommunityController {
 		return "Community/free_board_insert_form";
 	}
 // 자유게시판 단일 파일 업로드
-	@RequestMapping("/photoUpload")
+	@RequestMapping(value="/photoUpload")
 	public String photoUpload(HttpServletRequest request, Editor editor){
 	    String callback = editor.getCallback();
 	    String callback_func = editor.getCallback_func();
@@ -78,7 +78,7 @@ public class CommunityController {
 	            //파일 기본경로
 	            String defaultPath = request.getSession().getServletContext().getRealPath("/");
 	            //파일 기본경로 _ 상세경로
-	            String path = defaultPath + "resource" + File.separator + "photo_upload" + File.separator;             
+	            String path = defaultPath +File.separator+"resources" + File.separator + "photo_upload" + File.separator;             
 	            File file = new File(path);
 	            System.out.println("path:"+path);
 	            //디렉토리 존재하지 않을경우 디렉토리 생성
@@ -99,7 +99,7 @@ public class CommunityController {
 	    return "redirect:" + callback + "?callback_func="+callback_func+file_result;
 	}
 // 자유게시판 다중 파일 업로드
-	@RequestMapping("/file_uploader_html5")
+	@RequestMapping(value="/file_uploader_html5")
 	public void FileUpload(HttpServletRequest request,HttpServletResponse response) {
 		try {
 //			파일정보
@@ -130,9 +130,8 @@ public class CommunityController {
 			}else {
 //				이미지이므로 신규 파일로 디렉토리 설정 및 업로드
 //				파일 기본경로
-				String dftFilePath = request.getSession().getServletContext().getRealPath("/");
 //				파일 기본경로_상세경로
-				String filePath = dftFilePath +"resources"+File.separator+"editor"+File.separator+"multiupload" + File.separator;
+				String filePath = "D:/simplerpg/simplerpg-web/src/main/webapp/resources/fileupload/";
 				File file = new File(filePath);
 				if(!file.exists()) {
 					file.mkdirs();
@@ -159,7 +158,7 @@ public class CommunityController {
 				sFileInfo += "&bNewLine=true"; 
 				// img 태그의 title 속성을 원본파일명으로 적용시켜주기 위함
 				sFileInfo += "&sFileName="+ filename;
-				sFileInfo += "&sFileURL="+"/resources/editor/multiupload/"+realFileNm;
+				sFileInfo += "&sFileURL="+"/resources/fileupload/"+realFileNm;
 				PrintWriter print = response.getWriter();
 				print.print(sFileInfo);
 				print.flush();
@@ -171,16 +170,17 @@ public class CommunityController {
 		}
 	}
 //	자유게시판 게시글 등록
-	@RequestMapping(value="FreeBoardInsert",method=RequestMethod.POST)
-	public String FreeBoardInsert(Model model,@ModelAttribute FreeBoard boards) {
+	@RequestMapping(value="FreeBoardInsertsubmit",method=RequestMethod.POST)
+	public String FreeBoardInsert(@ModelAttribute FreeBoard boards,HttpServletRequest request) {
 		FreeBoardDAO dao = sqlSession.getMapper(FreeBoardDAO.class);
 		int result = dao.freeinsertrow(boards);
+		System.out.println("컨텐츠값: "+request.getParameter("f_content"));
 		if(result>0) {
 			System.out.println("저장되었습니다: "+result);
 		}else {
 			System.out.println("저장 실패했습니다.");
 		}
-		model.addAttribute("boards",boards);
+		request.getParameter("f_content");
 		return "redirect:FreeBoardForm";
 	}
 //	자유게시판 댓글 페이징 이동

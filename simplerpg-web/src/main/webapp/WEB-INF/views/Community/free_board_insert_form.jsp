@@ -39,13 +39,13 @@
             //id가 smarteditor인 textarea에 에디터에서 대입
             obj.getById["f_content"].exec("UPDATE_CONTENTS_FIELD", []);
             //폼 submit
-            $(".freeboard_insert_form").submit();
+            $("#frm").submit();
         });
     });
 </script>
 </head>
 <body>
-	<form action="FreeBoardInsert"  enctype="multipart request" class="freeboard_insert_form" method="post">
+	<form action="FreeBoardInsertsubmit" enctype="multipart/form-data" id="frm" method="post">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-1"></div>
@@ -79,6 +79,6 @@
 			</table>
 		</div>
 	</div>
-</form>	
+	</form>
 </body>
 </html>
