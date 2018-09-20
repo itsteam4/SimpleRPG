@@ -9,6 +9,8 @@
 
 </head>
 <body >
+
+
 <!-- background:url('resources/image/rank/bg_hope.jpg'); -->
 <div class="container" style=" margin-bottom:40px">
 
@@ -437,25 +439,56 @@
 	<!--경계-------------------------------------------------------- ----------- -->
 	<!--경계-------------------------------------------------------- -------------- -->
 	<!--경계-------------------------------------------------------- ---------------- -->
-	
-	<div class="row" id="five" style ="margin-top:50px; margin-left:45px;">
-			<div style="padding-right:900px">
-				<img src="resources/image/rank/ico_hope_stit.png" alt="characterinfo" width="22px" height="22px">
-				<label style="font-size:18px; color:#685e60;">@@님의 방명록</label>
+	<c:choose>
+  		<c:when test="${sessionid == null}">
+  			<div class="row" id="five" style ="margin-top:50px; margin-left:45px;">
+				<div style="padding-right:800px">
+					<img src="resources/image/rank/ico_hope_stit.png" alt="characterinfo" width="22px" height="22px">
+					<label style="font-size:18px; color:#685e60;">${members.id}님의 방명록</label>
+				</div>
 			</div>
-	</div>
-	
-	<div class="row" style="width:100%; height:82px; margin-left:45px;
-		background:url('resources/image/rank/coment_bg02.png') no-repeat 0 0;">
-        <span class="pull-left" id="commentSpan" style="width:74px; height:82px; background:url('resources/image/rank/coment_count_bg.jpg')right center;
-        text-align:center">
-        	<strong style="line-height:82px;">0</strong>/200
-        </span>
-        <textarea class="pull-left" 
-        style="width:850px; height:74px; padding:6px 0 0 20px; background-color:#fff; margin-top:1px" 
-        name="txtComment" id="txtComment" cols="30" rows="10" placeholder="로그인하시면 방명록 등록이 가능합니다." disabled="disabled"></textarea>
-        <span class="pull-left" ><a href="javascript:;" onclick="alert('로그인 후 이용 바랍니다.')"><img src="http://s.nx.com/S2/Game/baram/2016/renewal/coment_add_btn02.jpg" alt="댓글등록"></a></span>
-    </div>	
+			<div class="row" style="width:100%; height:82px; margin-left:45px;
+				background:url('resources/image/rank/coment_bg02.png') no-repeat 0 0;">
+		        <span class="pull-left" id="commentSpan" style="width:74px; height:82px; background:url('resources/image/rank/coment_count_bg.jpg')right center;
+		        text-align:center">
+		        	<strong style="line-height:82px;">0</strong>/200
+		        </span>
+		        <textarea class="pull-left" 
+		        style="width:850px; height:80px; padding:6px 0 0 20px; background-color:#fff; margin-top:1px" 
+		        name="txtComment" id="txtComment" cols="30" rows="10" placeholder="로그인하시면 방명록 등록이 가능합니다." disabled="disabled"></textarea>
+		        <span class="pull-left" ><a href="javascript:;" onclick="alert('로그인 후 이용 바랍니다.')"><img src="http://s.nx.com/S2/Game/baram/2016/renewal/coment_add_btn02.jpg" alt="댓글등록"></a></span>
+		    </div>	
+		</c:when>
+		<c:otherwise>
+		<form name = "number">
+		
+			<div class="row" id="five" style ="margin-top:50px; margin-left:45px;">
+				<div style="padding-right:800px">
+					<img src="resources/image/rank/ico_hope_stit.png" alt="characterinfo" width="22px" height="22px">
+					<label style="font-size:18px; color:#685e60;">${sessionid}님의 방명록</label>
+				</div>
+			</div>
+			<div class="row" style="width:100%; height:82px; margin-left:45px;
+				background:url('resources/image/rank/coment_bg02.png') no-repeat 0 0;">
+		        <span class="pull-left" id="commentSpan" style="width:80px; height:82px; background:url('resources/image/rank/coment_count_bg.jpg')right center;
+		        text-align:center">
+		        	<input size=8 type="text" name="text2" 
+		        	style="background-color:#dedede;border:none; padding:0;
+		        	text-align:center; margin-top:26px;">
+		        </span>
+		        <textarea class="form-control"cols="25" rows="10" id="visitbook" name="visitbook"
+		        onfocus="number_of_Characters()" 
+		        style="float:left; width:850px; height:80px; padding:6px 0 0 20px; background-color:#fff; margin-top:1px" 
+		        ></textarea>
+		        <span class="pull-left" >
+			        <a href="#" onclick="visitbook()">
+			        <img src="http://s.nx.com/S2/Game/baram/2016/renewal/coment_add_btn02.jpg" alt="댓글등록">
+			        </a>
+		        </span>
+		    </div>
+		    </form>	
+		</c:otherwise>
+	</c:choose>
     
     <div class="pull-left" style="margin-top:50px">
     	<p style="widht:100%; font-size:14px; color:#7c7c7c;">총
@@ -469,14 +502,14 @@
 			<table class="table">
 			    <thead>
 			      <tr>
+			        <th>날짜</th>
 			        <th>캐릭터명</th>
-			        <th>레벨</th>
 			        <th>내용</th>
 			      </tr>
 			    </thead>
 			    <tbody>
 			      <tr>
-			        <td>튀김티모</td>
+			        <td>${rankvisitbook.date}</td>
 			        <td>5</td>
 			        <td>점화를 든 티모</td>
 			      </tr>
@@ -493,15 +526,60 @@
 			    </tbody>
 			  </table>
 			</div>
-	
-	
-	
 </div>	
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
 <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
 
 <script type="text/javascript"> 
+
+
+function number_of_Characters() {
+		
+	var t1v = document.number.visitbook.value;
+	var t2v = t1v.length;
+		document.number.text2.value = t2v + "/200";
+	if(t2v >= 200) {
+		alert("더이상 입력할 수 없습니다.");
+		document.number.visitbook.value = "";
+	}
+	setTimeout("number_of_Characters()" ,0);
+}
+
+
+	function visitbook(){
+		var visitbook = document.getElementById("visitbook").value;
+		var id = $('#id').val();
+		$.ajax({
+			type:'POST',
+			data : {'id':id,
+					'visitbook':visitbook},
+			datatype:'json',
+			url : 'visitBook',
+			success : function(data){
+				$.ajax({
+					type:'POST',
+					datatype:'json',
+					url : 'visitBookSearch',
+					success : function(data){
+						var test = data.id;
+						var date = data.date;
+						var seq = data.seq;
+						alert(id);
+						alert(date);
+						alert(seq);
+						alert(data);
+					},
+					error : function(xhr, status, error){
+					}
+				});
+			},
+			error : function(xhr, status, error){
+			}
+		});
+	};
 	$(document).ready(function(){
+		document.number.text2.value = 0 + "/200";
+		
 		$('.updatebtn').on('click',function(){
 			var greeting = document.getElementById("greeting").value;
 			var id = $('#id').val();
@@ -516,6 +594,7 @@
 				error : function(xhr, status, error){
 				}
 			});
+			
 		});
 		$('.insertbtn').on('click',function(){
 			var greeting = document.getElementById("greeting").value;
@@ -534,6 +613,7 @@
 			});
 		});
     });
+	
 </script>
 
 </body>
