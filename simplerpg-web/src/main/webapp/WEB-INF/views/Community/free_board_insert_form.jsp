@@ -16,7 +16,36 @@
 <script type="text/javascript" src="resources/smarteditor/js/HuskyEZCreator.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript">
-    $(function(){
+	var obj = [];
+
+	$( document ).ready(function() {
+		//스마트에디터 프레임생성
+	    nhn.husky.EZCreator.createInIFrame({
+	        oAppRef: obj,
+	        elPlaceHolder: "f_content",
+	        sSkinURI: "resources/smarteditor/SmartEditor2Skin.html",
+	        fCreator: "createSEditor2",
+	        htParams : {
+	            // 툴바 사용 여부
+	            bUseToolbar : true,            
+	            // 입력창 크기 조절바 사용 여부
+	            bUseVerticalResizer : true,    
+	            // 모드 탭(Editor | HTML | TEXT) 사용 여부
+	            bUseModeChanger : true,               
+	        }
+	    });
+		
+	  //전송버튼
+	    $("#savebutton").click(function(){
+	        //id가 smarteditor인 textarea에 에디터에서 대입
+	        obj.getById["f_content"].exec("UPDATE_CONTENTS_FIELD", []);
+	        //폼 submit
+	        $("#frm").submit();
+	    });
+	});
+
+	/*
+	$(function(){
         //전역변수
         var obj = [];
         //스마트에디터 프레임생성
@@ -42,6 +71,7 @@
             $("#frm").submit();
         });
     });
+	*/
 </script>
 </head>
 <body>

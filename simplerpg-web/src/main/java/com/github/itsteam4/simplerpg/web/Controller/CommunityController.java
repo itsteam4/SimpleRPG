@@ -89,7 +89,7 @@ public class CommunityController {
 	            String realname = UUID.randomUUID().toString() + "." + ext;
 	        ///////////////// 서버에 파일쓰기 /////////////////
 	            editor.getFiledata().transferTo(new File(path+realname));
-	            file_result += "&bNewLine=true&sFileName="+original_name+"&sFileURL=/resources/photo_upload/"+realname;
+	            file_result += "&bNewLine=true&sFileName="+original_name+"&sFileURL=/itsteam4/resources/photo_upload/"+realname;
 	        } else {
 	            file_result += "&errstr=error";
 	        }
@@ -101,6 +101,8 @@ public class CommunityController {
 // 자유게시판 다중 파일 업로드
 	@RequestMapping(value="/file_uploader_html5")
 	public void FileUpload(HttpServletRequest request,HttpServletResponse response) {
+		System.out.println("in FileUpload()");
+		
 		try {
 //			파일정보
 			String sFileInfo ="";
@@ -131,7 +133,7 @@ public class CommunityController {
 //				이미지이므로 신규 파일로 디렉토리 설정 및 업로드
 //				파일 기본경로
 //				파일 기본경로_상세경로
-				String filePath = "D:/simplerpg/simplerpg-web/src/main/webapp/resources/fileupload/";
+				String filePath = "D:"+File.separator+"simplerpg"+File.separator+"simplerpg-web"+File.separator+"src"+File.separator+"main"+File.separator+"webapp"+File.separator+"resources"+File.separator+"fileupload"+File.separator;
 				File file = new File(filePath);
 				if(!file.exists()) {
 					file.mkdirs();
@@ -158,7 +160,8 @@ public class CommunityController {
 				sFileInfo += "&bNewLine=true"; 
 				// img 태그의 title 속성을 원본파일명으로 적용시켜주기 위함
 				sFileInfo += "&sFileName="+ filename;
-				sFileInfo += "&sFileURL="+"/resources/fileupload/"+realFileNm;
+				sFileInfo += "&sFileURL="+"/itsteam4/resources/fileupload/" + realFileNm;
+				
 				PrintWriter print = response.getWriter();
 				print.print(sFileInfo);
 				print.flush();
