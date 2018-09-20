@@ -126,6 +126,7 @@ function Update(){
 	if(user_xy[0] == goblin3_1_xy[0] && user_xy[1] == goblin3_1_xy[1]) { goblin3_1Battle(); }
 	if(user_xy[0] == goblin3_2_xy[0] && user_xy[1] == goblin3_2_xy[1]) { goblin3_2Battle(); }
 	if(user_xy[0] == orc3_3_xy[0] && user_xy[1] == orc3_3_xy[1]) { orc3_3Battle(); }
+	if(user_xy[0] == goblin8_1_xy[0] && user_xy[1] == goblin8_1_xy[1]) { goblin8_1Battle(); }
 	//전투중 유저 사망시
 	if(useralive == false){
 		userdead++;

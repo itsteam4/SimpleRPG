@@ -169,6 +169,7 @@ function drawScreen(){
 						//이미지    이미지위치    이미지크기    그려질 위치     그려질 크기
 			
 			ctx.drawImage(user, userIt, 0, 64, 64, user_xy[0], user_xy[1], 32,32);
+						//  1 |   2   | 3| 4 | 5 |     6     |     7     | 8 | 9 |
 			
 			//sector 0 몹
 			ctx.drawImage(slime, slime_xy[0], slime_xy[1], 32,32);
@@ -197,6 +198,8 @@ function drawScreen(){
 			ctx.drawImage(orc, orc7_1_xy[0], orc7_1_xy[1], 32,32);
 			ctx.drawImage(goblin, goblin7_2_xy[0], goblin7_2_xy[1], 32,32);
 			ctx.drawImage(goblin, goblin7_3_xy[0], goblin7_3_xy[1], 32,32);
+			//sector 8몹
+			ctx.drawImage(goblin, goblin8_1_xy[0], goblin8_1_xy[1], 32,32);
 			//sector 10 몹
 			ctx.drawImage(goblin, goblin10_1_xy[0], goblin10_1_xy[1], 32,32);
 			ctx.drawImage(slime, slime10_2_xy[0], slime10_2_xy[1], 32,32);

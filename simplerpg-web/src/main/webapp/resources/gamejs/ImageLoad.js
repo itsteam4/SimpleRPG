@@ -48,6 +48,7 @@ function goblinReady(){
 	Goblin6_3(goblin6_3_xy);
 	Goblin7_2(goblin7_2_xy);
 	Goblin7_3(goblin7_3_xy);
+	Goblin8_1(goblin8_1_xy);
 	Goblin10_1(goblin10_1_xy);
 	Goblin11_2(goblin11_2_xy);
 	Goblin11_3(goblin11_3_xy);
@@ -61,6 +62,7 @@ function goblinbossReady(){
 function orcReady(){
 	Orc3_3(orc3_3_xy);
 	Orc7_1(orc7_1_xy);
+	Orc8_1(orc8_1_xy);
 	Orc12_2(orc12_2_xy);
 	Orc12_3(orc12_3_xy);
 }

@@ -112,6 +112,14 @@ function sectorinfo(){
 		goblin7_3_xy = [999, 999];
 	}
 	
+	if(sectorNum == 8){
+		if(goblin8_1alive){
+			goblin8_1_xy = [256, 288];
+		}
+	}else {
+		goblin8_1_xy = [999, 999];
+	}
+	
 	if(sectorNum == 10){
 		if(goblin10_1alive){
 			goblin10_1_xy = [288, 352];

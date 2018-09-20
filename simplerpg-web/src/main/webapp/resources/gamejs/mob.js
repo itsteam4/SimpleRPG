@@ -1381,7 +1381,82 @@
 		}, 20000);
 	}
 	
-		//sector10
+		//sector 8
+	//goblin8_1 정보
+	var goblin8_1alive = true;
+	var goblin8_1_xy = [256, 288];
+	function Goblin8_1(goblin8_1_xy){
+		this.goblin8_1hp = 75;
+		this.goblin8_1power = 8;
+	}
+	//goblin8_1전투 로직
+	function goblin8_1Battle(){
+		if(Uattack == true){
+
+			userAttackSound(); 	//오디오의 효과음 
+
+			goblin8_1hp -= userpower;
+			userhp -= goblin8_1power;
+			Uattack = false;
+		}
+
+		if(goblin8_1hp <= 0){		//goblin8_1 사망시
+			goblin8_1alive = false;
+			userkill ++;
+			userex += 40;
+			
+			var drop = Math.floor(Math.random() * (10 - 1 + 1)) + 1;		//아이템 드랍 후 유저 정보 수정
+			if(drop <= 3){
+				if(item[0] < 2){
+					
+					switch(item[0]){		//기존의 장비를 검사후 보너스 삭제
+					case 0:
+						break;
+					case 1:
+						userpower -= 2;
+						break;
+					}
+					
+					item[0] = 2;
+					userpower += 4;
+					alert("철소드 획득!");
+				}
+			}else if(drop >= 8){
+				if(item[1] < 2){
+					
+					switch(item[1]){		//기존 아이템을 검사후 보너스 삭제
+					case 0:
+						break;
+					case 1:
+						usermaxhp -= 10;
+						break;
+					}
+				
+					item[1] = 2;
+					usermaxhp += 20;
+					alert("철쉴드 획득!");
+				}
+			}
+			ItemChenge();
+			goblin8_1_xy = [999, 999];
+			goblin8_1Dead();
+		}
+		if(userhp < 0){		//유저 사망시
+			useralive = false;
+		}
+
+	}
+
+	//goblin8_1 리젠
+	function goblin8_1Dead(){
+		setTimeout(function(){ 
+			goblin8_1_xy = [256, 288];
+			goblin8_1alive = true; 
+			goblin8_1hp = 75; 
+			sectorinfo();
+		}, 20000);
+	}
+		//sector 10
 	//goblin10_1 정보
 	var goblin10_1alive = true;
 	var goblin10_1_xy = [288, 352];
