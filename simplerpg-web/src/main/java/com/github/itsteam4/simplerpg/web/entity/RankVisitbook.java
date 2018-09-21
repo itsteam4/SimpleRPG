@@ -8,6 +8,7 @@ public class RankVisitbook {
 	private String id;
 	private String visitbook;
 	private String date;
+	private String stanid;
 	
 	
 	public int getSeq() {
@@ -33,6 +34,12 @@ public class RankVisitbook {
 	}
 	public void setDate(String date) {
 		this.date = date;
+	}
+	public String getStanid() {
+		return stanid;
+	}
+	public void setStanid(String stanid) {
+		this.stanid = stanid;
 	}
 	
 	

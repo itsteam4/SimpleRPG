@@ -9,8 +9,8 @@ import com.github.itsteam4.simplerpg.web.entity.RankVisitbook;
 public interface RankInfoDao {
 	void updateRow(RankInfo rankinfo);
 	int insertRow(RankInfo rankinfo);
-	RankVisitbook insertVisitRow(RankVisitbook rankvisitbook);
+	int insertVisitRow(RankVisitbook rankvisitbook);
 	RankInfo selectOne(String id);
 	RankVisitbook selectRow(String id);
-	ArrayList<RankVisitbook> selectAll();
+	ArrayList<RankVisitbook> selectAll(String id);
 }

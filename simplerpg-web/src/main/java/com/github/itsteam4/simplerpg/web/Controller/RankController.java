@@ -16,10 +16,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.github.itsteam4.simplerpg.web.entity.FreeBoard;
 import com.github.itsteam4.simplerpg.web.entity.Member;
 import com.github.itsteam4.simplerpg.web.entity.RankInfo;
 import com.github.itsteam4.simplerpg.web.entity.RankTest;
 import com.github.itsteam4.simplerpg.web.entity.RankVisitbook;
+import com.github.itsteam4.simplerpg.web.entity.RankVisitbookNumber;
 import com.github.itsteam4.simplerpg.web.service.RankTestDao;
 import com.github.itsteam4.simplerpg.web.service.MemberDAO;
 import com.github.itsteam4.simplerpg.web.service.RankInfoDao;
@@ -51,10 +53,7 @@ public class RankController {
 		model.addAttribute("ranktest",ranktest);
 		return "rank/result";
 	}
-	@RequestMapping(value = "/dbinserform", method = RequestMethod.GET)
-	public String dbinserform() {
-		return "rank/dbinsert_form";
-	}
+	
 	@RequestMapping(value = "/rankform", method = RequestMethod.GET)
 	public String rankform() {
 		return "rank/rank_form";
@@ -78,17 +77,37 @@ public class RankController {
 	}
 	
 	
+	@RequestMapping(value = "/dbinserform", method = RequestMethod.GET)
+	public String dbinserform(Model model, @ModelAttribute Member member,@RequestParam String id) {
+		MemberDAO mdao = sqlSession.getMapper(MemberDAO.class);
+		RankTestDao dao = sqlSession.getMapper(RankTestDao.class);
+		
+		ArrayList<Member> members = dao.selectAll();
+		
+		model.addAttribute("members",members);
+		
+		return "rank/dbinsert_form";
+	}
+	
+	
 	@RequestMapping(value = "/rankinfoform", method = RequestMethod.GET)
 	public String rankinfoform(Model model,@RequestParam String id,@ModelAttribute Member member,
-			@ModelAttribute RankVisitbook rankvisitbook) {
+			@ModelAttribute RankVisitbook rankvisitbook,@ModelAttribute RankVisitbookNumber rankvisitbooknumber) {
 		RankInfoDao dao = sqlSession.getMapper(RankInfoDao.class);
 		MemberDAO mdao = sqlSession.getMapper(MemberDAO.class);
 		
 		RankInfo rankinfos = dao.selectOne(id);
 		Member members = mdao.selectOne(id);
+		ArrayList<RankVisitbook> rankvisitbooks = dao.selectAll(id);
+		
+		int number = (int) rankvisitbooks.size();
+		rankvisitbooknumber.setNumber(number);
 		
 		model.addAttribute("rankinfos",rankinfos);
 		model.addAttribute("members",members);
+		model.addAttribute("rankvisitbooks",rankvisitbooks);
+		model.addAttribute("rankvisitbooknumber",rankvisitbooknumber);
+		
 		return "rank/rankinfo_form";
 	}
 	
@@ -103,13 +122,34 @@ public class RankController {
 		
 		dao.insertVisitRow(rankvisitbook);
 		
-		System.out.println("seq"+rankvisitbook.getSeq());
-		System.out.println("id"+rankvisitbook.getId());
-		System.out.println("date"+rankvisitbook.getDate());
-		System.out.println("book"+rankvisitbook.getVisitbook());
-		
 		return "";
 	}
+	
+	@RequestMapping(value = "/rankTest", method = RequestMethod.GET)
+	public String rankTest(Model model,@RequestParam String id,@ModelAttribute Member member,
+			@ModelAttribute RankVisitbook rankvisitbook,@ModelAttribute RankVisitbookNumber rankvisitbooknumber ) {
+		MemberDAO mdao = sqlSession.getMapper(MemberDAO.class);
+		RankTestDao dao = sqlSession.getMapper(RankTestDao.class);
+		RankInfoDao idao = sqlSession.getMapper(RankInfoDao.class);
+		
+		Member members = mdao.selectOne(id);
+		ArrayList<RankVisitbook> rankvisitbooks = idao.selectAll(id); 
+		
+		int number = (int) rankvisitbooks.size();
+		rankvisitbooknumber.setNumber(number);
+		
+		
+		model.addAttribute("members",members);
+		model.addAttribute("rankvisitbooks",rankvisitbooks);
+		model.addAttribute("rankvisitbooknumber",rankvisitbooknumber);
+		
+		return "rank/rankinfo_form";
+	}
+	
+	
+	
+	
+	
 	@RequestMapping(value = "/visitBookSearch", method = RequestMethod.POST)
 	@ResponseBody
 	public String visitBookSearch(Model model,@ModelAttribute RankVisitbook rankvisitbook) {
