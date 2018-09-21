@@ -14,7 +14,7 @@
   	</insert>
   	<select id="freeboardpagelist" parameterType="hashMap" resultMap="freeboardMap">
   		select * from freeboard_tbl_board 
-  		order by f_no ASC
+  		order by f_no DESC
   	</select>
   	<select id="freeboardselectone" parameterType="Integer" resultMap="freeboardMap">
   		select * from freeboard_tbl_board where f_no=#{f_no}

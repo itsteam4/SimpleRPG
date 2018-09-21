@@ -5,6 +5,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class RankTest {
 	private int number;
+	private String str1;
+	private String str2;
+	private String id;
+	
 	public int getNumber() {
 		return number;
 	}
@@ -23,6 +27,11 @@ public class RankTest {
 	public void setStr2(String str2) {
 		this.str2 = str2;
 	}
-	private String str1;
-	private String str2;
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	
 }

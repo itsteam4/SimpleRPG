@@ -7,4 +7,12 @@
 		insert into ranktest (number,str1,str2)values
 		(#{number,jdbcType=INTEGER},#{str1,jdbcType=VARCHAR},#{str2,jdbcType=VARCHAR})
 	</insert>
+	
+	<resultMap type="com.github.itsteam4.simplerpg.web.entity.RankTest" id="ranktestMap">
+ 	</resultMap>
+ 	
+ 	<select id="selectAll" parameterType="HashMap" resultMap="ranktestMap">
+		select id from simplerpg_web_member
+	</select> 
+	
 </mapper>
