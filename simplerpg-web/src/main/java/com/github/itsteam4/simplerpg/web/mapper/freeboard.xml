@@ -14,10 +14,15 @@
   	</insert>
   	<select id="freeboardpagelist" parameterType="hashMap" resultMap="freeboardMap">
   		select * from freeboard_tbl_board 
-  		order by f_no ASC
+  		order by f_no DESC
   	</select>
   	<select id="freeboardselectone" parameterType="Integer" resultMap="freeboardMap">
   		select * from freeboard_tbl_board where f_no=#{f_no}
   	</select>
+  	<update id="freeboardupdaterow" parameterType="hashMap">
+		update freeboard_tbl_board set
+		f_title=#{f_title,jdbcType=VARCHAR},f_content=#{f_content,jdbcType=VARCHAR}
+		where f_no = #{f_no} 
+  	</update>
  </mapper>
 

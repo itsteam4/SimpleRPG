@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta name="decorator" content="freeboard_insert_forms"/>
+<meta name="decorator" content="freeboard_update_forms">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
@@ -36,11 +36,11 @@
 	    });
 		
 	  //전송버튼
-	    $("#savebutton").click(function(){
+	    $("#updatebutton").click(function(){
 	        //id가 smarteditor인 textarea에 에디터에서 대입
 	        obj.getById["f_content"].exec("UPDATE_CONTENTS_FIELD", []);
 	        //폼 submit
-	        $("#frm").submit();
+	        $("#freeboardupdates").submit();
 	    });
 	});
 
@@ -75,13 +75,13 @@
 </script>
 </head>
 <body>
-	<form action="FreeBoardInsertsubmit" enctype="multipart/form-data" id="frm" method="post">
+	<form action="FreeBoardUpdatesubmit" enctype="multipart/form-data" id="freeboardupdates" method="post">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-1"></div>
 			<div class="card text-white bg-dark col-md-11 mb-3" style="right: 80px">
   				<div class="card-body">
-    				<h3>글쓰기</h3>
+    				<h3>수정</h3>
   				</div>
 			</div>
 		</div>
@@ -94,14 +94,14 @@
 					</tr>
 					<tr>
 						<th>제목</th>
-						<td><input id="f_title" name="f_title" type="text" size="45"></td>
+						<td><input id="f_title" name="f_title" type="text" size="45" value="${boards.f_title}"></td>
 					</tr>
 					<tr>
 						<th>내용</th>
 						<td>
 								<textarea name="f_content" id="f_content" rows="10"
-									cols="100" style="width: 590px; height: 500px;"></textarea>
-								<input type="button" class="btn btn-warning" id="savebutton" value="작성">
+									cols="100" style="width: 590px; height: 500px;">${boards.f_content}</textarea>
+								<input type="button" class="btn btn-warning" id="updatebutton" value="수정">
 								<a href="/itsteam4/FreeBoardForm"><input type="button" class="btn btn-danger" id="returnbutton" value="목록"></a>
 						</td>
 					</tr>
