@@ -16,6 +16,7 @@
 <style type="text/css">
 	body {
 	background-image: url('resources/image/jungles.jpg');
+    opacity:0.8
 }
 </style>
 

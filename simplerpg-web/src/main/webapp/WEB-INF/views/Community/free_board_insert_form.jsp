@@ -34,7 +34,7 @@
 	            bUseModeChanger : true,               
 	        }
 	    });
-		
+	
 	  //전송버튼
 	    $("#savebutton").click(function(){
 	        //id가 smarteditor인 textarea에 에디터에서 대입
