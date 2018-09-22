@@ -3,12 +3,11 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.github.itsteam4.simplerpg.web.service.RankInfoDao">
-	
 	<insert id="insertVisitRow" parameterType="hashMap">
-  		insert into visitbook_tb(seq,id,visitbook,date
+  		insert into visitbook_tb(seq,id,visitbook,date,stanid
   		)values(
   		#{seq,jdbcType=INTEGER},#{id,jdbcType=VARCHAR},
-  		#{visitbook,jdbcType=VARCHAR},#{date,jdbcType=VARCHAR}
+  		#{visitbook,jdbcType=VARCHAR},#{date,jdbcType=VARCHAR},#{stanid,jdbcType=VARCHAR}
   		)
   	</insert>
   	
@@ -17,15 +16,18 @@
   	
   	<select id="selectRow" parameterType="String" resultMap="rankvisitbookMap">
 		select * from visitbook_tb  
-		where id=#{id} 
+		where id = #{id} 
 	</select>
 	
-	
-	<select id="selectAll" parameterType="HashMap" resultMap="rankvisitbookMap">
-		select seq,id,visitbook,date
-		from visitbook_tb 
-		where seq=#{seq} and id=#{id} and visitbook=#{visitbook}
-		and date=#{date}
+	<select id="selectAll" parameterType="String" resultMap="rankvisitbookMap">
+		select * from visitbook_tb
+		where stanid = #{stanid} 
+		order by seq DESC
 	</select> 
-
+	
+	
+	
+	<select id="selectSearch" parameterType="String" resultMap="rankvisitbookMap">
+		
+	</select> 
 </mapper>

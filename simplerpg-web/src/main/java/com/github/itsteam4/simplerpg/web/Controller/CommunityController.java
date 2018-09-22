@@ -64,40 +64,6 @@ public class CommunityController {
 	public String FreeBoardInsertForm() {
 		return "Community/free_board_insert_form";
 	}
-// 자유게시판 단일 파일 업로드
-	@RequestMapping(value="/photoUpload")
-	public String photoUpload(HttpServletRequest request, Editor editor){
-	    String callback = editor.getCallback();
-	    String callback_func = editor.getCallback_func();
-	    String file_result = "";
-	    try {
-	        if(editor.getFiledata() != null && editor.getFiledata().getOriginalFilename() != null && !editor.getFiledata().getOriginalFilename().equals("")){
-	            //파일이 존재하면
-	            String original_name = editor.getFiledata().getOriginalFilename();
-	            String ext = original_name.substring(original_name.lastIndexOf(".")+1);
-	            //파일 기본경로
-	            String defaultPath = request.getSession().getServletContext().getRealPath("/");
-	            //파일 기본경로 _ 상세경로
-	            String path = defaultPath +File.separator+"resources" + File.separator + "photo_upload" + File.separator;             
-	            File file = new File(path);
-	            System.out.println("path:"+path);
-	            //디렉토리 존재하지 않을경우 디렉토리 생성
-	            if(!file.exists()) {
-	                file.mkdirs();
-	            }
-	            //서버에 업로드 할 파일명(한글문제로 인해 원본파일은 올리지 않는것이 좋음)
-	            String realname = UUID.randomUUID().toString() + "." + ext;
-	        ///////////////// 서버에 파일쓰기 /////////////////
-	            editor.getFiledata().transferTo(new File(path+realname));
-	            file_result += "&bNewLine=true&sFileName="+original_name+"&sFileURL=/itsteam4/resources/photo_upload/"+realname;
-	        } else {
-	            file_result += "&errstr=error";
-	        }
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
-	    return "redirect:" + callback + "?callback_func="+callback_func+file_result;
-	}
 // 자유게시판 다중 파일 업로드
 	@RequestMapping(value="/file_uploader_html5")
 	public void FileUpload(HttpServletRequest request,HttpServletResponse response) {
@@ -186,7 +152,7 @@ public class CommunityController {
 		request.getParameter("f_content");
 		return "redirect:FreeBoardForm";
 	}
-//	자유게시판 댓글 페이징 이동
+//	자유게시판 게시글 페이징 이동
 	@RequestMapping(value="freeboarddetailform",method=RequestMethod.GET)
 	public String FreeBoardPageForm(Model model,@RequestParam int f_no) {
 		System.out.println("디테일 페이지 이동");
@@ -194,6 +160,26 @@ public class CommunityController {
 		FreeBoard boards = dao.freeboardselectone(f_no);
 		model.addAttribute("boards",boards);
 		return "Community/free_board_detail_form";
+	}
+//	자유게시판 게시물 업데이트 페이지 이동
+	@RequestMapping(value="FreeBoardUpdateForm",method=RequestMethod.GET)
+	public String FreeBoardUpdateForm(Model model,@RequestParam int f_no) {
+		System.out.println("업데이트 페이지 이동");
+		FreeBoardDAO dao = sqlSession.getMapper(FreeBoardDAO.class);
+		FreeBoard boards = dao.freeboardselectone(f_no);
+		model.addAttribute("boards",boards);
+		return "Community/free_board_update_form";
+	}
+//	자유게시판 게시글 수정 구현
+	@RequestMapping(value="FreeBoardUpdatesubmit",method=RequestMethod.POST)
+	public String FreeBoardUpdate(@ModelAttribute FreeBoard fboard) {
+		FreeBoardDAO dao = sqlSession.getMapper(FreeBoardDAO.class);
+		int result = dao.freeboardupdaterow(fboard);
+		
+		if(result >0) {
+			System.out.println("수정되었습니다: "+result);
+		}
+		return "redirect:FreeBoardForm";
 	}
 	
 }

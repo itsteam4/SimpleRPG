@@ -9,8 +9,6 @@
 
 </head>
 <body >
-
-
 <!-- background:url('resources/image/rank/bg_hope.jpg'); -->
 <div class="container" style=" margin-bottom:40px">
 
@@ -49,9 +47,9 @@
 						</div>
 					</c:when>
             		<c:when test="${(sessionid != null) && (members.id != sessionid)}">
-            			<div style="padding-top:20px; padding-right:280px; padding-bottom:0px; padding-left:0px" >
+            			<div style="padding-top:20px; padding-right:300px; padding-bottom:0px; padding-left:0px" >
 							<img src="resources/image/rank/ico_hope_greeting.png" alt="server" width="22px" height="22px">
-							<label>본인계정아님</label>
+							<label>한줄 인사말</label>
 						</div>
             		</c:when>
             		<c:when test="${(sessionid != null)&&(members.id==sessionid)&&(rankinfos.id == null)}">
@@ -465,7 +463,7 @@
 			<div class="row" id="five" style ="margin-top:50px; margin-left:45px;">
 				<div style="padding-right:800px">
 					<img src="resources/image/rank/ico_hope_stit.png" alt="characterinfo" width="22px" height="22px">
-					<label style="font-size:18px; color:#685e60;">${sessionid}님의 방명록</label>
+					<label style="font-size:18px; color:#685e60;">${members.id}님의 방명록</label>
 				</div>
 			</div>
 			<div class="row" style="width:100%; height:82px; margin-left:45px;
@@ -476,6 +474,7 @@
 		        	style="background-color:#dedede;border:none; padding:0;
 		        	text-align:center; margin-top:26px;">
 		        </span>
+		        <input type="text" id="stanid" name="stanid" value="${members.id}" style="display:none;">
 		        <textarea class="form-control"cols="25" rows="10" id="visitbook" name="visitbook"
 		        onfocus="number_of_Characters()" 
 		        style="float:left; width:850px; height:80px; padding:6px 0 0 20px; background-color:#fff; margin-top:1px" 
@@ -489,44 +488,48 @@
 		    </form>	
 		</c:otherwise>
 	</c:choose>
-    
-    <div class="pull-left" style="margin-top:50px">
-    	<p style="widht:100%; font-size:14px; color:#7c7c7c;">총
-    	<span style="color:red">3</span>
-    	개의 방명록이 있습니다.
-    	</p>
-    </div>
-    
-    
-    <div>
-			<table class="table">
-			    <thead>
-			      <tr>
-			        <th>날짜</th>
-			        <th>캐릭터명</th>
-			        <th>내용</th>
-			      </tr>
-			    </thead>
-			    <tbody>
-			      <tr>
-			        <td>${rankvisitbook.date}</td>
-			        <td>5</td>
-			        <td>점화를 든 티모</td>
-			      </tr>
-			      <tr>
-			        <td>서폿티모</td>
-			        <td>8</td>
-			        <td>ad와ap 그 사이의 티모</td>
-			      </tr>
-			      <tr>
-			        <td>미드티모</td>
-			        <td>12</td>
-			        <td>트타보다 키큰 티모</td>
-			      </tr>
-			    </tbody>
-			  </table>
-			</div>
-</div>	
+	    <div class="pull-left" style="margin-top:50px">
+	    	<p style="widht:100%; font-size:14px; color:#7c7c7c;">총
+	    	<span style="color:red">${rankvisitbooknumber.number}</span>
+	    	개의 방명록이 있습니다.
+	    	</p>
+	    </div>
+	    
+	    
+	    <div>
+				<table class="table">
+				
+					   
+					    <tbody>
+					    <c:forEach var="rankvisitbooks" items="${rankvisitbooks}">
+					   
+						      <tr>
+						      	 <td style="color:#a18c6d;font-size:12px; width:200px;
+						      	 padding-left:20px;
+						      	 ">${rankvisitbooks.date}</td>
+						         <td style="width:160px;">${rankvisitbooks.id}</td>
+						         <td style="color:#797272; font-size:14px;
+						         text-align:left; padding-left:50px;
+						         ">${rankvisitbooks.visitbook}</td>
+						         <c:choose>
+						         	<c:when test="${rankvisitbooks.id==sessionid}">
+							         <td>
+							         	<span>
+							         		<a>
+								         	<img src="resources/image/rank/coment_del.jpg')no-repeat;">
+								        	 </a>
+							         	</span>
+								         
+							         </td>
+							         </c:when>
+						         </c:choose>
+						      </tr>
+					      </c:forEach>
+				      
+				    </tbody>
+				  </table>
+		</div>
+	</div>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
 <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
 
@@ -549,29 +552,17 @@ function number_of_Characters() {
 	function visitbook(){
 		var visitbook = document.getElementById("visitbook").value;
 		var id = $('#id').val();
+		var stanid = $('#stanid').val();
 		$.ajax({
 			type:'POST',
 			data : {'id':id,
-					'visitbook':visitbook},
+					'visitbook':visitbook,
+					'stanid':stanid},
 			datatype:'json',
 			url : 'visitBook',
 			success : function(data){
-				$.ajax({
-					type:'POST',
-					datatype:'json',
-					url : 'visitBookSearch',
-					success : function(data){
-						var test = data.id;
-						var date = data.date;
-						var seq = data.seq;
-						alert(id);
-						alert(date);
-						alert(seq);
-						alert(data);
-					},
-					error : function(xhr, status, error){
-					}
-				});
+				document.number.visitbook.value = "";
+				location.reload();
 			},
 			error : function(xhr, status, error){
 			}
