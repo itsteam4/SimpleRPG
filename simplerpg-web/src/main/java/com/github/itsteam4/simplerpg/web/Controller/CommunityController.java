@@ -167,18 +167,22 @@ public class CommunityController {
 		System.out.println("업데이트 페이지 이동");
 		FreeBoardDAO dao = sqlSession.getMapper(FreeBoardDAO.class);
 		FreeBoard boards = dao.freeboardselectone(f_no);
+		System.out.println("content:"+boards.getF_content());
+		System.out.println("writer:"+boards.getF_writer());
+		System.out.println("title:"+boards.getF_title());
 		model.addAttribute("boards",boards);
 		return "Community/free_board_update_form";
 	}
 //	자유게시판 게시글 수정 구현
-	@RequestMapping(value="FreeBoardUpdatesubmit",method=RequestMethod.POST)
+	@RequestMapping(value="FreeBoardUpdate",method=RequestMethod.POST)
 	public String FreeBoardUpdate(@ModelAttribute FreeBoard fboard) {
+		System.out.println("업데이트 버튼 활성화");
 		FreeBoardDAO dao = sqlSession.getMapper(FreeBoardDAO.class);
-		int result = dao.freeboardupdaterow(fboard);
-		
-		if(result >0) {
-			System.out.println("수정되었습니다: "+result);
-		}
+		int result = dao.fupdaterow(fboard);
+			System.out.println("result: "+result);
+		System.out.println(fboard.getF_content());
+		System.out.println(fboard.getF_date());
+		System.out.println(fboard.getF_title());
 		return "redirect:FreeBoardForm";
 	}
 	

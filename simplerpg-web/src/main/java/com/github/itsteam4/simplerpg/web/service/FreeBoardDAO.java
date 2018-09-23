@@ -8,5 +8,5 @@ public interface FreeBoardDAO {
 	int freeinsertrow(FreeBoard fboard);
 	FreeBoard freeboardselectone(int f_no);
 	ArrayList<FreeBoard> freeboardpagelist();
-	int freeboardupdaterow(FreeBoard fboard);
+	int fupdaterow(FreeBoard fboard);
 }

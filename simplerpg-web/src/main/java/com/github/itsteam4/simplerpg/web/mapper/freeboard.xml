@@ -19,10 +19,12 @@
   	<select id="freeboardselectone" parameterType="Integer" resultMap="freeboardMap">
   		select * from freeboard_tbl_board where f_no=#{f_no}
   	</select>
-  	<update id="freeboardupdaterow" parameterType="hashMap">
-		update freeboard_tbl_board set
-		f_title=#{f_title,jdbcType=VARCHAR},f_content=#{f_content,jdbcType=VARCHAR}
-		where f_no = #{f_no} 
+  	<update id="fupdaterow" parameterType="hashMap">
+  		update freeboard_tbl_board set
+  		f_title=#{f_title,jdbcType=VARCHAR},
+  		f_writer=#{f_writer,jdbcType=VARCHAR},f_content=#{f_content,jdbcType=VARCHAR},
+  		f_date=now(),f_hit=#{f_hit,jdbcType=INTEGER}
+  		where f_no = #{f_no}
   	</update>
  </mapper>
 

@@ -17,7 +17,6 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript">
 	var obj = [];
-
 	$( document ).ready(function() {
 		//스마트에디터 프레임생성
 	    nhn.husky.EZCreator.createInIFrame({
@@ -39,8 +38,7 @@
 	    $("#updatebutton").click(function(){
 	        //id가 smarteditor인 textarea에 에디터에서 대입
 	        obj.getById["f_content"].exec("UPDATE_CONTENTS_FIELD", []);
-	        //폼 submit
-	        $("#freeboardupdates").submit();
+			//폼 submit
 	    });
 	});
 
@@ -75,13 +73,15 @@
 </script>
 </head>
 <body>
-	<form action="FreeBoardUpdatesubmit" enctype="multipart/form-data" id="freeboardupdates" method="post">
+	<form action="FreeBoardUpdate" enctype="multipart/form-data" method="post">
+	<input type="hidden" id="f_date" name="f_date" value="${boards.f_date}">
+	<input type="hidden" id="f_hit" name="f_hit" value="${boards.f_hit}">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-1"></div>
 			<div class="card text-white bg-dark col-md-11 mb-3" style="right: 80px">
   				<div class="card-body">
-    				<h3>수정</h3>
+    				<h3>글수정</h3>
   				</div>
 			</div>
 		</div>
@@ -90,7 +90,7 @@
 				<tbody>
 					<tr>
 						<th width="300">작성자</th>
-						<td width="300"><input name="f_writer" id="f_writer" type="text" size="45" value="${sessionid}" readonly="readonly"></td>
+						<td width="300"><input name="f_writer" id="f_writer" type="text" size="45" value="${boards.f_writer}" readonly="readonly"></td>
 					</tr>
 					<tr>
 						<th>제목</th>
@@ -101,7 +101,7 @@
 						<td>
 								<textarea name="f_content" id="f_content" rows="10"
 									cols="100" style="width: 590px; height: 500px;">${boards.f_content}</textarea>
-								<input type="button" class="btn btn-warning" id="updatebutton" value="수정">
+								<button type="submit" class="btn btn-warning" id="updatebutton">수정</button>
 								<a href="/itsteam4/FreeBoardForm"><input type="button" class="btn btn-danger" id="returnbutton" value="목록"></a>
 						</td>
 					</tr>
