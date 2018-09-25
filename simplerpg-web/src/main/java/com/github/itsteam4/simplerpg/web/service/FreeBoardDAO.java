@@ -9,4 +9,6 @@ public interface FreeBoardDAO {
 	FreeBoard freeboardselectone(int f_no);
 	ArrayList<FreeBoard> freeboardpagelist();
 	int fupdaterow(FreeBoard fboard);
+	void fdeleterow(int f_no);
+	void fupdatehit(int f_no);
 }

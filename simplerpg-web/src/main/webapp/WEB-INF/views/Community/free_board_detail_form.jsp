@@ -5,47 +5,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="decorator" content="freeboard_detail_forms"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
 <title>자유게시판 입력 수정 페이지</title>
- <!-- Bootstrap core CSS -->
-<link href="resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<!-- Custom styles for this template -->
-<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
-<script type="text/javascript" src="resources/smarteditor/js/HuskyEZCreator.js"></script>
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="resources/community/freeboards.js"></script>
-<script type="text/javascript">
-    $(function(){
-        //전역변수
-        var obj = [];
-        //스마트에디터 프레임생성
-        nhn.husky.EZCreator.createInIFrame({
-            oAppRef: obj,
-            elPlaceHolder: "f_content",
-            sSkinURI: "resources/smarteditor/SmartEditor2Skin.html",
-            htParams : {
-                // 툴바 사용 여부
-                bUseToolbar : true,            
-                // 입력창 크기 조절바 사용 여부
-                bUseVerticalResizer : true,    
-                // 모드 탭(Editor | HTML | TEXT) 사용 여부
-                bUseModeChanger : true,
-            }
-        });
-        //전송버튼
-        $("#savebutton").click(function(){
-            //id가 smarteditor인 textarea에 에디터에서 대입
-            obj.getById["f_content"].exec("UPDATE_CONTENTS_FIELD", []);
-            //폼 submit
-            $(".freeboard_insert_form").submit();
-        });
-    });
-</script>
-
 </head>
 <body>
 	<form action="FreeDetailForms" class="freeboard_detail_form" method="post">
@@ -96,8 +59,8 @@
 							<c:when test="${boards.f_writer == sessionid }">
 								<a href="FreeBoardUpdateForm?f_no=${boards.f_no}"><input type="button" class="btn btn-Dark"
 									value="수정"></a>
-								<input type="button" class="btn btn-danger" id="FreeBoardDelete"
-									value="삭제">
+								<a href="FreeBoardDelete?f_no=${boards.f_no}"><input type="button" class="btn btn-danger" id="FreeBoardDeleteButton"
+									value="삭제"></a>
 								<a href="/itsteam4/FreeBoardForm"><input type="button" class="btn btn-info" id="FreeboardReturn"
 									value="목록"></a>
 							</c:when>

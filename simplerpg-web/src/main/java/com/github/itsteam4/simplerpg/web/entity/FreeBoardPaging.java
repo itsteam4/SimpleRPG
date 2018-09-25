@@ -4,27 +4,91 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class FreeBoardPaging {
-	private String f_find;
-	private int f_startrow;
-	private int f_endrow;
+	private int pageSize = 10;
+	private int rangeSize = 10;
+	private int curPage = 1;
+	private int curRange = 1;
+	private int listCnt;
+	private int pageCnt;
+	private int rangeCnt;
+	private int startPage = 1;
 	
-	public String getF_find() {
-		return f_find;
+	public int getPageSize() {
+		return pageSize;
 	}
-	public void setF_find(String f_find) {
-		this.f_find = f_find;
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
 	}
-	public int getF_startrow() {
-		return f_startrow;
+	public int getRangeSize() {
+		return rangeSize;
 	}
-	public void setF_startrow(int f_startrow) {
-		this.f_startrow = f_startrow;
+	public void setRangeSize(int rangeSize) {
+		this.rangeSize = rangeSize;
 	}
-	public int getF_endrow() {
-		return f_endrow;
+	public int getCurPage() {
+		return curPage;
 	}
-	public void setF_endrow(int f_endrow) {
-		this.f_endrow = f_endrow;
+	public void setCurPage(int curPage) {
+		this.curPage = curPage;
 	}
+	public int getCurRange() {
+		return curRange;
+	}
+	public void setCurRange(int curRange) {
+		this.curRange = curRange;
+	}
+	public int getListCnt() {
+		return listCnt;
+	}
+	public void setListCnt(int listCnt) {
+		this.listCnt = listCnt;
+	}
+	public int getPageCnt() {
+		return pageCnt;
+	}
+	public void setPageCnt(int pageCnt) {
+		this.pageCnt = pageCnt;
+	}
+	public int getRangeCnt() {
+		return rangeCnt;
+	}
+	public void setRangeCnt(int rangeCnt) {
+		this.rangeCnt = rangeCnt;
+	}
+	public int getStartPage() {
+		return startPage;
+	}
+	public void setStartPage(int startPage) {
+		this.startPage = startPage;
+	}
+	public int getEndPage() {
+		return endPage;
+	}
+	public void setEndPage(int endPage) {
+		this.endPage = endPage;
+	}
+	public int getStartIndex() {
+		return startIndex;
+	}
+	public void setStartIndex(int startIndex) {
+		this.startIndex = startIndex;
+	}
+	public int getPrevPage() {
+		return prevPage;
+	}
+	public void setPrevPage(int prevPage) {
+		this.prevPage = prevPage;
+	}
+	public int getNextPage() {
+		return nextPage;
+	}
+	public void setNextPage(int nextPage) {
+		this.nextPage = nextPage;
+	}
+	private int endPage = 1;
+	private int startIndex = 0;
+	private int prevPage;
+	private int nextPage;
+	
 	
 }

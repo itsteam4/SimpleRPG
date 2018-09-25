@@ -13,69 +13,11 @@
 <!-- Custom styles for this template -->
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <title>Insert title here</title>
-<script type="text/javascript" src="resources/smarteditor/js/HuskyEZCreator.js"></script>
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript">
-	var obj = [];
-
-	$( document ).ready(function() {
-		//스마트에디터 프레임생성
-	    nhn.husky.EZCreator.createInIFrame({
-	        oAppRef: obj,
-	        elPlaceHolder: "f_content",
-	        sSkinURI: "resources/smarteditor/SmartEditor2Skin.html",
-	        fCreator: "createSEditor2",
-	        htParams : {
-	            // 툴바 사용 여부
-	            bUseToolbar : true,            
-	            // 입력창 크기 조절바 사용 여부
-	            bUseVerticalResizer : true,    
-	            // 모드 탭(Editor | HTML | TEXT) 사용 여부
-	            bUseModeChanger : true,               
-	        }
-	    });
-	
-	  //전송버튼
-	    $("#savebutton").click(function(){
-	        //id가 smarteditor인 textarea에 에디터에서 대입
-	        obj.getById["f_content"].exec("UPDATE_CONTENTS_FIELD", []);
-	        //폼 submit
-	        $("#frm").submit();
-	    });
-	});
-
-	/*
-	$(function(){
-        //전역변수
-        var obj = [];
-        //스마트에디터 프레임생성
-        nhn.husky.EZCreator.createInIFrame({
-            oAppRef: obj,
-            elPlaceHolder: "f_content",
-            sSkinURI: "resources/smarteditor/SmartEditor2Skin.html",
-            htParams : {
-                // 툴바 사용 여부
-                bUseToolbar : true,            
-                // 입력창 크기 조절바 사용 여부
-                bUseVerticalResizer : true,    
-                // 모드 탭(Editor | HTML | TEXT) 사용 여부
-                bUseModeChanger : true,
-                fCreator: "createSEditor2"   
-            }
-        });
-        //전송버튼
-        $("#savebutton").click(function(){
-            //id가 smarteditor인 textarea에 에디터에서 대입
-            obj.getById["f_content"].exec("UPDATE_CONTENTS_FIELD", []);
-            //폼 submit
-            $("#frm").submit();
-        });
-    });
-	*/
-</script>
+<script src="resources/vendor/jquery/jquery.min.js"></script>
+<script src="resources/ckeditor/ckeditor.js"></script>
 </head>
 <body>
-	<form action="FreeBoardInsertsubmit" enctype="multipart/form-data" id="frm" method="post">
+	<form action="FreeBoardInsertsubmit" enctype="multipart/form-data" method="post">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-1"></div>
@@ -99,9 +41,10 @@
 					<tr>
 						<th>내용</th>
 						<td>
-								<textarea name="f_content" id="f_content" rows="10"
-									cols="100" style="width: 590px; height: 500px;"></textarea>
-								<input type="button" class="btn btn-warning" id="savebutton" value="작성">
+								<textarea name="f_content" id="f_content" class="form-control ckeditor" rows="10"
+									cols="100" style="width: 590px; height: 500px;">
+								</textarea>
+								<button type="submit" class="btn btn-warning" id="savebutton">작성</button>
 								<a href="/itsteam4/FreeBoardForm"><input type="button" class="btn btn-danger" id="returnbutton" value="목록"></a>
 						</td>
 					</tr>
@@ -110,5 +53,27 @@
 		</div>
 	</div>
 	</form>
+	<script>
+		CKEDITOR.replace(
+				'f_content',
+				{
+					width : 800,
+					height : 500,
+					filebrowserImageUploadUrl : '${pageContext.request.contextPath}/resources/fileupload'
+				});
+
+		CKEDITOR.on('dialogDefinition', function(ev) {
+				var dialogName = ev.data.name;
+				var dialogDefinition = ev.data.definition;
+
+				switch (dialogName) {
+				case 'image': //Image Properties dialog
+					//dialogDefinition.removeContents('info');
+					dialogDefinition.removeContents('Link');
+					dialogDefinition.removeContents('advanced');
+					break;
+				}
+			});
+	</script>
 </body>
 </html>

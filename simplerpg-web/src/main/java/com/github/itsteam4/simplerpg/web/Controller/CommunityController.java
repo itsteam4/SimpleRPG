@@ -1,16 +1,15 @@
 package com.github.itsteam4.simplerpg.web.Controller;
 
 import java.util.ArrayList;
-import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
-import java.io.InputStream;
 import java.io.File;
 
 import org.apache.ibatis.session.SqlSession;
@@ -21,11 +20,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
-import com.github.itsteam4.simplerpg.web.entity.Editor;
 import com.github.itsteam4.simplerpg.web.entity.FreeBoard;
 import com.github.itsteam4.simplerpg.web.service.FreeBoardDAO;
-import com.github.itsteam4.simplerpg.web.service.MemberDAO;
 
 @Controller
 public class CommunityController {
@@ -64,80 +62,7 @@ public class CommunityController {
 	public String FreeBoardInsertForm() {
 		return "Community/free_board_insert_form";
 	}
-// 자유게시판 다중 파일 업로드
-	@RequestMapping(value="/file_uploader_html5")
-	public void FileUpload(HttpServletRequest request,HttpServletResponse response) {
-		System.out.println("in FileUpload()");
-		
-		try {
-//			파일정보
-			String sFileInfo ="";
-//			파일명을 받는다 - 일반 원폰 파일명
-			String filename = request.getHeader("file-name");
-//			파일 확장자
-			String filename_ext = filename.substring(filename.lastIndexOf(".")+1);
-//			확장자를 소문자로 변경
-			filename_ext = filename_ext.toLowerCase();
-			
-//			이미지 검증 배열 변수
-			String[] allow_file= {"jpg","png","bmp","gif"};
-			
-//			돌리면서 확장자가 이미지인지 확인
-			int cnt = 0;
-			for(int i=0;i<allow_file.length;i++) {
-				if(filename_ext.equals(allow_file[i])) {
-					cnt++;
-				}
-			}
-//			이미지가 아님
-			if(cnt == 0) {
-				PrintWriter print = response.getWriter();
-				print.print("NOTALLOW_"+filename);
-				print.flush();
-				print.close();
-			}else {
-//				이미지이므로 신규 파일로 디렉토리 설정 및 업로드
-//				파일 기본경로
-//				파일 기본경로_상세경로
-				String filePath = "D:"+File.separator+"simplerpg"+File.separator+"simplerpg-web"+File.separator+"src"+File.separator+"main"+File.separator+"webapp"+File.separator+"resources"+File.separator+"fileupload"+File.separator;
-				File file = new File(filePath);
-				if(!file.exists()) {
-					file.mkdirs();
-				}
-				String realFileNm = "";
-				SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
-				String today= formatter.format(new java.util.Date()); realFileNm = today+UUID.randomUUID().toString() + filename.substring(filename.lastIndexOf("."));
-				String rlFileNm = filePath + realFileNm;
-				// 서버에 파일쓰기 
-				InputStream is = request.getInputStream();
-				OutputStream os=new FileOutputStream(rlFileNm);
-				int numRead;
-				byte b[] = new byte[Integer.parseInt(request.getHeader("file-size"))];
-				while((numRead = is.read(b,0,b.length)) != -1){
-					os.write(b,0,numRead);
-				} 
-				if(is != null) {
-					is.close();
-				}
-				os.flush();
-				os.close();
-				//서버에 파일쓰기 
-				//정보 출력
-				sFileInfo += "&bNewLine=true"; 
-				// img 태그의 title 속성을 원본파일명으로 적용시켜주기 위함
-				sFileInfo += "&sFileName="+ filename;
-				sFileInfo += "&sFileURL="+"/itsteam4/resources/fileupload/" + realFileNm;
-				
-				PrintWriter print = response.getWriter();
-				print.print(sFileInfo);
-				print.flush();
-				print.close();
-			}
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-	}
+
 //	자유게시판 게시글 등록
 	@RequestMapping(value="FreeBoardInsertsubmit",method=RequestMethod.POST)
 	public String FreeBoardInsert(@ModelAttribute FreeBoard boards,HttpServletRequest request) {
@@ -154,10 +79,13 @@ public class CommunityController {
 	}
 //	자유게시판 게시글 페이징 이동
 	@RequestMapping(value="freeboarddetailform",method=RequestMethod.GET)
-	public String FreeBoardPageForm(Model model,@RequestParam int f_no) {
+	public String FreeBoardPageForm(Model model,HttpSession session,@RequestParam int f_no) {
 		System.out.println("디테일 페이지 이동");
 		FreeBoardDAO dao = sqlSession.getMapper(FreeBoardDAO.class);
 		FreeBoard boards = dao.freeboardselectone(f_no);
+		if(!boards.getF_writer().equals(session.getAttribute("sessionid"))) {
+			dao.fupdatehit(f_no);
+		} 
 		model.addAttribute("boards",boards);
 		return "Community/free_board_detail_form";
 	}
@@ -173,17 +101,74 @@ public class CommunityController {
 		model.addAttribute("boards",boards);
 		return "Community/free_board_update_form";
 	}
+	 @RequestMapping(value = "/resources/fileupload", method = RequestMethod.POST)
+	    public void communityImageUpload(HttpServletRequest request, HttpServletResponse response, @RequestParam MultipartFile upload) {
+		 	System.out.println("컨트롤러");
+	        OutputStream out = null;
+	        PrintWriter printWriter = null;
+	        response.setCharacterEncoding("utf-8");
+	        response.setContentType("text/html;charset=utf-8");
+	 
+	        try{
+	 
+	            String fileName = upload.getOriginalFilename();
+	            byte[] bytes = upload.getBytes();
+	            String uploadPath = "D:/simplerpg/simplerpg-web/src/main/webapp/resources/fileupload/" + fileName;//저장경로
+	            
+	            out = new FileOutputStream(new File(uploadPath));
+	            out.write(bytes);
+	            String callback = request.getParameter("CKEditorFuncNum");
+	            System.out.println(callback);
+	            printWriter = response.getWriter();
+	            String fileUrl =request.getContextPath()+"/resources/fileupload/"+ fileName;
+	            String script="<script>window.parent.CKEDITOR.tools.callFunction(";
+	    	    script +=callback;
+	    	    script +=", '";
+	    	    script +=fileUrl;
+	    	    script +=" ' , '이미지를 업로드 했습니다.'";
+	    	    script +=") </script>";
+	            printWriter.println(script);
+	            printWriter.flush();
+	 
+	        }catch(IOException e){
+	            e.printStackTrace();
+	        } finally {
+	            try {
+	                if (out != null) {
+	                    out.close();
+	                }
+	                if (printWriter != null) {
+	                    printWriter.close();
+	                }
+	            } catch (IOException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	 
+	        return;
+	    }
+	
 //	자유게시판 게시글 수정 구현
-	@RequestMapping(value="FreeBoardUpdate",method=RequestMethod.POST)
+	@RequestMapping(value="FreeBoardUpdates",method=RequestMethod.POST)
 	public String FreeBoardUpdate(@ModelAttribute FreeBoard fboard) {
 		System.out.println("업데이트 버튼 활성화");
 		FreeBoardDAO dao = sqlSession.getMapper(FreeBoardDAO.class);
-		int result = dao.fupdaterow(fboard);
-			System.out.println("result: "+result);
-		System.out.println(fboard.getF_content());
-		System.out.println(fboard.getF_date());
+		int result =dao.fupdaterow(fboard);
+		System.out.println(result);
 		System.out.println(fboard.getF_title());
+		System.out.println(fboard.getF_writer());
+		System.out.println(fboard.getF_date());
+		System.out.println(fboard.getF_hit());
+		System.out.println(fboard.getF_content());
 		return "redirect:FreeBoardForm";
 	}
-	
+//	자유게시판 게시글 삭제 구현
+	@RequestMapping(value="FreeBoardDelete",method=RequestMethod.GET)
+	public String FreeBoardDelete(@RequestParam int f_no) {
+		System.out.println("삭제버튼 활성화");
+		FreeBoardDAO dao = sqlSession.getMapper(FreeBoardDAO.class);
+		dao.fdeleterow(f_no);	
+		System.out.println("삭제되었습니다.");
+		return "redirect:FreeBoardForm";
+	}
 }
