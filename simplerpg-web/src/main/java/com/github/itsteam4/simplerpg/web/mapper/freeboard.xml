@@ -11,8 +11,17 @@
   		)
   	</insert>
   	<select id="freeboardpagelist" parameterType="hashMap" resultMap="freeboardMap">
-  		select * from freeboard_tbl_board 
-  		order by f_no DESC
+  		select * from freeboard_tbl_board where 
+  		f_title like CONCAT('%',#{find},'%') OR
+  		f_content like CONCAT('%',#{find},'%') OR
+  		f_writer like CONCAT('%',#{find},'%') 
+  		order by f_no ASC limit #{startrow},#{endrow}
+  	</select>
+  	<select id="fselectrowcount" parameterType="String" resultType="Integer">
+  		select count(*) from freeboard_tbl_board where 
+  		f_title like CONCAT('%',#{find},'%') OR
+  		f_content like CONCAT('%',#{find},'%') OR
+  		f_writer like CONCAT('%',#{find},'%') 
   	</select>
   	<select id="freeboardselectone" parameterType="Integer" resultMap="freeboardMap">
   		select * from freeboard_tbl_board where f_no=#{f_no}
@@ -33,5 +42,6 @@
   		update freeboard_tbl_board set f_hit = f_hit+1
   		where f_no=#{f_no}
   	</update>
+  	
  </mapper>
 

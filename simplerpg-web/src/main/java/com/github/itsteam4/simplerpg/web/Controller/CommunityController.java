@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.github.itsteam4.simplerpg.web.entity.FreeBoard;
+import com.github.itsteam4.simplerpg.web.entity.FreeBoardPaging;
 import com.github.itsteam4.simplerpg.web.service.FreeBoardDAO;
 
 @Controller
@@ -31,6 +32,9 @@ public class CommunityController {
 	SqlSession sqlSession;
 	@Autowired
 	FreeBoard fboard;
+	@Autowired
+	private FreeBoardPaging fboardpaging;
+	static String find;
 	
 //	스크린샷 게시판 이동
 	@RequestMapping(value="ScreenFreeBoardForm",method=RequestMethod.GET)
@@ -46,10 +50,56 @@ public class CommunityController {
 	
 //	자유게시판 페이지 처리
 	@RequestMapping(value="FreeBoardForm",method=RequestMethod.GET)
-	public String FreeBoardForm(Model model) {
+	public String FreeBoardForm(Model model,String find) {
+		if(find == null)
+			find = "";
+		this.find = find;
+		int pagesize = 5;
+		int startrow = 0;
+		int endrow = startrow + pagesize;
 		FreeBoardDAO dao = sqlSession.getMapper(FreeBoardDAO.class);
-		ArrayList<FreeBoard> boards = dao.freeboardpagelist();
+		fboardpaging.setFind(find);
+		fboardpaging.setStartrow(startrow);
+		fboardpaging.setEndrow(endrow);
+		ArrayList<FreeBoard> boards = dao.freeboardpagelist(fboardpaging);
+		int rowcount = dao.fselectrowcount(find);
+		int absPage = 1;
+		if(rowcount % pagesize == 0)
+			absPage = 0;
+		int pageCount = rowcount / pagesize + absPage;
+		int[] pages = new int[pageCount];
+		for(int i = 0; i <pageCount;i++) {
+			pages[i] = i+1;
+		}
+		
+		
 		model.addAttribute("boards",boards);
+		model.addAttribute("pages",pages);
+		return "Community/free_board_form";
+	}
+//	자유게시판 리스트 페이지
+	@RequestMapping(value="FreeboardPageListSelected",method=RequestMethod.GET)
+	public String FreeBoardPageSelected(Model model,int page) {
+		FreeBoardDAO dao = sqlSession.getMapper(FreeBoardDAO.class);
+		int pagesize = 5;
+		int startrow = (page - 1) * pagesize;
+		int endrow = pagesize;
+		
+		fboardpaging.setFind(find);
+		fboardpaging.setStartrow(startrow);
+		fboardpaging.setEndrow(endrow);
+		ArrayList<FreeBoard> boards = dao.freeboardpagelist(fboardpaging);
+		int rowcount = dao.fselectrowcount(find);
+		int absPage = 1;
+		if(rowcount % pagesize == 0)
+			absPage = 0;
+		int pageCount = rowcount / pagesize + absPage;
+		int[] pages = new int[pageCount];
+		for(int i= 0; i <pageCount; i++) {
+			pages[i] = i+1;
+		}
+		model.addAttribute("boards",boards);
+		model.addAttribute("pages",pages);
 		return "Community/free_board_form";
 	}
 //	팁/노하우 게시판 이동
@@ -77,7 +127,7 @@ public class CommunityController {
 		request.getParameter("f_content");
 		return "redirect:FreeBoardForm";
 	}
-//	자유게시판 게시글 페이징 이동
+//	자유게시판 게시글 상세페이 이동
 	@RequestMapping(value="freeboarddetailform",method=RequestMethod.GET)
 	public String FreeBoardPageForm(Model model,HttpSession session,@RequestParam int f_no) {
 		System.out.println("디테일 페이지 이동");

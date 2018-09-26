@@ -44,11 +44,20 @@
 				<div class="col-md-1"></div>
 			</div>
 			<div class="row" style="margin-top: 50px">
+				<div class="col-md-1"></div>
+				<div class="col-md-10">
+						<c:forEach var="page" items="${pages}">
+		 					<a href="FreeboardPageListSelected?page=${page}">[${page}]</a>&nbsp
+		 				</c:forEach>
+				</div>
+				<div class="col-md-1"></div>
+			</div>
+			<div class="row" style="margin-top: 50px">
 			<div class="col-md-1"></div>
 			<div class="col-md-10">
 				<div class="input-group">
-					<input type="text" id="freeboardSearch">
-					<button type="button" class="btn btn-primary">검색</button>
+					<input type="text" name="find" id="find" value="${find}">
+					<button type="submit" class="btn btn-primary">검색</button>
 				</div>
 			</div>
 
