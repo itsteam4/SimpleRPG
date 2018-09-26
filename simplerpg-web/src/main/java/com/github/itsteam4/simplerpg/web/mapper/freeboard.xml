@@ -21,9 +21,9 @@
   	</select>
   	<update id="fupdaterow" parameterType="hashMap">
   		update freeboard_tbl_board set
-  		f_title=#{f_title,jdbcType=VARCHAR},
-  		f_writer=#{f_writer,jdbcType=VARCHAR},f_content=#{f_content,jdbcType=VARCHAR},
-  		f_date=now(),f_hit=#{f_hit,jdbcType=INTEGER}
+  		f_title=#{f_title},
+  		f_writer=#{f_writer},f_content=#{f_content},
+  		f_date=now(),f_hit=#{f_hit}
   		where f_no = #{f_no}
   	</update>
  </mapper>

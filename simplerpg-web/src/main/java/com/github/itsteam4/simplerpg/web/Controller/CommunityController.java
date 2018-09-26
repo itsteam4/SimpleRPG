@@ -176,13 +176,14 @@ public class CommunityController {
 //	자유게시판 게시글 수정 구현
 	@RequestMapping(value="FreeBoardUpdate",method=RequestMethod.POST)
 	public String FreeBoardUpdate(@ModelAttribute FreeBoard fboard) {
-		System.out.println("업데이트 버튼 활성화");
 		FreeBoardDAO dao = sqlSession.getMapper(FreeBoardDAO.class);
+		
+		System.out.println("타이틀"+fboard.getF_title());
+		System.out.println("내용"+fboard.getF_content());
+		System.out.println("시퀸스"+fboard.getF_no());
+		
 		int result = dao.fupdaterow(fboard);
-			System.out.println("result: "+result);
-		System.out.println(fboard.getF_content());
-		System.out.println(fboard.getF_date());
-		System.out.println(fboard.getF_title());
+		System.out.println("result: "+result);
 		return "redirect:FreeBoardForm";
 	}
 	
