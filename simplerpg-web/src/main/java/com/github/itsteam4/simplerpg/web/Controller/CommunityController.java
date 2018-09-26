@@ -142,15 +142,13 @@ public class CommunityController {
 //	자유게시판 게시물 업데이트 페이지 이동
 	@RequestMapping(value="FreeBoardUpdateForm",method=RequestMethod.GET)
 	public String FreeBoardUpdateForm(Model model,@RequestParam int f_no) {
-		System.out.println("업데이트 페이지 이동");
+		
 		FreeBoardDAO dao = sqlSession.getMapper(FreeBoardDAO.class);
 		FreeBoard boards = dao.freeboardselectone(f_no);
-		System.out.println("content:"+boards.getF_content());
-		System.out.println("writer:"+boards.getF_writer());
-		System.out.println("title:"+boards.getF_title());
 		model.addAttribute("boards",boards);
 		return "Community/free_board_update_form";
 	}
+	
 	 @RequestMapping(value = "/resources/fileupload", method = RequestMethod.POST)
 	    public void communityImageUpload(HttpServletRequest request, HttpServletResponse response, @RequestParam MultipartFile upload) {
 		 	System.out.println("컨트롤러");
@@ -203,13 +201,15 @@ public class CommunityController {
 	public String FreeBoardUpdate(@ModelAttribute FreeBoard fboard) {
 		System.out.println("업데이트 버튼 활성화");
 		FreeBoardDAO dao = sqlSession.getMapper(FreeBoardDAO.class);
+		
+		System.out.println("작성자"+fboard.getF_writer());
+		System.out.println("제목"+fboard.getF_title());
+		System.out.println("글번호"+fboard.getF_no());
+		System.out.println("내용"+fboard.getF_content());
+		
 		int result =dao.fupdaterow(fboard);
 		System.out.println(result);
-		System.out.println(fboard.getF_title());
-		System.out.println(fboard.getF_writer());
-		System.out.println(fboard.getF_date());
-		System.out.println(fboard.getF_hit());
-		System.out.println(fboard.getF_content());
+		
 		return "redirect:FreeBoardForm";
 	}
 //	자유게시판 게시글 삭제 구현

@@ -21,6 +21,7 @@
 	<form action="FreeBoardUpdates" enctype="multipart/form-data" method="post">
 	<input type="hidden" id="f_date" name="f_date" value="${boards.f_date}">
 	<input type="hidden" id="f_hit" name="f_hit" value="${boards.f_hit}">
+	<input type="hidden" id="f_no" name="f_no" value="${boards.f_no}">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-1"></div>
