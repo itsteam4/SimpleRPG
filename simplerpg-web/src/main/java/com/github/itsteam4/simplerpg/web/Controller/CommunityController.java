@@ -148,7 +148,7 @@ public class CommunityController {
 		model.addAttribute("boards",boards);
 		return "Community/free_board_update_form";
 	}
-	
+//	ck에디터 사진 업로드 구현
 	 @RequestMapping(value = "/resources/fileupload", method = RequestMethod.POST)
 	    public void communityImageUpload(HttpServletRequest request, HttpServletResponse response, @RequestParam MultipartFile upload) {
 		 	System.out.println("컨트롤러");

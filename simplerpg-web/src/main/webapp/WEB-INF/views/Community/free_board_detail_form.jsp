@@ -38,15 +38,15 @@
 					</tr>
 					<tr>
 						<th>내용</th>
-						<td align="center" width="500" height="500">
+						<td align="center" height="350">
 								<div>${boards.f_content}</div>							
 						</td>
 					</tr>
 					<tr>
 						<th>댓글</th>
-						<td align="left">
-							<textarea  cols="10"></textarea>
-							
+						<td align="center">
+							<input id="f_coment" name="f_comment" type="text" width="100" replaceholder="댓글을 입력하세요.">
+							<button type="button" class="btn btn-info" id="commentbutton">등록</button>
 						</td>
 					</tr>
 				</tbody>

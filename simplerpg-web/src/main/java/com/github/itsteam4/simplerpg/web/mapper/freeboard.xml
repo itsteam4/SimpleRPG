@@ -32,7 +32,7 @@
   		update freeboard_tbl_board set
   		f_title=#{f_title,jdbcType=VARCHAR},
   		f_writer=#{f_writer,jdbcType=VARCHAR},f_content=#{f_content,jdbcType=VARCHAR},
-  		f_date=#{f_date,jdbcType=VARCHAR},f_hit=#{f_hit,jdbcType=INTEGER}
+  		f_date=now(),f_hit=#{f_hit,jdbcType=INTEGER}
   		where f_no = #{f_no}
   	</update>
   	<delete id="fdeleterow" parameterType="Integer">
