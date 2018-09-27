@@ -9,8 +9,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css">
 		<script src="resources/bootstrap/js/jquery-3.3.1.min.js"></script>
-		<script src="resources/bootstrap/js/popper.min.js"></script>
-		<script src="resources/bootstrap/js/bootstrap.min.js"></script>
+		<script src="resources/bootstrap/js/popper.min.js?ver=1"></script>
+		<script src="resources/bootstrap/js/bootstrap.min.js?ver=1"></script>
 		<script src="resources/gamejs/phaser.js"></script>
 		<script type="text/javascript" src="<c:url value="resources/sockjs-0.3.4.js"/>"></script>
 		<title>WebGame</title>
@@ -100,12 +100,13 @@
 				
 			</div>
 		</div>
-		<script src="resources/gamejs/ImageLoad.js"></script>
-		<script src="resources/gamejs/map.js"></script>
-		<script src="resources/gamejs/common.js"></script>
-		<script src="resources/gamejs/mob.js"></script>
-		<script src="resources/gamejs/audio.js"></script>
-		<script src="resources/gamejs/sector.js"></script>
+		<script src="resources/gamejs/ImageLoad.js?ver=1"></script>
+		<script src="resources/gamejs/mobalive.js?ver=1"></script>
+		<script src="resources/gamejs/map.js?ver=1"></script>
+		<script src="resources/gamejs/common.js?ver=1"></script>
+		<script src="resources/gamejs/mob.js?ver=1"></script>
+		<script src="resources/gamejs/audio.js?ver=1"></script>
+		<script src="resources/gamejs/sector.js?ver=1"></script>
 	</form>
 	</body>
 </html>

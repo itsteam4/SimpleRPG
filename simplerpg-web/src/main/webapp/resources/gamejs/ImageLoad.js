@@ -18,6 +18,11 @@ var goblinboss = new Image();
 goblinboss.addEventListener('load',goblinbossReady, false);
 goblinboss.src = "resources/gamejs/imgs/goblinboss.png";
 
+var orcboss = new Image();
+orcboss.addEventListener('load',orcbossReady, false);
+orcboss.src = "resources/gamejs/imgs/orcboss.png";
+
+
 function userReady() {
 	//유저 이미지 로드되면 실행됨
 	//유저 정보 수정 함수 호출
@@ -62,7 +67,11 @@ function goblinbossReady(){
 function orcReady(){
 	Orc3_3(orc3_3_xy);
 	Orc7_1(orc7_1_xy);
-	Orc8_1(orc8_1_xy);
+	Orc8_2(orc8_2_xy);
 	Orc12_2(orc12_2_xy);
 	Orc12_3(orc12_3_xy);
+}
+
+function orcbossReady(){
+	OrcBoss13_1(orcboss13_1_xy);
 }
