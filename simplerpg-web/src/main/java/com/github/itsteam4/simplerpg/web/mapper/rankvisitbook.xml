@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.itsteam4.simplerpg.web.service.RankInfoDao">
+	<insert id="insertVisitRow" parameterType="hashMap">
+  		insert into visitbook_tb(seq,id,visitbook,date,stanid
+  		)values(
+  		#{seq,jdbcType=INTEGER},#{id,jdbcType=VARCHAR},
+  		#{visitbook,jdbcType=VARCHAR},#{date,jdbcType=VARCHAR},#{stanid,jdbcType=VARCHAR}
+  		)
+  	</insert>
+  	
+  	<resultMap type="com.github.itsteam4.simplerpg.web.entity.RankVisitbook" id="rankvisitbookMap">
+ 	</resultMap>
+  	
+  	<select id="selectRow" parameterType="String" resultMap="rankvisitbookMap">
+		select * from visitbook_tb  
+		where id = #{id} 
+	</select>
+	
+	<select id="selectAll" parameterType="String" resultMap="rankvisitbookMap">
+		select * from visitbook_tb
+		where stanid = #{stanid} 
+		order by seq DESC
+	</select> 
+	
+	
+	
+	<select id="selectSearch" parameterType="String" resultMap="rankvisitbookMap">
+		
+	</select> 
+</mapper>

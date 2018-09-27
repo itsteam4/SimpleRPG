@@ -12,6 +12,13 @@
  	<pattern>/</pattern>   
  </decorator>    
  <decorator name="no" page=""></decorator>
+ <decorator name="loginfail" page=""></decorator>
+ <decorator name="freeboard_insert_forms" page=""></decorator>
+ <decorator name="smarteditortext" page=""></decorator>
+ <decorator name="freeboard_detail_forms" page=""></decorator>
+ <decorator name="freeboard_update_forms" page=""></decorator>
+ <decorator name="smarteditorphotoupload" page=""></decorator>
+ <decorator name="screeninsertpages" page=""></decorator>
  <!-- decorators를 적용시키지 않을 url 패턴 -->
  <excludes>
 <!--   <pattern>/memberList</pattern> -->    

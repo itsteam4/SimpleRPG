@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>      
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,8 +9,8 @@
 
 </head>
 <body >
-<form> 
-<div class="container" style="background:url('resources/image/rank/bg_hope.jpg'); margin-bottom:40px">
+<!-- background:url('resources/image/rank/bg_hope.jpg'); -->
+<div class="container" style=" margin-bottom:40px">
 
 	<div class="row" id="second" style="background:url('resources/image/rank/bg_hope_use_area.png'); background-size:100%; margin-top:50px;">
 		<div class="col-md-2" style="padding-top:20px;padding-right:0px;padding-bottom:20px; padding-left:70px;">
@@ -19,39 +20,86 @@
 			
 		</div>
 		
-		<div class="col-md-2" style="padding-top:50px; padding-right:30px; padding-bottom:0px; padding-left:0px;">
+		<div class="col-md-2" style="padding-top:35px; padding-right:30px; padding-bottom:0px; padding-left:0px;">
 				<dl>
 		            <dt class="ico_hope_name">
 		            	<img src="resources/image/rank/ico_hope_name.png" alt="characname" width="22px" height="22px">
 		            	캐릭터명
 	            	</dt>
-		            <dd>신이내린한분</dd>
+		            <dd>${members.id}</dd>
 		            
 		            <img src="resources/image/rank/bg_use_info_bar.png" alt="bar" width="140px">
 		            
 		            <dt class="ico_server">
 		            	<img src="resources/image/rank/ico_server.png" alt="server" width="22px" height="22px">
 		            	활동 서버</dt>
-		            <dd>연</dd>
+		            <dd>용문동</dd>
 		        </dl>
 		</div>
 		
-		<div class="col-md-6" ">
-			<div style="padding-top:30px; padding-right:350px; padding-bottom:0px; padding-left:0px" >
-				<img src="resources/image/rank/ico_hope_greeting.png" alt="server" width="22px" height="22px">
-				<label>한줄 인사말</label>
-			</div>
+			<div class="col-md-6">
+			<form >
+			<c:choose>
+            		<c:when test="${sessionid == null}">
+            			<div style="padding-top:20px; padding-right:300px; padding-bottom:0px; padding-left:0px" >
+							<img src="resources/image/rank/ico_hope_greeting.png" alt="server" width="22px" height="22px">
+							<label>한줄 인사말</label>
+						</div>
+					</c:when>
+            		<c:when test="${(sessionid != null) && (members.id != sessionid)}">
+            			<div style="padding-top:20px; padding-right:300px; padding-bottom:0px; padding-left:0px" >
+							<img src="resources/image/rank/ico_hope_greeting.png" alt="server" width="22px" height="22px">
+							<label>한줄 인사말</label>
+						</div>
+            		</c:when>
+            		<c:when test="${(sessionid != null)&&(members.id==sessionid)&&(rankinfos.id == null)}">
+            			<div style="padding-top:20px; padding-right:280px; padding-bottom:0px; padding-left:0px" >
+							<img src="resources/image/rank/ico_hope_greeting.png" alt="server" width="22px" height="22px">
+							
+							<label>한줄 인사말</label>
+							<button name="updatebtn" class="insertbtn" type="button" 
+							onclick="insertGreeting"
+							style="background:url('resources/image/rank/btn_modify.gif') no-repeat 0 0; 
+							width:44px; height:18px; border:none; padding:0;vertical-align: middle; cursor:pointer; ">
+							</button> 
+						</div>
+            		</c:when>
+            		<c:when test="${(sessionid != null)&&(members.id==sessionid)&&(rankinfos.id !=null)}">
+            			<div style="padding-top:20px; padding-right:280px; padding-bottom:0px; padding-left:0px" >
+							<img src="resources/image/rank/ico_hope_greeting.png" alt="server" width="22px" height="22px">
+							
+							<label>한줄 인사말</label>
+							<button name="updatebtn" class="updatebtn" type="button" 
+							style="background:url('resources/image/rank/btn_modify.gif') no-repeat 0 0; 
+							width:44px; height:18px; border:none; padding:0;vertical-align: middle; cursor:pointer; ">
+							</button> 
+							
+						</div>
+            		</c:when>
+            		<c:otherwise>
+            			<div style="padding-top:20px; padding-right:350px; padding-bottom:0px; padding-left:0px" >
+							<img src="resources/image/rank/ico_hope_greeting.png" alt="server" width="22px" height="22px">
+							<label>한줄 인사말</label>
+						</div>
+            		</c:otherwise>
+            	</c:choose>
 			<div style="padding-top:5px; padding-right:0px; padding-bottom:0px; padding-left:40px">
-				<textarea class="form-control" rows="3" id="comment"></textarea>
+				<input type="text" id="id" name="id" value="${sessionid}" style="display:none;">
+				<textarea class="form-control" rows="3" id="greeting" name="greeting"
+				>${rankinfos.greeting}</textarea>
 			</div>
+			</form>
 		</div>
+		
+		
+		
 	</div>
 	<!--경계-------------------------------------------------------- ------------ -->
 	<!--경계-------------------------------------------------------- ----------- -->
 	<!--경계-------------------------------------------------------- -------------- -->
 	<!--경계-------------------------------------------------------- ---------------- -->
-	<div class="" id="" style =" margin-top:50px">
-			<div style="padding-right:944px">
+	<div class="" id="" style =" margin-top:50px; margin-bottom:15px; margin-left:25px; ">
+			<div style="padding-right:944px; color:#685e60; font-size:18px;font-weight:normal;">
 				<img src="resources/image/rank/ico_hope_stit.png" alt="characterinfo" width="22px" height="22px">
 				캐릭터
 			</div>
@@ -120,8 +168,8 @@
 	<!--경계-------------------------------------------------------- ----------- -->
 	<!--경계-------------------------------------------------------- -------------- -->
 	<!--경계-------------------------------------------------------- ---------------- -->
-	<div class="row" id="third" style =" margin-top:50px;">
-			<div style="padding-right:900px">
+	<div class="row" id="third" style =" margin-top:50px; margin-bottom:15px; margin-left:45px;">
+			<div style="padding-right:900px; color:#685e60; font-size:18px;font-weight:normal;">
 				<img src="resources/image/rank/ico_hope_stit.png" alt="characterinfo" width="22px" height="22px">
 				캐릭터 아이템
 			</div>
@@ -131,7 +179,7 @@
 	
 	
 	
-	<div class="row" >
+	<div class="row" style="margin-left:35px;">
 	
 	<div class="pull-left" style="background-color:#ded9d1; width:249px; height:357px">
          <div class="pull-left" style="background:url('resources/image/rank/bg_equip2.jpg'); width:192px; height:289px; margin:36px 0 0 28px;">
@@ -227,7 +275,7 @@
 	         		overflow:hidden; padding:0 0 0 0; ">
 	         		
 	         			<li class="pull-left" style="width:357px; height:36px; border-top:1px solid #fff; border-bottom:1px solid #fff; 
-	         			font-size:14px; color:rgb(104,94,96);font-family: 'Nanum Square', sans-serif;  margin-left:20px;">
+	         			font-size:14px; color:rgb(104,94,96);  margin-left:20px;">
                             <em class="pull-left" style="width:160px; height:34px;
                             background:url('resources/image/rank/ico_chr_item.png')no-repeat;
                             background-position:0 7px;
@@ -389,65 +437,175 @@
 	<!--경계-------------------------------------------------------- ----------- -->
 	<!--경계-------------------------------------------------------- -------------- -->
 	<!--경계-------------------------------------------------------- ---------------- -->
-	
-	<div class="row" id="five" style ="margin-top:50px;">
-			<div style="padding-right:900px">
-				<img src="resources/image/rank/ico_hope_stit.png" alt="characterinfo" width="22px" height="22px">
-				<label style="font-size:18px; color:#685e60;">@@님의 방명록</label>
+	<c:choose>
+  		<c:when test="${sessionid == null}">
+  			<div class="row" id="five" style ="margin-top:50px; margin-left:45px;">
+				<div style="padding-right:800px">
+					<img src="resources/image/rank/ico_hope_stit.png" alt="characterinfo" width="22px" height="22px">
+					<label style="font-size:18px; color:#685e60;">${members.id}님의 방명록</label>
+				</div>
 			</div>
+			<div class="row" style="width:100%; height:82px; margin-left:45px;
+				background:url('resources/image/rank/coment_bg02.png') no-repeat 0 0;">
+		        <span class="pull-left" id="commentSpan" style="width:74px; height:82px; background:url('resources/image/rank/coment_count_bg.jpg')right center;
+		        text-align:center">
+		        	<strong style="line-height:82px;">0</strong>/200
+		        </span>
+		        <textarea class="pull-left" 
+		        style="width:850px; height:80px; padding:6px 0 0 20px; background-color:#fff; margin-top:1px" 
+		        name="txtComment" id="txtComment" cols="30" rows="10" placeholder="로그인하시면 방명록 등록이 가능합니다." disabled="disabled"></textarea>
+		        <span class="pull-left" ><a href="javascript:;" onclick="alert('로그인 후 이용 바랍니다.')"><img src="http://s.nx.com/S2/Game/baram/2016/renewal/coment_add_btn02.jpg" alt="댓글등록"></a></span>
+		    </div>	
+		</c:when>
+		<c:otherwise>
+		<form name = "number">
+		
+			<div class="row" id="five" style ="margin-top:50px; margin-left:45px;">
+				<div style="padding-right:800px">
+					<img src="resources/image/rank/ico_hope_stit.png" alt="characterinfo" width="22px" height="22px">
+					<label style="font-size:18px; color:#685e60;">${members.id}님의 방명록</label>
+				</div>
+			</div>
+			<div class="row" style="width:100%; height:82px; margin-left:45px;
+				background:url('resources/image/rank/coment_bg02.png') no-repeat 0 0;">
+		        <span class="pull-left" id="commentSpan" style="width:80px; height:82px; background:url('resources/image/rank/coment_count_bg.jpg')right center;
+		        text-align:center">
+		        	<input size=8 type="text" name="text2" 
+		        	style="background-color:#dedede;border:none; padding:0;
+		        	text-align:center; margin-top:26px;">
+		        </span>
+		        <input type="text" id="stanid" name="stanid" value="${members.id}" style="display:none;">
+		        <textarea class="form-control"cols="25" rows="10" id="visitbook" name="visitbook"
+		        onfocus="number_of_Characters()" 
+		        style="float:left; width:850px; height:80px; padding:6px 0 0 20px; background-color:#fff; margin-top:1px" 
+		        ></textarea>
+		        <span class="pull-left" >
+			        <a href="#" onclick="visitbook()">
+			        <img src="http://s.nx.com/S2/Game/baram/2016/renewal/coment_add_btn02.jpg" alt="댓글등록">
+			        </a>
+		        </span>
+		    </div>
+		    </form>	
+		</c:otherwise>
+	</c:choose>
+	    <div class="pull-left" style="margin-top:50px">
+	    	<p style="widht:100%; font-size:14px; color:#7c7c7c;">총
+	    	<span style="color:red">${rankvisitbooknumber.number}</span>
+	    	개의 방명록이 있습니다.
+	    	</p>
+	    </div>
+	    
+	    
+	    <div>
+				<table class="table">
+				
+					   
+					    <tbody>
+					    <c:forEach var="rankvisitbooks" items="${rankvisitbooks}">
+					   
+						      <tr>
+						      	 <td style="color:#a18c6d;font-size:12px; width:200px;
+						      	 padding-left:20px;
+						      	 ">${rankvisitbooks.date}</td>
+						         <td style="width:160px;">${rankvisitbooks.id}</td>
+						         <td style="color:#797272; font-size:14px;
+						         text-align:left; padding-left:50px;
+						         ">${rankvisitbooks.visitbook}</td>
+						         <c:choose>
+						         	<c:when test="${rankvisitbooks.id==sessionid}">
+							         <td>
+							         	<span>
+							         		<a>
+								         	<img src="resources/image/rank/coment_del.jpg')no-repeat;">
+								        	 </a>
+							         	</span>
+								         
+							         </td>
+							         </c:when>
+						         </c:choose>
+						      </tr>
+					      </c:forEach>
+				      
+				    </tbody>
+				  </table>
+		</div>
 	</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<script type="text/javascript"> 
+
+
+function number_of_Characters() {
+		
+	var t1v = document.number.visitbook.value;
+	var t2v = t1v.length;
+		document.number.text2.value = t2v + "/200";
+	if(t2v >= 200) {
+		alert("더이상 입력할 수 없습니다.");
+		document.number.visitbook.value = "";
+	}
+	setTimeout("number_of_Characters()" ,0);
+}
+
+
+	function visitbook(){
+		var visitbook = document.getElementById("visitbook").value;
+		var id = $('#id').val();
+		var stanid = $('#stanid').val();
+		$.ajax({
+			type:'POST',
+			data : {'id':id,
+					'visitbook':visitbook,
+					'stanid':stanid},
+			datatype:'json',
+			url : 'visitBook',
+			success : function(data){
+				document.number.visitbook.value = "";
+				location.reload();
+			},
+			error : function(xhr, status, error){
+			}
+		});
+	};
+	$(document).ready(function(){
+		document.number.text2.value = 0 + "/200";
+		
+		$('.updatebtn').on('click',function(){
+			var greeting = document.getElementById("greeting").value;
+			var id = $('#id').val();
+			$.ajax({
+				type:'POST',
+				data : {'id':id,
+						'greeting':greeting},
+				datatype:'json',
+				url : 'updateGreeting',
+				success : function(data){
+				},
+				error : function(xhr, status, error){
+				}
+			});
+			
+		});
+		$('.insertbtn').on('click',function(){
+			var greeting = document.getElementById("greeting").value;
+			var id = $('#id').val();
+			$.ajax({
+				type:'POST',
+				data : {'id':id,
+						'greeting':greeting},
+				datatype:'json',
+				url : 'insertGreeting',
+				success : function(data){
+					location.reload();
+				},
+				error : function(xhr, status, error){
+				}
+			});
+		});
+    });
 	
-	<div class="row" style="width:100%; height:82px;background:url('resources/image/rank/coment_bg02.png') no-repeat 0 0;">
-        <span class="pull-left" id="commentSpan" style="width:74px; height:82px; background:url('resources/image/rank/coment_count_bg.jpg')right center;
-        text-align:center">
-        	<strong style="line-height:82px;">0</strong>/200
-        </span>
-        <textarea class="pull-left" 
-        style="width:850px; height:74px; padding:6px 0 0 20px; background-color:#fff; margin-top:1px" 
-        name="txtComment" id="txtComment" cols="30" rows="10" placeholder="로그인하시면 방명록 등록이 가능합니다." disabled="disabled"></textarea>
-        <span class="pull-left" ><a href="javascript:;" onclick="alert('로그인 후 이용 바랍니다.')"><img src="http://s.nx.com/S2/Game/baram/2016/renewal/coment_add_btn02.jpg" alt="댓글등록"></a></span>
-    </div>	
-    
-    <div class="pull-left" style="margin-top:50px">
-    	<p style="widht:100%; font-size:14px; color:#7c7c7c;">총
-    	<span style="color:red">3</span>
-    	개의 방명록이 있습니다.
-    	</p>
-    </div>
-    
-    
-    <div>
-			<table class="table">
-			    <thead>
-			      <tr>
-			        <th>캐릭터명</th>
-			        <th>레벨</th>
-			        <th>내용</th>
-			      </tr>
-			    </thead>
-			    <tbody>
-			      <tr>
-			        <td>튀김티모</td>
-			        <td>5</td>
-			        <td>점화를 든 티모</td>
-			      </tr>
-			      <tr>
-			        <td>서폿티모</td>
-			        <td>8</td>
-			        <td>ad와ap 그 사이의 티모</td>
-			      </tr>
-			      <tr>
-			        <td>미드티모</td>
-			        <td>12</td>
-			        <td>트타보다 키큰 티모</td>
-			      </tr>
-			    </tbody>
-			  </table>
-			</div>
-	
-	
-	
-</div>	
-</form>
+</script>
+
 </body>
 </html>

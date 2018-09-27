@@ -96,59 +96,37 @@ function Update(){
 	}
 	
 	
-	//slime전투 시작 or 충돌감지
-	if(user_xy[0] == slime_xy[0] && user_xy[1] == slime_xy[1]){
-		slimeBattle();
-	}
-	if(user_xy[0] == slime_xy1[0] && user_xy[1] == slime_xy1[1]){
-		slime1Battle();
-	}
-	if(user_xy[0] == slime_xy2[0] && user_xy[1] == slime_xy2[1]){
-		slime2Battle();
-	}
-	if(user_xy[0] == slime5_2_xy[0] && user_xy[1] == slime5_2_xy[1]){
-		slime5_2Battle();
-	}
-	if(user_xy[0] == slime5_3_xy[0] && user_xy[1] == slime5_3_xy[1]){
-		slime5_3Battle();
-	}
-	if(user_xy[0] == goblin10_1_xy[0] && user_xy[1] == goblin10_1_xy[1]){
-		goblin10_1Battle();
-	}
-	if(user_xy[0] == slime10_2_xy[0] && user_xy[1] == slime10_2_xy[1]){
-		slime10_2Battle();
-	}
-	if(user_xy[0] == slime10_3_xy[0] && user_xy[1] == slime10_3_xy[1]){
-		slime10_3Battle();
-	}
-	if(user_xy[0] == slime1_1_xy[0] && user_xy[1] == slime1_1_xy[1]){
-		slime1_1Battle();
-	}
-	if(user_xy[0] == slime1_2_xy[0] && user_xy[1] == slime1_2_xy[1]){
-		slime1_2Battle();
-	}
-	if(user_xy[0] == slime1_3_xy[0] && user_xy[1] == slime1_3_xy[1]){
-		slime1_3Battle();
-	}
-	if(user_xy[0] == goblin6_1_xy[0] && user_xy[1] == goblin6_1_xy[1]){
-		goblin6_1Battle();
-	}
-	if(user_xy[0] == goblin6_2_xy[0] && user_xy[1] == goblin6_2_xy[1]){
-		goblin6_2Battle();
-	}
-	if(user_xy[0] == goblin6_3_xy[0] && user_xy[1] == goblin6_3_xy[1]){
-		goblin6_3Battle();
-	}
-	if(user_xy[0] == slime11_1_xy[0] && user_xy[1] == slime11_1_xy[1]){
-		slime11_1Battle();
-	}
-	if(user_xy[0] == goblin11_2_xy[0] && user_xy[1] == goblin11_2_xy[1]){
-		goblin11_2Battle();
-	}
-	if(user_xy[0] == goblin11_3_xy[0] && user_xy[1] == goblin11_3_xy[1]){
-		goblin11_3Battle();
-	}
-	
+	// 충돌감지 전투 시작
+	if(user_xy[0] == slime_xy[0] && user_xy[1] == slime_xy[1]) { slimeBattle(); }
+	if(user_xy[0] == slime_xy1[0] && user_xy[1] == slime_xy1[1]) { slime1Battle(); }
+	if(user_xy[0] == slime_xy2[0] && user_xy[1] == slime_xy2[1]) { slime2Battle(); }
+	if(user_xy[0] == slime5_2_xy[0] && user_xy[1] == slime5_2_xy[1]) { slime5_2Battle(); }
+	if(user_xy[0] == slime5_3_xy[0] && user_xy[1] == slime5_3_xy[1]) { slime5_3Battle(); }
+	if(user_xy[0] == goblin10_1_xy[0] && user_xy[1] == goblin10_1_xy[1]) { goblin10_1Battle(); }
+	if(user_xy[0] == slime10_2_xy[0] && user_xy[1] == slime10_2_xy[1]) { slime10_2Battle(); }
+	if(user_xy[0] == slime10_3_xy[0] && user_xy[1] == slime10_3_xy[1]) { slime10_3Battle(); }
+	if(user_xy[0] == slime1_1_xy[0] && user_xy[1] == slime1_1_xy[1]) { slime1_1Battle(); }
+	if(user_xy[0] == slime1_2_xy[0] && user_xy[1] == slime1_2_xy[1]) { slime1_2Battle(); }
+	if(user_xy[0] == slime1_3_xy[0] && user_xy[1] == slime1_3_xy[1]) { slime1_3Battle(); }
+	if(user_xy[0] == goblin6_1_xy[0] && user_xy[1] == goblin6_1_xy[1]) { goblin6_1Battle(); }
+	if(user_xy[0] == goblin6_2_xy[0] && user_xy[1] == goblin6_2_xy[1]) { goblin6_2Battle(); }
+	if(user_xy[0] == goblin6_3_xy[0] && user_xy[1] == goblin6_3_xy[1]) { goblin6_3Battle(); }
+	if(user_xy[0] == slime11_1_xy[0] && user_xy[1] == slime11_1_xy[1]) { slime11_1Battle(); }
+	if(user_xy[0] == goblin11_2_xy[0] && user_xy[1] == goblin11_2_xy[1]) { goblin11_2Battle(); }
+	if(user_xy[0] == goblin11_3_xy[0] && user_xy[1] == goblin11_3_xy[1]) { goblin11_3Battle(); }
+	if(user_xy[0] == goblin2_1_xy[0] && user_xy[1] == goblin2_1_xy[1]) { goblin2_1Battle(); }
+	if(user_xy[0] == goblin2_2_xy[0] && user_xy[1] == goblin2_2_xy[1]) { goblin2_2Battle(); }
+	if(user_xy[0] == goblin2_3_xy[0] && user_xy[1] == goblin2_3_xy[1]) { goblin2_3Battle(); }
+	if(user_xy[0] == orc7_1_xy[0] && user_xy[1] == orc7_1_xy[1]) { orc7_1Battle(orc7_1hp); }
+	if(user_xy[0] == goblin7_2_xy[0] && user_xy[1] == goblin7_2_xy[1]) { goblin7_2Battle(); }
+	if(user_xy[0] == goblin7_3_xy[0] && user_xy[1] == goblin7_3_xy[1]) { goblin7_3Battle(); }
+	if(user_xy[0] == goblin12_1_xy[0] && user_xy[1] == goblin12_1_xy[1]) { goblin12_1Battle(); }
+	if(user_xy[0] == orc12_2_xy[0] && user_xy[1] == orc12_2_xy[1]) { orc12_2Battle(); }
+	if(user_xy[0] == orc12_3_xy[0] && user_xy[1] == orc12_3_xy[1]) { orc12_3Battle(); }
+	if(user_xy[0] == goblin3_1_xy[0] && user_xy[1] == goblin3_1_xy[1]) { goblin3_1Battle(); }
+	if(user_xy[0] == goblin3_2_xy[0] && user_xy[1] == goblin3_2_xy[1]) { goblin3_2Battle(); }
+	if(user_xy[0] == orc3_3_xy[0] && user_xy[1] == orc3_3_xy[1]) { orc3_3Battle(); }
+	if(user_xy[0] == goblin8_1_xy[0] && user_xy[1] == goblin8_1_xy[1]) { goblin8_1Battle(); }
 	//전투중 유저 사망시
 	if(useralive == false){
 		userdead++;
@@ -221,7 +199,7 @@ function User(user_xy){
 					userpower += 4;
 					break;
 				case 3:
-					userpower += 6;
+					userpower += 8;
 			}
 			switch(item[1]){
 				case 0:
@@ -233,7 +211,7 @@ function User(user_xy){
 					usermaxhp += 20;
 					break;
 				case 3:
-					usermaxhp += 30;
+					usermaxhp += 40;
 			}
 			userhp = usermaxhp;
 			ItemChenge();
@@ -246,6 +224,7 @@ function User(user_xy){
 
 var userattack = setInterval(function (){	//유저 공격 딜레이
     Uattack = true;
+    sectorinfo();
 },1200/1);
 
 	function UserDataUpdate(){		//메인 프레임 마다 유저정보 업데이트
@@ -324,6 +303,20 @@ var userattack = setInterval(function (){	//유저 공격 딜레이
 			userIt = 448;
 		}else if(item[0] == 2 && item[1] == 2){
 			userIt = 512;
+		}else if(item[0] == 0 && item[1] == 3){
+			userIt = 576;
+		}else if(item[0] == 3 && item[1] == 0){
+			userIt = 640;
+		}else if(item[0] == 1 && item[1] == 3){
+			userIt = 704;
+		}else if(item[0] == 3 && item[1] == 1){
+			userIt = 768;
+		}else if(item[0] == 2 && item[1] == 3){
+			userIt = 832;
+		}else if(item[0] == 3 && item[1] == 2){
+			userIt = 896;
+		}else if(item[0] == 3 && item[1] == 3){
+			userIt = 960;
 		}
 		
 	}
