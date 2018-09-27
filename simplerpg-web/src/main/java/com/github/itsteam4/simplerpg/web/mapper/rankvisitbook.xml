@@ -25,6 +25,22 @@
 		order by seq DESC
 	</select> 
 	
+	<delete id="deleteRow" parameterType="Integer">
+  		delete from visitbook_tb where seq=#{seq}
+  	</delete>
+  	
+  	<select id="pageList" parameterType="HashMap" resultMap="rankvisitbookMap">
+  		select * from visitbook_tb
+  		where stanid = #{stanid} 
+  		order by seq desc limit #{startrow},#{endrow}
+  	</select>
+	
+	<select id="selectRowCount" parameterType="String" resultType="Integer">
+  		select count(*) from visitbook_tb 
+  		where stanid = #{stanid} 
+  	</select>
+  	
+  	
 	
 	
 	<select id="selectSearch" parameterType="String" resultMap="rankvisitbookMap">

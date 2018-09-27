@@ -61,16 +61,13 @@
 							<h4 class="card-title" style="color: #20B2AA">철 소드</h4>
 							<p class="card-text">
 								슬라임들을 처치 하다보면, 레벨이 상승하며 얻는 슬라임 검 보다 더 내구성과 공격성이 증가하는 무기이다 <br>
-								초반을 조금 넘기고 나면 얻을수 있는 무기,<br> 하지만 이전까지의 슬라임 검에 비해서 공격력이 상당히
+								초반을 조금 넘기고 나면 <br>얻을수 있는 무기, 하지만 이전까지의<br> 슬라임 검에 비해서 공격력이 상당히
 								높다.<br> 게다가 데미지 공식상 강철검을 장비하면 이전까지의 다른 무기와 비교해볼때 같은 몬스터를
 								공격해도 데미지가 몇배는 더 많이 들어간다.<br>
-
-
 							</p>
 						</div>
 					</div>
 				</div>
-
 				<div class="col-md-4 mb-4" style="margin-top: 50px">
 					<div class="card h-40">
 						<img src="resources/image/guide/item5.jpg"> <br> <br>
@@ -79,12 +76,10 @@
 							<p class="card-text">
 								강철 검과는 달리 신체에 무기가 닿기 전에 차단하는 방어구로,<br> 특히 슬라임이나 고블린 등에 맞아
 								전달되는 충격으로부터도 신체를 <br>갑옷보다도 더 잘 보호해줄 수 있었다. <br><br><br><br>
-
 							</p>
 						</div>
 					</div>
 				</div>
-
 				<div class="col-md-4 mb-4" style="margin-top: 50px">
 					<div class="card h-40">
 						<img src="resources/image/guide/item9.jpg"> <br> <br>
@@ -99,7 +94,6 @@
 						</div>
 					</div>
 				</div>
-				
 				<div class="col-md-4 mb-4" style="margin-top: 50px">
 					<div class="card h-40">
 						<img src="resources/image/guide/item4.jpg"> <br> <br>
@@ -114,7 +108,6 @@
 						</div>
 					</div>
 				</div>
-				
 				<div class="col-md-4 mb-4" style="margin-top: 50px">
 					<div class="card h-40">
 						<img src="resources/image/guide/comingsoon.jpg"> <br> <br>
@@ -127,7 +120,6 @@
 						</div>
 					</div>
 				</div>
-
 				<div class="col-md-4 mb-4" style="margin-top: 50px">
 					<div class="card h-40">
 						<img src="resources/image/guide/comingsoon.jpg"> <br> <br>
@@ -140,7 +132,6 @@
 						</div>
 					</div>
 				</div>
-				
 				<div class="col-md-4 mb-4" style="margin-top: 50px">
 					<div class="card h-40">
 						<img src="resources/image/guide/comingsoon.jpg"> <br> <br>
@@ -153,8 +144,6 @@
 						</div>
 					</div>
 				</div>
-
-
 			</div>
 			<!-- /.row -->
 

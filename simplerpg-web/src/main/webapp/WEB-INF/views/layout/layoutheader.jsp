@@ -19,9 +19,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive" style="position: absolute;right:20px">
           <ul class="navbar-nav ml-auto" >
-            <li class="nav-item">
+           <!--  <li class="nav-item">
               <a class="nav-link" href="about.html">소식</a>
-            </li>
+            </li> -->
             
            <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -60,9 +60,9 @@
                         고객센터
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                <a class="dropdown-item" href="helpquestion">자주묻는질문</a>
+                <a class="dropdown-item" href="faqForm">자주묻는질문</a>
                 <a class="dropdown-item" href="helpinquiryform">1:1문의</a>
-                <a class="dropdown-item" href="helpsecurity">보안 센터</a>
+                <a class="dropdown-item" href="boardpagelistform">공지사항</a>
               </div>
             </li>
             	<c:choose>
