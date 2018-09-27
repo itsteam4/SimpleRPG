@@ -21,7 +21,6 @@
 				<table class="table table-hover">
 					<thead>
 						<tr>
-							<th width="150" scope="col">번호</th>
 							<th width="150" scope="col">작성자</th>
 							<th width="300" scope="col">제목</th>
 							<th width="150" scope="col">작성일자</th>
@@ -31,7 +30,6 @@
 					<tbody>
 						<c:forEach var="boards" items="${boards}">
 						<tr>
-							<td>${boards.f_no}</td>
 							<td>${boards.f_writer}</td>
 							<td><a href="freeboarddetailform?f_no=${boards.f_no}">${boards.f_title}</a></td>
 							<td>${boards.f_date}</td>

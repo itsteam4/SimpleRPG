@@ -20,10 +20,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.github.itsteam4.simplerpg.web.entity.FreeBoard;
+import com.github.itsteam4.simplerpg.web.entity.FreeBoardComment;
 import com.github.itsteam4.simplerpg.web.entity.FreeBoardPaging;
+import com.github.itsteam4.simplerpg.web.service.FreeBoardCommentDAO;
 import com.github.itsteam4.simplerpg.web.service.FreeBoardDAO;
 
 @Controller
@@ -35,6 +38,8 @@ public class CommunityController {
 	@Autowired
 	private FreeBoardPaging fboardpaging;
 	static String find;
+	@Autowired
+	private FreeBoardComment fcomment;
 	
 //	스크린샷 게시판 이동
 	@RequestMapping(value="ScreenFreeBoardForm",method=RequestMethod.GET)
@@ -135,7 +140,7 @@ public class CommunityController {
 		FreeBoard boards = dao.freeboardselectone(f_no);
 		if(!boards.getF_writer().equals(session.getAttribute("sessionid"))) {
 			dao.fupdatehit(f_no);
-		} 
+		}
 		model.addAttribute("boards",boards);
 		return "Community/free_board_detail_form";
 	}
@@ -220,5 +225,13 @@ public class CommunityController {
 		dao.fdeleterow(f_no);	
 		System.out.println("삭제되었습니다.");
 		return "redirect:FreeBoardForm";
+	}
+//	자유게시판 댓글 입력 Ajax 호출
+	@RequestMapping(value="/FreeBoardCommentInsert",method=RequestMethod.POST)
+	@ResponseBody
+	public String FreeBoardCommentInsert(Model model,HttpSession session,@ModelAttribute FreeBoardComment comment) {
+		System.out.println("호출 성공");
+		
+		return "success";
 	}
 }

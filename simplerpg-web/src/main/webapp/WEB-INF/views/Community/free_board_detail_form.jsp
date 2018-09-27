@@ -5,10 +5,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="decorator" content="freeboard_detail_forms">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
 <title>자유게시판 입력 수정 페이지</title>
+<!-- Bootstrap core CSS -->
+    <link href="resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/screenshot/screen.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="resources/css/modern-business.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<!-- jQuery -->
+	<script src="resources/vendor/jquery/jquery.min.js"></script>
 </head>
 <body>
 	<form action="FreeDetailForms" class="freeboard_detail_form" method="post">
@@ -42,15 +51,21 @@
 								<div>${boards.f_content}</div>							
 						</td>
 					</tr>
-					<tr>
-						<th>댓글</th>
-						<td align="center">
-							<input id="f_coment" name="f_comment" type="text" width="100" replaceholder="댓글을 입력하세요.">
-							<button type="button" class="btn btn-info" id="commentbutton">등록</button>
-						</td>
-					</tr>
 				</tbody>
 			</table>
+		</div>
+	<!-- 댓글 리스트 출력-->
+	<div class="row" style="margin-top: 5">
+		<label for="content">comment</label>
+        <form name="commentInsertForm">
+            <div class="input-group">
+               <input type="hidden" name="bno" value="${detail.bno}"/>
+               <input type="text" class="form-control" id="content" name="content" placeholder="내용을 입력하세요.">
+               <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" name="commentInsertBtn">등록</button>
+               </span>
+              </div>
+        </form>
 	</div>
 	<div class="row">
 				<div class="col-md-1"></div>
@@ -73,6 +88,8 @@
 				<div class="col-md-1"></div>
 			</div>
 		</div>
-</form>	
+</form>
+
+<%@ include file="../Community/free_board_comment_form.jsp" %>	
 </body>
 </html>
