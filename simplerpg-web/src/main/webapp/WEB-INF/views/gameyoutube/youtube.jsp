@@ -124,7 +124,7 @@
             </a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="https://www.youtube.com/watch?v=ee-r_4dnUm4&t=6s">바람의나라 콩콩주년 신 직업을 사전예약하자!</a>
+                <a href="https://www.youtube.com/watch?v=ee-r_4dnUm4&t=6s">바람의나라 콩콩주년 직업을 사전예약하자!</a>
               </h4>
               <p class="card-text">
               &nbsp
