@@ -23,11 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.github.itsteam4.simplerpg.web.entity.Board;
 import com.github.itsteam4.simplerpg.web.entity.BoardPaging;
-import com.github.itsteam4.simplerpg.web.entity.NoticeBoard;
-import com.github.itsteam4.simplerpg.web.entity.NoticeBoardPaging;
 import com.github.itsteam4.simplerpg.web.service.BoardDao;
-import com.github.itsteam4.simplerpg.web.service.NoticeBoardDao;
-
 
 
 @Controller

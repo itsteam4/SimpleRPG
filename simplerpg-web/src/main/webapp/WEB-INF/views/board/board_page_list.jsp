@@ -98,6 +98,7 @@
                </c:choose>
             </div>
          </div>
+         <hr>
    </form> 
 </body>
 </html>
