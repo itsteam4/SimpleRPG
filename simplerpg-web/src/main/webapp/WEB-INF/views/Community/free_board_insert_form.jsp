@@ -1,38 +1,39 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta name="decorator" content="freeboard_insert_forms"/>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
- <!-- Bootstrap core CSS -->
-<link href="resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<!-- Custom styles for this template -->
-<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-<script src="resources/vendor/jquery/jquery.min.js"></script>
-<script src="resources/ckeditor/ckeditor.js"></script>
+
 </head>
 <body>
-	<form action="FreeBoardInsertsubmit" enctype="multipart/form-data" method="post">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-1"></div>
-			<div class="card text-white bg-dark col-md-11 mb-3" style="right: 80px">
-  				<div class="card-body">
-    				<h3>글쓰기</h3>
-  				</div>
+	<form action="FreeBoardInsertsubmit" enctype="multipart/form-data"
+		method="post">
+		<div class="row" style="text-align: center">
+			<div class="col-md-12">
+				<h1 class="mt-4 mb-3">
+					Simple RPG <small style="color: #3CB371">Free Board</small>
+				</h1>
+
+				<ol class="breadcrumb" style="margin-top: 50px">
+					<li class="breadcrumb-item"><a href="IndexForm">Home</a> /
+						커뮤니티 / 자유게시판
+						&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					
+				</ol>
 			</div>
 		</div>
-		<div class="row" style="text-align: center;margin-top: 80px">
+
+
+		<div class="row" style="text-align: center; margin-top: 50px">
 			<table class="table table-bordered">
 				<tbody>
 					<tr>
 						<th width="300">작성자</th>
-						<td width="300"><input name="f_writer" id="f_writer" type="text" size="45" value="${sessionid}" readonly="readonly"></td>
+						<td width="300"><input name="f_writer" id="f_writer"
+							type="text" size="45" value="${sessionid}" readonly="readonly"></td>
 					</tr>
 					<tr>
 						<th>제목</th>
@@ -40,18 +41,20 @@
 					</tr>
 					<tr>
 						<th>내용</th>
-						<td>
-								<textarea name="f_content" id="f_content" class="form-control ckeditor" rows="10"
-									cols="100" style="width: 590px; height: 500px;">
+						<td><textarea name="f_content" id="f_content"
+								class="form-control ckeditor" rows="10" cols="100"
+								style="width: 590px; height: 500px;">
 								</textarea>
-								<button type="submit" class="btn btn-warning" id="savebutton">작성</button>
-								<a href="/itsteam4/FreeBoardForm"><input type="button" class="btn btn-danger" id="returnbutton" value="목록"></a>
-						</td>
+							<button type="submit" class="btn btn-warning" id="savebutton">작성</button>
+							<a href="/itsteam4/FreeBoardForm"><input type="button"
+								class="btn btn-danger" id="returnbutton" value="목록"></a></td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
-	</div>
+		<hr>
+		</div>
+
 	</form>
 	<script>
 		CKEDITOR.replace(

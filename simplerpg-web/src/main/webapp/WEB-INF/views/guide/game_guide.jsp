@@ -25,8 +25,8 @@
         <h3 style="color: 	#DAA520">게임을 만들게된 계기</h3><br>
         <p style="color: 	#191970"> <img class="img-fluid rounded mb-3 mb-md-0" src="resources/image/guide/gameguideimage2.jpg" alt=""><br>
            <br>  이 게임을 만들게된 계기는 요즘 3D 게임이 많이 나오는 지금,<br>
-             어린시절 자주 하던 너구리, 고인돌 같은 2D게임을 추억하며, 다시 2D게임들이 가끔 출시되기도 합니다.<br>
-             그동안 배운 지식을 활용하여, 저도 저만의 귀여운 2D게임을 출시하고 싶어서, 이렇게 만들게 됐습니다. </p><br><br><br><br>
+             어린시절 자주 하던 너구리, 고인돌 같은 2D게임을 추억하며, 3D게임들 사이에서 2D게임들이 가끔 출시되기도 합니다.<br>
+             그동안 배운 지식을 활용하여, 간단하면서 재밌는 게임사이트를 개발했습니다. </p><br><br><br><br>
              <hr>
              <h3 style="color: 	#DAA520; margin-top: 100px">게임 주인공의 스토리</h3><br>
         <p style="color: 	#191970"> <img class="img-fluid rounded mb-3 mb-md-0" src="resources/image/guide/hero03.jpg" alt="">
