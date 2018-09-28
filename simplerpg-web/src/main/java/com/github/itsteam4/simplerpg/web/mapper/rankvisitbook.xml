@@ -13,6 +13,9 @@
   	
   	<resultMap type="com.github.itsteam4.simplerpg.web.entity.RankVisitbook" id="rankvisitbookMap">
  	</resultMap>
+ 	
+ 	<resultMap type="com.github.itsteam4.simplerpg.web.entity.RankVisitbookNumber" id="rankvisitbooknumberMap">
+ 	</resultMap>
   	
   	<select id="selectRow" parameterType="String" resultMap="rankvisitbookMap">
 		select * from visitbook_tb  
@@ -39,11 +42,5 @@
   		select count(*) from visitbook_tb 
   		where stanid = #{stanid} 
   	</select>
-  	
-  	
 	
-	
-	<select id="selectSearch" parameterType="String" resultMap="rankvisitbookMap">
-		
-	</select> 
 </mapper>

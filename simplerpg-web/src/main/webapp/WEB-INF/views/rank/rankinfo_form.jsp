@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>      
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -15,7 +16,7 @@
 	<div class="row" id="second" style="background:url('resources/image/rank/bg_hope_use_area.png'); background-size:100%; margin-top:50px;">
 		<div class="col-md-2" style="padding-top:20px;padding-right:0px;padding-bottom:20px; padding-left:70px;">
 			<div>
-				<img src="resources/image/rank/DrawingImgbyID.aspx.png" alt="character" width="100px" height="140px">
+				<img src="resources/image/guide/hero04.jpg" alt="character" width="100px" height="140px">
 			</div>
 			
 		</div>
@@ -114,13 +115,13 @@
                         <strong class="pull-left" style=" width: 119px; font-size: 16px; text-align: center; color: #74686b;">레벨</strong>
                         <img src="resources/image/rank/ico_hope_level.png" class="pull-left" alt="characterinfo" width="50px" height="95px"
                         style="padding-top:5px">
-                        <span class="system" style=" width: 194px; margin: 0 0 0 34px; font-size: 25px; text-align: center; color: #8a3a3a;">736</span>
+                        <span class="system" style=" width: 194px; margin: 0 0 0 34px; font-size: 25px; text-align: center; color: #8a3a3a;">${ruserdatas.userlv}</span>
                     </li>
                     <li class="pull-left" style="background-color:#E8E4DF; width: 347px; height: 97px;line-height: 97px;margin: 2px 0 0 2px; ">
-                        <strong class="pull-left" style=" width: 119px; font-size: 16px; text-align: center; color: #74686b;">직업</strong>
+                        <strong class="pull-left" style=" width: 119px; font-size: 16px; text-align: center; color: #74686b;">경험치</strong>
                         <img src="resources/image/rank/ico_hope_job.png" class="pull-left" alt="characterinfo" width="50px" height="95px"
                         style="padding-top:5px">
-                        <span class="system" style=" width: 194px; margin: 0 0 0 34px; font-size: 25px; text-align: center; color: #8a3a3a;">전사</span>
+                        <span class="system" style=" width: 194px; margin: 0 0 0 34px; font-size: 25px; text-align: center; color: #8a3a3a;">${ruserdatas.userex}</span>
                     </li>
                 </ul>
 			</div>
@@ -130,16 +131,16 @@
 				<div class="pull-left">
 				<ul class="" style="width:347px; height:97px;line-height: 97px;margin:2px 0 0 2px; list-style:none; ">
                     <li class="pull-left" style="background-color:#E8E4DF; width: 347px; height: 97px;line-height: 97px;margin: 2px 0 0 2px; ">
-                        <strong class="pull-left" style=" width: 119px; font-size: 16px; text-align: center; color: #74686b;">랭킹</strong>
+                        <strong class="pull-left" style=" width: 119px; font-size: 16px; text-align: center; color: #74686b;">킬수</strong>
                         <img src="resources/image/rank/ico_hope_ranking.png" class="pull-left" alt="characterinfo" width="50px" height="95px"
                         style="padding-top:5px">
-                        <span class="system" style=" width: 194px; margin: 0 0 0 34px; font-size: 25px; text-align: center; color: #8a3a3a;">1</span>
+                        <span class="system" style=" width: 194px; margin: 0 0 0 34px; font-size: 25px; text-align: center; color: #8a3a3a;">${ruserdatas.userkill}</span>
                     </li>
                     <li class="pull-left" style="background-color:#E8E4DF; width: 347px; height: 97px;line-height: 97px;margin: 2px 0 0 2px; ">
                         <strong class="pull-left" style=" width: 119px; font-size: 16px; text-align: center; color: #74686b;">국가</strong>
                         <img src="resources/image/rank/ico_hope_country.png" class="pull-left" alt="characterinfo" width="50px" height="95px"
                         style="padding-top:5px">
-                        <span class="system" style=" width: 194px; margin: 0 0 0 34px; font-size: 25px; text-align: center; color: #8a3a3a;">고구려</span>
+                        <span class="system" style=" width: 194px; margin: 0 0 0 34px; font-size: 25px; text-align: center; color: #8a3a3a;">엘하자드</span>
                     </li>
                 </ul>
 			</div>
@@ -149,16 +150,16 @@
 				<div class="pull-left">
 				<ul class="" style="width:347px; height:97px;line-height: 97px;margin:2px 0 0 2px; list-style:none; ">
                     <li class="pull-left" style="background-color:#E8E4DF; width: 347px; height: 97px;line-height: 97px;margin: 2px 0 0 2px; ">
-                        <strong class="pull-left" style=" width: 119px; font-size: 16px; text-align: center; color: #74686b;">승급차수</strong>
+                        <strong class="pull-left" style=" width: 119px; font-size: 16px; text-align: center; color: #74686b;">점수</strong>
                         <img src="resources/image/rank/ico_hope_promotion.png" class="pull-left" alt="characterinfo" width="50px" height="95px"
                         style="padding-top:5px">
-                        <span class="system" style=" width: 194px; margin: 0 0 0 34px; font-size: 25px; text-align: center; color: #8a3a3a;">7</span>
+                        <span class="system" style=" width: 194px; margin: 0 0 0 34px; font-size: 25px; text-align: center; color: #8a3a3a;">${ruserdatas.userscore}</span>
                     </li>
                     <li class="pull-left" style="background-color:#E8E4DF; width: 347px; height: 97px;line-height: 97px;margin: 2px 0 0 2px; ">
-                        <strong class="pull-left" style=" width: 119px; font-size: 16px; text-align: center; color: #74686b;">부부</strong>
+                        <strong class="pull-left" style=" width: 119px; font-size: 16px; text-align: center; color: #74686b;">사망</strong>
                         <img src="resources/image/rank/ico_hope_couple.png" class="pull-left" alt="characterinfo" width="50px" height="95px"
                         style="padding-top:5px">
-                        <span class="system" style=" width: 194px; margin: 0 0 0 34px; font-size: 25px; text-align: center; color: #8a3a3a;">없음</span>
+                        <span class="system" style=" width: 194px; margin: 0 0 0 34px; font-size: 25px; text-align: center; color: #8a3a3a;">${ruserdatas.userdead}</span>
                     </li>
                 </ul>
 			</div>
@@ -183,83 +184,69 @@
 	
 	<div class="pull-left" style="background-color:#ded9d1; width:249px; height:357px">
          <div class="pull-left" style="background:url('resources/image/rank/bg_equip2.jpg'); width:192px; height:289px; margin:36px 0 0 28px;">
-         	<ul class="" style="width:192px; height:289px; list-style:none; padding:15px 5px 0 15px;">
-         		 <li class="pull-left" style="; width:54; height:52px;">
-         		 	<a href="">
-         		 		<img style="padding-top:5px"src="http://s.nx.com/S2/Game/baram/2016/itemImage/item5000/5766.png" alt="청의비녀" >
-         		 	</a>
-         		 </li>
-         		 <li class="pull-left" style="padding-left:10px; width:54; height:52px; ">
-         		 	<a href="">
-         		 		<img src="http://s.nx.com/S2/Game/baram/2016/itemImage/item5000/5623.png" alt="태광천신금잠" >
-         		 	</a>
-         		 </li>
-         		 <li class="pull-left" style="width:54; height:52px; ">
-         		 	<a href="">
-         		 		<img style="padding-top:5px; padding-left:15px;" src="http://s.nx.com/S2/Game/baram/2016/itemImage/item6000/6365.png" alt="고대마령의암막 ">
-         		 	</a>
-         		 </li>
+         		 <c:choose>
+            				<c:when test="${ruserdatas.itemA == 0}">
+            						<a onmouseover="weaponOn()" onmouseout="weaponOut()">
+				         		 	<img src="resources/image/rank/item2.jpg" alt="나무도끼" style= "width:54px; height:52px;
+				         		 		position:absolute; top:1078px; left:310px; cursor:pointer;
+				         		 		 " >
+			         		 		 </a>
+				         		 		
+            				</c:when>
+            				<c:when test="${ruserdatas.itemA == 1}">
+				         		 	<a onmouseover="weaponOn1()" onmouseout="weaponOut1()">
+				         		 		<img src="resources/image/rank/item6.jpg" alt="슬라임소드" style= "width:54px; height:52px;
+				         		 		position:absolute; top:1078px; left:310px; cursor:pointer;
+				         		 		 " >
+				         		 	</a>
+            				</c:when>
+            				<c:when test="${ruserdatas.itemA == 2}">
+            					<a onmouseover="weaponOn2()" onmouseout="weaponOut2()">
+            					<img src="resources/image/rank/item3.jpg" alt="철소드" style= "width:54px; height:52px;
+				         		 		position:absolute; top:1078px; left:310px; cursor:pointer;
+				         		 		 " >
+		         		 		 </a>
+            				</c:when>
+            				<c:when test="${ruserdatas.itemA == 3}">
+            					<a onmouseover="weaponOn3()" onmouseout="weaponOut3()">
+            					<img src="resources/image/rank/item9.jpg" alt="강철소드" style= "width:54px; height:52px;
+				         		 		position:absolute; top:1078px; left:310px; cursor:pointer;
+				         		 		 " >
+		         		 		 </a>
+            				</c:when>
+    				</c:choose>
+    				<c:choose>
+    					<c:when test="${ruserdatas.itemD == 0}">
+    							<a onmouseover="defenseOn()" onmouseout="defenseOut()">
+				         		 	<img src="resources/image/rank/item1.jpg" alt="나무방패" style= "width:54px; height:52px;
+				         		 		position:absolute; top:1078px; left:425px; cursor:pointer;
+				         		 		 " >
+		         		 		 </a>
+				         		 		
+            				</c:when>
+            				<c:when test="${ruserdatas.itemD == 1}">
+				         		 	<a onmouseover="defenseOn1()" onmouseout="defenseOut1()">
+				         		 		<img src="resources/image/rank/item7.jpg" alt="슬라임쉴드" style= "width:54px; height:52px;
+				         		 		position:absolute; top:1078px; left:425px;cursor:pointer;
+				         		 		 " >
+		         		 		 </a>
+            				</c:when>
+            				<c:when test="${ruserdatas.itemD == 2}">
+            					<a onmouseover="defenseOn2()" onmouseout="defenseOut2()">
+            					<img src="resources/image/rank/item5.jpg" alt="철쉴드" style= "width:54px; height:52px;
+				         		 		position:absolute; top:1078px; left:425px;cursor:pointer;
+				         		 		 " >
+		         		 		 </a>
+            				</c:when>
+            				<c:when test="${ruserdatas.itemD == 3}">
+            					<a onmouseover="defenseOn3()" onmouseout="defenseOut3()">
+            					<img src="resources/image/rank/item4.jpg" alt="강철쉴드" style= "width:54px; height:52px;
+				         		 		position:absolute; top:1078px; left:425px;cursor:pointer;
+				         		 		 " >
+		         		 		 </a>
+            				</c:when>
+    				</c:choose>
          		 
-         		 
-         		 <li class="pull-left" style="; width:54; height:52px; ">
-         		 	<a href="">
-         		 		<img style="padding-top:5px"src="http://s.nx.com/S2/Game/baram/2016/itemImage/item5000/5157.png" alt="용마제십검" >
-         		 	</a>
-         		 </li>
-         		 <li class="pull-left" style="padding-left:10px; width:54; height:52px; ">
-         		 	<a href="">
-         		 		<img src="http://s.nx.com/S2/Game/baram/2016/itemImage/item5000/5622.png" alt="태광천신신복" >
-         		 	</a>
-         		 </li>
-         		 <li class="pull-left" style="width:54; height:52px; ">
-         		 	<a href="">
-         		 		<img style="padding-top:5px; padding-left:15px;" src="http://s.nx.com/S2/Game/baram/2016/itemImage/item6000/6343.png" alt="고대마령의단검">
-         		 	</a>
-         		 </li>
-         		 
-         		 <li class="pull-left" style="; width:54; height:52px; ">
-         		 	<a href="">
-         		 		<img style="padding-top:5px"src="http://s.nx.com/S2/Game/baram/2016/itemImage/item5000/5766.png" alt="청의비녀" >
-         		 	</a>
-         		 </li>
-         		 <li class="pull-left" style="padding-left:10px; width:54; height:52px; ">
-         		 	<a href="">
-         		 		<img src="http://s.nx.com/S2/Game/baram/2016/itemImage/item5000/5623.png" alt="태광천신금잠" >
-         		 	</a>
-         		 </li>
-         		 <li class="pull-left" style="width:54; height:52px; ">
-         		 	<a href="">
-         		 		<img style="padding-top:5px; padding-left:15px;" src="http://s.nx.com/S2/Game/baram/2016/itemImage/item6000/6365.png" alt="고대마령의암막 ">
-         		 	</a>
-         		 </li>
-         		 
-         		 <li class="pull-left" style="; width:54; height:52px; ">
-         		 	<a href="">
-         		 		<img style="padding-top:5px"src="http://s.nx.com/S2/Game/baram/2016/itemImage/item5000/5766.png" alt="청의비녀" >
-         		 	</a>
-         		 </li>
-         		 <li class="pull-left" style="padding-left:10px; width:54; height:52px; ">
-         		 	<a href="">
-         		 		<img src="http://s.nx.com/S2/Game/baram/2016/itemImage/item5000/5623.png" alt="태광천신금잠" >
-         		 	</a>
-         		 </li>
-         		 <li class="pull-left" style="width:54; height:52px; ">
-         		 	<a href="">
-         		 		<img style="padding-top:5px; padding-left:15px;" src="http://s.nx.com/S2/Game/baram/2016/itemImage/item6000/6365.png" alt="고대마령의암막 ">
-         		 	</a>
-         		 </li>
-         		 
-         		  <li class="pull-left" style="; width:54; height:52px; ">
-         		 	<a href="">
-         		 		<img style="padding-top:5px"src="http://s.nx.com/S2/Game/baram/2016/itemImage/item5000/5766.png" alt="청의비녀" >
-         		 	</a>
-         		 </li>
-         		 <li class="pull-left" style="padding-left:10px; width:54; height:52px; ">
-         		 	<a href="">
-         		 		<img src="http://s.nx.com/S2/Game/baram/2016/itemImage/item5000/5623.png" alt="태광천신금잠" >
-         		 	</a>
-         		 </li>
-         	</ul> 
          </div>	
          </div>
          
@@ -276,157 +263,279 @@
 	         		
 	         			<li class="pull-left" style="width:357px; height:36px; border-top:1px solid #fff; border-bottom:1px solid #fff; 
 	         			font-size:14px; color:rgb(104,94,96);  margin-left:20px;">
-                            <em class="pull-left" style="width:160px; height:34px;
+                            <em class="pull-left" style="width:160px; height:34px;font-style: normal; padding-top:4px;
                             background:url('resources/image/rank/ico_chr_item.png')no-repeat;
                             background-position:0 7px;
                             ">일반 목/어깨장식</em>
-                            <span class="pull-left" style="width:184px; height:34px;
+                            <span class="pull-left" style="width:184px; height:34px;padding-top:4px;
                             background:url('resources/image/rank/ico_chr_item.png')no-repeat;
                             background-position:10px 7px; border-left:1px solid #fff;
-                            ">사색인장</span>
+                            ">준비중입니다</span>
                         </li>
                         <li class="pull-left" style="width:357px; height:36px; border-top:1px solid #fff; border-bottom:1px solid #fff; 
-	         			font-size:14px;  margin-left:20px;">
-                            <em class="pull-left" style="width:160px; height:34px;
+	         			font-size:14px; color:rgb(104,94,96);  margin-left:20px;">
+                            <em class="pull-left" style="width:160px; height:34px;font-style: normal; padding-top:4px;
                             background:url('resources/image/rank/ico_chr_item.png')no-repeat;
                             background-position:0 7px;
-                            ">일반 투구</em>
-                            <span class="pull-left" style="width:184px; height:34px;
+                            ">일반  투구</em>
+                            <span class="pull-left" style="width:184px; height:34px;padding-top:4px;
                             background:url('resources/image/rank/ico_chr_item.png')no-repeat;
                             background-position:10px 7px; border-left:1px solid #fff;
-                            ">사색인장</span>
+                            ">준비중입니다</span>
                         </li>
                         <li class="pull-left" style="width:357px; height:36px; border-top:1px solid #fff; border-bottom:1px solid #fff; 
-	         			font-size:14px;  margin-left:20px;">
-                            <em class="pull-left" style="width:160px; height:34px;
+	         			font-size:14px; color:rgb(104,94,96);  margin-left:20px;">
+                            <em class="pull-left" style="width:160px; height:34px;font-style: normal; padding-top:4px;
                             background:url('resources/image/rank/ico_chr_item.png')no-repeat;
                             background-position:0 7px;
-                            ">일반 얼굴장식</em>
-                            <span class="pull-left" style="width:184px; height:34px;
+                            ">일반  얼굴장식</em>
+                            <span class="pull-left" style="width:184px; height:34px;padding-top:4px;
                             background:url('resources/image/rank/ico_chr_item.png')no-repeat;
                             background-position:10px 7px; border-left:1px solid #fff;
-                            ">사색인장</span>
+                            ">준비중입니다</span>
                         </li>
+                        <c:choose>
+            				<c:when test="${ruserdatas.itemA == 0}">
+            					<li id="weapon0" name="weapon0"
+            						class="pull-left" style="width:357px; height:36px; border-top:1px solid #fff; border-bottom:1px solid #fff; 
+			         				font-size:14px; color:rgb(104,94,96);  margin-left:20px;">
+		                            <em class="pull-left" style="width:160px; height:34px;font-style: normal; padding-top:4px;
+		                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
+		                            background-position:0 7px;
+		                            ">일반  무기</em>
+		                            <span class="pull-left" style="width:184px; height:34px;padding-top:4px;
+		                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
+		                            background-position:10px 7px; border-left:1px solid #fff;
+		                            ">나무 도끼</span>
+		                        </li>
+            				</c:when>
+            				<c:when test="${ruserdatas.itemA == 1}">
+            					<li id="weapon1" name="weapon1"
+            						class="pull-left" style="width:357px; height:36px; border-top:1px solid #fff; border-bottom:1px solid #fff; 
+			         				font-size:14px; color:rgb(104,94,96);  margin-left:20px;">
+		                            <em class="pull-left" style="width:160px; height:34px;font-style: normal; padding-top:4px;
+		                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
+		                            background-position:0 7px;
+		                            ">일반  무기</em>
+		                            <span class="pull-left" style="width:184px; height:34px;padding-top:4px;
+		                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
+		                            background-position:10px 7px; border-left:1px solid #fff;
+		                            ">슬라임 소드</span>
+		                        </li>
+            				</c:when>
+            				<c:when test="${ruserdatas.itemA == 2}">
+            					<li id="weapon2" name="weapon2"
+            						class="pull-left" style="width:357px; height:36px; border-top:1px solid #fff; border-bottom:1px solid #fff; 
+			         				font-size:14px; color:rgb(104,94,96);  margin-left:20px;">
+		                            <em class="pull-left" style="width:160px; height:34px;font-style: normal; padding-top:4px;
+		                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
+		                            background-position:0 7px;
+		                            ">일반  무기</em>
+		                            <span class="pull-left" style="width:184px; height:34px;padding-top:4px;
+		                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
+		                            background-position:10px 7px; border-left:1px solid #fff;
+		                            ">철 소드</span>
+		                        </li>
+            				</c:when>
+            				<c:when test="${ruserdatas.itemA == 3}">
+            					<li id="weapon3" name="weapon3"
+            						class="pull-left" style="width:357px; height:36px; border-top:1px solid #fff; border-bottom:1px solid #fff; 
+			         				font-size:14px; color:rgb(104,94,96);  margin-left:20px;">
+		                            <em class="pull-left" style="width:160px; height:34px;font-style: normal; padding-top:4px;
+		                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
+		                            background-position:0 7px;
+		                            ">일반  무기</em>
+		                            <span class="pull-left" style="width:184px; height:34px;padding-top:4px;
+		                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
+		                            background-position:10px 7px; border-left:1px solid #fff;
+		                            ">강철 소드</span>
+		                        </li>
+            				</c:when>
+            				<c:otherwise>
+            					<li id="weapon00" name="weapon00"
+            						class="pull-left" style="width:357px; height:36px; border-top:1px solid #fff; border-bottom:1px solid #fff; 
+			         				font-size:14px; color:rgb(104,94,96);  margin-left:20px;">
+		                            <em class="pull-left" style="width:160px; height:34px;font-style: normal; padding-top:4px;
+		                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
+		                            background-position:0 7px;
+		                            ">일반  무기</em>
+		                            <span class="pull-left" style="width:184px; height:34px;padding-top:4px;
+		                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
+		                            background-position:10px 7px; border-left:1px solid #fff;
+		                            "></span>
+		                        </li>
+            				</c:otherwise>
+           				</c:choose>
                         <li class="pull-left" style="width:357px; height:36px; border-top:1px solid #fff; border-bottom:1px solid #fff; 
-	         			font-size:14px;  margin-left:20px;">
-                            <em class="pull-left" style="width:160px; height:34px;
+	         			font-size:14px; color:rgb(104,94,96);  margin-left:20px;">
+                            <em class="pull-left" style="width:160px; height:34px;font-style: normal; padding-top:4px;
                             background:url('resources/image/rank/ico_chr_item.png')no-repeat;
                             background-position:0 7px;
-                            ">일반 무기</em>
-                            <span class="pull-left" style="width:184px; height:34px;
+                            ">일반  갑옷</em>
+                            <span class="pull-left" style="width:184px; height:34px;padding-top:4px;
                             background:url('resources/image/rank/ico_chr_item.png')no-repeat;
                             background-position:10px 7px; border-left:1px solid #fff;
-                            ">사색인장</span>
+                            ">준비중입니다</span>
                         </li>
+                        <c:choose>
+            				<c:when test="${ruserdatas.itemD == 0}">
+            					<li id="defense0" name="defense0"
+            						class="pull-left" style="width:357px; height:36px; border-top:1px solid #fff; border-bottom:1px solid #fff; 
+			         				font-size:14px; color:rgb(104,94,96);  margin-left:20px;">
+		                            <em class="pull-left" style="width:160px; height:34px;font-style: normal; padding-top:4px;
+		                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
+		                            background-position:0 7px;
+		                            ">일반  방패</em>
+		                            <span class="pull-left" style="width:184px; height:34px;padding-top:4px;
+		                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
+		                            background-position:10px 7px; border-left:1px solid #fff;
+		                            ">나무 방패</span>
+		                        </li>
+            				</c:when>
+            				<c:when test="${ruserdatas.itemD == 1}">
+            					<li id="defense1" name="defense1"
+            						class="pull-left" style="width:357px; height:36px; border-top:1px solid #fff; border-bottom:1px solid #fff; 
+			         				font-size:14px; color:rgb(104,94,96);  margin-left:20px;">
+		                            <em class="pull-left" style="width:160px; height:34px;font-style: normal; padding-top:4px;
+		                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
+		                            background-position:0 7px;
+		                            ">일반  방패</em>
+		                            <span class="pull-left" style="width:184px; height:34px;padding-top:4px;
+		                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
+		                            background-position:10px 7px; border-left:1px solid #fff;
+		                            ">슬라임 쉴드</span>
+		                        </li>
+            				</c:when>
+            				<c:when test="${ruserdatas.itemD == 2}">
+            					<li id="defense2" name="defense2"
+            						class="pull-left" style="width:357px; height:36px; border-top:1px solid #fff; border-bottom:1px solid #fff; 
+			         				font-size:14px; color:rgb(104,94,96);  margin-left:20px;">
+		                            <em class="pull-left" style="width:160px; height:34px;font-style: normal; padding-top:4px;
+		                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
+		                            background-position:0 7px;
+		                            ">일반  방패</em>
+		                            <span class="pull-left" style="width:184px; height:34px;padding-top:4px;
+		                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
+		                            background-position:10px 7px; border-left:1px solid #fff;
+		                            ">철 쉴드</span>
+		                        </li>
+            				</c:when>
+            				<c:when test="${ruserdatas.itemD == 3}">
+            					<li id="defense3" name="defense3"
+            						class="pull-left" style="width:357px; height:36px; border-top:1px solid #fff; border-bottom:1px solid #fff; 
+			         				font-size:14px; color:rgb(104,94,96);  margin-left:20px;">
+		                            <em class="pull-left" style="width:160px; height:34px;font-style: normal; padding-top:4px;
+		                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
+		                            background-position:0 7px;
+		                            ">일반  방패</em>
+		                            <span class="pull-left" style="width:184px; height:34px;padding-top:4px;
+		                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
+		                            background-position:10px 7px; border-left:1px solid #fff;
+		                            ">강철 쉴드</span>
+		                        </li>
+            				</c:when>
+            				<c:otherwise>
+            					<li id="defense00" name="defense00"
+            						class="pull-left" style="width:357px; height:36px; border-top:1px solid #fff; border-bottom:1px solid #fff; 
+			         				font-size:14px; color:rgb(104,94,96);  margin-left:20px;">
+		                            <em class="pull-left" style="width:160px; height:34px;font-style: normal; padding-top:4px;
+		                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
+		                            background-position:0 7px;
+		                            ">일반  방패</em>
+		                            <span class="pull-left" style="width:184px; height:34px;padding-top:4px;
+		                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
+		                            background-position:10px 7px; border-left:1px solid #fff;
+		                            "></span>
+		                        </li>
+            				</c:otherwise>
+           				</c:choose>
                         <li class="pull-left" style="width:357px; height:36px; border-top:1px solid #fff; border-bottom:1px solid #fff; 
-	         			font-size:14px;  margin-left:20px;">
-                            <em class="pull-left" style="width:160px; height:34px;
+	         			font-size:14px; color:rgb(104,94,96);  margin-left:20px;">
+                            <em class="pull-left" style="width:160px; height:34px;font-style: normal; padding-top:4px;
                             background:url('resources/image/rank/ico_chr_item.png')no-repeat;
                             background-position:0 7px;
-                            ">일반 갑옷</em>
-                            <span class="pull-left" style="width:184px; height:34px;
+                            ">일반  망토</em>
+                            <span class="pull-left" style="width:184px; height:34px;padding-top:4px;
                             background:url('resources/image/rank/ico_chr_item.png')no-repeat;
                             background-position:10px 7px; border-left:1px solid #fff;
-                            ">사색인장</span>
+                            ">준비중입니다</span>
                         </li>
                         <li class="pull-left" style="width:357px; height:36px; border-top:1px solid #fff; border-bottom:1px solid #fff; 
-	         			font-size:14px;  margin-left:20px;">
-                            <em class="pull-left" style="width:160px; height:34px;
+	         			font-size:14px; color:rgb(104,94,96);  margin-left:20px;">
+                            <em class="pull-left" style="width:160px; height:34px;font-style: normal; padding-top:4px;
                             background:url('resources/image/rank/ico_chr_item.png')no-repeat;
                             background-position:0 7px;
-                            ">일반 방패/보조무기</em>
-                            <span class="pull-left" style="width:184px; height:34px;
+                            ">일반  신발</em>
+                            <span class="pull-left" style="width:184px; height:34px;padding-top:4px;
                             background:url('resources/image/rank/ico_chr_item.png')no-repeat;
                             background-position:10px 7px; border-left:1px solid #fff;
-                            ">사색인장</span>
+                            ">준비중입니다</span>
                         </li>
                         <li class="pull-left" style="width:357px; height:36px; border-top:1px solid #fff; border-bottom:1px solid #fff; 
-	         			font-size:14px;  margin-left:20px;">
-                            <em class="pull-left" style="width:160px; height:34px;
+	         			font-size:14px; color:rgb(104,94,96);  margin-left:20px;">
+                            <em class="pull-left" style="width:160px; height:34px;font-style: normal; padding-top:4px;
                             background:url('resources/image/rank/ico_chr_item.png')no-repeat;
                             background-position:0 7px;
-                            ">일반 망토</em>
-                            <span class="pull-left" style="width:184px; height:34px;
+                            ">일반  세트옷</em>
+                            <span class="pull-left" style="width:184px; height:34px;padding-top:4px;
                             background:url('resources/image/rank/ico_chr_item.png')no-repeat;
                             background-position:10px 7px; border-left:1px solid #fff;
-                            ">사색인장</span>
+                            ">준비중입니다</span>
                         </li>
                         <li class="pull-left" style="width:357px; height:36px; border-top:1px solid #fff; border-bottom:1px solid #fff; 
-	         			font-size:14px;  margin-left:20px;">
-                            <em class="pull-left" style="width:160px; height:34px;
-                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
-                            background-position:0 7px;
-                            ">일반 신발</em>
-                            <span class="pull-left" style="width:184px; height:34px;
-                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
-                            background-position:10px 7px; border-left:1px solid #fff;
-                            ">사색인장</span>
-                        </li>
-                        <li class="pull-left" style="width:357px; height:36px; border-top:1px solid #fff; border-bottom:1px solid #fff; 
-	         			font-size:14px;  margin-left:20px;">
-                            <em class="pull-left" style="width:160px; height:34px;
-                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
-                            background-position:0 7px;
-                            ">일반 세트옷</em>
-                            <span class="pull-left" style="width:184px; height:34px;
-                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
-                            background-position:10px 7px; border-left:1px solid #fff;
-                            ">사색인장</span>
-                        </li>
-                        <li class="pull-left" style="width:357px; height:36px; border-top:1px solid #fff; border-bottom:1px solid #fff; 
-	         			font-size:14px;  margin-left:20px;">
-                            <em class="pull-left" style="width:160px; height:34px;
+	         			font-size:14px; color:rgb(104,94,96);  margin-left:20px;">
+                            <em class="pull-left" style="width:160px; height:34px;font-style: normal; padding-top:4px;
                             background:url('resources/image/rank/ico_chr_item.png')no-repeat;
                             background-position:0 7px;
                             ">오른손</em>
-                            <span class="pull-left" style="width:184px; height:34px;
+                            <span class="pull-left" style="width:184px; height:34px;padding-top:4px;
                             background:url('resources/image/rank/ico_chr_item.png')no-repeat;
                             background-position:10px 7px; border-left:1px solid #fff;
-                            ">사색인장</span>
+                            ">준비중입니다</span>
                         </li>
                         <li class="pull-left" style="width:357px; height:36px; border-top:1px solid #fff; border-bottom:1px solid #fff; 
-	         			font-size:14px;  margin-left:20px;">
-                            <em class="pull-left" style="width:160px; height:34px;
+	         			font-size:14px; color:rgb(104,94,96);  margin-left:20px;">
+                            <em class="pull-left" style="width:160px; height:34px;font-style: normal; padding-top:4px;
                             background:url('resources/image/rank/ico_chr_item.png')no-repeat;
                             background-position:0 7px;
                             ">왼손</em>
-                            <span class="pull-left" style="width:184px; height:34px;
+                            <span class="pull-left" style="width:184px; height:34px;padding-top:4px;
                             background:url('resources/image/rank/ico_chr_item.png')no-repeat;
                             background-position:10px 7px; border-left:1px solid #fff;
-                            ">사색인장</span>
+                            ">준비중입니다</span>
                         </li>
                         <li class="pull-left" style="width:357px; height:36px; border-top:1px solid #fff; border-bottom:1px solid #fff; 
-	         			font-size:14px;  margin-left:20px; border-collapse: collapse;">
-                            <em class="pull-left" style="width:160px; height:34px;
+	         			font-size:14px; color:rgb(104,94,96);  margin-left:20px;">
+                            <em class="pull-left" style="width:160px; height:34px;font-style: normal; padding-top:4px;
                             background:url('resources/image/rank/ico_chr_item.png')no-repeat;
                             background-position:0 7px;
-                            ">보조 1</em>
-                            <span class="pull-left" style="width:184px; height:34px;
+                            ">보조1</em>
+                            <span class="pull-left" style="width:184px; height:34px;padding-top:4px;
                             background:url('resources/image/rank/ico_chr_item.png')no-repeat;
                             background-position:10px 7px; border-left:1px solid #fff;
-                            ">사색인장</span>
+                            ">준비중입니다</span>
                         </li>
                         <li class="pull-left" style="width:357px; height:36px; border-top:1px solid #fff; border-bottom:1px solid #fff; 
-	         			font-size:14px;  margin-left:20px;">
-                            <em class="pull-left" style="width:160px; height:34px;
+	         			font-size:14px; color:rgb(104,94,96);  margin-left:20px;">
+                            <em class="pull-left" style="width:160px; height:34px;font-style: normal; padding-top:4px;
                             background:url('resources/image/rank/ico_chr_item.png')no-repeat;
                             background-position:0 7px;
                             ">보조2</em>
-                            <span class="pull-left" style="width:184px; height:34px;
+                            <span class="pull-left" style="width:184px; height:34px;padding-top:4px;
                             background:url('resources/image/rank/ico_chr_item.png')no-repeat;
                             background-position:10px 7px; border-left:1px solid #fff;
-                            ">사색인장</span>
+                            ">준비중입니다</span>
                         </li>
                         <li class="pull-left" style="width:357px; height:36px; border-top:1px solid #fff; border-bottom:1px solid #fff; 
-	         			font-size:14px;  margin-left:20px; border-collapse: collapse;">
-                            <em class="pull-left" style="width:160px; height:34px;
+	         			font-size:14px; color:rgb(104,94,96);  margin-left:20px;">
+                            <em class="pull-left" style="width:160px; height:34px;font-style: normal; padding-top:4px;
                             background:url('resources/image/rank/ico_chr_item.png')no-repeat;
                             background-position:0 7px;
-                            ">일반 장신구</em>
-                            <span class="pull-left" style="width:184px; height:34px;
+                            ">일반  장신구</em>
+                            <span class="pull-left" style="width:184px; height:34px;padding-top:4px;
                             background:url('resources/image/rank/ico_chr_item.png')no-repeat;
                             background-position:10px 7px; border-left:1px solid #fff;
-                            ">사색인장</span>
+                            ">준비중입니다</span>
                         </li>
 	         		</ul>
          		</div>
@@ -502,20 +611,20 @@
 	    <div>
 				<table class="table">
 					    <tbody>
-					    <c:forEach var="rankvisitbooks" items="${rankvisitbooks}">
+					    <c:forEach var="pagebooks" items="${pagebooks}">
 						      <tr>
 						      	 <td style="color:#a18c6d;font-size:12px; width:200px;
 						      	 padding-left:20px;
-						      	 ">${rankvisitbooks.date}</td>
-						         <td style="width:160px;">${rankvisitbooks.id}</td>
+						      	 ">${pagebooks.date}</td>
+						         <td style="width:160px;">${pagebooks.id}</td>
 						         <td style="color:#797272; font-size:14px;
 						         text-align:left; padding-left:50px;
-						         ">${rankvisitbooks.visitbook}</td>
+						         ">${pagebooks.visitbook}</td>
 						         <c:choose>
-						         	<c:when test="${rankvisitbooks.id==sessionid}">
+						         	<c:when test="${pagebooks.id==sessionid}">
 							         <td>
 							         	<span>
-							         		<input type ="text" id="seq" name="seq" value="${rankvisitbooks.seq}" onclick="enrollDel(this.value)"
+							         		<input type ="text" id="seq" name="seq" value="${pagebooks.seq}" onclick="enrollDel(this.value)"
 								         	 style="background:url('resources/image/rank/coment_del.jpg')no-repeat;text-indent: -9999px;
 								         	 width:20px; height:20px; border:none; cursor:pointer;">
 							         	</span>
@@ -533,18 +642,107 @@
 				    </tbody>
 				  </table>
 		</div>
-		<div class="row" style="margin-top: 50px">
-		<label>페이지수</label>
-						<c:forEach var="page" items="${pages}">
-		 					<a href="selectedPage?page=${page}&id=${members.id}">[${page}]</a>&nbsp
-		 				</c:forEach>
+		<div class="" style="float:none; margin-top:0px; height:53px; border:1px solid #c3bfbb; font-size:100%; vertical-align:baseline;font-family: 'Nanum Square', sans-serif;">
+			<div style="float:right; line-height:25px;margin-right: 20px;">
+				<c:forEach var="page" items="${pages}">
+					<ul style="float:left;  margin-top:15px; list-style:none;">
+						<li style="float:left; min-width:30px; height:25px; border:0; text-align:center;
+						font-size:18px; ">
+							<a name="pagenumber${page}" id="pagenumber${page}" onmouseover="pagenumber(${page})" onmouseout="pagenumberout(${page})"
+							href="selectedPage?page=${page}&id=${members.id}" style="color:#4d4646; display:block; text-decoration: none;">
+								<span >${page}</span>
+							</a>
+						</li>
+					</ul>
+		 					
+ 				</c:forEach>
+			
+			</div>
+						
 		</div>
+		
 	</div>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
 <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
 
 <script type="text/javascript"> 
 
+function weaponOn(){
+	document.getElementById("weapon0").style.color = "red";
+	document.getElementById("weapon0").style.background = "#DEDAD1";
+};
+function weaponOn1(){
+	document.getElementById("weapon1").style.color = "red";
+	document.getElementById("weapon1").style.background = "#DEDAD1";
+};
+function weaponOn2(){
+	document.getElementById("weapon2").style.color = "red";
+	document.getElementById("weapon2").style.background = "#DEDAD1";
+};
+function weaponOn3(){
+	document.getElementById("weapon3").style.color = "red";
+	document.getElementById("weapon3").style.background = "#DEDAD1";;
+};
+function weaponOut(){
+	document.getElementById("weapon0").style.color = "#685e60";
+	document.getElementById("weapon0").style.background = "#e8e4df";
+};
+function weaponOut1(){
+	document.getElementById("weapon1").style.color = "#685e60";
+	document.getElementById("weapon1").style.background = "#e8e4df";
+	
+};
+function weaponOut2(){
+	document.getElementById("weapon2").style.color = "#685e60";
+	document.getElementById("weapon2").style.background = "#e8e4df";
+	
+};
+function weaponOut3(){
+	document.getElementById("weapon3").style.color = "#685e60";
+	document.getElementById("weapon3").style.background = "#e8e4df";
+};
+function defenseOn(){
+	document.getElementById("defense0").style.color = "red";
+	document.getElementById("defense0").style.background = "#DEDAD1";
+	
+};
+function defenseOn1(){
+	document.getElementById("defense1").style.color = "red";
+	document.getElementById("defense1").style.background = "#DEDAD1";
+};
+function defenseOn2(){
+	document.getElementById("defense2").style.color = "red";
+	document.getElementById("defense2").style.background = "#DEDAD1";
+};
+function defenseOn3(){
+	document.getElementById("defense3").style.color = "red";
+	document.getElementById("defense3").style.background = "#DEDAD1";
+};
+function defenseOut(){
+	document.getElementById("defense0").style.color = "#685e60";
+	document.getElementById("defense0").style.background = "#e8e4df";
+};
+function defenseOut1(){
+	document.getElementById("defense1").style.color = "#685e60";
+	document.getElementById("defense1").style.background = "#e8e4df";
+};
+function defenseOut2(){
+	document.getElementById("defense2").style.color = "#685e60";
+	document.getElementById("defense2").style.background = "#e8e4df";
+};
+function defenseOut3(){
+	document.getElementById("defense3").style.color = "#685e60";
+	document.getElementById("defense3").style.background = "#e8e4df";
+};
+
+function pagenumber(page){
+	var page;
+	document.getElementById("pagenumber"+page).style.color = "red";
+};
+function pagenumberout(page){
+	var page;
+	document.getElementById("pagenumber"+page).style.color = "black";
+};
 
 function enrollDel(seq){
 	var seq = seq
@@ -600,6 +798,7 @@ function number_of_Characters() {
 	};
 	$(document).ready(function(){
 		document.number.text2.value = 0 + "/200";
+		
 		
 		$('.updatebtn').on('click',function(){
 			var greeting = document.getElementById("greeting").value;

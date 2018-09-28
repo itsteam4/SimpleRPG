@@ -16,13 +16,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.github.itsteam4.simplerpg.web.client.entity.UserData;
+import com.github.itsteam4.simplerpg.web.client.service.UserDataDao;
 import com.github.itsteam4.simplerpg.web.entity.FreeBoard;
 import com.github.itsteam4.simplerpg.web.entity.Member;
+import com.github.itsteam4.simplerpg.web.entity.Rank;
 import com.github.itsteam4.simplerpg.web.entity.RankInfo;
 import com.github.itsteam4.simplerpg.web.entity.RankTest;
 import com.github.itsteam4.simplerpg.web.entity.RankVisitbook;
 import com.github.itsteam4.simplerpg.web.entity.RankVisitbookNumber;
 import com.github.itsteam4.simplerpg.web.service.RankTestDao;
+import com.github.itsteam4.simplerpg.web.service.RankUserDataDao;
 import com.github.itsteam4.simplerpg.web.service.FreeBoardDAO;
 import com.github.itsteam4.simplerpg.web.service.MemberDAO;
 import com.github.itsteam4.simplerpg.web.service.RankInfoDao;
@@ -41,6 +45,8 @@ public class RankController {
 	@Autowired
 	Member member;
 	@Autowired
+	UserData userdata;
+	@Autowired
 	private RankVisitbookNumber rankvisitbooknumber;
 	
 	@RequestMapping(value = "/ranktestInsert", method = RequestMethod.POST)
@@ -58,7 +64,22 @@ public class RankController {
 	}
 	
 	@RequestMapping(value = "/rankform", method = RequestMethod.GET)
-	public String rankform() {
+	public String rankform(Model model,@RequestParam String id,@ModelAttribute Member member,@ModelAttribute UserData userdata,
+			@ModelAttribute RankVisitbook rankvisitbook,@ModelAttribute RankVisitbookNumber rankvisitbooknumber,@ModelAttribute Rank rank) {
+		MemberDAO mdao = sqlSession.getMapper(MemberDAO.class);
+		RankTestDao dao = sqlSession.getMapper(RankTestDao.class);
+		RankInfoDao idao = sqlSession.getMapper(RankInfoDao.class);
+		RankUserDataDao rudao = sqlSession.getMapper(RankUserDataDao.class);
+		
+		UserData ruserdatas = rudao.userDataLoding(id);
+		Member members = mdao.selectOne(id);
+		ArrayList<RankVisitbook> rankvisitbooks = idao.selectAll(id); 
+		ArrayList<UserData> userdatas = rudao.selectuserAll(id);
+		
+		model.addAttribute("members",members);
+		model.addAttribute("ruserdatas",ruserdatas);
+		model.addAttribute("userdatas",userdatas);
+		
 		return "rank/rank_form";
 	}
 	@RequestMapping(value = "/insertGreeting", method = RequestMethod.POST)
@@ -93,21 +114,22 @@ public class RankController {
 	}
 	
 	@RequestMapping(value = "/rankTest", method = RequestMethod.GET)
-	public String rankTest(Model model,@RequestParam String id,@ModelAttribute Member member,
+	public String rankTest(Model model,@RequestParam String id,@ModelAttribute Member member,@ModelAttribute UserData userdata,
 			@ModelAttribute RankVisitbook rankvisitbook,@ModelAttribute RankVisitbookNumber rankvisitbooknumber ) {
 		MemberDAO mdao = sqlSession.getMapper(MemberDAO.class);
 		RankTestDao dao = sqlSession.getMapper(RankTestDao.class);
 		RankInfoDao idao = sqlSession.getMapper(RankInfoDao.class);
+		RankUserDataDao rudao = sqlSession.getMapper(RankUserDataDao.class);
 		
+		UserData ruserdatas = rudao.userDataLoding(id);
 		Member members = mdao.selectOne(id);
 		ArrayList<RankVisitbook> rankvisitbooks = idao.selectAll(id); 
+		
 		
 		int number = (int) rankvisitbooks.size();
 		rankvisitbooknumber.setNumber(number);
 		String stanid = id;
 		int rowcount = idao.selectRowCount(stanid);
-		System.out.println("test_id는"+id);
-		System.out.println("test_방명록수"+rowcount);
 		
 		int pagesize = 10;
 		int startrow = 0;
@@ -115,6 +137,7 @@ public class RankController {
 		
 		rankvisitbooknumber.setStartrow(startrow);
 		rankvisitbooknumber.setEndrow(endrow);
+		rankvisitbooknumber.setStanid(stanid);
 		
 		ArrayList<RankVisitbook> pagebooks = idao.pageList(rankvisitbooknumber);
 		int absPage = 1;
@@ -129,6 +152,9 @@ public class RankController {
 		model.addAttribute("members",members);
 		model.addAttribute("rankvisitbooks",rankvisitbooks);
 		model.addAttribute("rankvisitbooknumber",rankvisitbooknumber);
+		model.addAttribute("pagebooks",pagebooks);
+		model.addAttribute("pages",pages);
+		model.addAttribute("ruserdatas",ruserdatas);
 		
 		return "rank/rankinfo_form";
 	}
@@ -136,12 +162,17 @@ public class RankController {
 	
 	@RequestMapping(value = "/rankinfoform", method = RequestMethod.GET)
 	public String rankinfoform(Model model,@RequestParam String id,@ModelAttribute Member member,
-			@ModelAttribute RankVisitbook rankvisitbook,@ModelAttribute RankVisitbookNumber rankvisitbooknumber) {
+			@ModelAttribute RankVisitbook rankvisitbook,@ModelAttribute RankVisitbookNumber rankvisitbooknumber,
+			@ModelAttribute UserData userdata) {
 		RankInfoDao dao = sqlSession.getMapper(RankInfoDao.class);
 		MemberDAO mdao = sqlSession.getMapper(MemberDAO.class);
+		RankUserDataDao rudao = sqlSession.getMapper(RankUserDataDao.class);
 		
 		RankInfo rankinfos = dao.selectOne(id);
 		Member members = mdao.selectOne(id);
+		
+		UserData ruserdatas = rudao.userDataLoding(id);
+
 		
 		ArrayList<RankVisitbook> rankvisitbooks = dao.selectAll(id);
 		
@@ -151,18 +182,16 @@ public class RankController {
 		int pagesize = 10;
 		int startrow = 0;
 		int endrow = startrow + pagesize;
-		System.out.println("id는"+id);
-		
 		String stanid = id;
-		int rowcount = dao.selectRowCount(stanid);
 		
-		System.out.println("방명록수"+rowcount);
 		
 		rankvisitbooknumber.setStartrow(startrow);
 		rankvisitbooknumber.setEndrow(endrow);
-		
+		rankvisitbooknumber.setStanid(stanid);
 		
 		ArrayList<RankVisitbook> pagebooks = dao.pageList(rankvisitbooknumber);
+		
+		int rowcount = dao.selectRowCount(stanid);
 		int absPage = 1;
 		if(rowcount % pagesize == 0)
 			absPage = 0;
@@ -178,6 +207,7 @@ public class RankController {
 		model.addAttribute("rankvisitbooknumber",rankvisitbooknumber);
 		model.addAttribute("pagebooks",pagebooks);
 		model.addAttribute("pages",pages);
+		model.addAttribute("ruserdatas",ruserdatas);
 		
 		return "rank/rankinfo_form";
 	}
@@ -185,21 +215,31 @@ public class RankController {
 	
 	
 	@RequestMapping(value="selectedPage",method=RequestMethod.GET)
-	public String selectedPage(Model model,@RequestParam int page, @RequestParam String id) {
+	public String selectedPage(Model model,@RequestParam int page, @RequestParam String id,
+			@ModelAttribute Member member,@ModelAttribute UserData userdata,
+			@ModelAttribute RankVisitbook rankvisitbook,@ModelAttribute RankVisitbookNumber rankvisitbooknumber) {
 		RankInfoDao dao = sqlSession.getMapper(RankInfoDao.class);
+		MemberDAO mdao = sqlSession.getMapper(MemberDAO.class);
+		RankUserDataDao rudao = sqlSession.getMapper(RankUserDataDao.class);
 		
+		RankInfo rankinfos = dao.selectOne(id);
+		Member members = mdao.selectOne(id);
+		UserData ruserdatas = rudao.userDataLoding(id);
 		ArrayList<RankVisitbook> rankvisitbooks = dao.selectAll(id);
+		int number = (int) rankvisitbooks.size();
+		rankvisitbooknumber.setNumber(number);
 		
 		int pagesize = 10;
 		int startrow = (page - 1) * pagesize;
 		int endrow = pagesize;
+		String stanid = id;
 		
+		rankvisitbooknumber.setStanid(stanid);
 		rankvisitbooknumber.setStartrow(startrow);
 		rankvisitbooknumber.setEndrow(endrow);
 		ArrayList<RankVisitbook> pagebooks = dao.pageList(rankvisitbooknumber);
 		
-		int rowcount = rankvisitbooks.size();
-		
+		int rowcount = dao.selectRowCount(stanid);
 		int absPage = 1;
 		if(rowcount % pagesize == 0)
 			absPage = 0;
@@ -211,8 +251,12 @@ public class RankController {
 		model.addAttribute("pagebooks",pagebooks);
 		model.addAttribute("pages",pages);
 		
-		System.out.println("선택한 페이지"+page);
-		System.out.println("id값 확인"+id);
+		model.addAttribute("rankinfos",rankinfos);
+		model.addAttribute("members",members);
+		model.addAttribute("rankvisitbooks",rankvisitbooks);
+		model.addAttribute("rankvisitbooknumber",rankvisitbooknumber);
+		model.addAttribute("ruserdatas",ruserdatas);
+		
 		
 		return "rank/rankinfo_form";
 	}
