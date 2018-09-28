@@ -129,6 +129,11 @@ function Update(){
 	if(user_xy[0] == goblin8_1_xy[0] && user_xy[1] == goblin8_1_xy[1]) { goblin8_1Battle(); }
 	if(user_xy[0] == orc8_2_xy[0] && user_xy[1] == orc8_2_xy[1]) { orc8_2Battle(); }
 	if(user_xy[0] == orcboss13_1_xy[0] && user_xy[1] == orcboss13_1_xy[1]) { orcboss13_1Battle(); }
+	if(user_xy[0] == orc13_2_xy[0] && user_xy[1] == orc13_2_xy[1]) { orc13_2Battle(); }
+	if(user_xy[0] == orc13_3_xy[0] && user_xy[1] == orc13_3_xy[1]) { orc13_3Battle(); }
+	if(user_xy[0] == orc4_1_xy[0] && user_xy[1] == orc4_1_xy[1]) { orc4_1Battle(); }
+	if(user_xy[0] == orc4_2_xy[0] && user_xy[1] == orc4_2_xy[1]) { orc4_2Battle(); }
+	if(user_xy[0] == goblin4_3_xy[0] && user_xy[1] == goblin4_3_xy[1]) { goblin4_3Battle(); }
 	//전투중 유저 사망시
 	if(useralive == false){
 		userdead++;

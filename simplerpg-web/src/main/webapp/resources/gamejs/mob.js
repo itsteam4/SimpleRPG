@@ -742,6 +742,240 @@
 		}, 20000);
 	}
 	
+		//sector 4
+	//orc4_1 정보
+	var orc4_1_xy = [256, 416];
+	function Orc4_1(orc4_1_xy){
+		this.orc4_1hp = 150;
+		this.orc4_1power = 20;
+	}
+	
+	//orc4_1전투 로직
+	function orc4_1Battle(){
+		if(Uattack == true){
+
+			userAttackSound(); 	//오디오의 효과음 
+
+			orc4_1hp -= userpower;
+			userhp -= orc4_1power;
+			Uattack = false;
+		}
+
+		if(orc4_1hp <= 0){		//orc4_1 사망시
+			orc4_1alive = false;
+			userkill ++;
+			userex += 100;
+			
+			var drop = Math.floor(Math.random() * (10 - 1 + 1)) + 1;		//아이템 드랍 후 유저 정보 수정
+			if(drop <= 3){
+				if(item[0] < 3){
+					
+					switch(item[0]){		//기존의 장비를 검사후 보너스 삭제
+					case 0:
+						break;
+					case 1:
+						userpower -= 2;
+						break;
+					case 2:
+						userpower -= 4;
+						break;
+					}
+					
+					item[0] = 3;
+					userpower += 8;
+					alert("강철소드 획득!");
+				}
+			}else if(drop >= 8){
+				if(item[1] < 3){
+					switch(item[1]){		//기존 아이템을 검사후 보너스 삭제
+					case 0:
+						break;
+					case 1:
+						usermaxhp -= 10;
+						break;
+					case 2:
+						usermaxhp -= 20;
+						break;
+					}
+					
+					item[1] = 3;
+					usermaxhp += 40;
+					alert("강철쉴드 획득!");
+				}
+			}
+			ItemChenge();
+			orc4_1_xy = [999, 999];
+			orc4_1Dead();
+		}
+		if(userhp < 0){		//유저 사망시
+			useralive = false;
+		}
+
+	}
+
+	//orc4_1 리젠
+	function orc4_1Dead(){
+		setTimeout(function(){ 
+			orc4_1_xy = [256, 416];
+			orc4_1alive = true; 
+			orc4_1hp = 150; 
+			sectorinfo();
+		}, 20000);
+	}
+	//orc4_2 정보
+	var orc4_2_xy = [352, 320];
+	function Orc4_2(orc4_2_xy){
+		this.orc4_2hp = 150;
+		this.orc4_2power = 20;
+	}
+	
+	//orc4_2전투 로직
+	function orc4_2Battle(){
+		if(Uattack == true){
+
+			userAttackSound(); 	//오디오의 효과음 
+
+			orc4_2hp -= userpower;
+			userhp -= orc4_2power;
+			Uattack = false;
+		}
+
+		if(orc4_2hp <= 0){		//orc4_2 사망시
+			orc4_2alive = false;
+			userkill ++;
+			userex += 100;
+			
+			var drop = Math.floor(Math.random() * (10 - 1 + 1)) + 1;		//아이템 드랍 후 유저 정보 수정
+			if(drop <= 3){
+				if(item[0] < 3){
+					
+					switch(item[0]){		//기존의 장비를 검사후 보너스 삭제
+					case 0:
+						break;
+					case 1:
+						userpower -= 2;
+						break;
+					case 2:
+						userpower -= 4;
+						break;
+					}
+					
+					item[0] = 3;
+					userpower += 8;
+					alert("강철소드 획득!");
+				}
+			}else if(drop >= 8){
+				if(item[1] < 3){
+					switch(item[1]){		//기존 아이템을 검사후 보너스 삭제
+					case 0:
+						break;
+					case 1:
+						usermaxhp -= 10;
+						break;
+					case 2:
+						usermaxhp -= 20;
+						break;
+					}
+					
+					item[1] = 3;
+					usermaxhp += 40;
+					alert("강철쉴드 획득!");
+				}
+			}
+			ItemChenge();
+			orc4_2_xy = [999, 999];
+			orc4_2Dead();
+		}
+		if(userhp < 0){		//유저 사망시
+			useralive = false;
+		}
+
+	}
+
+	//orc4_2 리젠
+	function orc4_2Dead(){
+		setTimeout(function(){ 
+			orc4_2_xy = [352, 320];
+			orc4_2alive = true; 
+			orc4_2hp = 150; 
+			sectorinfo();
+		}, 20000);
+	}
+	//goblin4_3 정보
+	var goblin4_3_xy = [448, 448];
+	function Goblin4_3(goblin4_3_xy){
+		this.goblin4_3hp = 75;
+		this.goblin4_3power = 8;
+	}
+	//goblin4_3전투 로직
+	function goblin4_3Battle(){
+		if(Uattack == true){
+
+			userAttackSound(); 	//오디오의 효과음 
+
+			goblin4_3hp -= userpower;
+			userhp -= goblin4_3power;
+			Uattack = false;
+		}
+
+		if(goblin4_3hp <= 0){		//goblin4_3 사망시
+			goblin4_3alive = false;
+			userkill ++;
+			userex += 40;
+			
+			var drop = Math.floor(Math.random() * (10 - 1 + 1)) + 1;		//아이템 드랍 후 유저 정보 수정
+			if(drop <= 3){
+				if(item[0] < 2){
+					
+					switch(item[0]){		//기존의 장비를 검사후 보너스 삭제
+					case 0:
+						break;
+					case 1:
+						userpower -= 2;
+						break;
+					}
+					
+					item[0] = 2;
+					userpower += 4;
+					alert("철소드 획득!");
+				}
+			}else if(drop >= 8){
+				
+				if(item[1] < 2){
+					switch(item[1]){		//기존 아이템을 검사후 보너스 삭제
+					case 0:
+						break;
+					case 1:
+						usermaxhp -= 10;
+						break;
+					}
+					
+				
+					item[1] = 2;
+					usermaxhp += 20;
+					alert("철쉴드 획득!");
+				}
+			}
+			ItemChenge();
+			goblin4_3_xy = [999, 999];
+			goblin4_3Dead();
+		}
+		if(userhp < 0){		//유저 사망시
+			useralive = false;
+		}
+
+	}
+
+	//goblin4_3 리젠
+	function goblin4_3Dead(){
+		setTimeout(function(){ 
+			goblin4_3_xy = [448, 448];
+			goblin4_3alive = true; 
+			goblin4_3hp = 75; 
+			sectorinfo();
+		}, 20000);
+	}
+
 		//sector 5
 	//slime2 정보
 	var slime_xy2 = [288, 352];
@@ -2223,6 +2457,166 @@
 			orcboss13_1_xy = [448,288];
 			orcboss13_1alive = true; 
 			orcboss13_1hp = 200; 
+			sectorinfo();
+		}, 20000);
+	}
+	
+	//orc13_2 정보
+	var orc13_2_xy = [352, 192];
+	function Orc13_2(orc13_2_xy){
+		this.orc13_2hp = 150;
+		this.orc13_2power = 20;
+	}
+	
+	//orc13_2전투 로직
+	function orc13_2Battle(){
+		if(Uattack == true){
+
+			userAttackSound(); 	//오디오의 효과음 
+
+			orc13_2hp -= userpower;
+			userhp -= orc13_2power;
+			Uattack = false;
+		}
+
+		if(orc13_2hp <= 0){		//orc13_2 사망시
+			orc13_2alive = false;
+			userkill ++;
+			userex += 100;
+			
+			var drop = Math.floor(Math.random() * (10 - 1 + 1)) + 1;		//아이템 드랍 후 유저 정보 수정
+			if(drop <= 3){
+				if(item[0] < 3){
+					
+					switch(item[0]){		//기존의 장비를 검사후 보너스 삭제
+					case 0:
+						break;
+					case 1:
+						userpower -= 2;
+						break;
+					case 2:
+						userpower -= 4;
+						break;
+					}
+					
+					item[0] = 3;
+					userpower += 8;
+					alert("강철소드 획득!");
+				}
+			}else if(drop >= 8){
+				if(item[1] < 3){
+					switch(item[1]){		//기존 아이템을 검사후 보너스 삭제
+					case 0:
+						break;
+					case 1:
+						usermaxhp -= 10;
+						break;
+					case 2:
+						usermaxhp -= 20;
+						break;
+					}
+					
+					item[1] = 3;
+					usermaxhp += 40;
+					alert("강철쉴드 획득!");
+				}
+			}
+			ItemChenge();
+			orc13_2_xy = [999, 999];
+			orc13_2Dead();
+		}
+		if(userhp < 0){		//유저 사망시
+			useralive = false;
+		}
+
+	}
+
+	//orc13_2 리젠
+	function orc13_2Dead(){
+		setTimeout(function(){ 
+			orc13_2_xy = [352, 192];
+			orc13_2alive = true; 
+			orc13_2hp = 150; 
+			sectorinfo();
+		}, 20000);
+	}
+	
+	//orc13_3 정보
+	var orc13_3_xy = [352, 384];
+	function Orc13_3(orc13_3_xy){
+		this.orc13_3hp = 150;
+		this.orc13_3power = 20;
+	}
+	
+	//orc13_3전투 로직
+	function orc13_3Battle(){
+		if(Uattack == true){
+
+			userAttackSound(); 	//오디오의 효과음 
+
+			orc13_3hp -= userpower;
+			userhp -= orc13_3power;
+			Uattack = false;
+		}
+
+		if(orc13_3hp <= 0){		//orc13_3 사망시
+			orc13_3alive = false;
+			userkill ++;
+			userex += 100;
+			
+			var drop = Math.floor(Math.random() * (10 - 1 + 1)) + 1;		//아이템 드랍 후 유저 정보 수정
+			if(drop <= 3){
+				if(item[0] < 3){
+					
+					switch(item[0]){		//기존의 장비를 검사후 보너스 삭제
+					case 0:
+						break;
+					case 1:
+						userpower -= 2;
+						break;
+					case 2:
+						userpower -= 4;
+						break;
+					}
+					
+					item[0] = 3;
+					userpower += 8;
+					alert("강철소드 획득!");
+				}
+			}else if(drop >= 8){
+				if(item[1] < 3){
+					switch(item[1]){		//기존 아이템을 검사후 보너스 삭제
+					case 0:
+						break;
+					case 1:
+						usermaxhp -= 10;
+						break;
+					case 2:
+						usermaxhp -= 20;
+						break;
+					}
+					
+					item[1] = 3;
+					usermaxhp += 40;
+					alert("강철쉴드 획득!");
+				}
+			}
+			ItemChenge();
+			orc13_3_xy = [999, 999];
+			orc13_3Dead();
+		}
+		if(userhp < 0){		//유저 사망시
+			useralive = false;
+		}
+
+	}
+
+	//orc13_3 리젠
+	function orc13_3Dead(){
+		setTimeout(function(){ 
+			orc13_3_xy = [352, 384];
+			orc13_3alive = true; 
+			orc13_3hp = 150; 
 			sectorinfo();
 		}, 20000);
 	}
