@@ -185,6 +185,10 @@ function drawScreen(){
 			ctx.drawImage(goblin, goblin3_1_xy[0], goblin3_1_xy[1], 32,32);
 			ctx.drawImage(goblin, goblin3_2_xy[0], goblin3_2_xy[1], 32,32);
 			ctx.drawImage(orc, orc3_3_xy[0], orc3_3_xy[1], 32,32);
+			//sector 4 몹
+			ctx.drawImage(orc, orc4_1_xy[0], orc4_1_xy[1], 32,32);
+			ctx.drawImage(orc, orc4_2_xy[0], orc4_2_xy[1], 32,32);
+			ctx.drawImage(goblin, goblin4_3_xy[0], goblin4_3_xy[1], 32,32);
 			//sector 5 몹
 			ctx.drawImage(slime, slime_xy2[0], slime_xy2[1], 32,32);
 			ctx.drawImage(slime, slime5_2_xy[0], slime5_2_xy[1], 32,32);
@@ -214,6 +218,8 @@ function drawScreen(){
 			ctx.drawImage(orc, orc12_3_xy[0], orc12_3_xy[1], 32,32);
 			//sector 13 몹
 			ctx.drawImage(orcboss, orcboss13_1_xy[0], orcboss13_1_xy[1], 32,32);
+			ctx.drawImage(orc, orc13_2_xy[0], orc13_2_xy[1], 32,32);
+			ctx.drawImage(orc, orc13_3_xy[0], orc13_3_xy[1], 32,32);
 		}
 	}
 	
