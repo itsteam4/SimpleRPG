@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 <link href="resources/css/main-slide.css" rel="stylesheet">
+
 </head>
 <body>
 	<form  method="post" action="InGameForm">

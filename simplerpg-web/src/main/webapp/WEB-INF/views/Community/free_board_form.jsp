@@ -4,9 +4,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-
 </head>
 <body>
 	<form action="FreeBoardForm" method="GET">
@@ -30,6 +29,7 @@
 				<table class="table table-hover">
 					<thead>
 						<tr>
+							<th width="150" scope="col">번호</th>
 							<th width="150" scope="col">작성자</th>
 							<th width="300" scope="col">제목</th>
 							<th width="150" scope="col">작성일자</th>

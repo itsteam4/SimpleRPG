@@ -226,12 +226,10 @@ public class CommunityController {
 		System.out.println("삭제되었습니다.");
 		return "redirect:FreeBoardForm";
 	}
-//	자유게시판 댓글 입력 Ajax 호출
-	@RequestMapping(value="/FreeBoardCommentInsert",method=RequestMethod.POST)
+//	자유게시판 댓글 입력 구현
+	@RequestMapping(value="/freeboardcommentinsert",method=RequestMethod.POST)
 	@ResponseBody
-	public String FreeBoardCommentInsert(Model model,HttpSession session,@ModelAttribute FreeBoardComment comment) {
-		System.out.println("호출 성공");
-		
-		return "success";
+	public String FreeBoardCommentInsert() {
+		return "redirect:freeboarddetailform";
 	}
 }

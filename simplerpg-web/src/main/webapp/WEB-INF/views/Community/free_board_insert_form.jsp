@@ -4,9 +4,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="decorator" content="freeboard_insert_forms">
+ <title>Insert title here</title>
+<!-- Bootstrap core CSS -->
+<link href="resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+ <script src="resources/vendor/jquery/jquery.min.js"></script>
+ <script src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+ <script src="resources/ckeditor/ckeditor.js"></script>	
 </head>
 <body>
 	<form action="FreeBoardInsertsubmit" enctype="multipart/form-data"
@@ -53,8 +59,6 @@
 			</table>
 		</div>
 		<hr>
-		</div>
-
 	</form>
 	<script>
 		CKEDITOR.replace(

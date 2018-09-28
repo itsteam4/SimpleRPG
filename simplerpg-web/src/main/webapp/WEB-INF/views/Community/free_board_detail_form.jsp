@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>자유게시판 입력 수정 페이지</title>
+<title>게시글  페이지</title>
 <!-- Bootstrap core CSS -->
     <link href="resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="resources/screenshot/screen.css" rel="stylesheet">
@@ -18,6 +18,7 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	<!-- jQuery -->
 	<script src="resources/vendor/jquery/jquery.min.js"></script>
+	<script src="resources/ckeditor/ckeditor.js"></script>
 </head>
 <body>
 	<form action="FreeDetailForms" class="freeboard_detail_form"
@@ -61,16 +62,13 @@
 								<div>${boards.f_content}</div>
 							</td>
 						</tr>
-						<tr>
-							<th>댓글</th>
-							<td align="center"><input id="f_coment" name="f_comment"
-								type="text" width="100" replaceholder="댓글을 입력하세요.">
-								<button type="button" class="btn btn-info" id="commentbutton">등록</button>
-							</td>
-						</tr>
 					</tbody>
 				</table>
 			</div>
+			<div class="row">
+				<%@include file="../Community/free_board_comment_form.jsp" %>
+			</div>
+			<div class="row">
 				<div class="col-md-1"></div>
 				<div class="col-md-10" align="center">
 					<c:choose>

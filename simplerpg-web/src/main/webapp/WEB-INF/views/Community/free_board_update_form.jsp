@@ -4,9 +4,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="decorator" content="freeboard_update_forms">
 <title>Insert title here</title>
-
+<!-- Bootstrap core CSS -->
+    <link href="resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/screenshot/screen.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="resources/css/modern-business.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<!-- jQuery -->
+	<script src="resources/vendor/jquery/jquery.min.js"></script>
+	<script src="resources/ckeditor/ckeditor.js"></script>
 </head>
 <body>
 	<form action="FreeBoardUpdates" enctype="multipart/form-data"
