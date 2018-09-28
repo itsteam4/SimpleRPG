@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.github.itsteam4.simplerpg.web.service.FreeBoardCommentDAO">
+  	<resultMap type="com.github.itsteam4.simplerpg.web.entity.FreeBoardComment" id="freeboardcommentMap">
+  	</resultMap>
+  	<select id="commentcount" resultType="Integer">
+  		select count(*) from freeboard_comment
+  	</select>
+  	
+  	<select id="commentlist" resultType="hashMap">
+  		select * from freeboard_comment
+  	</select>
+  	
+  	<insert id="commentinsert" parameterType="Integer">
+  		insert into
+  		freeboard_comment(f_cno,f_bno,f_content,f_writer,f_reg_date
+  		)values(
+  			f_cno=#{f_cno,jdbcType=INTEGER},f_bno=#{f_bno,jdbcType=INTEGER},
+  			f_content=#{f_content,jdbcType=VARCHAR},f_writer=#{f_writer,jdbcType=VARCHAR},
+  			f_reg_date=now()	
+  		)
+  	</insert>
+  	
+  	<update id="commentupdate" parameterType="Integer">
+  		update freeboard_comment
+  		set
+  		f_content = #{f_content}
+  		where f_cno = #{f_cno}
+  	</update>
+  	<delete id="commentdelete" parameterType="Integer">
+  		delete from freeboard_comment where f_cno = #{f_cno}
+  	</delete>
+ </mapper>
+

@@ -454,7 +454,11 @@
 		        <textarea class="pull-left" 
 		        style="width:850px; height:80px; padding:6px 0 0 20px; background-color:#fff; margin-top:1px" 
 		        name="txtComment" id="txtComment" cols="30" rows="10" placeholder="로그인하시면 방명록 등록이 가능합니다." disabled="disabled"></textarea>
-		        <span class="pull-left" ><a href="javascript:;" onclick="alert('로그인 후 이용 바랍니다.')"><img src="http://s.nx.com/S2/Game/baram/2016/renewal/coment_add_btn02.jpg" alt="댓글등록"></a></span>
+		        <span class="pull-left" >
+		        <a href="javascript:;" onclick="alert('로그인 후 이용 바랍니다.')">
+		        <img src="resources/image/rank/coment_add_btn_on.jpg" alt="댓글등록">
+		        </a>
+		        </span>
 		    </div>	
 		</c:when>
 		<c:otherwise>
@@ -481,7 +485,7 @@
 		        ></textarea>
 		        <span class="pull-left" >
 			        <a href="#" onclick="visitbook()">
-			        <img src="http://s.nx.com/S2/Game/baram/2016/renewal/coment_add_btn02.jpg" alt="댓글등록">
+			        <img src="resources/image/rank/coment_add_btn_on.jpg" alt="댓글등록">
 			        </a>
 		        </span>
 		    </div>
@@ -495,14 +499,10 @@
 	    	</p>
 	    </div>
 	    
-	    
 	    <div>
 				<table class="table">
-				
-					   
 					    <tbody>
 					    <c:forEach var="rankvisitbooks" items="${rankvisitbooks}">
-					   
 						      <tr>
 						      	 <td style="color:#a18c6d;font-size:12px; width:200px;
 						      	 padding-left:20px;
@@ -515,25 +515,54 @@
 						         	<c:when test="${rankvisitbooks.id==sessionid}">
 							         <td>
 							         	<span>
-							         		<a>
-								         	<img src="resources/image/rank/coment_del.jpg')no-repeat;">
-								        	 </a>
+							         		<input type ="text" id="seq" name="seq" value="${rankvisitbooks.seq}" onclick="enrollDel(this.value)"
+								         	 style="background:url('resources/image/rank/coment_del.jpg')no-repeat;text-indent: -9999px;
+								         	 width:20px; height:20px; border:none; cursor:pointer;">
 							         	</span>
-								         
 							         </td>
 							         </c:when>
+							         <c:otherwise>
+							         <td>
+							         	<span>
+							         	</span>
+							         </td>
+							         </c:otherwise>
 						         </c:choose>
 						      </tr>
 					      </c:forEach>
-				      
 				    </tbody>
 				  </table>
+		</div>
+		<div class="row" style="margin-top: 50px">
+		<label>페이지수</label>
+						<c:forEach var="page" items="${pages}">
+		 					<a href="selectedPage?page=${page}&id=${members.id}">[${page}]</a>&nbsp
+		 				</c:forEach>
 		</div>
 	</div>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
 <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
 
 <script type="text/javascript"> 
+
+
+function enrollDel(seq){
+	var seq = seq
+	var seqconfirm = confirm("삭제 하시겠습니까?")
+	if(seqconfirm == true){
+		$.ajax({
+			type:'POST',
+			data : {'seq':seq},
+			datatype:'json',
+			url : 'visitbookDel',
+			success : function(data){
+				location.reload();
+			},
+			error : function(xhr, status, error){
+			}
+		});
+	}
+}
 
 
 function number_of_Characters() {
@@ -553,6 +582,7 @@ function number_of_Characters() {
 		var visitbook = document.getElementById("visitbook").value;
 		var id = $('#id').val();
 		var stanid = $('#stanid').val();
+		
 		$.ajax({
 			type:'POST',
 			data : {'id':id,

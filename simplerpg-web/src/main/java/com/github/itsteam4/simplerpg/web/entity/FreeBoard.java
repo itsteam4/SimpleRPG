@@ -10,7 +10,22 @@ public class FreeBoard {
 	private String f_content;
 	private String f_date;
 	private int f_hit;
+	private int f_ref;
+	private int f_recnt;
 	
+	
+	public int getF_ref() {
+		return f_ref;
+	}
+	public void setF_ref(int f_ref) {
+		this.f_ref = f_ref;
+	}
+	public int getF_recnt() {
+		return f_recnt;
+	}
+	public void setF_recnt(int f_recnt) {
+		this.f_recnt = f_recnt;
+	}
 	public int getF_hit() {
 		return f_hit;
 	}

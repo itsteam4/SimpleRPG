@@ -116,8 +116,12 @@ function sectorinfo(){
 		if(goblin8_1alive){
 			goblin8_1_xy = [256, 288];
 		}
+		if(orc8_2alive){
+			orc8_2_xy = [352, 448];
+		}
 	}else {
 		goblin8_1_xy = [999, 999];
+		orc8_2_xy = [999, 999];
 	}
 	
 	if(sectorNum == 10){
@@ -166,5 +170,13 @@ function sectorinfo(){
 		goblin12_1_xy = [999, 999];
 		orc12_2_xy = [999, 999];
 		orc12_3_xy = [999, 999];
+	}
+	
+	if(sectorNum == 13){
+		if(orcboss13_1alive){
+			orcboss13_1_xy = [448,288];
+		}
+	}else {
+		orcboss13_1_xy = [999, 999];
 	}
 }

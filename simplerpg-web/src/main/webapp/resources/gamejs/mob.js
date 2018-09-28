@@ -1,6 +1,5 @@
 		//sector 0
 //slime 정보
-	var slimealive = true;
 	var slime_xy = [416, 416];
 	function Slime(slime_xy){
 		this.slimehp = 50;
@@ -57,7 +56,6 @@
 	}
 	
 //slime1 정보
-	var slime1alive = true;
 	var slime_xy1 = [480, 448];
 	function Slime1(slime_xy1){
 		this.slime1hp = 50;
@@ -116,7 +114,6 @@
 	
 		//sector 1
 	//slime1_1 정보
-	var slime1_1alive = true;
 	var slime1_1_xy = [480, 448];
 	function Slime1_1(slime1_1_xy){
 		this.slime1_1hp = 50;
@@ -174,7 +171,6 @@
 	}
 	
 	//slime1_2 정보
-	var slime1_2alive = true;
 	var slime1_2_xy = [192, 224];
 	function Slime1_2(slime1_2_xy){
 		this.slime1_2hp = 50;
@@ -232,7 +228,6 @@
 	}
 	
 	//slime1_3 정보
-	var slime1_3alive = true;
 	var slime1_3_xy = [192, 224];
 	function Slime1_3(slime1_3_xy){
 		this.slime1_3hp = 50;
@@ -292,7 +287,6 @@
 		//sector 2
 	
 	//goblin2_1 정보
-	var goblin2_1alive = true;
 	var goblin2_1_xy = [384, 320];
 	function Goblin2_1(goblin2_1_xy){
 		this.goblin2_1hp = 75;
@@ -368,7 +362,6 @@
 	}
 	
 	//goblin2_2 정보
-	var goblin2_2alive = true;
 	var goblin2_2_xy = [288, 416];
 	function Goblin2_2(goblin2_2_xy){
 		this.goblin2_2hp = 75;
@@ -444,7 +437,6 @@
 	}
 	
 	//goblin2_3 정보
-	var goblin2_3alive = true;
 	var goblin2_3_xy = [480, 448];
 	function Goblin2_3(goblin2_3_xy){
 		this.goblin2_3hp = 75;
@@ -521,7 +513,6 @@
 		
 		//sector 3
 	//goblin3_1 정보
-	var goblin3_1alive = true;
 	var goblin3_1_xy = [192, 352];
 	function Goblin3_1(goblin3_1_xy){
 		this.goblin3_1hp = 75;
@@ -597,7 +588,6 @@
 	}
 	
 	//goblin3_2 정보
-	var goblin3_2alive = true;
 	var goblin3_2_xy = [320, 416];
 	function Goblin3_2(goblin3_2_xy){
 		this.goblin3_2hp = 75;
@@ -673,7 +663,6 @@
 	}
 	
 	//orc3_3 정보
-	var orc3_3alive = true;
 	var orc3_3_xy = [448, 288];
 	function Orc3_3(orc3_3_xy){
 		this.orc3_3hp = 150;
@@ -755,7 +744,6 @@
 	
 		//sector 5
 	//slime2 정보
-	var slime2alive = true;
 	var slime_xy2 = [288, 352];
 	function Slime2(slime_xy2){
 		this.slime2hp = 50;
@@ -813,7 +801,6 @@
 	}
 	
 	//slime5_2 정보
-	var slime5_2alive = true;
 	var slime5_2_xy = [384, 256];
 	function Slime5_2(slime5_2_xy){
 		this.slime5_2hp = 50;
@@ -871,7 +858,6 @@
 	}
 	
 	//slime5_3 정보
-	var slime5_3alive = true;
 	var slime5_3_xy = [224, 192];
 	function Slime5_3(slime5_3_xy){
 		this.slime5_3hp = 50;
@@ -930,7 +916,6 @@
 	
 		//sector 6
 	//goblin6_1 정보
-	var goblin6_1alive = true;
 	var goblin6_1_xy = [160, 160];
 	function Goblin6_1(goblin6_1_xy){
 		this.goblin6_1hp = 100;
@@ -947,10 +932,10 @@
 			Uattack = false;
 		}
 
-		if(goblin6_1hp < 0){		//goblin6_1 사망시
+		if(goblin6_1hp <= 0){		//goblin6_1 사망시
 			goblin6_1alive = false;
 			userkill ++;
-			userex += 80;F
+			userex += 80;
 			
 			var drop = Math.floor(Math.random() * (10 - 1 + 1)) + 1;		//아이템 드랍 후 유저 정보 수정
 			if(drop <= 3){
@@ -1004,7 +989,6 @@
 	}
 	
 	//goblin6_2 정보
-	var goblin6_2alive = true;
 	var goblin6_2_xy = [160, 320];
 	function Goblin6_2(goblin6_2_xy){
 		this.goblin6_2hp = 75;
@@ -1078,7 +1062,6 @@
 	}
 	
 	//goblin6_3 정보
-	var goblin6_3alive = true;
 	var goblin6_3_xy = [352, 192];
 	function Goblin6_3(goblin6_3_xy){
 		this.goblin6_3hp = 75;
@@ -1153,7 +1136,6 @@
 		
 		//sector 7
 	//orc7_1 정보
-	var orc7_1alive = true;
 	var orc7_1_xy = [480, 288];
 	function Orc7_1(orc7_1_xy){
 		this.orc7_1hp = 150;
@@ -1234,7 +1216,6 @@
 	}
 	
 	//goblin7_2 정보
-	var goblin7_2alive = true;
 	var goblin7_2_xy = [352, 352];
 	function Goblin7_2(goblin7_2_xy){
 		this.goblin7_2hp = 75;
@@ -1308,7 +1289,6 @@
 	}
 	
 	//goblin7_3 정보
-	var goblin7_3alive = true;
 	var goblin7_3_xy = [288, 384];
 	function Goblin7_3(goblin7_3_xy){
 		this.goblin7_3hp = 75;
@@ -1383,7 +1363,6 @@
 	
 		//sector 8
 	//goblin8_1 정보
-	var goblin8_1alive = true;
 	var goblin8_1_xy = [256, 288];
 	function Goblin8_1(goblin8_1_xy){
 		this.goblin8_1hp = 75;
@@ -1456,9 +1435,89 @@
 			sectorinfo();
 		}, 20000);
 	}
+	
+	//orc8_2 정보
+	var orc8_2_xy = [352, 448];
+	function Orc8_2(orc8_2_xy){
+		this.orc8_2hp = 150;
+		this.orc8_2power = 20;
+	}
+	
+	//orc8_2전투 로직
+	function orc8_2Battle(){
+		if(Uattack == true){
+
+			userAttackSound(); 	//오디오의 효과음 
+
+			orc8_2hp -= userpower;
+			userhp -= orc8_2power;
+			Uattack = false;
+		}
+
+		if(orc8_2hp <= 0){		//orc8_2 사망시
+			orc8_2alive = false;
+			userkill ++;
+			userex += 100;
+			
+			var drop = Math.floor(Math.random() * (10 - 1 + 1)) + 1;		//아이템 드랍 후 유저 정보 수정
+			if(drop <= 3){
+				if(item[0] < 3){
+					
+					switch(item[0]){		//기존의 장비를 검사후 보너스 삭제
+					case 0:
+						break;
+					case 1:
+						userpower -= 2;
+						break;
+					case 2:
+						userpower -= 4;
+						break;
+					}
+					
+					item[0] = 3;
+					userpower += 8;
+					alert("강철소드 획득!");
+				}
+			}else if(drop >= 8){
+				if(item[1] < 3){
+					switch(item[1]){		//기존 아이템을 검사후 보너스 삭제
+					case 0:
+						break;
+					case 1:
+						usermaxhp -= 10;
+						break;
+					case 2:
+						usermaxhp -= 20;
+						break;
+					}
+					
+					item[1] = 3;
+					usermaxhp += 40;
+					alert("강철쉴드 획득!");
+				}
+			}
+			ItemChenge();
+			orc8_2_xy = [999, 999];
+			orc8_2Dead();
+		}
+		if(userhp < 0){		//유저 사망시
+			useralive = false;
+		}
+
+	}
+
+	//orc8_2 리젠
+	function orc8_2Dead(){
+		setTimeout(function(){ 
+			orc8_2_xy = [352, 448];
+			orc8_2alive = true; 
+			orc8_2hp = 150; 
+			sectorinfo();
+		}, 20000);
+	}
+	
 		//sector 10
 	//goblin10_1 정보
-	var goblin10_1alive = true;
 	var goblin10_1_xy = [288, 352];
 	function Goblin10_1(goblin10_1_xy){
 		this.goblin10_1hp = 75;
@@ -1532,7 +1591,6 @@
 	}
 	
 	//slime10_2 정보
-	var slime10_2alive = true;
 	var slime10_2_xy = [448, 128];
 	function Slime10_2(slime10_2_xy){
 		this.slime10_2hp = 50;
@@ -1590,7 +1648,6 @@
 	}
 	
 	//slime10_3 정보
-	var slime10_3alive = true;
 	var slime10_3_xy = [192, 288];
 	function Slime10_3(slime10_3_xy){
 		this.slime10_3hp = 50;
@@ -1650,7 +1707,6 @@
 		//sector 11
 	
 	//slime11_1 정보
-	var slime11_1alive = true;
 	var slime11_1_xy = [192, 160];
 	function Slime11_1(slime11_1_xy){
 		this.slime11_1hp = 50;
@@ -1708,7 +1764,6 @@
 	}
 	
 	//goblin11_2 정보
-	var goblin11_2alive = true;
 	var goblin11_2_xy = [288, 256];
 	function Goblin11_2(goblin11_2_xy){
 		this.goblin11_2hp = 75;
@@ -1783,7 +1838,6 @@
 	}
 	
 	//goblin11_3 정보
-	var goblin11_3alive = true;
 	var goblin11_3_xy = [352, 96];
 	function Goblin11_3(goblin11_3_xy){
 		this.goblin11_3hp = 75;
@@ -1859,7 +1913,6 @@
 	
 			//sector 12
 	//goblin12_1 정보
-	var goblin12_1alive = true;
 	var goblin12_1_xy = [320, 192];
 	function Goblin12_1(goblin12_1_xy){
 		this.goblin12_1hp = 75;
@@ -1934,7 +1987,6 @@
 	}
 	
 	//orc12_2 정보
-	var orc12_2alive = true;
 	var orc12_2_xy = [448, 288];
 	function Orc12_2(orc12_2_xy){
 		this.orc12_2hp = 150;
@@ -2015,7 +2067,6 @@
 	}
 	
 	//orc12_3 정보
-	var orc12_3alive = true;
 	var orc12_3_xy = [224, 352];
 	function Orc12_3(orc12_3_xy){
 		this.orc12_3hp = 150;
@@ -2091,6 +2142,87 @@
 			orc12_3_xy = [224, 352];
 			orc12_3alive = true; 
 			orc12_3hp = 150; 
+			sectorinfo();
+		}, 20000);
+	}
+	
+		//sector 13
+	//orcboss13_1 정보
+	var orcboss13_1_xy = [448,288];
+	function OrcBoss13_1(orcboss13_1_xy){
+		this.orcboss13_1hp = 200;
+		this.orcboss13_1power = 25;
+	}
+	
+	//orcboss13_1전투 로직
+	function orcboss13_1Battle(){
+		if(Uattack == true){
+
+			userAttackSound(); 	//오디오의 효과음 
+
+			orcboss13_1hp -= userpower;
+			userhp -= orcboss13_1power;
+			Uattack = false;
+		}
+
+		if(orcboss13_1hp <= 0){		//orcboss13_1 사망시
+			orcboss13_1alive = false;
+			userkill ++;
+			userex += 200;
+			
+			var drop = Math.floor(Math.random() * (10 - 1 + 1)) + 1;		//아이템 드랍 후 유저 정보 수정
+			if(drop <= 3){
+				if(item[0] < 3){
+					
+					switch(item[0]){		//기존의 장비를 검사후 보너스 삭제
+					case 0:
+						break;
+					case 1:
+						userpower -= 2;
+						break;
+					case 2:
+						userpower -= 4;
+						break;
+					}
+					
+					item[0] = 3;
+					userpower += 8;
+					alert("강철소드 획득!");
+				}
+			}else if(drop >= 8){
+				if(item[1] < 3){
+					switch(item[1]){		//기존 아이템을 검사후 보너스 삭제
+					case 0:
+						break;
+					case 1:
+						usermaxhp -= 10;
+						break;
+					case 2:
+						usermaxhp -= 20;
+						break;
+					}
+					
+					item[1] = 3;
+					usermaxhp += 40;
+					alert("강철쉴드 획득!");
+				}
+			}
+			ItemChenge();
+			orcboss13_1_xy = [999, 999];
+			orcboss13_1Dead();
+		}
+		if(userhp < 0){		//유저 사망시
+			useralive = false;
+		}
+
+	}
+
+	//orcboss13_1 리젠
+	function orcboss13_1Dead(){
+		setTimeout(function(){ 
+			orcboss13_1_xy = [448,288];
+			orcboss13_1alive = true; 
+			orcboss13_1hp = 200; 
 			sectorinfo();
 		}, 20000);
 	}
