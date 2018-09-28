@@ -10,6 +10,8 @@
   		#{greeting,jdbcType=VARCHAR},#{id,jdbcType=VARCHAR}
   		)
   	</insert>
+  	
+  	
 	
 	<update id="updateRow" parameterType="hashMap">
   		update rankinfo set

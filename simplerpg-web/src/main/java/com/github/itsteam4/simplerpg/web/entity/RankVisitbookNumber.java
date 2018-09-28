@@ -7,7 +7,6 @@ public class RankVisitbookNumber {
 	private int number;
 	private int startrow;
 	private int endrow;
-	private String find;
 	private String stanid;
 
 	public int getNumber() {
@@ -34,13 +33,6 @@ public class RankVisitbookNumber {
 		this.endrow = endrow;
 	}
 
-	public String getFind() {
-		return find;
-	}
-
-	public void setFind(String find) {
-		this.find = find;
-	}
 
 	public String getStanid() {
 		return stanid;

@@ -40,8 +40,8 @@
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
                 <a class="dropdown-item" href="dbinserform?id=${member.id}">DB값 입력</a>
-                <a class="dropdown-item" href="rankform">게임 순위</a>
-                <a class="dropdown-item" href="rankinfoform?id=${sessionid}">랭킹 정보</a>
+                <a class="dropdown-item" href="rankform?id=${sessionid}">게임 순위</a>
+                <a class="dropdown-item" href="rankinfoform?id=${sessionid}&mid=${member.id}">랭킹 정보</a>
               </div>
             </li>
             <li class="nav-item dropdown">
