@@ -39,17 +39,17 @@
 				</div>
 				<div class="col-md-3"></div>
 			</div>
-			<div class="row">
+			<%-- <div class="row">
 				<div class="col-md-3"></div>
 				<div class="input-group mb-3 col-md-6 ">
 					<div class="input-group-prepend">
 						<span class="input-group-text" style="width: 150px"><i
 							class="fas fa-user-lock" style="font-size: 17px"> 이름</i></span>
 					</div>
-					<input type="text" id="b_name" name="b_name" class="form-control" value="${sessionemail1}" readonly>
+					<input type="text" id="b_name" name="b_name" class="form-control" value="${sessionid}" readonly>
 				</div>
 				<div class="col-md-3"></div>
-			</div>
+			</div> --%>
 			<div class="row">
 				<div class="col-md-3"></div>
 				<div class="input-group mb-3 col-md-6 ">
@@ -61,7 +61,7 @@
 				</div>
 				<div class="col-md-3"></div>
 			</div>
-			<div class="row">
+			<!-- <div class="row">
 				<div class="col-md-3"></div>
 				<div class="input-group mb-3 col-md-6 ">
 					<div class="input-group-prepend">
@@ -71,7 +71,7 @@
 					<input type="file" id="file" name="file" class="form-control">
 				</div>
 				<div class="col-md-3"></div>
-			</div>
+			</div> -->
 			<div class="row">
 				<div class="col-md-3"></div>
 				<div class="col-md-6">
@@ -82,14 +82,18 @@
 			<div class="row" style="margin-top: 30px">
 				<div class="col-md-3"></div>
 				<div class="col-md-3">
-					<button type="submit" id="confirm" class="btn btn-primary btn-block">확인</button>
+					<button type="submit" id="confirm" class="btn btn-primary btn-block">등 록</button>
 				</div>
 				<div class="col-md-3">
-					<button type="reset" id="cancel" class="btn btn-primary btn-block">취소</button>
+					<a href="boardpagelist"><button type="button"
+								class="btn btn-info  btn-block" >글목록</button></a>
+					<!-- <button  type="reset" id="cancel" class="btn btn-primary btn-block">취소</button></a>
+				 -->
 				</div>
 				<div class="col-md-3"></div>
 			</div>
 		</div>
+		<hr>
 	</form>
 </body>
 </html>
