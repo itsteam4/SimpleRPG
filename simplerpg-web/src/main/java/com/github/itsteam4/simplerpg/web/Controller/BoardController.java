@@ -39,7 +39,31 @@ public class BoardController {
 	static String find;
 
 	@RequestMapping(value = "/boardpagelistform", method = RequestMethod.GET)
-	public String boardInsertForm(HttpSession session) {
+	public String boardInsertForm(HttpSession session, Model model, String find) {
+		if (find == null) {
+			find = "";
+		}
+		this.find = find;
+		int pagesize = 5;
+		int startrow = 0;
+		int endrow = startrow + pagesize;
+		BoardDao dao = sqlSession.getMapper(BoardDao.class);
+		boardpaging.setFind(find);
+		boardpaging.setStartrow(startrow);
+		boardpaging.setEndrow(endrow);
+		ArrayList<Board> boards = dao.pageList(boardpaging);
+		int rowcount = dao.selectRowCount(find);
+		int abspage = 1;
+		if (rowcount % pagesize == 0) {
+			abspage = 0;
+		}
+		int pagecount = rowcount / pagesize + abspage;
+		int[] pages = new int[pagecount];
+		for (int i = 0; i < pagecount; i++) {
+			pages[i] = i + 1;
+		}
+		model.addAttribute("boards", boards);
+		model.addAttribute("pages", pages);
 		return "board/board_page_list";
 	}
 	
@@ -49,32 +73,16 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "/boardinsert", method = RequestMethod.POST)
-	public String boardInsert(Model model, @ModelAttribute Board board, @RequestParam CommonsMultipartFile file,
+	public String boardInsert(Model model, @ModelAttribute Board board,
 			HttpServletRequest request) {
-		String originalname = file.getOriginalFilename();
-		if (originalname.equals("")) {
-		} else {
-			String realpath = "resources/file/";
-			try {
-				String path = "D:/SOURCE/ncs4project/src/main/webapp/resources/file/";
-				byte bytes[] = file.getBytes();
-				BufferedOutputStream output = new BufferedOutputStream(new FileOutputStream(path + originalname));
-				output.write(bytes);
-				output.flush();
-				output.close();
-				board.setB_attach(realpath + originalname);
-			} catch (Exception e) {
-
-			}
-		}
+		
 		board.setB_ip(request.getRemoteAddr());
 		Date date = new Date();
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd E요일 a hh:mm:ss");
 		board.setB_date(format.format(date));
 		BoardDao dao = sqlSession.getMapper(BoardDao.class);
 		try {
-			// String encodingPassword = passwordEncoder.encode(board.getPassword());
-			// board.setPassword(encodingPassword);
+			
 			int result = dao.insertRow(board);
 			if (result > 0) {
 				model.addAttribute("msg", "작성되었습니다");
@@ -142,7 +150,7 @@ public class BoardController {
 	public String boardDetail(Model model, HttpSession session, @RequestParam int b_seq) {
 		BoardDao dao = sqlSession.getMapper(BoardDao.class);
 		Board board = dao.selectOne(b_seq);
-		if (!board.getB_email().equals(session.getAttribute("sessionemail"))) {
+		if (!board.getB_id().equals(session.getAttribute("sessionid"))) {
 			dao.updateHit(b_seq);
 		} else {
 
@@ -151,25 +159,9 @@ public class BoardController {
 		return "board/board_detail";
 	}
 
-	@RequestMapping(value = "/boardupdate", method = RequestMethod.POST)
-	public String boardUpdate(Model model, @ModelAttribute Board board, @RequestParam CommonsMultipartFile file) {
-		String originalname = file.getOriginalFilename();
-		if (originalname.equals("")) {
-			board.setB_attach(board.getB_beforeattach());
-		} else {
-			String realpath = "resources/file/";
-			try {
-				String path = "D:/SOURCE/ncs4project/src/main/webapp/resources/file/";
-				byte bytes[] = file.getBytes();
-				BufferedOutputStream output = new BufferedOutputStream(new FileOutputStream(path + originalname));
-				output.write(bytes);
-				output.flush();
-				output.close();
-				board.setB_attach(realpath + originalname);
-			} catch (Exception e) {
-
-			}
-		}
+	@RequestMapping(value = "/boardUpdate", method = RequestMethod.POST)
+	public String boardUpdate(Model model, @ModelAttribute Board board) {
+		
 		Date date = new Date();
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd E요일 a hh:mm:ss");
 		board.setB_date(format.format(date));
@@ -184,65 +176,12 @@ public class BoardController {
 		return "board/board_result";
 	}
 
-	@RequestMapping(value = "/boarddownload", method = RequestMethod.GET)
-	public ModelAndView boardDownload(@RequestParam String b_attach) {
-		String path = "D:/SOURCE/ncs4project/src/main/webapp/";
-		File file = new File(path + b_attach);
-		return new ModelAndView("download", "downloadFile", file);
-	}
-
-	@RequestMapping(value = "/boardreplyform", method = RequestMethod.GET)
-	public String boardReplyForm(Model model, HttpSession session, @RequestParam String b_title,
-			@RequestParam int b_ref) {
-		// board.setB_email((String) session.getAttribute("sessionemail"));
-		// board.setB_name((String) session.getAttribute("sessionname"));
-		board.setB_title("[댓글]" + b_title);
-		board.setB_ref(b_ref);
-		model.addAttribute("board", board);
-		return "board/board_reply";
-	}
-
-	@RequestMapping(value = "/boardreplyinsert", method = RequestMethod.POST)
-	public String boardReplyInsert(Model model, @ModelAttribute Board board, @RequestParam CommonsMultipartFile file,
-			HttpServletRequest request) {
-		String originalname = file.getOriginalFilename();
-		if (originalname.equals("")) {
-		} else {
-			String realpath = "resources/file/";
-			try {
-				String path = "D:/SOURCE/ncs4project/src/main/webapp/resources/file/";
-				byte bytes[] = file.getBytes();
-				BufferedOutputStream output = new BufferedOutputStream(new FileOutputStream(path + originalname));
-				output.write(bytes);
-				output.flush();
-				output.close();
-				board.setB_attach(realpath + originalname);
-			} catch (Exception e) {
-
-			}
-		}
-		board.setB_ip(request.getRemoteAddr());
-		Date date = new Date();
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd E요일 a hh:mm:ss");
-		board.setB_date(format.format(date));
+	@RequestMapping(value="boardDelete", method = RequestMethod.GET)
+	public String boardDelete(@RequestParam int b_seq) {
 		BoardDao dao = sqlSession.getMapper(BoardDao.class);
-		dao.insertReplyRow(board);
+			dao.deleteRowseq(b_seq);
+		
 		return "redirect:boardpagelist";
 	}
 
-	@RequestMapping(value = "/boarddelete", method = RequestMethod.GET)
-	public String boardDelete(Model model, @RequestParam int b_ref, @RequestParam int b_seq) {
-		BoardDao dao = sqlSession.getMapper(BoardDao.class);
-		int result = 0;
-		if (b_ref == b_seq) {
-			result = dao.deleteref(b_ref);
-		} else {
-			result = dao.deleteseq(b_seq);
-		}
-		if (result > 0) {
-			model.addAttribute("msg", "삭제되었습니다");
-		}
-		return "board/board_result";
-	}
-	
 }

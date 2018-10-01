@@ -13,6 +13,6 @@ public interface BoardDao {
 	Board selectOne(int b_seq);
 	void updateHit(int b_seq);
 	int updateRow(Board board);
-	int deleteseq(int b_seq);
-	int deleteref(int b_ref);
+	int deleteRowseq(int b_seq);
+	
 }

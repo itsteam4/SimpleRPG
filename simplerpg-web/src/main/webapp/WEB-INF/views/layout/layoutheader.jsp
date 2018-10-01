@@ -62,7 +62,7 @@
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
                 <a class="dropdown-item" href="faqForm">자주묻는질문</a>
-                <a class="dropdown-item" href="helpinquiryform">1:1문의</a>
+               <!--  <a class="dropdown-item" href="helpinquiryform">1:1문의</a> -->
                 <a class="dropdown-item" href="boardpagelistform">공지사항</a>
               </div>
             </li>

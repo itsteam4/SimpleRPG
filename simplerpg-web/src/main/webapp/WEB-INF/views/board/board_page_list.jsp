@@ -37,27 +37,25 @@
             <thead class="thead-dark" style="text-align: center">
                <tr>
                   <th>번호</th> 
-                  <th>구분</th>
+                  <th>I D</th>
                   <th>제목</th>
-                  <th>작성자</th>
                   <th>작성일</th>
                   <th>조회수</th>
                </tr>
             </thead>
             <tbody>
-               <c:forEach var="boards" items="${boards}" varStatus="status">
+               <c:forEach var="boards" items="${boards}" >
                   <tr>
                      <td ><c:if test="${boards.b_step == 0}">
                         ${boards.b_ref}
                      </c:if></td>
                      <td>${boards.b_id}</td>
-                     <td>${boards.b_name}</td>
                      <td><a href="boarddetail?b_seq=${boards.b_seq}"
                         style="color: #292929"> <c:if test="${boards.b_step ge 1}">
                               <i class="fab fa-replyd"></i>
                            </c:if> ${boards.b_title}
                      </a></td>
-                     <td style="text-align: center"><c:choose>
+                     <%-- <td style="text-align: center"><c:choose>
                            <c:when
                               test="${boards.b_attach == null || boards.b_attach == ''}">
                            </c:when>
@@ -66,7 +64,7 @@
                                  style="color: #292929"><i id="attach_file"
                                  class="fas fa-clipboard"></i></a>
                            </c:otherwise>
-                        </c:choose></td>
+                        </c:choose></td> --%>
                      <td>${boards.b_date}</td>
                      <td style="text-align:center">${boards.b_hit}</td>
                   </tr>

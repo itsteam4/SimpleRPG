@@ -32,12 +32,12 @@
   	#{b_ip, jdbcType=VARCHAR}, #{b_ref, jdbcType=VARCHAR}, 1, #{b_hit, jdbcType=VARCHAR},
   	#{b_level, jdbcType=INTEGER}, #{b_attach, jdbcType=VARCHAR}, #{b_date, jdbcType=VARCHAR})
   </insert>
-  <delete id="deleteseq" parameterType="int">
-  	delete from board where b_seq = #{b_seq}
-  </delete>
-  <delete id="deleteref" parameterType="int">
-  	delete from board where b_ref = #{b_ref}
-  </delete>
+ 
+  <delete id="deleteRowseq" parameterType="Integer">
+  		delete from board where b_seq=#{b_seq}
+  	</delete>
+  	
+
   <select id="selectPageListOracle" resultMap="boardMap">
          select * from (select rownum numrow,A.*
          from (select * from board where
