@@ -6,48 +6,50 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class FreeBoardComment {
-	private int f_cno;
-	private int f_bno;
-	private int f_content;
-	private int f_writer;
-	private String f_contnet;
-	private Date f_date;
+	private int fc_cno;
+	private int fc_bno;
+	private int fc_content;
+	private int fc_writer;
+	private String fc_contnet;
+	private Date fc_date;
+	
+	public int getFc_cno() {
+		return fc_cno;
+	}
+	public void setFc_cno(int fc_cno) {
+		this.fc_cno = fc_cno;
+	}
+	public int getFc_bno() {
+		return fc_bno;
+	}
+	public void setFc_bno(int fc_bno) {
+		this.fc_bno = fc_bno;
+	}
+	public int getFc_content() {
+		return fc_content;
+	}
+	public void setFc_content(int fc_content) {
+		this.fc_content = fc_content;
+	}
+	public int getFc_writer() {
+		return fc_writer;
+	}
+	public void setFc_writer(int fc_writer) {
+		this.fc_writer = fc_writer;
+	}
+	public String getFc_contnet() {
+		return fc_contnet;
+	}
+	public void setFc_contnet(String fc_contnet) {
+		this.fc_contnet = fc_contnet;
+	}
+	public Date getFc_date() {
+		return fc_date;
+	}
+	public void setFc_date(Date fc_date) {
+		this.fc_date = fc_date;
+	}
 	
 	
-	public Date getF_date() {
-		return f_date;
-	}
-	public void setF_date(Date f_date) {
-		this.f_date = f_date;
-	}
-	public int getF_cno() {
-		return f_cno;
-	}
-	public void setF_cno(int f_cno) {
-		this.f_cno = f_cno;
-	}
-	public int getF_bno() {
-		return f_bno;
-	}
-	public void setF_bno(int f_bno) {
-		this.f_bno = f_bno;
-	}
-	public int getF_content() {
-		return f_content;
-	}
-	public void setF_content(int f_content) {
-		this.f_content = f_content;
-	}
-	public int getF_writer() {
-		return f_writer;
-	}
-	public void setF_writer(int f_writer) {
-		this.f_writer = f_writer;
-	}
-	public String getF_contnet() {
-		return f_contnet;
-	}
-	public void setF_contnet(String f_contnet) {
-		this.f_contnet = f_contnet;
-	}
+	
 }

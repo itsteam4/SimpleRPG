@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -132,7 +133,7 @@ public class CommunityController {
 		request.getParameter("f_content");
 		return "redirect:FreeBoardForm";
 	}
-//	자유게시판 게시글 상세페이 이동
+//	자유게시판 게시글 상세페이지 이동
 	@RequestMapping(value="freeboarddetailform",method=RequestMethod.GET)
 	public String FreeBoardPageForm(Model model,HttpSession session,@RequestParam int f_no) {
 		System.out.println("디테일 페이지 이동");
@@ -226,10 +227,35 @@ public class CommunityController {
 		System.out.println("삭제되었습니다.");
 		return "redirect:FreeBoardForm";
 	}
-//	자유게시판 댓글 입력 구현
-	@RequestMapping(value="/freeboardcommentinsert",method=RequestMethod.POST)
+//	자유게시판 댓글 불러오기
+	@RequestMapping(value="/commentlist",method=RequestMethod.GET)
 	@ResponseBody
-	public String FreeBoardCommentInsert() {
+	public String FreeBoardCommentList(Model model,@RequestParam int cno) {
+		System.out.println(cno);
+		FreeBoardCommentDAO dao = sqlSession.getMapper(FreeBoardCommentDAO.class);
+		ArrayList<FreeBoardCommentDAO> detail = dao.commentlist();
+		model.addAttribute("detail", detail);
 		return "redirect:freeboarddetailform";
 	}
+	
+	/*@RequestMapping(value="/FreeBoardCommentInsert",method=RequestMethod.POST)
+	@ResponseBody
+	public void FreeBoardCommentInsert() {
+		System.out.println("입력폼테스트");
+	}*/
+	
+	@RequestMapping(value="/selectcall",method=RequestMethod.POST)
+	@ResponseBody
+	public String FreeBoardCommentInsert(@ModelAttribute FreeBoardComment comment) {
+		System.out.println("테스트");
+		FreeBoardCommentDAO dao = sqlSession.getMapper(FreeBoardCommentDAO.class);
+		int result = dao.commentinsert(comment);
+		if(result >0) {
+			System.out.println("댓글작성 완료:"+result);
+		}else {
+			System.out.println("댓글작성 실패");
+		}
+		return "redirect:freeboarddetailform";
+	}
+	
 }

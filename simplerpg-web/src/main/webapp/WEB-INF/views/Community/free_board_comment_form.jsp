@@ -8,7 +8,9 @@
 <html>
 <head>
 	<meta name="decorator" content="freeboard_comment_forms">
-    <link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css.map">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+	<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -16,112 +18,86 @@
     <br><br>
         <div>
             <div>
-                <span><strong>Comments</strong></span> <span id="cCnt"></span>
+                <span><strong>댓글</strong></span> <span id="cCnt"></span>
             </div>
             <div>
                 <table class="table">                    
                     <tr>
+                    	<td>
+                    		<span>작성자:</span>
+                    		<input type="text" id="fc_writer" name="fc_writer" value="${sessionid}" readonly="readonly">
+                    	</td>
+                    </tr>
+                    <tr>
                         <td>
-                            <textarea style="width: 1100px" rows="3" cols="30" id="comment" name="comment" placeholder="댓글을 입력하세요"></textarea>
+                            <textarea style="width: 1100px" rows="3" cols="30" id="fc_content" name="fc_content" placeholder="댓글을 입력하세요"></textarea>
                             <br>
                             <div>
-                                <a href='#' onClick="fn_comment('${result.f_cno}')" class="btn pull-right btn-success">등록</a>
+                                <a href="#" name="commentInsertBtn" class="btn pull-right btn-success" onclick="selectcall();">등록</a>
                             </div>
                         </td>
                     </tr>
                 </table>
             </div>
         </div>
-        <input type="hidden" id="f_cno" name="f_cno" value="${result.f_cno}" />        
+        <input type="hidden" id="fc_cno" name="fc_cno" value="${detail.fc_cno}" />        
     </form>
 </div>
 <div class="container">
     <form id="commentListForm" name="commentListForm" method="post">
-        <div id="commentList">
+        	<div class="commentList">
         </div>
     </form>
 </div>
- 
-<script>
-/*
- * 댓글 등록하기(Ajax)
- */
-function fn_comment(f_cno){
-    
-    $.ajax({
-        type:'POST',
-        url : "/freeboardcommentinsert",
-        data:$("#commentForm").serialize(),
-        success : function(data){
-            if(data=="success")
-            {
-                getCommentList();
-                $("#comment").val("");
-            }
-        },
-        error:function(request,status,error){
-            alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-       }
-        
-    });
-}
- 
-/**
- * 초기 페이지 로딩시 댓글 불러오기
- */
-$(function(){
-    
-    getCommentList();
-    
-});
- 
-/**
- * 댓글 불러오기(Ajax)
- */
-function getCommentList(){
-    
-    $.ajax({
-        type:'GET',
-        url : "<c:url value='/board/commentList.do'/>",
-        dataType : "json",
-        data:$("#commentForm").serialize(),
-        contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
-        success : function(data){
-            
-            var html = "";
-            var cCnt = data.length;
-            
-            if(data.length > 0){
-                
-                for(i=0; i<data.length; i++){
-                    html += "<div>";
-                    html += "<div><table class='table'><h6><strong>"+data[i].writer+"</strong></h6>";
-                    html += data[i].comment + "<tr><td></td></tr>";
-                    html += "</table></div>";
-                    html += "</div>";
-                }
-                
-            } else {
-                
-                html += "<div>";
-                html += "<div><table class='table'><h6><strong>등록된 댓글이 없습니다.</strong></h6>";
-                html += "</table></div>";
-                html += "</div>";
-                
-            }
-            
-            $("#cCnt").html(cCnt);
-            $("#commentList").html(html);
-            
-        },
-        error:function(request,status,error){
-            
-       }
-        
-    });
-}
- 
+	<script>
+	var bno = '${detail.fc_bno}';
+	
+	$('[name=commentInsertBtn]').click(function(){ //댓글 등록 버튼 클릭시 
+	    var insertData = $('[name=commentForm]').serialize(); //commentInsertForm의 내용을 가져옴
+	    selectcall(insertData); //Insert 함수호출(아래)
+	});
+		
+
+	
+		function commentList(){
+			$.ajax({
+				type:'GET',
+				url: 'commentlist',
+				data: {'bno':bno},
+				success: function(data){
+					 var a =''; 
+			            $.each(data, function(key, value){ 
+			                a += '<div class="commentArea" style="border-bottom:1px solid darkgray; margin-bottom: 15px;">';
+			                a += '<div class="commentInfo'+value.cno+'">'+'댓글번호 : '+value.cno;
+			                a += '<a onclick="commentUpdate('+value.cno+',\''+value.content+'\');"> 수정 </a>';
+			                a += '<a onclick="commentDelete('+value.cno+');"> 삭제 </a> </div>';
+			                a += '<div class="commentContent'+value.cno+'"> <p> 내용 : '+value.content +'</p>';
+			                a += '</div></div>';
+				});
+			    
+			    $(".commentList").html(a);
+				}
+			});
+		} 
+	
+		function selectcall(insertData){
+			$.ajax({
+				type:'POST',
+				datatype:'json',
+				url : 'selectcall',
+				data :insertData,
+				success : function(data){
+					if(data == 1){
+						commentList();
+						$('[name=fc_content]').val('');
+					}
+				},
+				error : function(xhr, status, error){
+					alert('ajax error'+error );
+				}
+			});	
+		}
+		
 </script>
- 
 </body>
 </html>

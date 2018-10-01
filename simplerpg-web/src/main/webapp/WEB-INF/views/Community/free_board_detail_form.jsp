@@ -28,15 +28,18 @@
 				<h1 class="mt-4 mb-3">
 					Simple RPG <small style="color: #3CB371">Free Board</small>
 				</h1>
-
+				
+				<div class="container">
 				<ol class="breadcrumb" style="margin-top: 50px">
 					<li class="breadcrumb-item"><a href="IndexForm">Home</a> /
 						커뮤니티 / 자유게시판
 						&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 					
 				</ol>
+				</div>
 			</div>
 		</div>
+		<div class="container">
 		<div class="row" style="text-align: center; margin-top: 50px">
 				<table class="table table-bordered">
 					<tbody>
@@ -64,6 +67,7 @@
 						</tr>
 					</tbody>
 				</table>
+			</div>
 			</div>
 			<div class="row">
 				<%@include file="../Community/free_board_comment_form.jsp" %>
