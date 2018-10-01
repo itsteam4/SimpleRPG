@@ -4,17 +4,18 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class UserData {
-	String id;		//°èÁ¤
-	int usersector;		//À¯Àú ¼½ÅÍ v
-	int userposX;		//À¯Àú À§Ä¡x
-	int userposY;		//À¯Àú À§Ä¡y
-	int itemA;		//¹«±âÁ¾ÇÕ Á¡¼ö¿¡ +10 v
-	int itemD;		//¹æ¾î±¸Á¾ÇÕ Á¡¼ö¿¡ +10 v
-	int userex;		//100À¸·Î ³ª´©¾î¼­ ·¹º§ ¹Ý¿µ v
-	int userlv;		//·¹º§ÀÌ ³ôÀ»¼ö·Ï ½ºÅÝ º¸³Ê½º ex 1 = °¢°¢ 1+ v
-	int userkill;		//Á¾ÇÕ Á¡¼ö¿¡ +10 v
-	int userdead;		//Á¾ÇÕ Á¡¼ö¿¡ -5 v
-	int userscore;		//Á¾ÇÕ Á¡¼ö v
+	String id;		//ï¿½ï¿½ï¿½ï¿½
+	int usersector;		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ v
+	int userposX;		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡x
+	int userposY;		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡y
+	int itemA;		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ +10 v
+	int itemD;		//ï¿½ï¿½î±¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ +10 v
+	int userex;		//100ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½î¼­ ï¿½ï¿½ï¿½ï¿½ ï¿½Ý¿ï¿½ v
+	int userlv;		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ê½ï¿½ ex 1 = ï¿½ï¿½ï¿½ï¿½ 1+ v
+	int userkill;		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ +10 v
+	int userdead;		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ -5 v
+	int userscore;		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ v
+	String rank;
 	public String getId() {
 		return id;
 	}
@@ -80,6 +81,12 @@ public class UserData {
 	}
 	public void setUserscore(int userscore) {
 		this.userscore = userscore;
+	}
+	public String getRank() {
+		return rank;
+	}
+	public void setRank(String rank) {
+		this.rank = rank;
 	}
 	
 }

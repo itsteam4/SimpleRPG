@@ -11,6 +11,8 @@
 <body>
 <form>
 
+
+
 	<div class="container" style="width:1130px; height:auto; float:left; margin-bottom:40px" >
 			<div class="pull-left" style="width:100%;  padding-top:74px; height:56px;">
 				<div class="pull-left" style=" width:100%; border-bottom:1px solid #2e2828;">
@@ -58,15 +60,15 @@
 						</div>
 					</div>
 					<div style="margin-top:35px">
-					<p style="font-size:20px; color:#345e76;">위</p>
+					<p style="font-size:30px; color:#345e76;">${myrank}위</p>
 					<div style="width:100%; text-align:center">
 						
 						<div style="width:230px; height:42px; background:url('resources/image/rank/bg_rank_view.jpg'); display:inline-block;">
-							<a class="" href="#" style="text-align:right; color:#fff;
+							<a class=""  style="text-align:right; color:#fff;
 							 width:230px; height:42px; font-size:20px; display:inline-block;
 							 text-decoration:none; padding-right:18px;
 						 	">
-						 	순위보기</a>
+						 	현재순위</a>
 						</div>
 					</div>
 					</div>
@@ -91,8 +93,8 @@
 			
 		
 			<div style="width:100%; text-align:center; margin-top:40px; ">
-				<div class="" style="width:900px; height:25px; display:inline-block;">
-					<ul class="pull-left" style="list-style:none;">
+				<div class="" style="width:500px; height:25px; display:inline-block;">
+					<ul class="" style="list-style:none;">
 						<li class="pull-left" style="">
 							<a class="pull-left"  href="#"
 							style="background:url('resources/image/rank/sprt_ico_job_n2.png')no-repeat;
@@ -135,132 +137,47 @@
 				</div>
 			</div>
 			
+			<div style="margin-top:25px; border-top:1px solid #2e2828;">
+				<table class="table table-hover">
+						<thead>
+							<tr>
+								<th style="color:#747474; font-size:15px;">순위</th>
+						        <th style="color:#747474; font-size:15px;">레벨</th>
+						        <th style="color:#747474; font-size:15px;">캐릭터명</th>
+						        <th style="color:#747474; font-size:15px;">점수</th>
+						        <th style="color:#747474; font-size:15px;">킬수</th>
+						        <th style="color:#747474; font-size:15px;">사망</th>
+							</tr>
+						</thead>
+						<tbody>
+						
+							
+							<c:forEach var="ranklist" items="${ranklist}">
+							
+							
+            				<tr>
+								<td style="color:#9b8769">${ranklist.rank}</td>
+								<td>${ranklist.userlv}</td>
+								<td> 
+								<a name="underline" id="underline"
+								style="text-decoration:none;color:#242323;"
+								href="rankMove?id=${ranklist.id}">${ranklist.id}
+								</a>
+								</td>
+								<td>${ranklist.userscore}</td>
+								<td style="color:#4290c7;;">${ranklist.userkill}</td>
+								<td style="color:#c03636;">${ranklist.userdead}</td>
+								</tr>
+								
+							
+							
+							</c:forEach>
+							
+						</tbody>
+					</table>
+				</div>
 			
 			
-			<div style="margin-top:25px; border-top:1px solid #2e2828;
-			background:url('resources/image/rank/gold_bg02.png') left 48px no-repeat;
-			">
-			<table class="table" style="border:0; border-collapse:collapse; border-spacing:0;">
-			<colgroup>
-                <col style="width:12%;">
-                <col style="width:11.5%;">
-                <col>
-                <col style="width:17%;">
-                <col style="width:17%;">
-                <col style="width:16%;">
-            </colgroup>
-			    <thead style="">
-			      <tr>
-			        <th style="color:#747474; font-size:15px;">순위</th>
-			        <th style="color:#747474; font-size:15px;">레벨</th>
-			        <th style="color:#747474; font-size:15px;">캐릭터명</th>
-			        <th style="color:#747474; font-size:15px;">점수</th>
-			        <th style="color:#747474; font-size:15px;">킬수</th>
-			        <th style="color:#747474; font-size:15px;">사망</th>
-			      </tr>
-			    </thead>
-			    
-			    
-			    
-			    
-			    
-			    
-			    
-			    
-			    
-			    
-			    
-			    
-			    
-			    <tbody>
-			      <tr style="border:0; border-collapse:collapse; border-spacing:0;">
-				        <td style="color:#9b8769; font-size:100%; 
-				        color:#fff; padding:13px 0; font-size:15px; text-align:center; vertical-align:middle;
-				        ">
-				        	<span>1위</span>
-				        </td>
-				        <td style="color:#fff; font-size:15px;
-				        	padding:13px 0; text-align:center; vertical-align:middle;">
-				        	<span style="background:url('resources/image/rank/top_rank_bg_back.png')left center no-repeat;
-				        	padding:2px 0; display:inline-block; color:#000; width:128px;">
-				        	<span>${ruserdatas.userlv}</span>
-				        	</span>
-				        </td>
-				        <td style="color:#fff; font-size:15px;
-				        	padding:13px 0; text-align:center; vertical-align:middle;">
-				        	<span class="profile" style="margin-right:20px;">
-				        	<img src="http://avatar.baram.nexon.com/Profile/DrawingClipImgByID.aspx?loginId=임회@연" alt="캐릭터 이미지">
-				        	</span>
-				        	<a href="#" style="color:#fff; text-decoration:none;">임회</a>
-			        	</td>
-				        <td style="color:#fff; font-size:15px;
-				        	padding:13px 0; text-align:center; vertical-align:middle;">???</td>
-			      </tr>
-			      
-			      <tr>
-				        <td style="color:#9b8769; font-size:100%; 
-				        color:#fff; padding:13px 0; font-size:15px; text-align:center; vertical-align:middle;
-				        ">
-				        	<span>2위</span>
-				        </td>
-				        <td style="color:#fff; font-size:15px;
-				        	padding:13px 0; text-align:center; vertical-align:middle;">
-				        	<span style="background:url('resources/image/rank/top_rank_bg_back.png')left center no-repeat;
-				        	padding:2px 0; display:inline-block; color:#000; width:128px;">
-				        	<span>+1</span>
-				        	</span>
-				        </td>
-				        <td style="color:#fff; font-size:15px;
-				        	padding:13px 0; text-align:center; vertical-align:middle;">
-				        	<span class="profile" style="margin-right:20px;">
-				        	<img src="http://avatar.baram.nexon.com/Profile/DrawingClipImgByID.aspx?loginId=임회@연" alt="캐릭터 이미지">
-				        	</span>
-				        	<a href="#" style="color:#fff; text-decoration:none;">임회</a>
-			        	</td>
-				        <td style="color:#fff; font-size:15px;
-				        	padding:13px 0; text-align:center; vertical-align:middle;">???</td>
-			      </tr>
-			      
-			      <tr>
-				        <td style="color:#9b8769; font-size:100%; 
-				        color:#fff; padding:13px 0; font-size:15px; text-align:center; vertical-align:middle;
-				        ">
-				        	<span>3위</span>
-				        </td>
-				        <td style="color:#fff; font-size:15px;
-				        	padding:13px 0; text-align:center; vertical-align:middle;">
-				        	<span style="background:url('resources/image/rank/top_rank_bg_back.png')left center no-repeat;
-				        	padding:2px 0; display:inline-block; color:#000; width:128px;">
-				        	<span>+5</span>
-				        	</span>
-				        </td>
-				        <td style="color:#fff; font-size:15px;
-				        	padding:13px 0; text-align:center; vertical-align:middle;">
-				        	<span class="profile" style="margin-right:20px;">
-				        	<img src="http://avatar.baram.nexon.com/Profile/DrawingClipImgByID.aspx?loginId=임회@연" alt="캐릭터 이미지">
-				        	</span>
-				        	<a href="#" style="color:#fff; text-decoration:none;">임회</a>
-			        	</td>
-				        <td style="color:#fff; font-size:15px;
-				        	padding:13px 0; text-align:center; vertical-align:middle;">???</td>
-			      </tr>
-			      
-			      <tr>
-			        <td style="color:#9b8769; font-size:100%; border-bottom: 1px solid #ecebe9;">4</td>
-			        <td style="color:#242323; font-size:15px;border-bottom: 1px solid #ecebe9; ">탑티모</td>
-			        <td style="color:#242323; font-size:15px;border-bottom: 1px solid #ecebe9; ">24</td>
-			        <td style="color:#242323; font-size:15px;border-bottom: 1px solid #ecebe9; ">???</td>
-			      </tr>
-			      
-			    </tbody>
-			  </table>
-			</div>
-			
-			
-			
-			
-		
-		
 	</div>
 </form>	
 
@@ -288,19 +205,19 @@ window.onload=function dateSearch(){
 	document.getElementById("date").value = today;
 	document.getElementById("date0").value = today;
 	
+	
+};	
+	
+$(document).ready(function(){
 	$.ajax({
 		type:'POST',
-		data : {'id':id},
 		datatype:'json',
-		url : 'dateSearch',
+		url : 'rankInsert',
 		success : function(data){
 		},
 		error : function(xhr, status, error){
 		}
 	});
-};	
-	
-$(document).ready(function(){
 	
 });
 

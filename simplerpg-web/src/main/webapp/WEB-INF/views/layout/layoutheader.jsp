@@ -40,9 +40,13 @@
                 		랭킹
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                <a class="dropdown-item" href="dbinserform?id=${member.id}">DB값 입력</a>
+               <%--  <a class="dropdown-item" href="dbinserform?id=${member.id}">DB값 입력</a> --%>
                 <a class="dropdown-item" href="rankform?id=${sessionid}">게임 순위</a>
-                <a class="dropdown-item" href="rankinfoform?id=${sessionid}&mid=${member.id}">랭킹 정보</a>
+                <c:choose>
+            		<c:when test="${sessionid != null}">
+                		<a class="dropdown-item" href="rankinfoform?id=${sessionid}&mid=${member.id}">랭킹 정보</a>
+                	</c:when>
+               	</c:choose>
               </div>
             </li>
             <li class="nav-item dropdown">
