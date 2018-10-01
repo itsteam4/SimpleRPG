@@ -16,6 +16,39 @@
 		where id = #{id} 
 		order by userscore DESC
 </select> 
+
+	<select id="selectrankCount" parameterType="String" resultType="Integer">
+  		select count(*) from userdata 
+  		where id = #{id} 
+  	</select>
+  	
+  	<select id="pageList" parameterType="HashMap" resultMap="rankuserMap">
+  		select * from userdata
+  		order by userscore desc
+  	</select>
+  	
+  	
+	<select id="selectOne" parameterType="String" resultMap="rankuserMap">
+ 		select id, userscore, rank from(
+		select id, userscore,case
+		when @rank = userscore then @irank
+		when @rank := userscore then @irank := @irank+1
+		end as rank
+		from userdata as a,(select @irank :=0, @rank := null) as b
+		order by userscore desc)
+		as cnt where id = #{id};
+ 	</select>
+ 	
+ 	<select id="rankList" parameterType="HashMap" resultMap="rankuserMap">
+  		select *,
+		(@rank := if (@end > userscore, @rank := @rank+1,@rank))as rank ,
+		(@end := userscore)
+		from userdata as a,
+		(select @end :=0, @rank :=1) as b
+		order by
+		a.userscore desc limit 1,20;
+  	</select>
+
 	
 	
  </mapper>
