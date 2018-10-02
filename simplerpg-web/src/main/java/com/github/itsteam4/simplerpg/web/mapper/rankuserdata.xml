@@ -46,7 +46,17 @@
 		from userdata as a,
 		(select @end :=0, @rank :=1) as b
 		order by
-		a.userscore desc limit 1,20;
+		a.userscore desc limit 0,20;
+  	</select>
+  	
+  	<select id="homerankList" parameterType="HashMap" resultMap="rankuserMap">
+  		select *,
+		(@rank := if (@end > userscore, @rank := @rank+1,@rank))as rank ,
+		(@end := userscore)
+		from userdata as a,
+		(select @end :=0, @rank :=1) as b
+		order by
+		a.userscore desc limit 1;
   	</select>
 
 	

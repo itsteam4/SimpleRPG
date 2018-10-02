@@ -98,7 +98,6 @@ public class RankController {
 		for(int i = 0; i <pageCount;i++) {
 			pages[i] = i+1;
 		}
-		System.out.println("size는"+pageusers.size());
 		
 		
 		model.addAttribute("members",members);
@@ -175,7 +174,6 @@ public class RankController {
 	@RequestMapping(value = "/rankInsert", method = RequestMethod.POST)
 	@ResponseBody
 	public String rankInsert2() {
-		System.out.println("됩니다2.");
 		return "rank/rank_form";
 	}
 	

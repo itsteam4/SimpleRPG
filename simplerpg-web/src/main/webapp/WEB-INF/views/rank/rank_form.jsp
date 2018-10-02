@@ -79,7 +79,7 @@
 			
 			
 			
-			<div style="width:100%; margin-top:50px;  text-align:center">
+			<!-- <div style="width:100%; margin-top:50px;  text-align:center">
 				<div style="display:inline-block;margin-top:50px; ">
 					<h3 class="pull-left" style="font-size:20px; color:#2e2828;">순위검색</h3>
 						<input class="pull-left" type="text" style="width:250px; margin-top:3px; margin-left:40px;
@@ -135,10 +135,12 @@
 						
 					</ul>
 				</div>
+			</div> -->
+			<div class="row" style="width:100%; height:25px;">
 			</div>
 			
-			<div style="margin-top:25px; border-top:1px solid #2e2828;">
-				<table class="table table-hover">
+			<div style="margin-top:25px;">
+				<table class="table table-hover" style="">
 						<thead>
 							<tr>
 								<th style="color:#747474; font-size:15px;">순위</th>
@@ -146,30 +148,48 @@
 						        <th style="color:#747474; font-size:15px;">캐릭터명</th>
 						        <th style="color:#747474; font-size:15px;">점수</th>
 						        <th style="color:#747474; font-size:15px;">킬수</th>
-						        <th style="color:#747474; font-size:15px;">사망</th>
+						        <th style="color:#747474; font-size:15px;">데스</th>
 							</tr>
 						</thead>
 						<tbody>
 						
-							
-							<c:forEach var="ranklist" items="${ranklist}">
-							
-							
+							<c:forEach var="ranklista" items="${ranklist}" varStatus="status">
+							<c:choose>
+            				<c:when test="${(ranklista.rank eq '0')||(ranklista.rank eq '1')||(ranklista.rank eq '2')||(ranklista.rank eq '3')
+            				||(ranklista.rank eq '4')||(ranklista.rank eq '5')||(ranklista.rank eq '6')
+            				||(ranklista.rank eq '7')||(ranklista.rank eq '8')||(ranklista.rank eq '9')||(ranklista.rank eq '10')}">
             				<tr>
-								<td style="color:#9b8769">${ranklist.rank}</td>
-								<td>${ranklist.userlv}</td>
+            					<c:choose>
+            					
+            					<c:when test="${ranklist[status.index].rank eq ranklist[status.index-1].rank}">
+            					<td style="color:#9b8769">
+            					${ranklista.rank}
+            					</td>
+            					</c:when>
+            					<c:otherwise>
+            					<td style="color:#9b8769">
+            					${ranklista.rank}
+            					</td>
+            					</c:otherwise>
+            					
+            					</c:choose>
+            					
+								
+								<td>${ranklista.userlv}</td>
 								<td> 
 								<a name="underline" id="underline"
 								style="text-decoration:none;color:#242323;"
-								href="rankMove?id=${ranklist.id}">${ranklist.id}
+								href="rankMove?id=${ranklista.id}">${ranklista.id}
 								</a>
 								</td>
-								<td>${ranklist.userscore}</td>
-								<td style="color:#4290c7;;">${ranklist.userkill}</td>
-								<td style="color:#c03636;">${ranklist.userdead}</td>
-								</tr>
-								
-							
+								<td>
+								${ranklista.userscore}
+								</td>
+								<td style="color:#4290c7;;">${ranklista.userkill}</td>
+								<td style="color:#c03636;">${ranklista.userdead}</td>
+							</tr>
+								</c:when>
+							</c:choose>
 							
 							</c:forEach>
 							
@@ -185,6 +205,21 @@
 <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
 
 <script type="text/javascript"> 
+function rankNum(num){
+	var num;
+	alert(num);
+	alert(num-1);
+	document.getElementById("ranknum").value = num;
+};
+
+function rankNum1(num){
+	var num;
+	alert(num);
+	alert(num-1);
+	document.getElementById("ranknum").value = num;
+};
+
+
 function rankaAlarm(){
 	alert('나의 순위를 확인하려면 로그인이 필요 합니다.');
 };
