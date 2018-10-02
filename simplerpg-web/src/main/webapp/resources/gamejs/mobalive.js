@@ -32,6 +32,10 @@ var goblin7_3alive = true;
 //sector 8
 var goblin8_1alive = true;
 var orc8_2alive = true;
+//sector 9
+var goust9_1alive = true;
+var orc9_2alive = true;
+var orc9_3alive = true;
 //sector 10
 var goblin10_1alive = true;
 var slime10_2alive = true;
@@ -48,3 +52,7 @@ var orc12_3alive = true;
 var orcboss13_1alive = true;
 var orc13_2alive = true;
 var orc13_3alive = true;
+//sector 14
+var goust14_1alive = true;
+var goust14_2alive = true;
+var lastboss14_3alive = true;
