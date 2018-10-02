@@ -13,7 +13,6 @@
       <h1 class="mt-4 mb-3">Simple RPG
         <small style="color: 	#DB7093">FAQ</small>
       </h1>
-
       <ol class="breadcrumb" style="margin-top: 50px">
         <li class="breadcrumb-item">
           <a href="IndexForm">Home</a>
@@ -30,7 +29,6 @@
               </a>
             </h5>
           </div>
-
           <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
             <div class="card-body"style="color: 	#4169E1">
           <br>   <img width="600px" height="500px"class="img-fluid rounded mb-3 mb-md-0" src="resources/image/faq/4.png" alt=""><br>
@@ -39,7 +37,6 @@
              <img width="500px" height="400px"class="img-fluid rounded mb-3 mb-md-0" src="resources/image/faq/6.png" alt="">
              &nbsp<img width="500px" height="400px"class="img-fluid rounded mb-3 mb-md-0" src="resources/image/faq/7.png" alt=""><br>
             <br>  2. 몬스터를 사냥을 하다보면, 무기를을 자연스럽게 획득하여 자동 작용이 가능합니다. <br><br><br> <br>
-             
             </div>
           </div>
         </div>
@@ -69,7 +66,6 @@
               </a>
             </h5>
           </div>
-
           <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
             <div class="card-body"style="color: 	#4169E1">
              <br> <img width="500px" height="400px"class="img-fluid rounded mb-3 mb-md-0" src="resources/image/faq/1.png" alt=""><br>
@@ -81,7 +77,6 @@
             </div>
           </div>
         </div>
-        
       </div>
  <!-- Pagination -->
        <hr>
@@ -94,6 +89,5 @@
       </ul>
     <!-- /.container -->
 </form>
-
 </body>
 </html>
