@@ -13,4 +13,5 @@ public interface FreeBoardDAO {
 	int fupdaterow(FreeBoard fboard);
 	void fdeleterow(int f_no);
 	void fupdatehit(int f_no);
+	ArrayList<FreeBoard> freeboardList();
 }

@@ -12,6 +12,7 @@ public interface RankUserDataDao {
 	ArrayList<UserData> pageList(RankNumber ranknumber);
 	UserData selectOne(String id);
 	ArrayList<UserData> rankList(UserData userdata);
+	ArrayList<UserData> homerankList();
 	
 	
 }
