@@ -7,20 +7,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 <form id="game_guide_form" name="game_guide_form" action="gameguideform"
       method="post">
  <!-- Page Heading/Breadcrumbs -->
       <h1 class="mt-4 mb-3">Simple RPG
         <small style="color: 	#DAA520"> INTRODUCTION</small>
       </h1>
-
       <ol class="breadcrumb" style="margin-top: 50px">
         <li class="breadcrumb-item">
           <a href="IndexForm">Home</a>
        / 게임소개 / 게임배경 소개                             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
       </ol>
-
     <div class="jumbotron">
         <h3 style="color: 	#DAA520">게임을 만들게된 계기</h3><br>
         <p style="color: 	#191970"> <img class="img-fluid rounded mb-3 mb-md-0" src="resources/image/guide/gameguideimage2.jpg" alt=""><br>
@@ -44,10 +41,8 @@
               집 뒤에 있는 울창하고 괴상하고 어마무시한 여러가지 소문을 가지고있는 숲속에 사는, <br>
               숲의 요정을 구하기 위하여 숲속에 살고있는 여러 몬스터들을 만나, 처리하고<br>
               숲의 요정에게 한걸음씩 가고있다. </p>
-   
       </div>
       <!-- /.jumbotron -->
-
     <!-- /.container -->
  <!-- Pagination -->
        <hr>
@@ -60,6 +55,5 @@
       </ul>
     <!-- /.container -->
 </form>
-
 </body>
 </html>

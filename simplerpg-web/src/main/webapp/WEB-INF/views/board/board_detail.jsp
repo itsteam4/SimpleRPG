@@ -6,13 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>공지사항</title>
-<%-- <content tag="local_script"> --%>
-<!--    <script type="text/javascript"> -->
-<!--          alert(100);  -->
-<!-- </script>  -->
-<%-- </content> --%>
 </head>
-
 <body>
 	<form id="board_detail" name="board_detail" action="boardUpdate"
 		method="post" enctype="multipart/form-data">
@@ -23,9 +17,9 @@
 			<li class="breadcrumb-item"><a href="IndexForm">Home</a> / 고객센터
 				/ 공지사항
 				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			
 		</ol>
 		<div class="container">
-
 			<div class="container" style="text-align: center">
 				<input type="hidden" id="b_seq" name="b_seq" value="${board.b_seq}">
 				<input type="hidden" id="b_ref" name="b_ref" value="${board.b_ref}">
@@ -112,6 +106,7 @@
 				</div>
 
 			</div>
+		</div>
 	</form>
 </body>
 </html>
