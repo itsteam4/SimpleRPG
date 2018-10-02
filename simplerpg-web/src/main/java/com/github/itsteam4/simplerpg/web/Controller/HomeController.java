@@ -1,5 +1,6 @@
 package com.github.itsteam4.simplerpg.web.Controller;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 import org.apache.ibatis.session.SqlSession;
@@ -21,7 +22,6 @@ import com.github.itsteam4.simplerpg.web.service.BoardDao;
 import com.github.itsteam4.simplerpg.web.service.FreeBoardDAO;
 import com.github.itsteam4.simplerpg.web.service.HomeDao;
 import com.github.itsteam4.simplerpg.web.service.RankUserDataDao;
-import com.github.itsteam4.simplerpg.web.service.TestDAO;
 
 
 /**
