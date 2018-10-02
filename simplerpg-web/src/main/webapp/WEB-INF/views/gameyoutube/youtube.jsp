@@ -6,25 +6,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-
 </head>
 <body>
 	<form id="youtube_form" name="youtube_form" action="youtubeinsert"
 		method="post">
 		 <!-- Page Content -->
     <div class="container">
-
       <!-- Page Heading/Breadcrumbs -->
       <h1 class="mt-4 mb-3">Simple RPG
         <small style="color: #FF0000">YOUTUBE</small>
       </h1>
-
       <ol class="breadcrumb"style="margin-top: 50px">
         <li class="breadcrumb-item" >
           <a href="IndexForm" >Home</a>
         / 게임 동영상
       </ol>
-
       <div class="row"style="margin-top: 50px">
        <div class="col-lg-12 portfolio-item">
           <div class="card h-100">
@@ -116,7 +112,6 @@
             </div>
           </div>
         </div>
-        
         <div class="col-lg-6 portfolio-item">
           <div class="card h-100">
             <a href="#">
@@ -133,9 +128,7 @@
           </div>
         </div>
       </div>
-
 			<!-- /.row -->
-
       <!-- Pagination -->
       <hr>
     <ul class="pagination justify-content-center">
@@ -145,7 +138,6 @@
 			</ul>
 		</div>
     <!-- /.container -->
-   
 	</form>
 </body>
 </html>

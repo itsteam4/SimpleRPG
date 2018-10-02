@@ -71,7 +71,6 @@
 						<br>2~3명의 건장한 인간 남성을 비틀어 짜버릴 수 있을 정도로 강력하지만,<br>
 						 붉은 고블린 또한, 머리가 엄청 나빠서 어린애한테도 속는다고 한다. 하지만 체구가 작으며 힘은 약하지만 교활하고 잔꾀가 많은 종족으로이다. <br>
 						 보통 부족사회 정도의 기초적 공동체를 이루지만 수준있는 문명을 갖고 나오는 경우도 종종 있다
-						 
 					</p>
 				</div>
 			</div>
@@ -92,12 +91,8 @@
 					그 이유는 게임을 하다보면 자연스럽게 알 수 있다.<br>
 					붉은 고블린 보다 더 강력한 빠른 기동력, 공격력 또한 갖고 있다. <br>
 					혹시 레벨이 부족하다고 생각이 들면, <br>요정 도우미를 보는 즉시 몸을 피해야 한다.
-					
 					<br><br>
-						
-						 
 					</p>
-
 				</div>
 			</div>
 			<!-- /.row -->
@@ -107,16 +102,19 @@
 			<div class="row">
 				<div class="col-md-6">
 					<a href="#"> <img class="img-fluid rounded mb-3 mb-md-0"
-						src="resources/image/guide/comingsoon.jpg" alt="">
+						src="resources/image/guide/monster.jpg" alt="">
 					</a>
 				</div>
 				<div class="col-md-6">
-					<h3 style="color: #FF4500">Coming Soon</h3>
+					<h3 style="color: #FF4500">끝판왕</h3>
 					<p>
 					<br><br><br>
-						슬라임, 녹색고블린, 붉은 고블린 보다 한층 사악하고 강한 <br>적이 나타날 예정입니다.
+						이름 처럼 더 설명할 필요 없이 그냥 끝판왕이다.<br>
+						끝판왕을 들어본 사람은 있지만, 아직 만나본 사람은 아무도 없다.<br>
+						수 많은 소문만이 끝판왕의 존재의 유무를 알게 할 뿐,<br>
+						요정의 숲에서 끝판왕을 본다면, 인증샷은 필수 이다.<br>
+						
 					</p>
-
 				</div>
 			</div>
 			<!-- /.row -->
@@ -129,9 +127,6 @@
 			</ul>
 		</div>
 		<!-- /.container -->
-
-
-
 	</form>
 </body>
 </html>

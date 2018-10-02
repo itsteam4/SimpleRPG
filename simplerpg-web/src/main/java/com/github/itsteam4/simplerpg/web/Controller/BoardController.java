@@ -25,7 +25,6 @@ import com.github.itsteam4.simplerpg.web.entity.Board;
 import com.github.itsteam4.simplerpg.web.entity.BoardPaging;
 import com.github.itsteam4.simplerpg.web.service.BoardDao;
 
-
 @Controller
 public class BoardController {
 	@Autowired
@@ -34,7 +33,7 @@ public class BoardController {
 	private Board board;
 	@Autowired
 	private BoardPaging boardpaging;
-	
+
 	@Autowired
 	static String find;
 
@@ -66,23 +65,22 @@ public class BoardController {
 		model.addAttribute("pages", pages);
 		return "board/board_page_list";
 	}
-	
+
 	@RequestMapping(value = "/boardinsertform", method = RequestMethod.GET)
 	public String gameboardInsertForm(HttpSession session) {
 		return "board/board_insert_form";
 	}
 
 	@RequestMapping(value = "/boardinsert", method = RequestMethod.POST)
-	public String boardInsert(Model model, @ModelAttribute Board board,
-			HttpServletRequest request) {
-		
+	public String boardInsert(Model model, @ModelAttribute Board board, HttpServletRequest request) {
+
 		board.setB_ip(request.getRemoteAddr());
 		Date date = new Date();
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd E요일 a hh:mm:ss");
 		board.setB_date(format.format(date));
 		BoardDao dao = sqlSession.getMapper(BoardDao.class);
 		try {
-			
+
 			int result = dao.insertRow(board);
 			if (result > 0) {
 				model.addAttribute("msg", "작성되었습니다");
@@ -123,7 +121,7 @@ public class BoardController {
 
 	@RequestMapping(value = "/boardpageselected", method = RequestMethod.GET)
 	public String boardPageSelected(Model model, int page) {
-		int pagesize = 10;
+		int pagesize = 5;
 		int startrow = (page - 1) * (pagesize);
 		int endrow = pagesize;
 		BoardDao dao = sqlSession.getMapper(BoardDao.class);
@@ -161,7 +159,7 @@ public class BoardController {
 
 	@RequestMapping(value = "/boardUpdate", method = RequestMethod.POST)
 	public String boardUpdate(Model model, @ModelAttribute Board board) {
-		
+
 		Date date = new Date();
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd E요일 a hh:mm:ss");
 		board.setB_date(format.format(date));
@@ -176,11 +174,11 @@ public class BoardController {
 		return "board/board_result";
 	}
 
-	@RequestMapping(value="boardDelete", method = RequestMethod.GET)
+	@RequestMapping(value = "boardDelete", method = RequestMethod.GET)
 	public String boardDelete(@RequestParam int b_seq) {
 		BoardDao dao = sqlSession.getMapper(BoardDao.class);
-			dao.deleteRowseq(b_seq);
-		
+		dao.deleteRowseq(b_seq);
+
 		return "redirect:boardpagelist";
 	}
 

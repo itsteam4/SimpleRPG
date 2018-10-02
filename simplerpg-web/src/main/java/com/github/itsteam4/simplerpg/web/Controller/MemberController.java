@@ -1,6 +1,9 @@
 package com.github.itsteam4.simplerpg.web.Controller;
 
 
+import java.util.Random;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
@@ -125,5 +128,10 @@ public class MemberController {
 		}
 		return "redirect:IndexForm";
 	}
-	
+//	비밀번호 찾기 페이지
+	@RequestMapping(value="LoginPasswordForgot",method=RequestMethod.GET)
+	public String LoginPasswordForgotPage() {
+		System.out.println("비밀번호찾기 페이지 이동");
+		return "Login/Login_password_forgot";
+	}
 }

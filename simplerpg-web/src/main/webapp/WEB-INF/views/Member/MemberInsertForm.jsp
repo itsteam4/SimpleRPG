@@ -100,7 +100,7 @@
 			<div class="row" style="margin-top: 50px">
 				<div class="input-group col-md-12">
 					<button type="button" id="memberInsert" class="btn btn-primary" name="memberInsertUp" style="width:50%">등록</button>
-					<button type="button" id="memberCancel" class="btn btn-warning" name="cancel" style="width:50%">취소</button>
+					<button type="button" onclick="history.go(-1);" id="membercancel" class="btn btn-warning" name="membercancel" style="width:50%">취소</button>
 				</div>
 			</div>
 		</div>
