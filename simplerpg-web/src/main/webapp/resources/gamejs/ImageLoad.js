@@ -22,6 +22,14 @@ var orcboss = new Image();
 orcboss.addEventListener('load',orcbossReady, false);
 orcboss.src = "resources/gamejs/imgs/orcboss.png";
 
+var goust = new Image();
+goust.addEventListener('load',goustReady, false);
+goust.src = "resources/gamejs/imgs/Goust.png";
+
+var lastboss = new Image();
+lastboss.addEventListener('load',lastbossReady, false);
+lastboss.src = "resources/gamejs/imgs/lastboss.png";
+
 
 function userReady() {
 	//유저 이미지 로드되면 실행됨
@@ -71,6 +79,8 @@ function orcReady(){
 	Orc4_2(orc4_2_xy);
 	Orc7_1(orc7_1_xy);
 	Orc8_2(orc8_2_xy);
+	Orc9_2(orc9_2_xy);
+	Orc9_3(orc9_3_xy);
 	Orc12_2(orc12_2_xy);
 	Orc12_3(orc12_3_xy);
 	Orc13_2(orc13_2_xy);
@@ -79,4 +89,14 @@ function orcReady(){
 
 function orcbossReady(){
 	OrcBoss13_1(orcboss13_1_xy);
+}
+
+function goustReady(){
+	Goust9_1(goust9_1_xy);
+	Goust14_1(goust14_1_xy);
+	Goust14_2(goust14_2_xy);
+}
+
+function lastbossReady(){
+	LastBoss14_3(lastboss14_3_xy);
 }

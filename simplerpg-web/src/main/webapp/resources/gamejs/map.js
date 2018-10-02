@@ -159,7 +159,7 @@ function drawScreen(){
 			var sourceX = Math.floor(tileId % 10) * 32;
 			var sourceY = Math.floor(tileId / 10) * 32;
 			ctx.drawImage(tiles, sourceX, sourceY, 32, 32, colCtr*32, rowCtr*32, 32, 32);
-			ctx.strokeRect(colCtr*32, rowCtr*32, 32, 32);
+			//ctx.strokeRect(colCtr*32, rowCtr*32, 32, 32); 바둑판깔기!
 			
 			var tileId = wordmap2[rowCtr + cameraY][colCtr + cameraX]+mapIndexOffset;
 
@@ -204,6 +204,10 @@ function drawScreen(){
 			//sector 8몹
 			ctx.drawImage(goblin, goblin8_1_xy[0], goblin8_1_xy[1], 32,32);
 			ctx.drawImage(orc, orc8_2_xy[0], orc8_2_xy[1], 32,32);
+			//sector 9 몹
+			ctx.drawImage(goust, goust9_1_xy[0], goust9_1_xy[1], 32,32);
+			ctx.drawImage(orc, orc9_2_xy[0], orc9_2_xy[1], 32,32);
+			ctx.drawImage(orc, orc9_3_xy[0], orc9_3_xy[1], 32,32);
 			//sector 10 몹
 			ctx.drawImage(goblin, goblin10_1_xy[0], goblin10_1_xy[1], 32,32);
 			ctx.drawImage(slime, slime10_2_xy[0], slime10_2_xy[1], 32,32);
@@ -220,6 +224,10 @@ function drawScreen(){
 			ctx.drawImage(orcboss, orcboss13_1_xy[0], orcboss13_1_xy[1], 32,32);
 			ctx.drawImage(orc, orc13_2_xy[0], orc13_2_xy[1], 32,32);
 			ctx.drawImage(orc, orc13_3_xy[0], orc13_3_xy[1], 32,32);
+			//sector 14 몹
+			ctx.drawImage(goust, goust14_1_xy[0], goust14_1_xy[1], 32,32);
+			ctx.drawImage(goust, goust14_2_xy[0], goust14_2_xy[1], 32,32);
+			ctx.drawImage(lastboss, lastboss14_3_xy[0], lastboss14_3_xy[1], 32,32);
 		}
 	}
 	
