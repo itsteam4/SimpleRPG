@@ -70,9 +70,6 @@
 			</div>
 			</div>
 			<div class="row">
-				<%@include file="../Community/free_board_comment_form.jsp" %>
-			</div>
-			<div class="row">
 				<div class="col-md-1"></div>
 				<div class="col-md-10" align="center">
 					<c:choose>
@@ -82,12 +79,12 @@
 							<a href="FreeBoardDelete?f_no=${boards.f_no}"><input
 								type="button" class="btn btn-danger" id="FreeBoardDeleteButton"
 								value="삭제"></a>
-							<a href="/itsteam4/FreeBoardForm"><input type="button"
-								class="btn btn-info" id="FreeboardReturn" value="목록"></a>
+							<input type="button"
+								class="btn btn-info" onclick="history.go(-1);" id="FreeboardReturn" value="목록">
 						</c:when>
 						<c:otherwise>
 							<a href="/itsteam4/FreeBoardForm"><input type="button"
-								class="btn btn-info" id="FreeBoardReturn" value="목록"></a>
+								class="btn btn-info" onclick="history.go(-1);" id="FreeBoardReturn" value="목록"></a>
 						</c:otherwise>
 					</c:choose>
 				</div>

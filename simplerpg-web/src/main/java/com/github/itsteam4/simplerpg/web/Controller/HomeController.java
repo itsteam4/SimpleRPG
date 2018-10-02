@@ -1,6 +1,5 @@
 package com.github.itsteam4.simplerpg.web.Controller;
 
-import java.util.ArrayList;
 import java.util.Locale;
 
 import org.apache.ibatis.session.SqlSession;
@@ -12,7 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.github.itsteam4.simplerpg.web.service.TestDAO;
 
 /**
  * Handles requests for the application home page.
@@ -32,10 +30,7 @@ public class HomeController {
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
-		TestDAO dao = session.getMapper(TestDAO.class);
-		ArrayList<String> name = dao.selectAll();
 		
-		model.addAttribute("names",name);
 		return "home";
 	}
 	@RequestMapping(value="/",method=RequestMethod.GET)

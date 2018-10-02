@@ -1,6 +1,8 @@
 package com.github.itsteam4.simplerpg.web.Controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,6 +16,7 @@ import java.io.File;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -25,9 +28,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.github.itsteam4.simplerpg.web.entity.FreeBoard;
-import com.github.itsteam4.simplerpg.web.entity.FreeBoardComment;
 import com.github.itsteam4.simplerpg.web.entity.FreeBoardPaging;
-import com.github.itsteam4.simplerpg.web.service.FreeBoardCommentDAO;
+import com.github.itsteam4.simplerpg.web.entity.Member;
 import com.github.itsteam4.simplerpg.web.service.FreeBoardDAO;
 
 @Controller
@@ -39,8 +41,6 @@ public class CommunityController {
 	@Autowired
 	private FreeBoardPaging fboardpaging;
 	static String find;
-	@Autowired
-	private FreeBoardComment fcomment;
 	
 //	스크린샷 게시판 이동
 	@RequestMapping(value="ScreenFreeBoardForm",method=RequestMethod.GET)
@@ -227,35 +227,4 @@ public class CommunityController {
 		System.out.println("삭제되었습니다.");
 		return "redirect:FreeBoardForm";
 	}
-//	자유게시판 댓글 불러오기
-	@RequestMapping(value="/commentlist",method=RequestMethod.GET)
-	@ResponseBody
-	public String FreeBoardCommentList(Model model,@RequestParam int cno) {
-		System.out.println(cno);
-		FreeBoardCommentDAO dao = sqlSession.getMapper(FreeBoardCommentDAO.class);
-		ArrayList<FreeBoardCommentDAO> detail = dao.commentlist();
-		model.addAttribute("detail", detail);
-		return "redirect:freeboarddetailform";
-	}
-	
-	/*@RequestMapping(value="/FreeBoardCommentInsert",method=RequestMethod.POST)
-	@ResponseBody
-	public void FreeBoardCommentInsert() {
-		System.out.println("입력폼테스트");
-	}*/
-	
-	@RequestMapping(value="/selectcall",method=RequestMethod.POST)
-	@ResponseBody
-	public String FreeBoardCommentInsert(@ModelAttribute FreeBoardComment comment) {
-		System.out.println("테스트");
-		FreeBoardCommentDAO dao = sqlSession.getMapper(FreeBoardCommentDAO.class);
-		int result = dao.commentinsert(comment);
-		if(result >0) {
-			System.out.println("댓글작성 완료:"+result);
-		}else {
-			System.out.println("댓글작성 실패");
-		}
-		return "redirect:freeboarddetailform";
-	}
-	
 }

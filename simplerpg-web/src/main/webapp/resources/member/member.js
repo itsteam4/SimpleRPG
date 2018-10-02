@@ -46,5 +46,4 @@ $(document).ready(function(){
 			$('.member_insert_form').submit();
 		}
 	});
-	
 })

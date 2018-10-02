@@ -104,7 +104,8 @@
 			<div class="mySlides fade">
 			  <img src="resources/image/mainpage/slide4.jpg" style="width:100%">
 			</div>
-			<div >
+			<c:if test="${sessionid != null}">
+				<div >
 				<!-- <a href="#" style="width:289px; height:152px;">
 					<img class="" src="resources/image/mainpage/start_btn.jpg" 
 			  		style="width:289px; height:152px; position:absolute; top:130px; left:1150px; 
@@ -116,7 +117,8 @@
 					position:absolute; top:130px; left:1150px; overflow:hidden;border:0; outline:0;
 					cursor:pointer; "></button>
 				
-			</div>
+			</div>	
+			</c:if>
 			<div style="text-align:center; color:#5F00FF; display:none; ">
 			  <span class="dot"></span> 
 			  <span class="dot"></span> 

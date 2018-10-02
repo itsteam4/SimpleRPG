@@ -20,6 +20,7 @@
  <decorator name="smarteditorphotoupload" page=""></decorator>
  <decorator name="screeninsertpages" page=""></decorator>
  <decorator name="freeboard_comment_forms" page=""></decorator>
+ <decorator name="Login_pass_forgot" page=""></decorator>
  <!-- decorators를 적용시키지 않을 url 패턴 -->
  <excludes>
 <!--   <pattern>/memberList</pattern> -->    
