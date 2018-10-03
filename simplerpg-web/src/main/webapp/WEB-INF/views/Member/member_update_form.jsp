@@ -75,9 +75,7 @@
 					<div class="input-group-prepend">
 						<span class="input-group-text" style="width: 100px"><i class="fa fa-id-card-o" aria-hidden="true">이메일</i></span>
 					</div>
-					<input type="text" class="form-control" id="email1" name="email1" value="${members.email1}">
-					<label>@</label>
-					<input type="text" class="form-control" id="email2" name="email2" value="${members.email2}">
+					<input type="text" class="form-control" id="email" name="email" value="${members.email}">
 				</div>
 			</div>
 			
@@ -99,7 +97,7 @@
 			<div class="row" style="margin-top: 50px">
 				<div class="input-group col-md-12">
 					<button type="submit" id="memberUpdateButton" class="btn btn-primary" name="memberUpdateButton" style="width:50%">수정</button>
-					<button type="button" id="memberUpdateCancel" class="btn btn-warning" name="cancel" style="width:50%">취소</button>
+					<button type="button"  onclick="history.go(-1);" id="memberUpdateCancel" class="btn btn-warning" name="cancel" style="width:50%">취소</button>
 				</div>
 			</div>
 	</form>

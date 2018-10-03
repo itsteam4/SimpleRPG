@@ -83,8 +83,8 @@
 								class="btn btn-info" onclick="history.go(-1);" id="FreeboardReturn" value="목록">
 						</c:when>
 						<c:otherwise>
-							<a href="/itsteam4/FreeBoardForm"><input type="button"
-								class="btn btn-info" onclick="history.go(-1);" id="FreeBoardReturn" value="목록"></a>
+							<input type="button"
+								class="btn btn-info" onclick="history.go(-1);" id="FreeBoardReturn" value="목록">
 						</c:otherwise>
 					</c:choose>
 				</div>
