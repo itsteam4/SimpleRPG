@@ -20,8 +20,7 @@ public class GuideController {
 	public String schedule() {
 		return "guide/item_guide";
 	}
-	
-	
+
 	@RequestMapping(value = "/monsterguideform", method = RequestMethod.GET)
 	public String monsterguideform() {
 		return "guide/monster_guide";

@@ -19,7 +19,7 @@ function onMouseClick(e){		//클릭하면 update 로 좌표보냄
 		col = ocol;
 		row = orow;
 	}
-	alert(col*32+"/"+row*32);
+	//alert(col*32+"/"+row*32); 클릭위치 띄우기!
 	var tileId = (row * 19) + (col + row);
 }
 
@@ -134,6 +134,12 @@ function Update(){
 	if(user_xy[0] == orc4_1_xy[0] && user_xy[1] == orc4_1_xy[1]) { orc4_1Battle(); }
 	if(user_xy[0] == orc4_2_xy[0] && user_xy[1] == orc4_2_xy[1]) { orc4_2Battle(); }
 	if(user_xy[0] == goblin4_3_xy[0] && user_xy[1] == goblin4_3_xy[1]) { goblin4_3Battle(); }
+	if(user_xy[0] == goust9_1_xy[0] && user_xy[1] == goust9_1_xy[1]) { goust9_1Battle(); }
+	if(user_xy[0] == orc9_2_xy[0] && user_xy[1] == orc9_2_xy[1]) { orc9_2Battle(); }
+	if(user_xy[0] == orc9_3_xy[0] && user_xy[1] == orc9_3_xy[1]) { orc9_3Battle(); }
+	if(user_xy[0] == goust14_1_xy[0] && user_xy[1] == goust14_1_xy[1]) { goust14_1Battle(); }
+	if(user_xy[0] == goust14_2_xy[0] && user_xy[1] == goust14_2_xy[1]) { goust14_2Battle(); }
+	if(user_xy[0] == lastboss14_3_xy[0] && user_xy[1] == lastboss14_3_xy[1]) { lastboss14_3Battle(); }
 	//전투중 유저 사망시
 	if(useralive == false){
 		userdead++;
@@ -207,6 +213,13 @@ function User(user_xy){
 					break;
 				case 3:
 					userpower += 8;
+					break;
+				case 4:
+					userpower += 12;
+					break;
+				case 5:
+					userpower += 20;
+					break;
 			}
 			switch(item[1]){
 				case 0:
@@ -219,6 +232,13 @@ function User(user_xy){
 					break;
 				case 3:
 					usermaxhp += 40;
+					break;
+				case 4:
+					usermaxhp += 60;
+					break;
+				case 5:
+					usermaxhp += 80;
+					break;
 			}
 			userhp = usermaxhp;
 			ItemChenge();
@@ -324,6 +344,45 @@ var userattack = setInterval(function (){	//유저 공격 딜레이
 			userIt = 896;
 		}else if(item[0] == 3 && item[1] == 3){
 			userIt = 960;
+		}else if(item[0] == 0 && item[1] == 4){
+			userIt = 1024;
+		}else if(item[0] == 1 && item[1] == 4){
+			userIt = 1088;
+		}else if(item[0] == 2 && item[1] == 4){
+			userIt = 1152;
+		}else if(item[0] == 3 && item[1] == 4){
+			userIt = 1216;
+		}else if(item[0] == 4 && item[1] == 0){
+			userIt = 1280;
+		}else if(item[0] == 4 && item[1] == 1){
+			userIt = 1344;
+		}else if(item[0] == 4 && item[1] == 2){
+			userIt = 1408;
+		}else if(item[0] == 4 && item[1] == 3){
+			userIt = 1472;
+		}else if(item[0] == 4 && item[1] == 4){
+			userIt = 1536;
+		}else if(item[0] == 0 && item[1] == 5){
+			userIt = 1600;
+		}else if(item[0] == 1 && item[1] == 5){
+			userIt = 1664;
+		}else if(item[0] == 2 && item[1] == 5){
+			userIt = 1728;
+		}else if(item[0] == 3 && item[1] == 5){
+			userIt = 1792;
+		}else if(item[0] == 4 && item[1] == 5){
+			userIt = 1856;
+		}else if(item[0] == 5 && item[1] == 0){
+			userIt = 1920;
+		}else if(item[0] == 5 && item[1] == 1){
+			userIt = 1984;
+		}else if(item[0] == 5 && item[1] == 2){
+			userIt = 2048;
+		}else if(item[0] == 5 && item[1] == 3){
+			userIt = 2112;
+		}else if(item[0] == 5 && item[1] == 4){
+			userIt = 2176;
+		}else if(item[0] == 5 && item[1] == 5){
+			userIt = 2240;
 		}
-		
 	}

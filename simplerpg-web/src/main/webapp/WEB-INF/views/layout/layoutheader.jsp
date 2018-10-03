@@ -91,31 +91,26 @@
         </div>
     </nav>
     <!-- SLIDE SECTION START -->
-    <div class="slideshow-container" >
-    		<div class="mySlides fade">
-			  <img src="resources/image/mainpage/slide1.jpg" style="width:100%;">
+    <div class="slideshow-container" style="width:100%" >
+    	<input id="gid" name="gid" type="text" value="${sessionid}" style="display:none;">
+    		<c:if test="${sessionid != null }">
+    			<button id="startbtn" type="submit" style="background:url('resources/image/mainpage/start_btn.jpg') no-repeat 0 0; 
+					width:100%; height:100%; 
+					position:absolute; top:110px; left:1150px; overflow:hidden;border:0; outline:0;
+					cursor:pointer; "></button>
+    		</c:if>
+    		<div class="mySlides fade" style="width:100%">
+			  <img src="resources/image/mainpage/slide1.jpg" style="width:100%; position:relative">
 			</div>
 			<div class="mySlides fade">
 			  <img src="resources/image/mainpage/slide2.jpg" style="width:100%">
+			  
 			</div>
 			<div class="mySlides fade">
 			  <img src="resources/image/mainpage/slide3.jpg" style="width:100%">
 			</div>
 			<div class="mySlides fade">
 			  <img src="resources/image/mainpage/slide4.jpg" style="width:100%">
-			</div>
-			<div >
-				<!-- <a href="#" style="width:289px; height:152px;">
-					<img class="" src="resources/image/mainpage/start_btn.jpg" 
-			  		style="width:289px; height:152px; position:absolute; top:130px; left:1150px; 
-			  		overflow:hidden;">
-				</a> -->
-					<input id="gid" name="gid" type="text" value="${sessionid}" style="display:none;">
-					<button id="startbtn" type="submit" style="background:url('resources/image/mainpage/start_btn.jpg');
-					width:289px; height:152px; 
-					position:absolute; top:130px; left:1150px; overflow:hidden;border:0; outline:0;
-					cursor:pointer; "></button>
-				
 			</div>
 			<div style="text-align:center; color:#5F00FF; display:none; ">
 			  <span class="dot"></span> 

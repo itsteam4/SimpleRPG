@@ -54,8 +54,8 @@
 								style="width: 590px; height: 500px;">
 								</textarea>
 							<button type="submit" class="btn btn-warning" id="savebutton">작성</button>
-							<a href="/itsteam4/FreeBoardForm"><input type="button"
-								class="btn btn-danger" id="returnbutton" value="목록"></a></td>
+							<input type="button"
+								class="btn btn-danger" onclick="history.go(-1);" id="returnbutton" value="목록"></td>
 					</tr>
 				</tbody>
 			</table>

@@ -8,7 +8,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css">
-		<script src="resources/bootstrap/js/jquery-3.3.1.min.js"></script>
+		<script src="resources/bootstrap/js/jquery-3.3.1.min.js?ver=1"></script>
 		<script src="resources/bootstrap/js/popper.min.js?ver=1"></script>
 		<script src="resources/bootstrap/js/bootstrap.min.js?ver=1"></script>
 		<script src="resources/gamejs/phaser.js"></script>
@@ -67,7 +67,6 @@
 		<div class="row">
 			<div class="col-md-4"></div>
 			<div class="col-md-4" style="align-content: center;">
-				<label>simplerpg</label>
 			</div>
 			<div class="col-md-4"></div>
 		</div>
@@ -85,14 +84,13 @@
 				<label>레벨:</label><input id="userlv"><p>
 				<label>경험치:</label><input id="userex">
 				<progress id="exbar" value="0" max="0"></progress><p>
-				<label>킬:</label><input id="userkill"><p>
-				<label>뎃:</label><input id="userdead"><p><p>
-				<label>섹터:</label><input id="sector"><p><p>
-				
 				
 				<label>무기</label><input id="sword"><label>-방패</label><input id="shild"><p><p>
 				
-				<label>점수:</label><input id="score"><p><p>
+				<input id="userkill" hidden="hidden"><p>
+				<input id="userdead" hidden="hidden"><p><p>
+				<input id="sector" hidden="hidden"><p><p>
+				<input id="score" hidden="hidden"><p><p>
 				
 				<input type="text" name="message" value="Hello, World!"/><input type="button" value="보내기"
        			onclick="send(this.form.message.value)" /><input id="btnclose" type="button" value="나가기" />

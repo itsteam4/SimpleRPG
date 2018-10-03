@@ -7,24 +7,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 	<form id="item_guide_form" name="item_guide_form"
 		action="itemguideform" method="post">
 		<!-- Page Content -->
 		<div class="container">
-
 			<!-- Page Heading/Breadcrumbs -->
 			<h1 class="mt-4 mb-3">
 				Simple RPG <small style="color: #20B2AA">ITEM</small>
 			</h1>
-
 			<ol class="breadcrumb" style="margin-top: 50px">
 				<li class="breadcrumb-item"><a href="IndexForm">Home </a>
 				/ 게임소개 / 아이템 소개
 			</ol>
-
-			<div class="row" style="margin-top: 100px">
-
+			<div class="row" style="margin-top: 50px">
 				<div class="col-md-4 mb-4">
 					<div class="card h-40">
 						<img src="resources/image/guide/item6.jpg"> <br> <br>
@@ -38,7 +33,6 @@
 						</div>
 					</div>
 				</div>
-
 				<div class="col-md-4 mb-4">
 					<div class="card h-40">
 						<img src="resources/image/guide/item7.jpg"> <br> <br>
@@ -53,7 +47,6 @@
 					</div>
 				</div>
 				<br>
-
 				<div class="col-md-4 mb-4">
 					<div class="card h-40">
 						<img src="resources/image/guide/item3.jpg"> <br> <br>
@@ -63,7 +56,7 @@
 								슬라임들을 처치 하다보면, 레벨이 상승하며 얻는 슬라임 검 보다 더 내구성과 공격성이 증가하는 무기이다 <br>
 								초반을 조금 넘기고 나면 <br>얻을수 있는 무기, 하지만 이전까지의<br> 슬라임 검에 비해서 공격력이 상당히
 								높다.<br> 게다가 데미지 공식상 강철검을 장비하면 이전까지의 다른 무기와 비교해볼때 같은 몬스터를
-								공격해도 데미지가 몇배는 더 많이 들어간다.<br>
+								공격해도 데미지가 몇배는 더 많이 들어간다.<br><br>
 							</p>
 						</div>
 					</div>
@@ -146,7 +139,6 @@
 				</div>
 			</div>
 			<!-- /.row -->
-
 			<!-- Pagination -->
 			<hr>
 			<ul class="pagination justify-content-center">
@@ -157,7 +149,5 @@
 		</div>
 		<!-- /.container -->
 	</form>
-
-
 </body>
 </html>
