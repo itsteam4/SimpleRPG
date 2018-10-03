@@ -58,6 +58,12 @@ public class MemberController {
 		}
 		return "Login/LoginForm";
 	}
+//	로그인 창 복귀
+	@RequestMapping(value="LoginReturn",method=RequestMethod.GET)
+	public String LoginReturn() {
+		
+		return "redirect:IndexForm";
+	}
 //	아이디 중복 검사
 	@RequestMapping(value="userconfirm",method=RequestMethod.POST)
 	@ResponseBody

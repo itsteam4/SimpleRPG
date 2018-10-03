@@ -37,9 +37,9 @@
 				<table class="table table-bordered">
 					<tr>
 						<td>
-							<button
-									type="button" onclick="window.home()" style="margin-top: 50px"
-									class="btn btn-primary save">돌아가기</button>
+							<a href="LoginReturn"><button
+									type="button" style="margin-top: 50px"
+									class="btn btn-primary save">돌아가기</button></a>
 						</td>
 					</tr>
 				</table>

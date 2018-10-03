@@ -11,7 +11,7 @@
 			id,pw,phone1,phone2,phone3,email,addr1,addr2,addr3)values(
 			#{id,jdbcType=VARCHAR},#{pw,jdbcType=VARCHAR},#{phone1,jdbcType=INTEGER},
 			#{phone2,jdbcType=INTEGER},#{phone3,jdbcType=INTEGER},
-			#{email1,jdbcType=VARCHAR},
+			#{email,jdbcType=VARCHAR},
 			#{addr1,jdbcType=VARCHAR},#{addr2,jdbcType=VARCHAR},
 			#{addr3,jdbcType=VARCHAR}) 
 	</insert>
