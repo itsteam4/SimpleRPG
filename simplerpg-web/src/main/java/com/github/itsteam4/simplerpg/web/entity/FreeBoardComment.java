@@ -9,7 +9,7 @@ public class FreeBoardComment {
 	private int fc_cno;
 	private int fc_bno;
 	private int fc_content;
-	private int fc_writer;
+	private String fc_writer;
 	private String fc_contnet;
 	private Date fc_date;
 	
@@ -31,10 +31,10 @@ public class FreeBoardComment {
 	public void setFc_content(int fc_content) {
 		this.fc_content = fc_content;
 	}
-	public int getFc_writer() {
+	public String getFc_writer() {
 		return fc_writer;
 	}
-	public void setFc_writer(int fc_writer) {
+	public void setFc_writer(String fc_writer) {
 		this.fc_writer = fc_writer;
 	}
 	public String getFc_contnet() {

@@ -30,6 +30,7 @@
                     </tr>
                     <tr>
                         <td>
+                        	 <input type="text" id="fc_bno" name="fc_bno" value="${detail.fc_bno}"/>
                             <textarea style="width: 1100px" rows="3" cols="30" id="fc_content" name="fc_content" placeholder="댓글을 입력하세요"></textarea>
                             <br>
                             <div>
@@ -93,7 +94,7 @@
 					}
 				},
 				error : function(xhr, status, error){
-					alert('ajax error'+error );
+					alert('ajax error'+xhr );
 				}
 			});	
 		}

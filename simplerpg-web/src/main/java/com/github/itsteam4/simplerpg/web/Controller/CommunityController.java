@@ -235,7 +235,7 @@ public class CommunityController {
 		FreeBoardCommentDAO dao = sqlSession.getMapper(FreeBoardCommentDAO.class);
 		ArrayList<FreeBoardCommentDAO> detail = dao.commentlist();
 		model.addAttribute("detail", detail);
-		return "redirect:freeboarddetailform";
+		return "Community/free_board_comment_form";
 	}
 	
 	/*@RequestMapping(value="/FreeBoardCommentInsert",method=RequestMethod.POST)
@@ -246,16 +246,20 @@ public class CommunityController {
 	
 	@RequestMapping(value="/selectcall",method=RequestMethod.POST)
 	@ResponseBody
-	public String FreeBoardCommentInsert(@ModelAttribute FreeBoardComment comment) {
+	public String FreeBoardCommentInsert(@RequestParam int fc_bno,@RequestParam String fc_content,HttpSession session) {
 		System.out.println("테스트");
 		FreeBoardCommentDAO dao = sqlSession.getMapper(FreeBoardCommentDAO.class);
+		FreeBoardComment comment = new FreeBoardComment();
+		comment.setFc_bno(fc_bno);
+		comment.setFc_contnet(fc_content);
+		comment.setFc_writer(session.getAttribute("sessionid").toString());
 		int result = dao.commentinsert(comment);
 		if(result >0) {
 			System.out.println("댓글작성 완료:"+result);
 		}else {
 			System.out.println("댓글작성 실패");
 		}
-		return "redirect:freeboarddetailform";
+		return "redirect:/commentlist";
 	}
 	
 }
