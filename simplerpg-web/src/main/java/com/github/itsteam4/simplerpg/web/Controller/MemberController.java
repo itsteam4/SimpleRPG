@@ -171,15 +171,15 @@ public class MemberController {
 //	비밀번호 찾기
 	@RequestMapping(value="/PasswordFind",method=RequestMethod.POST)
 	@ResponseBody
-	public void LoginFindPw(@ModelAttribute Member member,HttpServletResponse response) throws Exception {
-		LoginPassWordForgot(response, member);
+	public void LoginFindPw(@ModelAttribute Member member,HttpServletResponse response,@RequestParam String email,@RequestParam String id) throws Exception {
+		find_pw(response, member);
 	}
 	
 //	비밀번호 찾기 구현
-	public void LoginPassWordForgot(HttpServletResponse response, Member member) throws Exception {
+	public void find_pw(HttpServletResponse response, Member member) throws Exception {
 		MemberDAO dao= sqlSession.getMapper(MemberDAO.class);
 		
-		response.setContentType("text/html;charset=utf-8");
+		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		// 아이디가 없으면
 		if(dao.ConfirmCheck(member.getId()) == 0) {
@@ -211,13 +211,13 @@ public class MemberController {
 //	메일 수신
 	public void send_mail(Member member,String div) throws Exception {
 		// Mail Server 설정
-		String charSet = "utf-8";
+		String charSet = "UTF-8";
 		String hostSMTP = "smtp.naver.com";
-		String hostSMTPid = "qwertasd1981";
+		String hostSMTPid = "qwertasd1981@naver.com";
 		String hostSMTPpwd = "team4##1008";
 
 		// 보내는 사람 EMail, 제목, 내용
-		String fromEmail = "qwertasd1981@naver.com";
+		String fromEmail = "itschoolteam4@gmail.com";
 		String fromName = "Spring Homepage";
 		String subject = "";
 		String msg = "";

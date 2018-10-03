@@ -167,7 +167,7 @@ public class CommunityController {
 	 
 	            String fileName = upload.getOriginalFilename();
 	            byte[] bytes = upload.getBytes();
-	            String uploadPath = "http://58.224.18.161:8020/simplerpg-web/resources/fileupload/" + fileName;//저장경로
+	            String uploadPath = "/var/lib/tomcat8/webapps/simplerpg-web/resources/fileupload/" + fileName;//저장경로
 	            
 	            out = new FileOutputStream(new File(uploadPath));
 	            out.write(bytes);
