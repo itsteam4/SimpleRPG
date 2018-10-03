@@ -9,8 +9,7 @@ public class Member {
 	private int phone1;
 	private int phone2;
 	private int phone3;
-	private String email1;
-	private String email2;
+	private String email;
 	private String addr1;
 	private String addr2;
 	private String addr3;
@@ -45,17 +44,11 @@ public class Member {
 	public void setPhone3(int phone3) {
 		this.phone3 = phone3;
 	}
-	public String getEmail1() {
-		return email1;
+	public String getEmail() {
+		return email;
 	}
-	public void setEmail1(String email1) {
-		this.email1 = email1;
-	}
-	public String getEmail2() {
-		return email2;
-	}
-	public void setEmail2(String email2) {
-		this.email2 = email2;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getAddr1() {
 		return addr1;
