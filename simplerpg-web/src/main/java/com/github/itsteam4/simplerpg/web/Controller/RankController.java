@@ -71,16 +71,26 @@ public class RankController {
 		MemberDAO mdao = sqlSession.getMapper(MemberDAO.class);
 		RankInfoDao idao = sqlSession.getMapper(RankInfoDao.class);
 		RankUserDataDao rudao = sqlSession.getMapper(RankUserDataDao.class);
+		UserDataDao UDD = sqlSession.getMapper(UserDataDao.class);
 		
-		UserData ruserdatas = rudao.userDataLoding(id);
+		String testuser = id;	
+		int getId = UDD.searchID(testuser);		
+		
+		if(getId == 0) {
+			UDD.insertUser(testuser);		
+		}else if(getId == 1) {
+			
+		}
+		
+		/*UserData ruserdatas = rudao.userDataLoding(id);
 		Member members = mdao.selectOne(id);
 		ArrayList<RankVisitbook> rankvisitbooks = idao.selectAll(id); 
-		ArrayList<UserData> userdatas = rudao.selectuserAll(id);
+		ArrayList<UserData> userdatas = rudao.selectuserAll(id);*/
 		UserData rankfind = rudao.selectOne(id);
 		ArrayList<UserData> ranklist = rudao.rankList(userdata);
 		
 		String myrank = rankfind.getRank();
-		int rowcount = rudao.selectrankCount(id);
+		//int rowcount = rudao.selectrankCount(id);
 		
 		int pagesize = 10;
 		int startrow = 0;
@@ -90,21 +100,21 @@ public class RankController {
 		rankvisitbooknumber.setEndrow(endrow);
 		
 		ArrayList<UserData> pageusers = rudao.pageList(ranknumber);
-		int absPage = 1;
+		/*int absPage = 1;
 		if(rowcount % pagesize == 0)
 			absPage = 0;
 		int pageCount = rowcount / pagesize + absPage;
 		int[] pages = new int[pageCount];
 		for(int i = 0; i <pageCount;i++) {
 			pages[i] = i+1;
-		}
+		}*/
 		
 		
-		model.addAttribute("members",members);
+		/*model.addAttribute("members",members);
 		model.addAttribute("ruserdatas",ruserdatas);
-		model.addAttribute("userdatas",userdatas);
+		model.addAttribute("userdatas",userdatas);*/
 		model.addAttribute("pageusers",pageusers);
-		model.addAttribute("pages",pages);
+		/*model.addAttribute("pages",pages);*/
 		model.addAttribute("myrank",myrank);
 		model.addAttribute("ranklist",ranklist);
 		
