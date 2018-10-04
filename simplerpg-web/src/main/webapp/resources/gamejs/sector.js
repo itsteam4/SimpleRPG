@@ -140,6 +140,22 @@ function sectorinfo(){
 		orc8_2_xy = [999, 999];
 	}
 	
+	if(sectorNum == 9){
+		if(goust9_1alive){
+			goust9_1_xy = [288, 480];
+		}
+		if(orc9_2alive){
+			orc9_2_xy = [192, 224];
+		}
+		if(orc9_3alive){
+			orc9_3_xy = [416, 224];
+		}
+	}else {
+		goust9_1_xy = [999, 999];
+		orc9_2_xy = [999, 999];
+		orc9_3_xy = [999, 999];
+	}
+	
 	if(sectorNum == 10){
 		if(goblin10_1alive){
 			goblin10_1_xy = [288, 352];
@@ -202,5 +218,21 @@ function sectorinfo(){
 		orcboss13_1_xy = [999, 999];
 		orc13_2_xy = [999, 999];
 		orc13_3_xy = [999, 999];
+	}
+	
+	if(sectorNum == 14){
+		if(goust14_1alive){
+			goust14_1_xy = [256,224];
+		}
+		if(goust14_2alive){
+			goust14_2_xy = [352,224];
+		}
+		if(lastboss14_3alive){
+			lastboss14_3_xy = [320,320];
+		}
+	}else {
+		goust14_1_xy = [999, 999];
+		goust14_2_xy = [999, 999];
+		lastboss14_3_xy = [999, 999]
 	}
 }

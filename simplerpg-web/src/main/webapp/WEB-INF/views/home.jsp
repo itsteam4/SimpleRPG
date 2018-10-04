@@ -23,7 +23,7 @@
 					<img src="resources/image/mainpage/board_icon_01.png" alt="공지" style="margin:0;padding:0;border:0;
 					font-size:100%;">
 					</dt>
-					<c:forEach var="board" items="${boards}" >
+					<%-- <c:forEach var="board" items="${boards}" >		김승현입니다. 이부분 오류나서 일단 주석처리만 했습니다. 작업하실때 그대로 주석 삭제하시면 될꺼예용
 					<dd style="width:100%; height:30px; margin-top:10px;">
 						<span style="width:100%; font-size:25px; margin-top:30px;">
 						<a href="boardpagelistform" style="color:#c4a26e; text-decoration:none;
@@ -45,7 +45,7 @@
 							${board.b_content}
 						</a>
 					</dd>
-					</c:forEach>
+					</c:forEach> --%>
 				</dl>
 			</li>	
 			

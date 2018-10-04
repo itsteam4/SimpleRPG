@@ -1750,6 +1750,253 @@
 		}, 20000);
 	}
 	
+		//sector 9
+	//goust9_1 정보
+	var goust9_1_xy = [288, 480];
+	function Goust9_1(goust9_1_xy){
+		this.goust9_1hp = 160;
+		this.goust9_1power = 25;
+	}
+	
+	//goust9_1전투 로직
+	function goust9_1Battle(){
+		if(Uattack == true){
+
+			userAttackSound(); 	//오디오의 효과음 
+
+			goust9_1hp -= userpower;
+			userhp -= goust9_1power;
+			Uattack = false;
+		}
+
+		if(goust9_1hp <= 0){		//goust9_1 사망시
+			goust9_1alive = false;
+			userkill ++;
+			userex += 250;
+			
+			var drop = Math.floor(Math.random() * (10 - 1 + 1)) + 1;		//아이템 드랍 후 유저 정보 수정
+			if(drop <= 3){
+				if(item[0] < 4){
+					
+					switch(item[0]){		//기존의 장비를 검사후 보너스 삭제
+					case 0:
+						break;
+					case 1:
+						userpower -= 2;
+						break;
+					case 2:
+						userpower -= 4;
+						break;
+					case 3:
+						userpower -= 8;
+						break;
+					}
+					
+					item[0] = 4;
+					userpower += 12;
+					alert("유령소드 획득!");
+				}
+			}else if(drop >= 8){
+				if(item[1] < 4){
+					switch(item[1]){		//기존 아이템을 검사후 보너스 삭제
+					case 0:
+						break;
+					case 1:
+						usermaxhp -= 10;
+						break;
+					case 2:
+						usermaxhp -= 20;
+						break;
+					case 3:
+						usermaxhp -= 40;
+						break;
+					}
+					
+					item[1] = 4;
+					usermaxhp += 60;
+					alert("유령쉴드 획득!");
+				}
+			}
+			ItemChenge();
+			goust9_1_xy = [999, 999];
+			goust9_1Dead();
+		}
+		if(userhp < 0){		//유저 사망시
+			useralive = false;
+		}
+
+	}
+	
+	//goust9_1 리젠
+	function goust9_1Dead(){
+		setTimeout(function(){ 
+			goust9_1_xy = [288, 480];
+			goust9_1alive = true; 
+			goust9_1hp = 160; 
+			sectorinfo();
+		}, 20000);
+	}
+	
+	//orc9_2 정보
+	var orc9_2_xy = [192, 224];
+	function Orc9_2(orc9_2_xy){
+		this.orc9_2hp = 150;
+		this.orc9_2power = 20;
+	}
+	
+	//orc9_2전투 로직
+	function orc9_2Battle(){
+		if(Uattack == true){
+
+			userAttackSound(); 	//오디오의 효과음 
+
+			orc9_2hp -= userpower;
+			userhp -= orc9_2power;
+			Uattack = false;
+		}
+
+		if(orc9_2hp <= 0){		//orc9_2 사망시
+			orc9_2alive = false;
+			userkill ++;
+			userex += 100;
+			
+			var drop = Math.floor(Math.random() * (10 - 1 + 1)) + 1;		//아이템 드랍 후 유저 정보 수정
+			if(drop <= 3){
+				if(item[0] < 3){
+					
+					switch(item[0]){		//기존의 장비를 검사후 보너스 삭제
+					case 0:
+						break;
+					case 1:
+						userpower -= 2;
+						break;
+					case 2:
+						userpower -= 4;
+						break;
+					}
+					
+					item[0] = 3;
+					userpower += 8;
+					alert("강철소드 획득!");
+				}
+			}else if(drop >= 8){
+				if(item[1] < 3){
+					switch(item[1]){		//기존 아이템을 검사후 보너스 삭제
+					case 0:
+						break;
+					case 1:
+						usermaxhp -= 10;
+						break;
+					case 2:
+						usermaxhp -= 20;
+						break;
+					}
+					
+					item[1] = 3;
+					usermaxhp += 40;
+					alert("강철쉴드 획득!");
+				}
+			}
+			ItemChenge();
+			orc9_2_xy = [999, 999];
+			orc9_2Dead();
+		}
+		if(userhp < 0){		//유저 사망시
+			useralive = false;
+		}
+
+	}
+
+	//orc9_2 리젠
+	function orc9_2Dead(){
+		setTimeout(function(){ 
+			orc9_2_xy = [192, 224];
+			orc9_2alive = true; 
+			orc9_2hp = 150; 
+			sectorinfo();
+		}, 20000);
+	}
+	
+	//orc9_3 정보
+	var orc9_3_xy = [416, 224];
+	function Orc9_3(orc9_3_xy){
+		this.orc9_3hp = 150;
+		this.orc9_3power = 20;
+	}
+	
+	//orc9_3전투 로직
+	function orc9_3Battle(){
+		if(Uattack == true){
+
+			userAttackSound(); 	//오디오의 효과음 
+
+			orc9_3hp -= userpower;
+			userhp -= orc9_3power;
+			Uattack = false;
+		}
+
+		if(orc9_3hp <= 0){		//orc9_3 사망시
+			orc9_3alive = false;
+			userkill ++;
+			userex += 100;
+			
+			var drop = Math.floor(Math.random() * (10 - 1 + 1)) + 1;		//아이템 드랍 후 유저 정보 수정
+			if(drop <= 3){
+				if(item[0] < 3){
+					
+					switch(item[0]){		//기존의 장비를 검사후 보너스 삭제
+					case 0:
+						break;
+					case 1:
+						userpower -= 2;
+						break;
+					case 2:
+						userpower -= 4;
+						break;
+					}
+					
+					item[0] = 3;
+					userpower += 8;
+					alert("강철소드 획득!");
+				}
+			}else if(drop >= 8){
+				if(item[1] < 3){
+					switch(item[1]){		//기존 아이템을 검사후 보너스 삭제
+					case 0:
+						break;
+					case 1:
+						usermaxhp -= 10;
+						break;
+					case 2:
+						usermaxhp -= 20;
+						break;
+					}
+					
+					item[1] = 3;
+					usermaxhp += 40;
+					alert("강철쉴드 획득!");
+				}
+			}
+			ItemChenge();
+			orc9_3_xy = [999, 999];
+			orc9_3Dead();
+		}
+		if(userhp < 0){		//유저 사망시
+			useralive = false;
+		}
+
+	}
+
+	//orc9_3 리젠
+	function orc9_3Dead(){
+		setTimeout(function(){ 
+			orc9_3_xy = [416, 224];
+			orc9_3alive = true; 
+			orc9_3hp = 150; 
+			sectorinfo();
+		}, 20000);
+	}
+	
 		//sector 10
 	//goblin10_1 정보
 	var goblin10_1_xy = [288, 352];
@@ -2617,6 +2864,271 @@
 			orc13_3_xy = [352, 384];
 			orc13_3alive = true; 
 			orc13_3hp = 150; 
+			sectorinfo();
+		}, 20000);
+	}
+	
+		//sector 14
+	//goust14_1 정보
+	var goust14_1_xy = [256, 224];
+	function Goust14_1(goust14_1_xy){
+		this.goust14_1hp = 160;
+		this.goust14_1power = 25;
+	}
+	
+	//goust14_1전투 로직
+	function goust14_1Battle(){
+		if(Uattack == true){
+
+			userAttackSound(); 	//오디오의 효과음 
+
+			goust14_1hp -= userpower;
+			userhp -= goust14_1power;
+			Uattack = false;
+		}
+
+		if(goust14_1hp <= 0){		//goust14_1 사망시
+			goust14_1alive = false;
+			userkill ++;
+			userex += 250;
+			
+			var drop = Math.floor(Math.random() * (10 - 1 + 1)) + 1;		//아이템 드랍 후 유저 정보 수정
+			if(drop <= 3){
+				if(item[0] < 4){
+					
+					switch(item[0]){		//기존의 장비를 검사후 보너스 삭제
+					case 0:
+						break;
+					case 1:
+						userpower -= 2;
+						break;
+					case 2:
+						userpower -= 4;
+						break;
+					case 3:
+						userpower -= 8;
+						break;
+					}
+					
+					item[0] = 4;
+					userpower += 12;
+					alert("유령소드 획득!");
+				}
+			}else if(drop >= 8){
+				if(item[1] < 4){
+					switch(item[1]){		//기존 아이템을 검사후 보너스 삭제
+					case 0:
+						break;
+					case 1:
+						usermaxhp -= 10;
+						break;
+					case 2:
+						usermaxhp -= 20;
+						break;
+					case 3:
+						usermaxhp -= 40;
+						break;
+					}
+					
+					item[1] = 4;
+					usermaxhp += 60;
+					alert("유령쉴드 획득!");
+				}
+			}
+			ItemChenge();
+			goust14_1_xy = [999, 999];
+			goust14_1Dead();
+		}
+		if(userhp < 0){		//유저 사망시
+			useralive = false;
+		}
+
+	}
+	
+	//goust14_1 리젠
+	function goust14_1Dead(){
+		setTimeout(function(){ 
+			goust14_1_xy = [256, 224];
+			goust14_1alive = true; 
+			goust14_1hp = 160; 
+			sectorinfo();
+		}, 20000);
+	}
+	
+	//goust14_2 정보
+	var goust14_2_xy = [352, 224];
+	function Goust14_2(goust14_2_xy){
+		this.goust14_2hp = 160;
+		this.goust14_2power = 25;
+	}
+	
+	//goust14_2전투 로직
+	function goust14_2Battle(){
+		if(Uattack == true){
+
+			userAttackSound(); 	//오디오의 효과음 
+
+			goust14_2hp -= userpower;
+			userhp -= goust14_2power;
+			Uattack = false;
+		}
+
+		if(goust14_2hp <= 0){		//goust14_2 사망시
+			goust14_2alive = false;
+			userkill ++;
+			userex += 250;
+			
+			var drop = Math.floor(Math.random() * (10 - 1 + 1)) + 1;		//아이템 드랍 후 유저 정보 수정
+			if(drop <= 3){
+				if(item[0] < 4){
+					
+					switch(item[0]){		//기존의 장비를 검사후 보너스 삭제
+					case 0:
+						break;
+					case 1:
+						userpower -= 2;
+						break;
+					case 2:
+						userpower -= 4;
+						break;
+					case 3:
+						userpower -= 8;
+						break;
+					}
+					
+					item[0] = 4;
+					userpower += 12;
+					alert("유령소드 획득!");
+				}
+			}else if(drop >= 8){
+				if(item[1] < 4){
+					switch(item[1]){		//기존 아이템을 검사후 보너스 삭제
+					case 0:
+						break;
+					case 1:
+						usermaxhp -= 10;
+						break;
+					case 2:
+						usermaxhp -= 20;
+						break;
+					case 3:
+						usermaxhp -= 40;
+						break;
+					}
+					
+					item[1] = 4;
+					usermaxhp += 60;
+					alert("유령쉴드 획득!");
+				}
+			}
+			ItemChenge();
+			goust14_2_xy = [999, 999];
+			goust14_2Dead();
+		}
+		if(userhp < 0){		//유저 사망시
+			useralive = false;
+		}
+
+	}
+	
+	//goust14_2 리젠
+	function goust14_2Dead(){
+		setTimeout(function(){ 
+			goust14_2_xy = [352, 224];
+			goust14_2alive = true; 
+			goust14_2hp = 160; 
+			sectorinfo();
+		}, 20000);
+	}
+	
+	//lastboss14_3 정보
+	var lastboss14_3_xy = [320, 320];
+	function LastBoss14_3(lastboss14_3_xy){
+		this.lastboss14_3hp = 250;
+		this.lastboss14_3power = 30;
+	}
+	
+	//lastboss14_3전투 로직
+	function lastboss14_3Battle(){
+		if(Uattack == true){
+
+			userAttackSound(); 	//오디오의 효과음 
+
+			lastboss14_3hp -= userpower;
+			userhp -= lastboss14_3power;
+			Uattack = false;
+		}
+
+		if(lastboss14_3hp <= 0){		//lastboss14_3 사망시
+			lastboss14_3alive = false;
+			userkill ++;
+			userex += 400;
+			
+			var drop = Math.floor(Math.random() * (10 - 1 + 1)) + 1;		//아이템 드랍 후 유저 정보 수정
+			if(drop <= 3){
+				if(item[0] < 5){
+					
+					switch(item[0]){		//기존의 장비를 검사후 보너스 삭제
+					case 0:
+						break;
+					case 1:
+						userpower -= 2;
+						break;
+					case 2:
+						userpower -= 4;
+						break;
+					case 3:
+						userpower -= 8;
+						break;
+					case 4:
+						userpower -= 12;
+						break;
+					}
+					
+					item[0] = 5;
+					userpower += 20;
+					alert("황금소드 획득!");
+				}
+			}else if(drop >= 8){
+				if(item[1] < 5){
+					switch(item[1]){		//기존 아이템을 검사후 보너스 삭제
+					case 0:
+						break;
+					case 1:
+						usermaxhp -= 10;
+						break;
+					case 2:
+						usermaxhp -= 20;
+						break;
+					case 3:
+						usermaxhp -= 40;
+						break;
+					case 4:
+						usermaxhp -= 60;
+						break;
+					}
+					
+					item[1] = 5;
+					usermaxhp += 80;
+					alert("황금쉴드 획득!");
+				}
+			}
+			ItemChenge();
+			lastboss14_3_xy = [999, 999];
+			lastboss14_3Dead();
+		}
+		if(userhp < 0){		//유저 사망시
+			useralive = false;
+		}
+
+	}
+	
+	//lastboss14_3 리젠
+	function lastboss14_3Dead(){
+		setTimeout(function(){ 
+			lastboss14_3_xy = [320, 320];
+			lastboss14_3alive = true; 
+			lastboss14_3hp = 250; 
 			sectorinfo();
 		}, 20000);
 	}

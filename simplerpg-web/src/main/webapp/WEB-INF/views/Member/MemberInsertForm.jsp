@@ -75,9 +75,7 @@
 					<div class="input-group-prepend">
 						<span class="input-group-text" style="width: 100px"><i class="fa fa-id-card-o" aria-hidden="true">이메일</i></span>
 					</div>
-					<input type="text" class="form-control" id="email1" name="email1" value="">
-					<label>@</label>
-					<input type="text" class="form-control" id="email2" name="email2" value="">
+					<input type="text" class="form-control" id="email" name="email" value="">
 				</div>
 			</div>
 			
