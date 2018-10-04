@@ -1,6 +1,8 @@
 package com.github.itsteam4.simplerpg.web.Controller;
 
 import java.util.ArrayList;
+import java.util.Locale;
+
 
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
@@ -74,6 +76,4 @@ public class HomeController {
 		
 		return "home";
 	}
-	
-	
 }

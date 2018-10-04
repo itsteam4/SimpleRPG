@@ -281,6 +281,7 @@ var userattack = setInterval(function (){	//유저 공격 딜레이
 		$("#score").val(userscore);
 		$("#sector").val(usersector);
 		
+		
 	}
 	
 	var userdataUpdate = setInterval(function (){	// 5초 마다 유저 정보 업데이트
@@ -384,5 +385,43 @@ var userattack = setInterval(function (){	//유저 공격 딜레이
 			userIt = 2176;
 		}else if(item[0] == 5 && item[1] == 5){
 			userIt = 2240;
+		}
+		
+		if(item[0] == 0){  //이미지 체인지
+			$("#wepon").attr('src', "resources/gamejs/imgs/wepon1.png");
+		}
+		if(item[0] == 1){
+			$("#wepon").attr('src', "resources/gamejs/imgs/wepon2.png");
+		}
+		if(item[0] == 2){
+			$("#wepon").attr('src', "resources/gamejs/imgs/wepon3.png");
+		}
+		if(item[0] == 3){
+			$("#wepon").attr('src', "resources/gamejs/imgs/wepon4.png");
+		}
+		if(item[0] == 4){
+			$("#wepon").attr('src', "resources/gamejs/imgs/wepon5.png");
+		}
+		if(item[0] == 5){
+			$("#wepon").attr('src', "resources/gamejs/imgs/wepon6.png");
+		}
+		
+		if(item[1] == 0){
+			$("#gard").attr('src', "resources/gamejs/imgs/gard1.png");
+		}
+		if(item[1] == 1){
+			$("#gard").attr('src', "resources/gamejs/imgs/gard2.png");
+		}
+		if(item[1] == 2){
+			$("#gard").attr('src', "resources/gamejs/imgs/gard3.png");
+		}
+		if(item[1] == 3){
+			$("#gard").attr('src', "resources/gamejs/imgs/gard4.png");
+		}
+		if(item[1] == 4){
+			$("#gard").attr('src', "resources/gamejs/imgs/gard5.png");
+		}
+		if(item[1] == 5){
+			$("#gard").attr('src', "resources/gamejs/imgs/gard6.png");
 		}
 	}

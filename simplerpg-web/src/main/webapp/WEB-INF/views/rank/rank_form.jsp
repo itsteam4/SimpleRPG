@@ -68,7 +68,7 @@
 							 width:230px; height:42px; font-size:20px; display:inline-block;
 							 text-decoration:none; padding-right:18px;
 						 	">
-						 	현재순위</a>
+						 	현재 나의 순위</a>
 						</div>
 					</div>
 					</div>

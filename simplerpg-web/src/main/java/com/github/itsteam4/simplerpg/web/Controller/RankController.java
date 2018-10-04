@@ -71,6 +71,16 @@ public class RankController {
 		MemberDAO mdao = sqlSession.getMapper(MemberDAO.class);
 		RankInfoDao idao = sqlSession.getMapper(RankInfoDao.class);
 		RankUserDataDao rudao = sqlSession.getMapper(RankUserDataDao.class);
+		UserDataDao UDD = sqlSession.getMapper(UserDataDao.class);
+		
+		String testuser = id;	
+		int getId = UDD.searchID(testuser);		
+		
+		if(getId == 0) {
+			UDD.insertUser(testuser);		
+		}else if(getId == 1) {
+			
+		}
 		
 		UserData ruserdatas = rudao.userDataLoding(id);
 		Member members = mdao.selectOne(id);
