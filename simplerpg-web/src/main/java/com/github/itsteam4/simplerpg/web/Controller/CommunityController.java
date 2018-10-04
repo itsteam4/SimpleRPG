@@ -156,25 +156,27 @@ public class CommunityController {
 	}
 //	ck에디터 사진 업로드 구현
 	 @RequestMapping(value = "/resources/fileupload", method = RequestMethod.POST)
-	    public void communityImageUpload(HttpServletRequest request, HttpServletResponse response, @RequestParam MultipartFile upload) {
+	    public void communityImageUpload(HttpSession session,HttpServletRequest request, HttpServletResponse response, @RequestParam MultipartFile upload) {
 		 	System.out.println("컨트롤러");
 	        OutputStream out = null;
 	        PrintWriter printWriter = null;
 	        response.setCharacterEncoding("utf-8");
 	        response.setContentType("text/html;charset=utf-8");
-	 
+	        
 	        try{
 	 
 	            String fileName = upload.getOriginalFilename();
 	            byte[] bytes = upload.getBytes();
-	            String uploadPath = "/var/lib/tomcat8/webapps/simplerpg-web/resources/fileupload/" + fileName;//저장경로
-	            
-	            out = new FileOutputStream(new File(uploadPath));
+//	            String uploadPath = "/var/lib/tomcat8/webapps/simplerpg-web/resources/fileupload/" + fileName;//저장경로
+	            String uploadPath = session.getServletContext().getRealPath("/");
+	            String realPath = session.getServletContext().getContextPath()+"/resources/fileupload/";
+	            String uploadFile = uploadPath+"resources/fileupload/"+fileName;
+	            out = new FileOutputStream(new File(uploadFile));
 	            out.write(bytes);
 	            String callback = request.getParameter("CKEditorFuncNum");
 	            System.out.println(callback);
 	            printWriter = response.getWriter();
-	            String fileUrl =request.getContextPath()+"/fileupload/"+ fileName;
+	            String fileUrl =realPath+fileName;
 	            System.out.println(fileUrl);
 	            String script="<script>window.parent.CKEDITOR.tools.callFunction(";
 	    	    script +=callback;

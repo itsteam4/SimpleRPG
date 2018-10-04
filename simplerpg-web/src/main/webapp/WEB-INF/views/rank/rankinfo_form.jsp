@@ -221,14 +221,14 @@
             				</c:when>
             				<c:when test="${ruserdatas.itemA == 4}">
             					<a onmouseover="weaponOn4()" onmouseout="weaponOut4()">
-            					<img src="resources/image/rank/item21.jpg" alt="희귀소드" style= "width:54px; height:52px;
+            					<img src="resources/image/rank/item21.jpg" alt="유령소드" style= "width:54px; height:52px;
 				         		 		 cursor:pointer; margin-left:10px; float:left;
 				         		 		 " >
 		         		 		 </a>
             				</c:when>
             				<c:when test="${ruserdatas.itemA == 5}">
             					<a onmouseover="weaponOn5()" onmouseout="weaponOut5()">
-            					<img src="resources/image/rank/item11.jpg" alt="전설소드" style= "width:54px; height:52px;
+            					<img src="resources/image/rank/item11.jpg" alt="황금소드" style= "width:54px; height:52px;
 				         		 		 cursor:pointer; margin-left:10px; float:left;
 				         		 		 " >
 		         		 		 </a>
@@ -266,14 +266,14 @@
             				</c:when>
             				<c:when test="${ruserdatas.itemD == 4}">
             					<a onmouseover="defenseOn4()" onmouseout="defenseOut4()">
-            					<img src="resources/image/rank/item22.jpg" alt="희귀쉴드" style= "width:54px; height:52px;
+            					<img src="resources/image/rank/item22.jpg" alt="유령쉴드" style= "width:54px; height:52px;
 				         		 		left:425px;cursor:pointer; margin-right:13px; float:right;
 				         		 		 " >
 		         		 		 </a>
             				</c:when>
             				<c:when test="${ruserdatas.itemD == 5}">
             					<a onmouseover="defenseOn5()" onmouseout="defenseOut5()">
-            					<img src="resources/image/rank/item10.jpg" alt="전설쉴드" style= "width:54px; height:52px;
+            					<img src="resources/image/rank/item10.jpg" alt="황금쉴드" style= "width:54px; height:52px;
 				         		 		left:425px;cursor:pointer; margin-right:13px; float:right;
 				         		 		 " >
 		         		 		 </a>
@@ -403,7 +403,7 @@
 		                            <span class="pull-left" style="width:184px; height:34px;padding-top:4px;
 		                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
 		                            background-position:10px 7px; border-left:1px solid #fff;
-		                            ">희귀 소드</span>
+		                            ">유령 소드</span>
 		                        </li>
             				</c:when>
             				<c:when test="${ruserdatas.itemA == 5}">
@@ -417,7 +417,7 @@
 		                            <span class="pull-left" style="width:184px; height:34px;padding-top:4px;
 		                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
 		                            background-position:10px 7px; border-left:1px solid #fff;
-		                            ">전설 소드</span>
+		                            ">황금 소드</span>
 		                        </li>
             				</c:when>
             				<c:otherwise>
@@ -514,7 +514,7 @@
 		                            <span class="pull-left" style="width:184px; height:34px;padding-top:4px;
 		                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
 		                            background-position:10px 7px; border-left:1px solid #fff;
-		                            ">희귀 쉴드</span>
+		                            ">유령 쉴드</span>
 		                        </li>
             				</c:when>
             				<c:when test="${ruserdatas.itemD == 5}">
@@ -528,7 +528,7 @@
 		                            <span class="pull-left" style="width:184px; height:34px;padding-top:4px;
 		                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
 		                            background-position:10px 7px; border-left:1px solid #fff;
-		                            ">전설 쉴드</span>
+		                            ">황금 쉴드</span>
 		                        </li>
             				</c:when>
             				<c:otherwise>

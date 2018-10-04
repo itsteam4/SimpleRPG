@@ -3,6 +3,7 @@ package com.github.itsteam4.simplerpg.web.Controller;
 import java.util.ArrayList;
 import java.util.Locale;
 
+
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,13 +13,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.github.itsteam4.simplerpg.web.client.entity.UserData;
 import com.github.itsteam4.simplerpg.web.entity.Board;
 import com.github.itsteam4.simplerpg.web.entity.BoardPaging;
 import com.github.itsteam4.simplerpg.web.entity.FreeBoard;
-import com.github.itsteam4.simplerpg.web.service.BoardDao;
 import com.github.itsteam4.simplerpg.web.service.FreeBoardDAO;
 import com.github.itsteam4.simplerpg.web.service.HomeDao;
 import com.github.itsteam4.simplerpg.web.service.RankUserDataDao;

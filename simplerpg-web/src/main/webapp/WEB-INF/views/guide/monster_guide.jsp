@@ -106,9 +106,51 @@
 					</a>
 				</div>
 				<div class="col-md-6">
+					<h3 style="color: #FF4500">중간 보스</h3>
+					<p>
+					<br><br>
+						중간보스는 요정 도우미들의 경호를 받고있다.<br>
+						숲속의 깊은 구역에 서식 하며, 육식을 주로 한다.<br>
+						끝판왕을 만나기 위해서는 꼭, 중간 보스를 사냥해야한다.<br>
+						중간보스 사냥에 꼭 성공하길....<br>
+						
+					</p>
+				</div>
+			</div>
+			
+			<hr>
+			<div class="row">
+				<div class="col-md-6">
+					<a href="#"> <img class="img-fluid rounded mb-3 mb-md-0"
+						src="resources/image/guide/99.jpg" alt="">
+					</a>
+				</div>
+				<div class="col-md-6">
+					<h3 style="color: #FF4500">문지기 닌자</h3>
+					<p>
+					<br>
+						문지기 닌자는 주로 끝판왕이 있는 <br>
+						주변에 닌자 처럼 서식한다. <br>
+						문지기 닌자를 처리해야 만이 끝판왕을 만날 수 있다.<br>
+						혹시 문지기 닌자를 사냥했다면, 유령 쉴드와 유령 소드를<br>
+						획득할 수 있는 기회가 생긴다.<br>
+						이름이 문지기라고 해서 방심하면 큰일이다.<br>
+						
+					</p>
+				</div>
+			</div>
+			
+			<hr>
+			<div class="row">
+				<div class="col-md-6">
+					<a href="#"> <img class="img-fluid rounded mb-3 mb-md-0"
+						src="resources/image/guide/999.jpg" alt="">
+					</a>
+				</div>
+				<div class="col-md-6">
 					<h3 style="color: #FF4500">끝판왕</h3>
 					<p>
-					<br><br><br>
+					<br><br>
 						이름 처럼 더 설명할 필요 없이 그냥 끝판왕이다.<br>
 						끝판왕을 들어본 사람은 있지만, 아직 만나본 사람은 아무도 없다.<br>
 						수 많은 소문만이 끝판왕의 존재의 유무를 알게 할 뿐,<br>
