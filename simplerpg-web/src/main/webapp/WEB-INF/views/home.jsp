@@ -23,7 +23,7 @@
 					<img src="resources/image/mainpage/board_icon_01.png" alt="공지" style="margin:0;padding:0;border:0;
 					font-size:100%;">
 					</dt>
-					<c:forEach var="board" items="${boards}" >
+					<%-- <c:forEach var="board" items="${boards}" >		김승현입니다. 이부분 오류나서 일단 주석처리만 했습니다. 작업하실때 그대로 주석 삭제하시면 될꺼예용
 					<dd style="width:100%; height:30px; margin-top:10px;">
 						<span style="width:100%; font-size:25px; margin-top:30px;">
 						<a href="boardpagelistform" style="color:#c4a26e; text-decoration:none;
@@ -45,7 +45,7 @@
 							${board.b_content}
 						</a>
 					</dd>
-					</c:forEach>
+					</c:forEach> --%>
 				</dl>
 			</li>	
 			
@@ -94,12 +94,12 @@
 					<c:forEach var="ranklista" items="${ranklist}" >
 					<dd style="width:100%; height:30px; margin-top:10px;">
 						<span style="width:100%; font-size:25px; margin-top:30px;">
-						<a href="rankform" style="color:#c4a26e; text-decoration:none;">순위</a>
+						<a href="rankform?id=${sessionid}" style="color:#c4a26e; text-decoration:none;">순위</a>
 					</span>
 					</dd>
 					<dd style="width:210px; height:36px; text-align:center; color:#231f20; font-size:18px;
 					margin-top:30px;  margin-left:27px;">
-						<a href="rankform" style="color:#231f20; text-decoration:none;">${ranklista.id}</a>
+						<a href="rankMove?id=${ranklista.id}" style="color:#231f20; text-decoration:none;">${ranklista.id}</a>
 					</dd>
 					<dd
 					style="width:100%; text-align:center; font-size:14px; color:#a7a9ac; margin-top:0px;">
@@ -108,9 +108,7 @@
 					</dd>
 					<dd style="overflow:hidden; width:210px; height:60px; text-align:center; font-size:14px;
 					color:#736a6c; margin-top:15px; margin-left:27px;">
-						<a href="rankform" style="text-decoration:none; color:#736a6c;">
 							1위가 되신걸 축하드립니다.
-						</a>
 					</dd>
 					</c:forEach>
 				</dl>
