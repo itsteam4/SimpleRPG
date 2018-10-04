@@ -95,7 +95,7 @@
     	<input id="gid" name="gid" type="text" value="${sessionid}" style="display:none;">
     		<c:if test="${sessionid != null }">
     			<button id="startbtn" type="submit" style="background:url('resources/image/mainpage/start_btn.jpg') no-repeat 0 0; 
-					width:100%; height:100%; 
+					width:289px; height:152px; 
 					position:absolute; top:110px; left:1150px; overflow:hidden;border:0; outline:0;
 					cursor:pointer; "></button>
     		</c:if>
