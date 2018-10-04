@@ -26,13 +26,13 @@ public class InGameController {
 		
 		UserDataDao UDD = sqlSession.getMapper(UserDataDao.class);
 		
-		String testuser = gid;		//나중에 세션으로 아이디 받음
-		int getId = UDD.searchID(testuser);		//계정이 이미 케릭터가 있는지 검사
+		String testuser = gid;		
+		int getId = UDD.searchID(testuser);		
 		
 		if(getId == 0) {
-			UDD.insertUser(testuser);		//없다면 샘성
+			UDD.insertUser(testuser);		
 		}else if(getId == 1) {
-			//플레이 했던 유저라면 여기서 db의 값을 가져옴 라켔는데 gamejs에서 처리함
+			
 		}
 		model.addAttribute("id", testuser);
 		

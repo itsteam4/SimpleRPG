@@ -19,7 +19,7 @@ function onMouseClick(e){		//클릭하면 update 로 좌표보냄
 		col = ocol;
 		row = orow;
 	}
-	alert(col*32+"/"+row*32);
+	//alert(col*32+"/"+row*32); 클릭위치 띄우기!
 	var tileId = (row * 19) + (col + row);
 }
 
@@ -96,59 +96,50 @@ function Update(){
 	}
 	
 	
-	//slime전투 시작 or 충돌감지
-	if(user_xy[0] == slime_xy[0] && user_xy[1] == slime_xy[1]){
-		slimeBattle();
-	}
-	if(user_xy[0] == slime_xy1[0] && user_xy[1] == slime_xy1[1]){
-		slime1Battle();
-	}
-	if(user_xy[0] == slime_xy2[0] && user_xy[1] == slime_xy2[1]){
-		slime2Battle();
-	}
-	if(user_xy[0] == slime5_2_xy[0] && user_xy[1] == slime5_2_xy[1]){
-		slime5_2Battle();
-	}
-	if(user_xy[0] == slime5_3_xy[0] && user_xy[1] == slime5_3_xy[1]){
-		slime5_3Battle();
-	}
-	if(user_xy[0] == goblin10_1_xy[0] && user_xy[1] == goblin10_1_xy[1]){
-		goblin10_1Battle();
-	}
-	if(user_xy[0] == slime10_2_xy[0] && user_xy[1] == slime10_2_xy[1]){
-		slime10_2Battle();
-	}
-	if(user_xy[0] == slime10_3_xy[0] && user_xy[1] == slime10_3_xy[1]){
-		slime10_3Battle();
-	}
-	if(user_xy[0] == slime1_1_xy[0] && user_xy[1] == slime1_1_xy[1]){
-		slime1_1Battle();
-	}
-	if(user_xy[0] == slime1_2_xy[0] && user_xy[1] == slime1_2_xy[1]){
-		slime1_2Battle();
-	}
-	if(user_xy[0] == slime1_3_xy[0] && user_xy[1] == slime1_3_xy[1]){
-		slime1_3Battle();
-	}
-	if(user_xy[0] == goblin6_1_xy[0] && user_xy[1] == goblin6_1_xy[1]){
-		goblin6_1Battle();
-	}
-	if(user_xy[0] == goblin6_2_xy[0] && user_xy[1] == goblin6_2_xy[1]){
-		goblin6_2Battle();
-	}
-	if(user_xy[0] == goblin6_3_xy[0] && user_xy[1] == goblin6_3_xy[1]){
-		goblin6_3Battle();
-	}
-	if(user_xy[0] == slime11_1_xy[0] && user_xy[1] == slime11_1_xy[1]){
-		slime11_1Battle();
-	}
-	if(user_xy[0] == goblin11_2_xy[0] && user_xy[1] == goblin11_2_xy[1]){
-		goblin11_2Battle();
-	}
-	if(user_xy[0] == goblin11_3_xy[0] && user_xy[1] == goblin11_3_xy[1]){
-		goblin11_3Battle();
-	}
-	
+	// 충돌감지 전투 시작
+	if(user_xy[0] == slime_xy[0] && user_xy[1] == slime_xy[1]) { slimeBattle(); }
+	if(user_xy[0] == slime_xy1[0] && user_xy[1] == slime_xy1[1]) { slime1Battle(); }
+	if(user_xy[0] == slime_xy2[0] && user_xy[1] == slime_xy2[1]) { slime2Battle(); }
+	if(user_xy[0] == slime5_2_xy[0] && user_xy[1] == slime5_2_xy[1]) { slime5_2Battle(); }
+	if(user_xy[0] == slime5_3_xy[0] && user_xy[1] == slime5_3_xy[1]) { slime5_3Battle(); }
+	if(user_xy[0] == goblin10_1_xy[0] && user_xy[1] == goblin10_1_xy[1]) { goblin10_1Battle(); }
+	if(user_xy[0] == slime10_2_xy[0] && user_xy[1] == slime10_2_xy[1]) { slime10_2Battle(); }
+	if(user_xy[0] == slime10_3_xy[0] && user_xy[1] == slime10_3_xy[1]) { slime10_3Battle(); }
+	if(user_xy[0] == slime1_1_xy[0] && user_xy[1] == slime1_1_xy[1]) { slime1_1Battle(); }
+	if(user_xy[0] == slime1_2_xy[0] && user_xy[1] == slime1_2_xy[1]) { slime1_2Battle(); }
+	if(user_xy[0] == slime1_3_xy[0] && user_xy[1] == slime1_3_xy[1]) { slime1_3Battle(); }
+	if(user_xy[0] == goblin6_1_xy[0] && user_xy[1] == goblin6_1_xy[1]) { goblin6_1Battle(); }
+	if(user_xy[0] == goblin6_2_xy[0] && user_xy[1] == goblin6_2_xy[1]) { goblin6_2Battle(); }
+	if(user_xy[0] == goblin6_3_xy[0] && user_xy[1] == goblin6_3_xy[1]) { goblin6_3Battle(); }
+	if(user_xy[0] == slime11_1_xy[0] && user_xy[1] == slime11_1_xy[1]) { slime11_1Battle(); }
+	if(user_xy[0] == goblin11_2_xy[0] && user_xy[1] == goblin11_2_xy[1]) { goblin11_2Battle(); }
+	if(user_xy[0] == goblin11_3_xy[0] && user_xy[1] == goblin11_3_xy[1]) { goblin11_3Battle(); }
+	if(user_xy[0] == goblin2_1_xy[0] && user_xy[1] == goblin2_1_xy[1]) { goblin2_1Battle(); }
+	if(user_xy[0] == goblin2_2_xy[0] && user_xy[1] == goblin2_2_xy[1]) { goblin2_2Battle(); }
+	if(user_xy[0] == goblin2_3_xy[0] && user_xy[1] == goblin2_3_xy[1]) { goblin2_3Battle(); }
+	if(user_xy[0] == orc7_1_xy[0] && user_xy[1] == orc7_1_xy[1]) { orc7_1Battle(orc7_1hp); }
+	if(user_xy[0] == goblin7_2_xy[0] && user_xy[1] == goblin7_2_xy[1]) { goblin7_2Battle(); }
+	if(user_xy[0] == goblin7_3_xy[0] && user_xy[1] == goblin7_3_xy[1]) { goblin7_3Battle(); }
+	if(user_xy[0] == goblin12_1_xy[0] && user_xy[1] == goblin12_1_xy[1]) { goblin12_1Battle(); }
+	if(user_xy[0] == orc12_2_xy[0] && user_xy[1] == orc12_2_xy[1]) { orc12_2Battle(); }
+	if(user_xy[0] == orc12_3_xy[0] && user_xy[1] == orc12_3_xy[1]) { orc12_3Battle(); }
+	if(user_xy[0] == goblin3_1_xy[0] && user_xy[1] == goblin3_1_xy[1]) { goblin3_1Battle(); }
+	if(user_xy[0] == goblin3_2_xy[0] && user_xy[1] == goblin3_2_xy[1]) { goblin3_2Battle(); }
+	if(user_xy[0] == orc3_3_xy[0] && user_xy[1] == orc3_3_xy[1]) { orc3_3Battle(); }
+	if(user_xy[0] == goblin8_1_xy[0] && user_xy[1] == goblin8_1_xy[1]) { goblin8_1Battle(); }
+	if(user_xy[0] == orc8_2_xy[0] && user_xy[1] == orc8_2_xy[1]) { orc8_2Battle(); }
+	if(user_xy[0] == orcboss13_1_xy[0] && user_xy[1] == orcboss13_1_xy[1]) { orcboss13_1Battle(); }
+	if(user_xy[0] == orc13_2_xy[0] && user_xy[1] == orc13_2_xy[1]) { orc13_2Battle(); }
+	if(user_xy[0] == orc13_3_xy[0] && user_xy[1] == orc13_3_xy[1]) { orc13_3Battle(); }
+	if(user_xy[0] == orc4_1_xy[0] && user_xy[1] == orc4_1_xy[1]) { orc4_1Battle(); }
+	if(user_xy[0] == orc4_2_xy[0] && user_xy[1] == orc4_2_xy[1]) { orc4_2Battle(); }
+	if(user_xy[0] == goblin4_3_xy[0] && user_xy[1] == goblin4_3_xy[1]) { goblin4_3Battle(); }
+	if(user_xy[0] == goust9_1_xy[0] && user_xy[1] == goust9_1_xy[1]) { goust9_1Battle(); }
+	if(user_xy[0] == orc9_2_xy[0] && user_xy[1] == orc9_2_xy[1]) { orc9_2Battle(); }
+	if(user_xy[0] == orc9_3_xy[0] && user_xy[1] == orc9_3_xy[1]) { orc9_3Battle(); }
+	if(user_xy[0] == goust14_1_xy[0] && user_xy[1] == goust14_1_xy[1]) { goust14_1Battle(); }
+	if(user_xy[0] == goust14_2_xy[0] && user_xy[1] == goust14_2_xy[1]) { goust14_2Battle(); }
+	if(user_xy[0] == lastboss14_3_xy[0] && user_xy[1] == lastboss14_3_xy[1]) { lastboss14_3Battle(); }
 	//전투중 유저 사망시
 	if(useralive == false){
 		userdead++;
@@ -221,7 +212,14 @@ function User(user_xy){
 					userpower += 4;
 					break;
 				case 3:
-					userpower += 6;
+					userpower += 8;
+					break;
+				case 4:
+					userpower += 12;
+					break;
+				case 5:
+					userpower += 20;
+					break;
 			}
 			switch(item[1]){
 				case 0:
@@ -233,7 +231,14 @@ function User(user_xy){
 					usermaxhp += 20;
 					break;
 				case 3:
-					usermaxhp += 30;
+					usermaxhp += 40;
+					break;
+				case 4:
+					usermaxhp += 60;
+					break;
+				case 5:
+					usermaxhp += 80;
+					break;
 			}
 			userhp = usermaxhp;
 			ItemChenge();
@@ -246,6 +251,7 @@ function User(user_xy){
 
 var userattack = setInterval(function (){	//유저 공격 딜레이
     Uattack = true;
+    sectorinfo();
 },1200/1);
 
 	function UserDataUpdate(){		//메인 프레임 마다 유저정보 업데이트
@@ -274,6 +280,7 @@ var userattack = setInterval(function (){	//유저 공격 딜레이
 		$("#shild").val(item[1]);
 		$("#score").val(userscore);
 		$("#sector").val(usersector);
+		
 		
 	}
 	
@@ -324,6 +331,97 @@ var userattack = setInterval(function (){	//유저 공격 딜레이
 			userIt = 448;
 		}else if(item[0] == 2 && item[1] == 2){
 			userIt = 512;
+		}else if(item[0] == 0 && item[1] == 3){
+			userIt = 576;
+		}else if(item[0] == 3 && item[1] == 0){
+			userIt = 640;
+		}else if(item[0] == 1 && item[1] == 3){
+			userIt = 704;
+		}else if(item[0] == 3 && item[1] == 1){
+			userIt = 768;
+		}else if(item[0] == 2 && item[1] == 3){
+			userIt = 832;
+		}else if(item[0] == 3 && item[1] == 2){
+			userIt = 896;
+		}else if(item[0] == 3 && item[1] == 3){
+			userIt = 960;
+		}else if(item[0] == 0 && item[1] == 4){
+			userIt = 1024;
+		}else if(item[0] == 1 && item[1] == 4){
+			userIt = 1088;
+		}else if(item[0] == 2 && item[1] == 4){
+			userIt = 1152;
+		}else if(item[0] == 3 && item[1] == 4){
+			userIt = 1216;
+		}else if(item[0] == 4 && item[1] == 0){
+			userIt = 1280;
+		}else if(item[0] == 4 && item[1] == 1){
+			userIt = 1344;
+		}else if(item[0] == 4 && item[1] == 2){
+			userIt = 1408;
+		}else if(item[0] == 4 && item[1] == 3){
+			userIt = 1472;
+		}else if(item[0] == 4 && item[1] == 4){
+			userIt = 1536;
+		}else if(item[0] == 0 && item[1] == 5){
+			userIt = 1600;
+		}else if(item[0] == 1 && item[1] == 5){
+			userIt = 1664;
+		}else if(item[0] == 2 && item[1] == 5){
+			userIt = 1728;
+		}else if(item[0] == 3 && item[1] == 5){
+			userIt = 1792;
+		}else if(item[0] == 4 && item[1] == 5){
+			userIt = 1856;
+		}else if(item[0] == 5 && item[1] == 0){
+			userIt = 1920;
+		}else if(item[0] == 5 && item[1] == 1){
+			userIt = 1984;
+		}else if(item[0] == 5 && item[1] == 2){
+			userIt = 2048;
+		}else if(item[0] == 5 && item[1] == 3){
+			userIt = 2112;
+		}else if(item[0] == 5 && item[1] == 4){
+			userIt = 2176;
+		}else if(item[0] == 5 && item[1] == 5){
+			userIt = 2240;
 		}
 		
+		if(item[0] == 0){  //이미지 체인지
+			$("#wepon").attr('src', "resources/gamejs/imgs/wepon1.png");
+		}
+		if(item[0] == 1){
+			$("#wepon").attr('src', "resources/gamejs/imgs/wepon2.png");
+		}
+		if(item[0] == 2){
+			$("#wepon").attr('src', "resources/gamejs/imgs/wepon3.png");
+		}
+		if(item[0] == 3){
+			$("#wepon").attr('src', "resources/gamejs/imgs/wepon4.png");
+		}
+		if(item[0] == 4){
+			$("#wepon").attr('src', "resources/gamejs/imgs/wepon5.png");
+		}
+		if(item[0] == 5){
+			$("#wepon").attr('src', "resources/gamejs/imgs/wepon6.png");
+		}
+		
+		if(item[1] == 0){
+			$("#gard").attr('src', "resources/gamejs/imgs/gard1.png");
+		}
+		if(item[1] == 1){
+			$("#gard").attr('src', "resources/gamejs/imgs/gard2.png");
+		}
+		if(item[1] == 2){
+			$("#gard").attr('src', "resources/gamejs/imgs/gard3.png");
+		}
+		if(item[1] == 3){
+			$("#gard").attr('src', "resources/gamejs/imgs/gard4.png");
+		}
+		if(item[1] == 4){
+			$("#gard").attr('src', "resources/gamejs/imgs/gard5.png");
+		}
+		if(item[1] == 5){
+			$("#gard").attr('src', "resources/gamejs/imgs/gard6.png");
+		}
 	}

@@ -1,67 +1,81 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-	
 </head>
 <body>
-		<div class="row" style="text-align: center;margin-top: 50px">
-				<div class="col-md-12">
-					<h1>ÀÚÀ¯ °Ô½ÃÆÇ</h1>
-				</div>
+	<form action="FreeBoardForm" method="GET">
+		<div class="row" style="text-align: center">
+			<div class="col-md-12">
+				<h1 class="mt-4 mb-3">
+					Simple RPG <small style="color: #3CB371">Free Board</small>
+				</h1>
+
+				<ol class="breadcrumb" style="margin-top: 50px">
+					<li class="breadcrumb-item"><a href="IndexForm">Home</a> /
+						ì»¤ë®¤ë‹ˆí‹° / ììœ ê²Œì‹œíŒ
+						&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					
+				</ol>
+			</div>
 		</div>
-		<div class="row" style="margin-top: 50px;text-align: center">
+		<div class="row" style="margin-top: 50px; text-align: center">
 			<div class="col-md-1"></div>
 			<div class="col-md-12">
 				<table class="table table-hover">
 					<thead>
 						<tr>
-							<th width="150" scope="col">¹øÈ£</th>
-							<th width="150" scope="col">ÀÛ¼ºÀÚ</th>
-							<th width="300" scope="col">Á¦¸ñ</th>
-							<th width="150" scope="col">ÀÛ¼ºÀÏÀÚ</th>
-							<th width="150" scope="col">Á¶È¸¼ö</th>
+							<th width="150" scope="col">ë²ˆí˜¸</th>
+							<th width="150" scope="col">ì‘ì„±ì</th>
+							<th width="300" scope="col">ì œëª©</th>
+							<th width="150" scope="col">ì‘ì„±ì¼ì</th>
+							<th width="150" scope="col">ì¡°íšŒìˆ˜</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>11</td>
-							<td>kjw671</td>
-							<td>¿¹ºñ±º °¡±â ½È´Ù</td>
-							<td>2018-09-10</td>
-							<td>32</td>
-						</tr>
-						<tr>
-							<td>12</td>
-							<td>qwert4932</td>
-							<td>Á»¸¸ Âü¾Æ</td>
-							<td>2018-09-10</td>
-							<td>120</td>
-						</tr>
+						<c:forEach var="boards" items="${boards}">
+							<tr>
+								<td>${boards.f_no}</td>
+								<td>${boards.f_writer}</td>
+								<td><a href="freeboarddetailform?f_no=${boards.f_no}">${boards.f_title}</a></td>
+								<td>${boards.f_date}</td>
+								<td>${boards.f_hit}</td>
+							</tr>
+						</c:forEach>
 					</tbody>
 				</table>
-				</div>
-				<div class="col-md-1"></div>
 			</div>
-			<div class="row" style="margin-top: 50px">
+			<div class="col-md-1"></div>
+		</div>
+		<div class="row" style="margin-top: 50px">
+			<div class="col-md-1"></div>
+			<div class="col-md-10">
+				<c:forEach var="page" items="${pages}">
+					<a href="FreeboardPageListSelected?page=${page}">[${page}]</a>&nbsp
+		 				</c:forEach>
+			</div>
+			<div class="col-md-1"></div>
+		</div>
+		<div class="row" style="margin-top: 50px">
 			<div class="col-md-1"></div>
 			<div class="col-md-10">
 				<div class="input-group">
-					<input type="text" id="freeboardSearch">
-					<button type="button" class="btn btn-primary">°Ë»ö</button>
+					<input type="text" name="find" id="find" value="${find}">
+					<button type="submit" class="btn btn-primary">ê²€ìƒ‰</button>
 				</div>
 			</div>
 
-				<div class="col-md-1">
+			<div class="col-md-1">
 				<c:if test="${sessionid != null}">
-					<button type="button" id="freeboardButtons" class="btn btn-dark">±Û¾²±â</button>
-				</c:if>	
-				</div>
+					<button type="button" id="freeboardButtons" class="btn btn-dark">ê¸€ì“°ê¸°</button>
+				</c:if>
+			</div>
 		</div>
-			
+		<hr>
+	</form>
 </body>
 </html>

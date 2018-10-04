@@ -5,7 +5,6 @@
 <head>
 <meta name="decorator" content="no" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -17,6 +16,7 @@
 <style type="text/css">
 	body {
 	background-image: url('resources/image/jungles.jpg');
+    opacity:0.8
 }
 </style>
 
@@ -72,9 +72,13 @@
 		 	    	<a href="MemberInsertForm">
 		 	    	<i class="fa fa-plus-square" aria-hidden="true"></i> 회원가입
 		 	    	</a></span>
+	 			<span  id="idfind" class="col-md-6 text-center">
+		 	    	<i class="fa fa-search" aria-hidden="true"></i> 
+		 	    	<a href="LoginIdForgot">아이디찾기</a> 
+	 			</span>
 	 			<span  id="passfind" class="col-md-6 text-center">
 		 	    	<i class="fa fa-search" aria-hidden="true"></i> 
-		 	    	<a href="#">비밀번호찾기</a> 
+		 	    	<a href="LoginPasswordForgot">비밀번호찾기</a> 
 	 			</span>
 		 	</div>
 		</div>			
