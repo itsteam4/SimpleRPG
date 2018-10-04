@@ -177,7 +177,7 @@
 								
 								<td>${ranklista.userlv}</td>
 								<td> 
-								<a name="underline" id="underline"
+								<a name="underline" id="underline" onclick="underline(${ranklista.id})"
 								style="text-decoration:none;color:#242323;"
 								href="rankMove?id=${ranklista.id}">${ranklista.id}
 								</a>
@@ -205,6 +205,11 @@
 <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
 
 <script type="text/javascript"> 
+
+
+function underline(id){
+	alert(300);
+};
 function rankNum(num){
 	var num;
 	alert(num);

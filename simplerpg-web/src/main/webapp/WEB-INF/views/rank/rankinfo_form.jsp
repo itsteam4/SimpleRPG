@@ -219,6 +219,20 @@
 				         		 		 " >
 		         		 		 </a>
             				</c:when>
+            				<c:when test="${ruserdatas.itemA == 4}">
+            					<a onmouseover="weaponOn4()" onmouseout="weaponOut4()">
+            					<img src="resources/image/rank/item21.jpg" alt="희귀소드" style= "width:54px; height:52px;
+				         		 		 cursor:pointer; margin-left:10px; float:left;
+				         		 		 " >
+		         		 		 </a>
+            				</c:when>
+            				<c:when test="${ruserdatas.itemA == 5}">
+            					<a onmouseover="weaponOn5()" onmouseout="weaponOut5()">
+            					<img src="resources/image/rank/item11.jpg" alt="전설소드" style= "width:54px; height:52px;
+				         		 		 cursor:pointer; margin-left:10px; float:left;
+				         		 		 " >
+		         		 		 </a>
+            				</c:when>
     				</c:choose>
     				<c:choose>
     					<c:when test="${ruserdatas.itemD == 0}">
@@ -246,6 +260,20 @@
             				<c:when test="${ruserdatas.itemD == 3}">
             					<a onmouseover="defenseOn3()" onmouseout="defenseOut3()">
             					<img src="resources/image/rank/item4.jpg" alt="강철쉴드" style= "width:54px; height:52px;
+				         		 		left:425px;cursor:pointer; margin-right:13px; float:right;
+				         		 		 " >
+		         		 		 </a>
+            				</c:when>
+            				<c:when test="${ruserdatas.itemD == 4}">
+            					<a onmouseover="defenseOn4()" onmouseout="defenseOut4()">
+            					<img src="resources/image/rank/item22.jpg" alt="희귀쉴드" style= "width:54px; height:52px;
+				         		 		left:425px;cursor:pointer; margin-right:13px; float:right;
+				         		 		 " >
+		         		 		 </a>
+            				</c:when>
+            				<c:when test="${ruserdatas.itemD == 5}">
+            					<a onmouseover="defenseOn5()" onmouseout="defenseOut5()">
+            					<img src="resources/image/rank/item10.jpg" alt="전설쉴드" style= "width:54px; height:52px;
 				         		 		left:425px;cursor:pointer; margin-right:13px; float:right;
 				         		 		 " >
 		         		 		 </a>
@@ -364,6 +392,34 @@
 		                            ">강철 소드</span>
 		                        </li>
             				</c:when>
+            				<c:when test="${ruserdatas.itemA == 4}">
+            					<li id="weapon4" name="weapon4"
+            						class="pull-left" style="width:357px; height:36px; border-top:1px solid #fff; border-bottom:1px solid #fff; 
+			         				font-size:14px; color:rgb(104,94,96);  margin-left:20px;">
+		                            <em class="pull-left" style="width:160px; height:34px;font-style: normal; padding-top:4px;
+		                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
+		                            background-position:0 7px;
+		                            ">일반  무기</em>
+		                            <span class="pull-left" style="width:184px; height:34px;padding-top:4px;
+		                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
+		                            background-position:10px 7px; border-left:1px solid #fff;
+		                            ">희귀 소드</span>
+		                        </li>
+            				</c:when>
+            				<c:when test="${ruserdatas.itemA == 5}">
+            					<li id="weapon5" name="weapon5"
+            						class="pull-left" style="width:357px; height:36px; border-top:1px solid #fff; border-bottom:1px solid #fff; 
+			         				font-size:14px; color:rgb(104,94,96);  margin-left:20px;">
+		                            <em class="pull-left" style="width:160px; height:34px;font-style: normal; padding-top:4px;
+		                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
+		                            background-position:0 7px;
+		                            ">일반  무기</em>
+		                            <span class="pull-left" style="width:184px; height:34px;padding-top:4px;
+		                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
+		                            background-position:10px 7px; border-left:1px solid #fff;
+		                            ">전설 소드</span>
+		                        </li>
+            				</c:when>
             				<c:otherwise>
             					<li id="weapon00" name="weapon00"
             						class="pull-left" style="width:357px; height:36px; border-top:1px solid #fff; border-bottom:1px solid #fff; 
@@ -445,6 +501,34 @@
 		                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
 		                            background-position:10px 7px; border-left:1px solid #fff;
 		                            ">강철 쉴드</span>
+		                        </li>
+            				</c:when>
+            				<c:when test="${ruserdatas.itemD == 4}">
+            					<li id="defense3" name="defense3"
+            						class="pull-left" style="width:357px; height:36px; border-top:1px solid #fff; border-bottom:1px solid #fff; 
+			         				font-size:14px; color:rgb(104,94,96);  margin-left:20px;">
+		                            <em class="pull-left" style="width:160px; height:34px;font-style: normal; padding-top:4px;
+		                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
+		                            background-position:0 7px;
+		                            ">일반  방패</em>
+		                            <span class="pull-left" style="width:184px; height:34px;padding-top:4px;
+		                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
+		                            background-position:10px 7px; border-left:1px solid #fff;
+		                            ">희귀 쉴드</span>
+		                        </li>
+            				</c:when>
+            				<c:when test="${ruserdatas.itemD == 5}">
+            					<li id="defense5" name="defense5"
+            						class="pull-left" style="width:357px; height:36px; border-top:1px solid #fff; border-bottom:1px solid #fff; 
+			         				font-size:14px; color:rgb(104,94,96);  margin-left:20px;">
+		                            <em class="pull-left" style="width:160px; height:34px;font-style: normal; padding-top:4px;
+		                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
+		                            background-position:0 7px;
+		                            ">일반  방패</em>
+		                            <span class="pull-left" style="width:184px; height:34px;padding-top:4px;
+		                            background:url('resources/image/rank/ico_chr_item.png')no-repeat;
+		                            background-position:10px 7px; border-left:1px solid #fff;
+		                            ">전설 쉴드</span>
 		                        </li>
             				</c:when>
             				<c:otherwise>
@@ -696,6 +780,14 @@ function weaponOn3(){
 	document.getElementById("weapon3").style.color = "red";
 	document.getElementById("weapon3").style.background = "#DEDAD1";;
 };
+function weaponOn4(){
+	document.getElementById("weapon4").style.color = "red";
+	document.getElementById("weapon4").style.background = "#DEDAD1";;
+};
+function weaponOn5(){
+	document.getElementById("weapon5").style.color = "red";
+	document.getElementById("weapon5").style.background = "#DEDAD1";;
+};
 function weaponOut(){
 	document.getElementById("weapon0").style.color = "#685e60";
 	document.getElementById("weapon0").style.background = "#e8e4df";
@@ -714,6 +806,14 @@ function weaponOut3(){
 	document.getElementById("weapon3").style.color = "#685e60";
 	document.getElementById("weapon3").style.background = "#e8e4df";
 };
+function weaponOut4(){
+	document.getElementById("weapon4").style.color = "#685e60";
+	document.getElementById("weapon4").style.background = "#e8e4df";
+};
+function weaponOut5(){
+	document.getElementById("weapon5").style.color = "#685e60";
+	document.getElementById("weapon5").style.background = "#e8e4df";
+};
 function defenseOn(){
 	document.getElementById("defense0").style.color = "red";
 	document.getElementById("defense0").style.background = "#DEDAD1";
@@ -731,6 +831,14 @@ function defenseOn3(){
 	document.getElementById("defense3").style.color = "red";
 	document.getElementById("defense3").style.background = "#DEDAD1";
 };
+function defenseOn4(){
+	document.getElementById("defense4").style.color = "red";
+	document.getElementById("defense4").style.background = "#DEDAD1";
+};
+function defenseOn5(){
+	document.getElementById("defense5").style.color = "red";
+	document.getElementById("defense5").style.background = "#DEDAD1";
+};
 function defenseOut(){
 	document.getElementById("defense0").style.color = "#685e60";
 	document.getElementById("defense0").style.background = "#e8e4df";
@@ -746,6 +854,14 @@ function defenseOut2(){
 function defenseOut3(){
 	document.getElementById("defense3").style.color = "#685e60";
 	document.getElementById("defense3").style.background = "#e8e4df";
+};
+function defenseOut4(){
+	document.getElementById("defense4").style.color = "#685e60";
+	document.getElementById("defense4").style.background = "#e8e4df";
+};
+function defenseOut5(){
+	document.getElementById("defense5").style.color = "#685e60";
+	document.getElementById("defense5").style.background = "#e8e4df";
 };
 
 function pagenumber(page){
