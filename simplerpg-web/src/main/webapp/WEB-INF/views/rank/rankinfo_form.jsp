@@ -786,11 +786,16 @@ function number_of_Characters() {
 		document.number.visitbook.value = "";
 	}
 	setTimeout("number_of_Characters()" ,0);
-}
+};
 
 
 	function visitbook(){
 		var visitbook = document.getElementById("visitbook").value;
+		if(visitbook == "" || visitbook == 0 || visitbook == NaN || visitbook == null || visitbook == undefined){
+			alert('글 내용을 입력하십시오.');
+			return;
+		};
+			
 		var id = $('#id').val();
 		var stanid = $('#stanid').val();
 		
