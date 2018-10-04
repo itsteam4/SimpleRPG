@@ -174,7 +174,8 @@ public class CommunityController {
 	            String callback = request.getParameter("CKEditorFuncNum");
 	            System.out.println(callback);
 	            printWriter = response.getWriter();
-	            String fileUrl =request.getContextPath()+"/resources/fileupload/"+ fileName;
+	            String fileUrl =request.getContextPath()+"/fileupload/"+ fileName;
+	            System.out.println(fileUrl);
 	            String script="<script>window.parent.CKEDITOR.tools.callFunction(";
 	    	    script +=callback;
 	    	    script +=", '";
