@@ -103,12 +103,55 @@
 				</div>
 				<div class="col-md-4 mb-4" style="margin-top: 50px">
 					<div class="card h-40">
-						<img src="resources/image/guide/comingsoon.jpg"> <br> <br>
+						<img src="resources/image/guide/09.jpg"> <br> <br>
 						<div class="card-body">
-							<h4 class="card-title" style="color: #20B2AA">Coming Soon</h4>
+							<h4 class="card-title" style="color: #20B2AA">유령 쉴드</h4>
 							<p class="card-text">
-								기존에 있던, 무기와는 비교할 수 없을 <br>정도로 강력하고, 정교한 무기를<br> 만들고 있습니다 <br>
-								많은 기대와 응원 부탁드리겠습니다.<br><br>
+								유령 쉴드는 검은 색이 특징이며, <br>유령처럼 소리 없이 
+								대부분의 몬스터의<br> 공격을 유령처럼 피하고,<br> 막을 수 있는 방어구 이다.<br>
+								물리적 피해를 85% 정도 흡수 하는<br> 강철 쉴드보다 더 강력한 방어구 이다.<br>
+								유령 쉴드와 유령 소드가 만나면 더 강해진다. 
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 mb-4" style="margin-top: 50px">
+					<div class="card h-40">
+						<img src="resources/image/guide/008.jpg"> <br> <br>
+						<div class="card-body">
+							<h4 class="card-title" style="color: #20B2AA">유령 소드</h4>
+							<p class="card-text">
+								유령 소드는 유령 쉴드와 같이 사용하면 그 힘이 배로 작용한다.<br>
+								정도로 강력하고, 정교한 무기이다<br> 소리 없이 몬스터를 사냥 할 수 있어서,<br>
+								유련 같다 하여, 이름도 유령 소드이다. <br>
+								혹시 이 유령 소드를 획득하면, 주변에 유령쉴드가 있는지 꼭 <br>
+								확인하는게 좋다 <br><br>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 mb-4" style="margin-top: 50px">
+					<div class="card h-40">
+						<img src="resources/image/guide/009.jpg"> <br> <br>
+						<div class="card-body">
+							<h4 class="card-title" style="color: #20B2AA">황금 쉴드</h4>
+							<p class="card-text">
+								기존에 있던, 무기와는 비교할 수 없을 <br>정도로 강력하고, 정교한 무기이다<br> 
+								이름 처럼 황금으로 만들어진 황금 쉴드는 <br>보기만 해도 눈이 뜰 수 없을정도로 <br>
+								반짝거린다. 황금 쉴드로는 그 무엇도 다 막을 수 있다.<br><br><br><br>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 mb-4" style="margin-top: 50px">
+					<div class="card h-40">
+						<img src="resources/image/guide/08.jpg"> <br> <br>
+						<div class="card-body">
+							<h4 class="card-title" style="color: #20B2AA">황금 소드</h4>
+							<p class="card-text">
+								황금 소드 또한, 기존에 있던, 무기와는 비교할 수 없을 <br>정도로 강력하고, 정교한 무기이다<br> 
+								이름 처럼 황금으로 만들어진 황금 소드는 <br>보기만 해도 눈이 뜰 수 없을정도로 <br>
+								반짝거린다. 황금 소드로는 그 무엇도 다 사냥할 수 있다.<br><br>
 							</p>
 						</div>
 					</div>
@@ -119,8 +162,8 @@
 						<div class="card-body">
 							<h4 class="card-title" style="color: #20B2AA">Coming Soon</h4>
 							<p class="card-text">
-								기존에 있던, 무기와는 비교할 수 없을 <br>정도로 강력하고, 정교한 무기를<br> 만들고 있습니다 <br>
-								많은 기대와 응원 부탁드리겠습니다.<br><br>
+								<br><br>기존에 있던, 무기와는 비교할 수 없을 <br>정도로 강력하고, 정교한 무기를<br> 만들고 있습니다 <br>
+								많은 기대와 응원 부탁드리겠습니다.<br><br><br>
 							</p>
 						</div>
 					</div>
@@ -131,8 +174,8 @@
 						<div class="card-body">
 							<h4 class="card-title" style="color: #20B2AA">Coming Soon</h4>
 							<p class="card-text">
-								기존에 있던, 무기와는 비교할 수 없을 <br>정도로 강력하고, 정교한 무기를<br> 만들고 있습니다 <br>
-								많은 기대와 응원 부탁드리겠습니다.<br><br>
+								<br><br>기존에 있던, 무기와는 비교할 수 없을 <br>정도로 강력하고, 정교한 무기를<br> 만들고 있습니다 <br>
+								많은 기대와 응원 부탁드리겠습니다.<br><br><br>
 							</p>
 						</div>
 					</div>
