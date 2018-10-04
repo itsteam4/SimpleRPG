@@ -504,7 +504,7 @@
 		                        </li>
             				</c:when>
             				<c:when test="${ruserdatas.itemD == 4}">
-            					<li id="defense3" name="defense3"
+            					<li id="defense4" name="defense4"
             						class="pull-left" style="width:357px; height:36px; border-top:1px solid #fff; border-bottom:1px solid #fff; 
 			         				font-size:14px; color:rgb(104,94,96);  margin-left:20px;">
 		                            <em class="pull-left" style="width:160px; height:34px;font-style: normal; padding-top:4px;
