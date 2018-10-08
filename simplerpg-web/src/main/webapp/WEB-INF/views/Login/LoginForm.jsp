@@ -76,10 +76,6 @@
 		 	    	<i class="fa fa-search" aria-hidden="true"></i> 
 		 	    	<a href="LoginIdForgot">아이디찾기</a> 
 	 			</span>
-	 			<span  id="passfind" class="col-md-6 text-center">
-		 	    	<i class="fa fa-search" aria-hidden="true"></i> 
-		 	    	<a href="LoginPasswordForgot">비밀번호찾기</a> 
-	 			</span>
 		 	</div>
 		</div>			
 	</form>

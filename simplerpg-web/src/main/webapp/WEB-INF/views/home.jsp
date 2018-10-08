@@ -103,7 +103,7 @@
 					</dd>
 					<dd
 					style="width:100%; text-align:center; font-size:14px; color:#a7a9ac; margin-top:0px;">
-					<input type="text" id="date" name="date" style="border:none;padding:0; background-color:transparent;
+					<input type="text" id="date" name="date" readonly="readonly" style="border:none;padding:0; background-color:transparent;
 					font-size:14px; color:#a7a9ac; text-align:center;">
 					</dd>
 					<dd style="overflow:hidden; width:210px; height:60px; text-align:center; font-size:14px;
